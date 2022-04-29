@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
+using MysteriousKnives.Buffs;
 using MysteriousKnives.Projectiles;
 using System.Collections.Generic;
 using System.Linq;
@@ -40,6 +41,8 @@ namespace MysteriousKnives.Items
             Item.shootSpeed = 10f;
             base.SetDefaults();
         }
+		public abstract void GiveCsBuffs(NPC target);
+
 		/*
         public override void ModifyShootStats(Player player, ref Vector2 position, ref Vector2 velocity, 
 			ref int type, ref int damage, ref float knockback)
@@ -83,6 +86,11 @@ namespace MysteriousKnives.Items
 				recipe.AddTile(TileID.WorkBenches);
 				recipe.Register();
 			}
+
+			public override void GiveCsBuffs(NPC target)
+            {
+				target.AddBuff(ModContent.BuffType<Crystallization>(), 60);
+			}
 		}
 		public class MK02 : MKnives
 		{
@@ -102,18 +110,23 @@ namespace MysteriousKnives.Items
 				Item.value = Item.sellPrice(0, 10, 0, 0);
 				Item.rare = ItemRarityID.Green;
 				base.SetDefaults();
-			}
+            }
 
 
-			public override void AddRecipes()
+            public override void AddRecipes()
+            {
+                Recipe recipe = CreateRecipe();
+                recipe.AddIngredient(ItemID.DirtBlock, 10);
+                recipe.AddTile(TileID.WorkBenches);
+                recipe.Register();
+            }
+
+			public override void GiveCsBuffs(NPC target)
 			{
-				Recipe recipe = CreateRecipe();
-				recipe.AddIngredient(ItemID.DirtBlock, 10);
-				recipe.AddTile(TileID.WorkBenches);
-				recipe.Register();
+				target.AddBuff(ModContent.BuffType<Crystallization>(), 60);
 			}
 		}
-		public class MK03 : MKnives
+        public class MK03 : MKnives
 		{
 			public override void SetStaticDefaults()
 			{
@@ -140,6 +153,11 @@ namespace MysteriousKnives.Items
 				recipe.AddIngredient(ItemID.DirtBlock, 10);
 				recipe.AddTile(TileID.WorkBenches);
 				recipe.Register();
+			}
+
+			public override void GiveCsBuffs(NPC target)
+			{
+				target.AddBuff(ModContent.BuffType<Crystallization>(), 120);
 			}
 		}
 		public class MK04 : MKnives
@@ -170,6 +188,11 @@ namespace MysteriousKnives.Items
 				recipe.AddTile(TileID.WorkBenches);
 				recipe.Register();
 			}
+
+			public override void GiveCsBuffs(NPC target)
+			{
+				target.AddBuff(ModContent.BuffType<Crystallization>(), 180);
+			}
 		}
 		public class MK05 : MKnives
 		{
@@ -198,6 +221,11 @@ namespace MysteriousKnives.Items
 				recipe.AddIngredient(ItemID.DirtBlock, 10);
 				recipe.AddTile(TileID.WorkBenches);
 				recipe.Register();
+			}
+
+			public override void GiveCsBuffs(NPC target)
+			{
+				target.AddBuff(ModContent.BuffType<Crystallization>(), 180);
 			}
 		}
 		public class MK06 : MKnives
@@ -228,6 +256,11 @@ namespace MysteriousKnives.Items
 				recipe.AddTile(TileID.WorkBenches);
 				recipe.Register();
 			}
+
+			public override void GiveCsBuffs(NPC target)
+			{
+				target.AddBuff(ModContent.BuffType<Crystallization>(), 240);
+			}
 		}
 		public class MK07 : MKnives
 		{
@@ -256,6 +289,11 @@ namespace MysteriousKnives.Items
 				recipe.AddIngredient(ItemID.DirtBlock, 10);
 				recipe.AddTile(TileID.WorkBenches);
 				recipe.Register();
+			}
+
+			public override void GiveCsBuffs(NPC target)
+			{
+				target.AddBuff(ModContent.BuffType<Crystallization>(), 240);
 			}
 		}
 		public class MK08 : MKnives
@@ -286,6 +324,11 @@ namespace MysteriousKnives.Items
 				recipe.AddTile(TileID.WorkBenches);
 				recipe.Register();
 			}
+
+			public override void GiveCsBuffs(NPC target)
+			{
+				target.AddBuff(ModContent.BuffType<Crystallization>(), 240);
+			}
 		}
 		public class MK09 : MKnives
 		{
@@ -314,6 +357,11 @@ namespace MysteriousKnives.Items
 				recipe.AddIngredient(ItemID.DirtBlock, 10);
 				recipe.AddTile(TileID.WorkBenches);
 				recipe.Register();
+			}
+
+			public override void GiveCsBuffs(NPC target)
+			{
+				target.AddBuff(ModContent.BuffType<Crystallization>(), 300);
 			}
 		}
 		public class MK10 : MKnives
@@ -369,6 +417,11 @@ namespace MysteriousKnives.Items
 				recipe.AddIngredient(ItemID.DirtBlock, 10);
 				recipe.AddTile(TileID.WorkBenches);
 				recipe.Register();
+			}
+
+			public override void GiveCsBuffs(NPC target)
+			{
+				target.AddBuff(ModContent.BuffType<Crystallization>(), 300);
 			}
 		}
 	}

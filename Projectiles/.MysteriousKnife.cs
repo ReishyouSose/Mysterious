@@ -129,47 +129,51 @@ namespace MysteriousKnives.Projectiles
             target.buffImmune[ModContent.BuffType<Crystallization>()] = false;
             Player player = Main.player[Projectile.owner];
             var item = player.inventory[player.selectedItem].ModItem;
+            if (item is MKnives mk)
+            {
+                mk.GiveCsBuffs(target);
+            }
                //访问玩家背包    玩家选中的物品                    int
-            if (player.inventory[player.selectedItem].type == ModContent.ItemType<MK01>())
-            {
-                target.AddBuff(ModContent.BuffType<Crystallization>(), 60);
-            }
-            if (player.inventory[player.selectedItem].type == ModContent.ItemType<MK02>())
-            { 
-                target.AddBuff(ModContent.BuffType<Crystallization>(), 60); 
-            }
-            if (player.inventory[player.selectedItem].type == ModContent.ItemType<MK03>())
-            {
-                target.AddBuff(ModContent.BuffType<Crystallization>(), 120);
-            }
-            if (player.inventory[player.selectedItem].type == ModContent.ItemType<MK04>())
-            {
-                target.AddBuff(ModContent.BuffType<Crystallization>(), 180);
-            }
-            if (player.inventory[player.selectedItem].type == ModContent.ItemType<MK05>())
-            {
-                target.AddBuff(ModContent.BuffType<Crystallization>(), 180);
-            }
-            if (player.inventory[player.selectedItem].type == ModContent.ItemType<MK06>())
-            {
-                target.AddBuff(ModContent.BuffType<Crystallization>(), 240);
-            }
-            if (player.inventory[player.selectedItem].type == ModContent.ItemType<MK07>())
-            {
-                target.AddBuff(ModContent.BuffType<Crystallization>(), 240);
-            }
-            if (player.inventory[player.selectedItem].type == ModContent.ItemType<MK08>())
-            {
-                target.AddBuff(ModContent.BuffType<Crystallization>(), 240);
-            }
-            if (player.inventory[player.selectedItem].type == ModContent.ItemType<MK09>())
-            {
-                target.AddBuff(ModContent.BuffType<Crystallization>(), 300);
-            }
-            if (player.inventory[player.selectedItem].type == ModContent.ItemType<MK10>())
-            {
-                target.AddBuff(ModContent.BuffType<Crystallization>(), 300);
-            }
+            //if (player.inventory[player.selectedItem].type == ModContent.ItemType<MK01>())
+            //{
+            //    target.AddBuff(ModContent.BuffType<Crystallization>(), 60);
+            //}
+            //if (player.inventory[player.selectedItem].type == ModContent.ItemType<MK02>())
+            //{ 
+            //    target.AddBuff(ModContent.BuffType<Crystallization>(), 60); 
+            //}
+            //if (player.inventory[player.selectedItem].type == ModContent.ItemType<MK03>())
+            //{
+            //    target.AddBuff(ModContent.BuffType<Crystallization>(), 120);
+            //}
+            //if (player.inventory[player.selectedItem].type == ModContent.ItemType<MK04>())
+            //{
+            //    target.AddBuff(ModContent.BuffType<Crystallization>(), 180);
+            //}
+            //if (player.inventory[player.selectedItem].type == ModContent.ItemType<MK05>())
+            //{
+            //    target.AddBuff(ModContent.BuffType<Crystallization>(), 180);
+            //}
+            //if (player.inventory[player.selectedItem].type == ModContent.ItemType<MK06>())
+            //{
+            //    target.AddBuff(ModContent.BuffType<Crystallization>(), 240);
+            //}
+            //if (player.inventory[player.selectedItem].type == ModContent.ItemType<MK07>())
+            //{
+            //    target.AddBuff(ModContent.BuffType<Crystallization>(), 240);
+            //}
+            //if (player.inventory[player.selectedItem].type == ModContent.ItemType<MK08>())
+            //{
+            //    target.AddBuff(ModContent.BuffType<Crystallization>(), 240);
+            //}
+            //if (player.inventory[player.selectedItem].type == ModContent.ItemType<MK09>())
+            //{
+            //    target.AddBuff(ModContent.BuffType<Crystallization>(), 300);
+            //}
+            //if (player.inventory[player.selectedItem].type == ModContent.ItemType<MK10>())
+            //{
+            //    target.AddBuff(ModContent.BuffType<Crystallization>(), 300);
+            //}
         }
         /// <summary>
         /// 施加凝爆
