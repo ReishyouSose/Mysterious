@@ -55,8 +55,8 @@ namespace MysteriousKnives.Projectiles
         }
         public override void Kill(int timeLeft)
         {
-            /*Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.position, new Vector2(0, 0),
-                ModContent.ProjectileType<MKboom>(), 10, 20, 0);*/
+            Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.Center, Projectile.velocity,
+                ModContent.ProjectileType<MKboom>(), 10, 20, 0);
             for (int i = 0; i < 100; i++)
             {
                 Dust dust = Dust.NewDustDirect(Projectile.position, Projectile.width, Projectile.height, 
@@ -70,24 +70,22 @@ namespace MysteriousKnives.Projectiles
             
             {
                 Player player = Main.player[Projectile.owner];
-                if (player.inventory[player.selectedItem].type == ModContent.ItemType<MK01>()) KillShoot(1, 2, 4);
-                if (player.inventory[player.selectedItem].type == ModContent.ItemType<MK02>()) KillShoot(2, 2, 7);
-                if (player.inventory[player.selectedItem].type == ModContent.ItemType<MK03>()) KillShoot(3, 3, 8);
-                if (player.inventory[player.selectedItem].type == ModContent.ItemType<MK04>()) KillShoot(4, 3, 8);
-                if (player.inventory[player.selectedItem].type == ModContent.ItemType<MK05>()) KillShoot(5, 4, 8);
-                if (player.inventory[player.selectedItem].type == ModContent.ItemType<MK06>()) KillShoot(6, 4, 8);
-                if (player.inventory[player.selectedItem].type == ModContent.ItemType<MK07>()) KillShoot(7, 5, 8);
-                if (player.inventory[player.selectedItem].type == ModContent.ItemType<MK08>()) KillShoot(8, 5, 8);
-                if (player.inventory[player.selectedItem].type == ModContent.ItemType<MK09>()) KillShoot(9, 6, 8);
-                if (player.inventory[player.selectedItem].type == ModContent.ItemType<MK10>()) KillShoot(10, 6, 8);
+                if (player.inventory[player.selectedItem].type == ModContent.ItemType<MK01>()) RandomShoot(1, 2, 4);
+                if (player.inventory[player.selectedItem].type == ModContent.ItemType<MK02>()) RandomShoot(2, 2, 7);
+                if (player.inventory[player.selectedItem].type == ModContent.ItemType<MK03>()) RandomShoot(3, 3, 8);
+                if (player.inventory[player.selectedItem].type == ModContent.ItemType<MK04>()) RandomShoot(4, 3, 8);
+                if (player.inventory[player.selectedItem].type == ModContent.ItemType<MK05>()) RandomShoot(5, 4, 8);
+                if (player.inventory[player.selectedItem].type == ModContent.ItemType<MK06>()) RandomShoot(6, 4, 8);
+                if (player.inventory[player.selectedItem].type == ModContent.ItemType<MK07>()) RandomShoot(7, 5, 8);
+                if (player.inventory[player.selectedItem].type == ModContent.ItemType<MK08>()) RandomShoot(8, 5, 8);
+                if (player.inventory[player.selectedItem].type == ModContent.ItemType<MK09>()) RandomShoot(9, 6, 8);
+                if (player.inventory[player.selectedItem].type == ModContent.ItemType<MK10>()) RandomShoot(10, 6, 8);
             }//按等级散射
 
             base.Kill(timeLeft);
         }
         public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)//弹幕命中时
         {
-            /*Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.position, new Vector2(0, 0),
-                ModContent.ProjectileType<MKboom>(), 10, 20, 0);*/
             for (int i = 0; i < 100; i++)
             {
                 Dust dust = Dust.NewDustDirect(Projectile.position, Projectile.width, Projectile.height
@@ -97,21 +95,6 @@ namespace MysteriousKnives.Projectiles
                 dust.velocity *= 50;
                 dust.noGravity = false;
             }
-
-            {
-                Player player = Main.player[Projectile.owner];
-                if (player.inventory[player.selectedItem].type == ModContent.ItemType<MK01>()) OnHitShoot(target, 1, 2, 4);
-                if (player.inventory[player.selectedItem].type == ModContent.ItemType<MK02>()) OnHitShoot(target, 2, 2, 7);
-                if (player.inventory[player.selectedItem].type == ModContent.ItemType<MK03>()) OnHitShoot(target, 3, 3, 8);
-                if (player.inventory[player.selectedItem].type == ModContent.ItemType<MK04>()) OnHitShoot(target, 4, 3, 8);
-                if (player.inventory[player.selectedItem].type == ModContent.ItemType<MK05>()) OnHitShoot(target, 5, 4, 8);
-                if (player.inventory[player.selectedItem].type == ModContent.ItemType<MK06>()) OnHitShoot(target, 6, 4, 8);
-                if (player.inventory[player.selectedItem].type == ModContent.ItemType<MK07>()) OnHitShoot(target, 7, 5, 8);
-                if (player.inventory[player.selectedItem].type == ModContent.ItemType<MK08>()) OnHitShoot(target, 8, 5, 8);
-                if (player.inventory[player.selectedItem].type == ModContent.ItemType<MK09>()) OnHitShoot(target, 9, 6, 8);
-                if (player.inventory[player.selectedItem].type == ModContent.ItemType<MK10>()) OnHitShoot(target, 10, 6, 8);
-            }//按等级散射
-
             base.OnHitNPC(target, damage, knockback, crit);
         }
     }

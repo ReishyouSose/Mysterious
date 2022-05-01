@@ -14,7 +14,7 @@ namespace MysteriousKnives.Projectiles
     
     public abstract class MysteriousKnife : ModProjectile
     {
-        public int Random(int rand)
+        public static int Random(int rand)
         {
             int i = Main.rand.Next(rand);
             if (i == 0) return ModContent.ProjectileType<RBKnife>();
@@ -65,11 +65,23 @@ namespace MysteriousKnives.Projectiles
         }
         public override void AI()
         {
-
+            Player player = Main.player[Projectile.owner];
+            if (player.inventory[player.selectedItem].type == ModContent.ItemType<MK10>())
+            {
+                Projectile.extraUpdates = 1;
+                if (Projectile.timeLeft > 540) Projectile.friendly = false;
+                else Projectile.friendly = true;
+            }
+            else
+            {
+                Projectile.extraUpdates = 0;
+                if (Projectile.timeLeft > 570) Projectile.friendly = false;
+                else Projectile.friendly = true;
+            }
             //弹幕发射角度（朝向弹幕[proj]速度[v]的方向[tor]）
             Projectile.rotation = MathHelper.Pi / 2 + Projectile.velocity.ToRotation();
             if (Projectile.timeLeft %3 == 0 && Projectile.timeLeft >= 590) Projectile.velocity *= 0.9f;
-
+            
             //追踪
             {
                 NPC target = null;
@@ -102,20 +114,11 @@ namespace MysteriousKnives.Projectiles
             base.AI();
         }//发射角 追踪 淡出
 
-        public void KillShoot(int cn, int rn,int lv)
+        public void RandomShoot(int cn, int rn,int lv)
         {
             for (int i = 0; i <= cn + Main.rand.Next(rn); i++)
             {
                 Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.position,
-                    (Main.rand.Next(360) * MathHelper.Pi / 180f).ToRotationVector2() * 20f,
-                    Random(lv), Projectile.damage, Projectile.knockBack, 0);
-            }
-        }
-        public void OnHitShoot(NPC target, int cn, int rn, int lv)
-        {
-            for (int i = 0; i <= cn + Main.rand.Next(rn); i++)
-            {
-                Projectile.NewProjectile(Projectile.GetSource_OnHit(target), Projectile.position,
                     (Main.rand.Next(360) * MathHelper.Pi / 180f).ToRotationVector2() * 20f,
                     Random(lv), Projectile.damage, Projectile.knockBack, 0);
             }
@@ -133,47 +136,6 @@ namespace MysteriousKnives.Projectiles
             {
                 mk.GiveCsBuffs(target);
             }
-               //访问玩家背包    玩家选中的物品                    int
-            //if (player.inventory[player.selectedItem].type == ModContent.ItemType<MK01>())
-            //{
-            //    target.AddBuff(ModContent.BuffType<Crystallization>(), 60);
-            //}
-            //if (player.inventory[player.selectedItem].type == ModContent.ItemType<MK02>())
-            //{ 
-            //    target.AddBuff(ModContent.BuffType<Crystallization>(), 60); 
-            //}
-            //if (player.inventory[player.selectedItem].type == ModContent.ItemType<MK03>())
-            //{
-            //    target.AddBuff(ModContent.BuffType<Crystallization>(), 120);
-            //}
-            //if (player.inventory[player.selectedItem].type == ModContent.ItemType<MK04>())
-            //{
-            //    target.AddBuff(ModContent.BuffType<Crystallization>(), 180);
-            //}
-            //if (player.inventory[player.selectedItem].type == ModContent.ItemType<MK05>())
-            //{
-            //    target.AddBuff(ModContent.BuffType<Crystallization>(), 180);
-            //}
-            //if (player.inventory[player.selectedItem].type == ModContent.ItemType<MK06>())
-            //{
-            //    target.AddBuff(ModContent.BuffType<Crystallization>(), 240);
-            //}
-            //if (player.inventory[player.selectedItem].type == ModContent.ItemType<MK07>())
-            //{
-            //    target.AddBuff(ModContent.BuffType<Crystallization>(), 240);
-            //}
-            //if (player.inventory[player.selectedItem].type == ModContent.ItemType<MK08>())
-            //{
-            //    target.AddBuff(ModContent.BuffType<Crystallization>(), 240);
-            //}
-            //if (player.inventory[player.selectedItem].type == ModContent.ItemType<MK09>())
-            //{
-            //    target.AddBuff(ModContent.BuffType<Crystallization>(), 300);
-            //}
-            //if (player.inventory[player.selectedItem].type == ModContent.ItemType<MK10>())
-            //{
-            //    target.AddBuff(ModContent.BuffType<Crystallization>(), 300);
-            //}
         }
         /// <summary>
         /// 施加凝爆
@@ -188,39 +150,39 @@ namespace MysteriousKnives.Projectiles
              {
                  if (player.inventory[player.selectedItem].type == ModContent.ItemType<MK02>())
                  {
-                     target.AddBuff(ModContent.BuffType<ConvergentBurst>(), i);
+                     target.AddBuff(ModContent.BuffType<ConvergentBurst1>(), i);
                  }
                  if (player.inventory[player.selectedItem].type == ModContent.ItemType<MK03>())
                  {
-                     target.AddBuff(ModContent.BuffType<ConvergentBurst>(), i * 3);
+                     target.AddBuff(ModContent.BuffType<ConvergentBurst2>(), i);
                  }
                  if (player.inventory[player.selectedItem].type == ModContent.ItemType<MK04>())
                  {
-                     target.AddBuff(ModContent.BuffType<ConvergentBurst>(), i * 5);
+                     target.AddBuff(ModContent.BuffType<ConvergentBurst3>(), i);
                  }
                  if (player.inventory[player.selectedItem].type == ModContent.ItemType<MK05>())
                  {
-                     target.AddBuff(ModContent.BuffType<ConvergentBurst>(), i * 7);
+                     target.AddBuff(ModContent.BuffType<ConvergentBurst4>(), i);
                  }
                  if (player.inventory[player.selectedItem].type == ModContent.ItemType<MK06>())
                  {
-                     target.AddBuff(ModContent.BuffType<ConvergentBurst>(), i * 7);
+                     target.AddBuff(ModContent.BuffType<ConvergentBurst4>(), i);
                  }
                  if (player.inventory[player.selectedItem].type == ModContent.ItemType<MK07>())
                  {
-                     target.AddBuff(ModContent.BuffType<ConvergentBurst>(), i * 7);
+                     target.AddBuff(ModContent.BuffType<ConvergentBurst4>(), i);
                  }
                  if (player.inventory[player.selectedItem].type == ModContent.ItemType<MK08>())
                  {
-                     target.AddBuff(ModContent.BuffType<ConvergentBurst>(), i * 9);
+                     target.AddBuff(ModContent.BuffType<ConvergentBurst5>(), i);
                  }
                  if (player.inventory[player.selectedItem].type == ModContent.ItemType<MK09>())
                  {
-                     target.AddBuff(ModContent.BuffType<ConvergentBurst>(), i * 11);
+                     target.AddBuff(ModContent.BuffType<ConvergentBurst6>(), i);
                  }
                  if (player.inventory[player.selectedItem].type == ModContent.ItemType<MK10>())
                  {
-                     target.AddBuff(ModContent.BuffType<ConvergentBurst>(), i * 11);
+                     target.AddBuff(ModContent.BuffType<ConvergentBurst6>(), i);
                  }
              }
         }

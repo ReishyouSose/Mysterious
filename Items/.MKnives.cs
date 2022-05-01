@@ -29,8 +29,8 @@ namespace MysteriousKnives.Items
         {
             Item.width = 32;
             Item.height = 32;
-            Item.useTime = 20;
-            Item.useAnimation = 20;
+            Item.useTime = 30;
+            Item.useAnimation = 30;
             Item.autoReuse = true;
             Item.noMelee = true;
             Item.noUseGraphic = true;
@@ -387,7 +387,7 @@ namespace MysteriousKnives.Items
 				Item.useAnimation = 20;
 				Item.value = Item.sellPrice(150, 0, 0, 0);
 				Item.rare = ItemRarityID.Green;
-				Item.shoot = ModContent.ProjectileType<MKboom>();
+				Item.shoot = ModContent.ProjectileType<MKboomX>();
 				Item.shootSpeed = 10f;
 			}
 			
@@ -400,8 +400,8 @@ namespace MysteriousKnives.Items
 				{
 					if (npc.active && npc.life != 5 && !npc.friendly && npc.CanBeChasedBy())
 					{
-						float LMax = 1500f, LNPC = Vector2.Distance(npc.Center, player.Center);
-						if (LNPC < LMax) npclist.Add((npc, LNPC));
+						float LNPC = Vector2.Distance(npc.Center, Main.MouseWorld);
+						npclist.Add((npc, LNPC));
 					}
 				}
 				target = npclist.MinBy(t => t.distance).npcwho;

@@ -39,40 +39,52 @@ namespace MysteriousKnives.Buffs
 
 
         //定义方法
-        public void VemonDamage(NPC npc, int damage)
+        public static void VemonDamage(NPC npc, int damage)
         {
             npc.life -= damage;
-            if (npc.life <= 0) npc.life = 1;
+            if (npc.life <= 0)
+            {
+                npc.life = 1;
+                npc.StrikeNPC(1, 0, 0);
+            }
             CombatText.NewText(new Rectangle((int)npc.Center.X, (int)npc.Center.Y - 20, npc.width, npc.height),
                     new Color(180, 230, 50), damage, false, false);
         }
-        public void CrystalDamage(NPC npc, int damage)
+        public static void CrystalDamage(NPC npc, int damage)
         {
             npc.life -= damage;
-            if (npc.life <= 0) npc.life = 1;
+            if (npc.life <= 0)
+            {
+                npc.life = 1;
+                npc.StrikeNPC(1, 0, 0);
+            }
             CombatText.NewText(new Rectangle((int)npc.Center.X, (int)npc.Center.Y - 20, npc.width, npc.height),
-                   new Color(85, 150, 200), damage, false, false);
+                   new Color(230, 161, 255), damage, false, false);
         }
-        public void RejuvenationEffect(Player player, int boost)
+        public static void RejuvenationEffect(Player player, int boost)
         {
             player.lifeRegen += boost;
         }
-        public void StrengthEffect(Player player, float boost)
+        public static void StrengthEffect(Player player, float boost)
         {
             player.GetDamage<MeleeDamageClass>() += boost;
         }
-        public void ArstalEffect(Player player, int boost)
+        public static void ArstalEffect(Player player, int boost)
         {
             player.GetArmorPenetration<GenericDamageClass>() += boost;
         }
-        public void ConBurst(NPC npc, float multiple, float uplimit, int baseamount)
+        public static void ConBurst(NPC npc, float multiple, float uplimit, int baseamount)
         {
             if(multiple > uplimit) multiple = uplimit;
             npc.life -= (int)(baseamount * multiple);
             CombatText.NewText(new Rectangle((int)npc.Center.X, (int)npc.Center.Y - 20, npc.width, npc.height),
                     new Color(255, 100, 56), (int)(baseamount * multiple), false, false);
-            if (npc.life <= 0) npc.life = 1;
-            
+            if (npc.life <= 0)
+            {
+                npc.life = 1;
+                npc.StrikeNPC(1, 0, 0);
+            }
+
             for (int i = 0; i < 100; i++)
             {
                 Dust dust = Dust.NewDustDirect(npc.position, npc.width, npc.height,
