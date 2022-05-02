@@ -35,7 +35,6 @@ namespace MysteriousKnives.Projectiles
         }
         public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)//弹幕命中时
         {
-            Lighting.AddLight(Projectile.position, 0.2f, 0.95f, 0.13f);//RGB
             Player player = Main.player[Projectile.owner];
             if (player.statLife < player.statLifeMax2)
             {
@@ -44,17 +43,6 @@ namespace MysteriousKnives.Projectiles
                         new Color(51, 245, 35), (player.statLifeMax2 - player.statLife) / 20, false, false);
             }
             RBbuffs();
-            for (int i = 0; i < 30; i++)
-            {
-                // 生成粒子效果
-                Dust d = Dust.NewDustDirect(Projectile.position, Projectile.width, Projectile.height,
-                    ModContent.DustType<RBDust>(), 0, 0, 0, default, 0.5f);
-
-                // 粒子效果无重力
-                d.noGravity = false;
-                // 粒子效果初速度乘以二
-                d.velocity *= 10;
-            }//粒子效果
         }
     }
 }

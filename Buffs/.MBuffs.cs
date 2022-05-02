@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
+using MysteriousKnives.Projectiles;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -79,6 +80,7 @@ namespace MysteriousKnives.Buffs
             npc.life -= (int)(baseamount * multiple);
             CombatText.NewText(new Rectangle((int)npc.Center.X, (int)npc.Center.Y - 20, npc.width, npc.height),
                     new Color(255, 100, 56), (int)(baseamount * multiple), false, false);
+            Main.NewText((int)(baseamount * multiple));
             if (npc.life <= 0)
             {
                 npc.life = 1;
@@ -91,11 +93,11 @@ namespace MysteriousKnives.Buffs
                     ModContent.DustType<CBDust>(), 0f, 0f, 0, default, 1f);
                 // 粒子特效不受重力
                 dust.alpha = 30;
-                dust.scale *= 1.5f;
+                dust.scale *= 3f;
                 dust.velocity *= 50;
                 dust.noGravity = false;
             }
-            SoundEngine.PlaySound(SoundID.Item14);
+            SoundEngine.PlaySound(SoundLoader.GetLegacySoundSlot("MysteriousKnives/Sounds/Boom"));
         }
     }
 }

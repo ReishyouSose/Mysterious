@@ -22,15 +22,7 @@ namespace MysteriousKnives.Buffs
             Main.buffNoSave[Type] = false;
             base.SetStaticDefaults();
         }
-
-        public override void Update(NPC npc, ref int buffIndex)
-        {
-            Dust dust = Dust.NewDustDirect(npc.position, npc.width, npc.height
-                  , ModContent.DustType<CBDust>(), 0f, 0f, 0, default, 1f);
-            dust.alpha = 30;
-            dust.noGravity = true;
-            base.Update(npc, ref buffIndex);
-        }
+            
     }
     public class ConvergentBurst1 : MysteriousBuffs
     {
@@ -39,23 +31,30 @@ namespace MysteriousKnives.Buffs
         {
             base.SetStaticDefaults();
         }
-
+        private int count = 0, x = 0;
         public override void Update(NPC npc, ref int buffIndex)
         {
-            int i = 0;
-            if (npc.buffTime[buffIndex] > i) i = npc.buffTime[buffIndex];
-            float multiple = 1 + i / 180f;
-            if (npc.buffTime[buffIndex] % 300 == 0)
+            Dust dust = Dust.NewDustDirect(npc.position, npc.width, npc.height
+                  , ModContent.DustType<CBDust>(), 0f, 0f, 0, default, 1f);
+            dust.alpha = 30;
+            dust.noGravity = true;
+            if (npc.buffTime[buffIndex] > 0) count++;
+            else count = 0;
+            if (npc.buffTime[buffIndex] == 179)
+            {
+                x += 180;
+                Main.NewText("x=" + x);
+            }
+            if (x > 0) x--;
+            float multiple = 1 + x / 180f;
+            if (count > 300)
             {
                 ConBurst(npc, multiple, 5, 50);
+                count = 0;
+                x = 0;
                 npc.DelBuff(buffIndex);
             }
             base.Update(npc, ref buffIndex);
-        }
-        public override bool ReApply(NPC npc, int time, int buffIndex)
-        {
-            npc.buffTime[buffIndex] += time;
-            return true;
         }
     }
     public class ConvergentBurst2 : MysteriousBuffs
@@ -65,15 +64,27 @@ namespace MysteriousKnives.Buffs
         {
             base.SetStaticDefaults();
         }
-
+        private int count = 0, x = 0;
         public override void Update(NPC npc, ref int buffIndex)
         {
-            int i = 0;
-            if (npc.buffTime[buffIndex] > i) i = npc.buffTime[buffIndex];
-            float multiple = 1 + i / 180f;
-            if (npc.buffTime[buffIndex] % 300 == 0)
+            Dust dust = Dust.NewDustDirect(npc.position, npc.width, npc.height
+                  , ModContent.DustType<CBDust>(), 0f, 0f, 0, default, 1f);
+            dust.alpha = 30;
+            dust.noGravity = true;
+            if (npc.buffTime[buffIndex] > 0) count++;
+            else count = 0;
+            if (npc.buffTime[buffIndex] == 179)
+            {
+                x += 180;
+                Main.NewText("x=" + x);
+            }
+            if (x > 0) x--;
+            float multiple = 1 + x / 180f;
+            if (count > 300)
             {
                 ConBurst(npc, multiple, 7, 200);
+                count = 0;
+                x = 0;
                 npc.DelBuff(buffIndex);
             }
             base.Update(npc, ref buffIndex);
@@ -81,7 +92,7 @@ namespace MysteriousKnives.Buffs
         public override bool ReApply(NPC npc, int time, int buffIndex)
         {
             npc.buffTime[buffIndex] += time;
-            return true;
+            return base.ReApply(npc, time, buffIndex);
         }
     }
     public class ConvergentBurst3 : MysteriousBuffs
@@ -91,15 +102,27 @@ namespace MysteriousKnives.Buffs
         {
             base.SetStaticDefaults();
         }
-
+        private int count = 0, x = 0;
         public override void Update(NPC npc, ref int buffIndex)
         {
-            int i = 0;
-            if (npc.buffTime[buffIndex] > i) i = npc.buffTime[buffIndex];
-            float multiple = 1 + i / 180f;
-            if (npc.buffTime[buffIndex] % 300 == 0)
+            Dust dust = Dust.NewDustDirect(npc.position, npc.width, npc.height
+                  , ModContent.DustType<CBDust>(), 0f, 0f, 0, default, 1f);
+            dust.alpha = 30;
+            dust.noGravity = true;
+            if (npc.buffTime[buffIndex] > 0) count++;
+            else count = 0;
+            if (npc.buffTime[buffIndex] == 179)
+            {
+                x += 180;
+                Main.NewText("x=" + x);
+            }
+            if (x > 0) x--;
+            float multiple = 1 + x / 180f;
+            if (count > 300)
             {
                 ConBurst(npc, multiple, 9, 250);
+                count = 0;
+                x = 0;
                 npc.DelBuff(buffIndex);
             }
             base.Update(npc, ref buffIndex);
@@ -107,7 +130,7 @@ namespace MysteriousKnives.Buffs
         public override bool ReApply(NPC npc, int time, int buffIndex)
         {
             npc.buffTime[buffIndex] += time;
-            return true;
+            return base.ReApply(npc, time, buffIndex);
         }
     }
     public class ConvergentBurst4 : MysteriousBuffs
@@ -117,15 +140,27 @@ namespace MysteriousKnives.Buffs
         {
             base.SetStaticDefaults();
         }
-
+        private int count = 0, x = 0;
         public override void Update(NPC npc, ref int buffIndex)
         {
-            int i = 0;
-            if (npc.buffTime[buffIndex] > i) i = npc.buffTime[buffIndex];
-            float multiple = 1 + i / 180f;
-            if (npc.buffTime[buffIndex] % 300 == 0)
+            Dust dust = Dust.NewDustDirect(npc.position, npc.width, npc.height
+                  , ModContent.DustType<CBDust>(), 0f, 0f, 0, default, 1f);
+            dust.alpha = 30;
+            dust.noGravity = true;
+            if (npc.buffTime[buffIndex] > 0) count++;
+            else count = 0;
+            if (npc.buffTime[buffIndex] == 179)
+            {
+                x += 180;
+                Main.NewText("x=" + x);
+            }
+            if (x > 0) x--;
+            float multiple = 1 + x / 180f;
+            if (count > 300)
             {
                 ConBurst(npc, multiple, 11, 500);
+                count = 0;
+                x = 0;
                 npc.DelBuff(buffIndex);
             }
             base.Update(npc, ref buffIndex);
@@ -133,7 +168,7 @@ namespace MysteriousKnives.Buffs
         public override bool ReApply(NPC npc, int time, int buffIndex)
         {
             npc.buffTime[buffIndex] += time;
-            return true;
+            return base.ReApply(npc, time, buffIndex);
         }
     }
     public class ConvergentBurst5 : MysteriousBuffs
@@ -143,15 +178,27 @@ namespace MysteriousKnives.Buffs
         {
             base.SetStaticDefaults();
         }
-
+        private int count = 0, x = 0;
         public override void Update(NPC npc, ref int buffIndex)
         {
-            int i = 0;
-            if (npc.buffTime[buffIndex] > i) i = npc.buffTime[buffIndex];
-            float multiple = 1 + i / 180f;
-            if (npc.buffTime[buffIndex] % 300 == 0)
+            Dust dust = Dust.NewDustDirect(npc.position, npc.width, npc.height
+                  , ModContent.DustType<CBDust>(), 0f, 0f, 0, default, 1f);
+            dust.alpha = 30;
+            dust.noGravity = true;
+            if (npc.buffTime[buffIndex] > 0) count++;
+            else count = 0;
+            if (npc.buffTime[buffIndex] == 179)
+            {
+                x += 180;
+                Main.NewText("x=" + x);
+            }
+            if (x > 0) x--;
+            float multiple = 1 + x / 180f;
+            if (count > 300)
             {
                 ConBurst(npc, multiple, 13, 1500);
+                count = 0;
+                x = 0;
                 npc.DelBuff(buffIndex);
             }
             base.Update(npc, ref buffIndex);
@@ -159,7 +206,7 @@ namespace MysteriousKnives.Buffs
         public override bool ReApply(NPC npc, int time, int buffIndex)
         {
             npc.buffTime[buffIndex] += time;
-            return true;
+            return base.ReApply(npc, time, buffIndex);
         }
     }
     public class ConvergentBurst6 : MysteriousBuffs
@@ -169,15 +216,27 @@ namespace MysteriousKnives.Buffs
         {
             base.SetStaticDefaults();
         }
-
+        private int count = 0, x = 0;
         public override void Update(NPC npc, ref int buffIndex)
         {
-            int i = 0;
-            if (npc.buffTime[buffIndex] > i) i = npc.buffTime[buffIndex];
-            float multiple = 1 + i / 180f;
-            if (npc.buffTime[buffIndex] % 300 == 0)
+            Dust dust = Dust.NewDustDirect(npc.position, npc.width, npc.height
+                  , ModContent.DustType<CBDust>(), 0f, 0f, 0, default, 1f);
+            dust.alpha = 30;
+            dust.noGravity = true;
+            if (npc.buffTime[buffIndex] > 0) count++;
+            else count = 0;
+            if (npc.buffTime[buffIndex] == 179)
+            {
+                x += 180;
+                Main.NewText("x=" + x);
+            }
+            if (x > 0) x--;
+            float multiple = 1 + x / 180f;
+            if (count > 300)
             {
                 ConBurst(npc, multiple, 15, 3000);
+                count = 0;
+                x = 0;
                 npc.DelBuff(buffIndex);
             }
             base.Update(npc, ref buffIndex);
@@ -185,7 +244,7 @@ namespace MysteriousKnives.Buffs
         public override bool ReApply(NPC npc, int time, int buffIndex)
         {
             npc.buffTime[buffIndex] += time;
-            return true;
+            return base.ReApply(npc, time, buffIndex);
         }
     }
 }

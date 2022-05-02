@@ -145,7 +145,7 @@ namespace MysteriousKnives.Projectiles
         {
             target.buffImmune[ModContent.BuffType<ConvergentBurst>()] = false;
             Player player = Main.player[Projectile.owner];
-            int i = 60;
+            int i = 180;
             target.AddBuff(ModContent.BuffType<ConvergentBurst>(), i);
              {
                  if (player.inventory[player.selectedItem].type == ModContent.ItemType<MK02>())
@@ -337,7 +337,7 @@ namespace MysteriousKnives.Projectiles
         /// 施加星辉
         /// </summary>
         /// <param name="target"></param>
-        public void ASbuffs(Player player)
+        public static void ASbuffs(Player player)
         {
             int i = 180;
             if (player.inventory[player.selectedItem].type == ModContent.ItemType<MK03>())

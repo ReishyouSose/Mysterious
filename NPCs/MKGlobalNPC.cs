@@ -34,16 +34,16 @@ namespace MysteriousKnives.NPCs
         }
         public override void ModifyHitPlayer(NPC npc, Player target, ref int damage, ref bool crit)
         {
-            if (SK1) npc.damage -= (int)(npc.damage * 0.1f);
-            if (SK2) npc.damage -= (int)(npc.damage * 0.2f);
-            if (SK3) npc.damage -= (int)(npc.damage * 0.4f);
+            if (SK1) damage -= (int)(damage * 0.1f);
+            if (SK2) damage -= (int)(damage * 0.2f);
+            if (SK3) damage -= (int)(damage * 0.4f);
             base.ModifyHitPlayer(npc, target, ref damage, ref crit);
         }
         public override void ModifyHitNPC(NPC npc, NPC target, ref int damage, ref float knockback, ref bool crit)
         {
-            if (SK1) npc.damage -= (int)(npc.damage * 0.1f);
-            if (SK2) npc.damage -= (int)(npc.damage * 0.2f);
-            if (SK3) npc.damage -= (int)(npc.damage * 0.4f);
+            if (SK1) damage -= (int)(damage * 0.1f);
+            if (SK2) damage -= (int)(damage * 0.2f);
+            if (SK3) damage -= (int)(damage * 0.4f);
             base.ModifyHitNPC(npc, target, ref damage, ref knockback, ref crit);
         }
         public override void ModifyHitByItem(NPC npc, Player player, Item item, ref int damage, ref float knockback, ref bool crit)

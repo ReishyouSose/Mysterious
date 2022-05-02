@@ -35,19 +35,7 @@ namespace MysteriousKnives.Projectiles
         }
         public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)//弹幕命中时
         {
-            Lighting.AddLight(Projectile.position, 0.29f, 0.37f, 0.88f);//RGB
             SKbuffs(target);
-            for (int i = 0; i < 30; i++)
-            {
-                // 生成粒子效果
-                Dust d = Dust.NewDustDirect(Projectile.position, Projectile.width, Projectile.height,
-                    ModContent.DustType<SKDust>(), 0, 0, 0, default, 0.5f);
-
-                // 粒子效果无重力
-                d.noGravity = false;
-                // 粒子效果初速度乘以二
-                d.velocity *= 10;
-            }//粒子效果
         }
     }
 }

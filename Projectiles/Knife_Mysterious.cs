@@ -9,6 +9,7 @@ using MysteriousKnives.Items;
 using MysteriousKnives.Buffs;
 using static MysteriousKnives.Items.MKnives;
 using MysteriousKnives.Projectiles;
+using Terraria.Audio;
 
 namespace MysteriousKnives.Projectiles
 { 
@@ -50,6 +51,7 @@ namespace MysteriousKnives.Projectiles
                     ModContent.DustType<RanbowDust>(), 0f, 0f, 0, default, 1f);
                 // 粒子特效不受重力
                 dust.alpha = 30;
+                dust.scale *= 2f;
             }
             
         }
@@ -57,6 +59,7 @@ namespace MysteriousKnives.Projectiles
         {
             Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.Center, Projectile.velocity,
                 ModContent.ProjectileType<MKboom>(), 10, 20, 0);
+            SoundEngine.PlaySound(SoundID.Item14);
             for (int i = 0; i < 100; i++)
             {
                 Dust dust = Dust.NewDustDirect(Projectile.position, Projectile.width, Projectile.height, 
@@ -91,7 +94,7 @@ namespace MysteriousKnives.Projectiles
                 Dust dust = Dust.NewDustDirect(Projectile.position, Projectile.width, Projectile.height
                    , ModContent.DustType<RanbowDust>(), 0f, 0f, 0, default, 1f);
                 dust.alpha = 30;
-                dust.scale *= 1.5f;
+                dust.scale *= 2f;
                 dust.velocity *= 50;
                 dust.noGravity = false;
             }

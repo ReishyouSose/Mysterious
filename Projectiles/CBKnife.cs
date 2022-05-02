@@ -32,18 +32,6 @@ namespace MysteriousKnives.Projectiles
         {
             target.buffImmune[ModContent.BuffType<ConvergentBurst>()] = false;
             CBbuffs(target);
-            Lighting.AddLight(Projectile.position, 1f, 0.39f, 0.22f);//RGB
-            /*for (int i = 0; i < 30; i++)
-            {
-                // 生成粒子效果
-                Dust d = Dust.NewDustDirect(Projectile.position, Projectile.width, Projectile.height,
-                    ModContent.DustType<CSDust>(), 0, 0, 0, default, 0.5f);
-
-                // 粒子效果无重力
-                d.noGravity = false;
-                // 粒子效果初速度乘以二
-                d.velocity *= 10;
-            }*/
             base.OnHitNPC(target, damage, knockback, crit); 
         }
     }

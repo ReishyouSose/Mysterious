@@ -11,17 +11,18 @@ namespace MysteriousKnives.Dusts
 		public override void OnSpawn(Dust dust)
 		{
 			dust.noLight = false;
-			dust.scale = 1.1f;
+			dust.scale = 1.2f;
 			dust.noGravity = true;
 			dust.velocity /= 5f;
 			dust.alpha = 0;
+			base.OnSpawn(dust);
 		}
         public override bool Update(Dust dust)
         {
 			dust.position += dust.velocity;
 			dust.rotation += dust.velocity.X;
-			dust.scale -= 0.01f;
-			if (dust.scale < 0.5f)
+			dust.scale -= 0.04f;
+			if (dust.scale < 0f)
 			{
 				dust.active = false;
 			}
@@ -148,14 +149,12 @@ namespace MysteriousKnives.Dusts
 			public override string Texture => "MysteriousKnives/Dusts/pictures/RanbowDust";
 			public override void OnSpawn(Dust dust)
 			{
-				dust.noGravity = true;
-				dust.color = Main.DiscoColor;
 				base.OnSpawn(dust);
 			}
 			public override bool Update(Dust dust)
 			{
 				float i = 0.001f; i += i;
-				if(dust.noGravity == false )dust.velocity.Y += 0.2f + i;
+				if(dust.noGravity == false)dust.velocity.Y += 0.2f + i;
 				dust.rotation += dust.velocity.Y;
 				dust.velocity *= 0.9f;
 				base.Update(dust);
