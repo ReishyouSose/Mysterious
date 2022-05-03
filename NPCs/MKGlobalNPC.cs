@@ -48,24 +48,24 @@ namespace MysteriousKnives.NPCs
         }
         public override void ModifyHitByItem(NPC npc, Player player, Item item, ref int damage, ref float knockback, ref bool crit)
         {
-            if (AB1) damage += (int)(damage * 1.05f);
-            if (AB2) damage += (int)(damage * 1.1f);
-            if (AB3) damage += (int)(damage * 1.15f);
-            if (AB4) damage += (int)(damage * 1.2f);
-            if (AB5) damage += (int)(damage * 1.25f);
-            if (AB6) damage += (int)(damage * 1.3f);
-            if (AB7) damage += (int)(damage * 1.5f);
+            if (AB1) damage += (int)(damage * 0.05f);
+            if (AB2) damage += (int)(damage * 0.1f);
+            if (AB3) damage += (int)(damage * 0.15f);
+            if (AB4) damage += (int)(damage * 0.2f);
+            if (AB5) damage += (int)(damage * 0.25f);
+            if (AB6) damage += (int)(damage * 0.3f);
+            if (AB7) damage += (int)(damage * 0.5f);
             base.ModifyHitByItem(npc, player, item, ref damage, ref knockback, ref crit);
         }
         public override void ModifyHitByProjectile(NPC npc, Projectile Projectile, ref int damage, ref float knockback, ref bool crit, ref int hitDirection)
         {
-            if (AB1) damage += (int)(damage * 1.05f);
-            if (AB2) damage += (int)(damage * 1.1f);
-            if (AB3) damage += (int)(damage * 1.15f);
-            if (AB4) damage += (int)(damage * 1.2f);
-            if (AB5) damage += (int)(damage * 1.25f);
-            if (AB6) damage += (int)(damage * 1.3f);
-            if (AB7) damage += (int)(damage * 1.5f);
+            if (AB1) damage += (int)(damage * 0.05f);
+            if (AB2) damage += (int)(damage * 0.1f);
+            if (AB3) damage += (int)(damage * 0.15f);
+            if (AB4) damage += (int)(damage * 0.2f);
+            if (AB5) damage += (int)(damage * 0.25f);
+            if (AB6) damage += (int)(damage * 0.3f);
+            if (AB7) damage += (int)(damage * 0.5f);
             base.ModifyHitByProjectile(npc, Projectile, ref damage, ref knockback, ref crit, ref hitDirection);
         }
     }

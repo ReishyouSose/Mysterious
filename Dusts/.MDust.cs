@@ -34,7 +34,7 @@ namespace MysteriousKnives.Dusts
 		/// </summary>
 		public class CSDust : MDust
 		{
-			public override string Texture => "MysteriousKnives/Dusts/pictures/CSDust";
+			public override string Texture => "MysteriousKnives/Pictures/Dusts/CSDust";
 			public override void OnSpawn(Dust dust)
             {
                 base.OnSpawn(dust);
@@ -51,7 +51,7 @@ namespace MysteriousKnives.Dusts
 		/// </summary>
 		public class SKDust : MDust
 		{
-			public override string Texture => "MysteriousKnives/Dusts/pictures/SKDust";
+			public override string Texture => "MysteriousKnives/Pictures/Dusts/SKDust";
 			public override void OnSpawn(Dust dust)
 			{
 				base.OnSpawn(dust);
@@ -68,7 +68,7 @@ namespace MysteriousKnives.Dusts
 		/// </summary>
 		public class CBDust : MDust
 		{
-			public override string Texture => "MysteriousKnives/Dusts/pictures/CBDust";
+			public override string Texture => "MysteriousKnives/Pictures/Dusts/CBDust";
 			public override bool Update(Dust dust)
 			{
 				base.Update(dust);
@@ -81,7 +81,7 @@ namespace MysteriousKnives.Dusts
 		/// </summary>
 		public class ABDust : MDust
 		{
-			public override string Texture => "MysteriousKnives/Dusts/pictures/ABDust";
+			public override string Texture => "MysteriousKnives/Pictures/Dusts/ABDust";
 			public override bool Update(Dust dust)
 			{
 				base.Update(dust);
@@ -94,7 +94,7 @@ namespace MysteriousKnives.Dusts
 		/// </summary>
 		public class ASDust : MDust
 		{
-			public override string Texture => "MysteriousKnives/Dusts/pictures/ASDust";
+			public override string Texture => "MysteriousKnives/Pictures/Dusts/ASDust";
 			public override bool Update(Dust dust)
 			{
 				base.Update(dust);
@@ -107,7 +107,7 @@ namespace MysteriousKnives.Dusts
 		/// </summary>
 		public class STDust : MDust
 		{
-			public override string Texture => "MysteriousKnives/Dusts/pictures/STDust";
+			public override string Texture => "MysteriousKnives/Pictures/Dusts/STDust";
 			public override bool Update(Dust dust)
 			{
 				base.Update(dust);
@@ -120,7 +120,7 @@ namespace MysteriousKnives.Dusts
 		/// </summary>
 		public class RBDust : MDust
 		{
-			public override string Texture => "MysteriousKnives/Dusts/pictures/RBDust";
+			public override string Texture => "MysteriousKnives/Pictures/Dusts/RBDust";
 			public override bool Update(Dust dust)
 			{
 				base.Update(dust);
@@ -133,7 +133,7 @@ namespace MysteriousKnives.Dusts
 		/// </summary>
 		public class WVDust : MDust
 		{
-			public override string Texture => "MysteriousKnives/Dusts/pictures/WVDust";
+			public override string Texture => "MysteriousKnives/Pictures/Dusts/WVDust";
 			public override bool Update(Dust dust)
 			{
 				base.Update(dust);
@@ -146,7 +146,7 @@ namespace MysteriousKnives.Dusts
 		/// </summary>
 		public class RanbowDust : MDust
 		{
-			public override string Texture => "MysteriousKnives/Dusts/pictures/RanbowDust";
+			public override string Texture => "MysteriousKnives/Pictures/Dusts/RanbowDust";
 			public override void OnSpawn(Dust dust)
 			{
 				base.OnSpawn(dust);

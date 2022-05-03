@@ -2,25 +2,27 @@
 using Terraria.ModLoader;
 using Terraria;
 using Microsoft.Xna.Framework;
+using MysteriousKnives.Projectiles;
 
 namespace MysteriousKnives.NPCs
 {
     public class MKpuppet : ModNPC
     {
-        public override string Texture => "MysteriousKnives/NPCs/pictures/MKpuppet";
+        public override string Texture => "MysteriousKnives/Pictures/NPCs/MKpuppet";
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("僵尸傀儡");
+            Main.npcFrameCount[Type] = 3;
         }
         public override void SetDefaults()
         {
             NPC.width = 34;
             NPC.height = 162 / 3;
-            NPC.damage = 0;
-            NPC.lifeMax = 2100000000;
+            NPC.damage = 100;
+            NPC.lifeMax = 21000000;
             NPC.defense = 0;
             NPC.knockBackResist = 0f;
-            NPC.aiStyle = -3;
+            NPC.aiStyle = -1;
             NPC.friendly = false;
             NPC.HitSound = SoundID.NPCHit1;
             NPC.DeathSound = SoundID.NPCDeath6;
@@ -28,17 +30,25 @@ namespace MysteriousKnives.NPCs
             Main.npcFrameCount[NPC.type] = 3;
             NPC.noGravity = true;
             NPC.noTileCollide = false;
-            AIType = 0;//这边为了方便直接写了ID（绝对不是懒
-            AnimationType = 0;
+            AIType = 3;//这边为了方便直接写了ID（绝对不是懒
+            AnimationType = -3;
             NPC.boss = false;
-            base.SetDefaults();
         }
-
         public override void AI()
         {
             NPC.velocity = new Vector2(0,0);
             Lighting.AddLight(NPC.Center, 1f, 1f, 1f);
-            base.AI();
+            foreach (NPC boss in Main.npc)
+            {
+                if (boss.boss && boss.CanBeChasedBy())
+                {
+                    foreach (NPC npc in Main.npc)
+                    {
+                        if (npc.type == ModContent.NPCType<MKpuppet>())
+                            npc.life = 0;
+                    }  
+                }
+            }
         }
     }
 }

@@ -8,6 +8,9 @@ using MysteriousKnives.Items;
 using static MysteriousKnives.Items.MKnives;
 using Terraria.DataStructures;
 using MysteriousKnives.Projectiles;
+using static MysteriousKnives.Buffs.MysteriousBuffs;
+using static MysteriousKnives.Dusts.MDust;
+using Terraria.Audio;
 
 namespace MysteriousKnives.Projectiles
 {
@@ -88,7 +91,7 @@ namespace MysteriousKnives.Projectiles
                 float distanceMax = 1000f;
                 foreach (NPC npc in Main.npc)
                 {
-                    if (npc.active && npc.life != 5 && !npc.friendly && npc.CanBeChasedBy(Projectile, false))
+                    if (npc.CanBeChasedBy() && !npc.dontTakeDamage)
                     {
                         float currentDistance = Vector2.Distance(npc.Center, Projectile.Center);
                         if (currentDistance < distanceMax)
@@ -464,6 +467,334 @@ namespace MysteriousKnives.Projectiles
             {
                 player.AddBuff(ModContent.BuffType<StrengthEX>(), i * 6);
             }
+        }
+    }
+
+    public class ABKnife : MysteriousKnife
+    {
+        public override string Texture => "MysteriousKnives/Pictures/Projectiles/ABKnife";
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("深渊飞刀");
+        }
+        public override void SetDefaults()
+        {
+            base.SetDefaults();
+
+        }
+        public override void AI()
+        {
+            base.AI();
+            Lighting.AddLight(Projectile.position, 0f, 0f, 0f);//RGB
+            if (Projectile.timeLeft < 597)//弹幕粒子效果
+            {
+                Dust dust = Dust.NewDustDirect(Projectile.position, Projectile.width, Projectile.height
+                    , ModContent.DustType<ABDust>(), 1f, 1f, 100, default, 1f);
+                // 粒子特效不受重力
+                dust.alpha = 30;
+                dust.noGravity = true;
+            }
+        }
+        public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)//弹幕命中时
+        {
+            ABbuffs(target);
+        }
+    }
+    public class ASKnife : MysteriousKnife
+    {
+        public override string Texture => "MysteriousKnives/Pictures/Projectiles/ASKnife";
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("星辉飞刀");
+        }
+        public override void SetDefaults()
+        {
+            base.SetDefaults();
+        }
+        public override void AI()
+        {
+            base.AI();
+            Lighting.AddLight(Projectile.position, 0.45f, 0.04f, 0.75f);//RGB
+            if (Projectile.timeLeft < 597)//弹幕粒子效果
+            {
+                Dust dust = Dust.NewDustDirect(Projectile.position, Projectile.width, Projectile.height
+                    , ModContent.DustType<ASDust>(), 1f, 1f, 100, default, 1f);
+                // 粒子特效不受重力
+                dust.alpha = 30;
+                dust.noGravity = true;
+            }
+        }
+        public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)//弹幕命中时
+        {
+            Player player = Main.player[Projectile.owner];
+            ASbuffs(player);
+        }
+
+    }
+    public class CBKnife : MysteriousKnife
+    {
+        public override string Texture => "MysteriousKnives/Pictures/Projectiles/CBKnife";
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("凝爆飞刀");
+        }
+        public override void SetDefaults()
+        {
+            base.SetDefaults();
+        }
+        public override void AI()
+        {
+            Dust dust = Dust.NewDustDirect(Projectile.position, Projectile.width, Projectile.height
+                   , ModContent.DustType<CBDust>(), 0f, 0f, 0, default, 1f);
+            dust.alpha = 30;
+            dust.noGravity = true;
+            base.AI();
+        }
+        public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)//弹幕命中时
+        {
+            target.buffImmune[ModContent.BuffType<ConvergentBurst>()] = false;
+            CBbuffs(target);
+            base.OnHitNPC(target, damage, knockback, crit);
+        }
+    }
+    public class CSKnife : MysteriousKnife
+    {
+        public override string Texture => "MysteriousKnives/Pictures/Projectiles/CSKnife";
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("结晶飞刀");
+        }
+        public override void SetDefaults()
+        {
+            base.SetDefaults();
+        }
+        public override void AI()
+        {
+            base.AI();
+            //Lighting.AddLight(Projectile.position, 0.9f, 0.63f, 1f);//RGB
+            if (Projectile.timeLeft < 594)//弹幕粒子效果
+            {
+                Dust dust = Dust.NewDustDirect(Projectile.position, Projectile.width, Projectile.height
+                    , ModContent.DustType<CSDust>());
+                // 粒子特效不受重力
+                dust.alpha = 30;
+                dust.noGravity = true;
+            }
+        }
+        public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)//弹幕命中时
+        {
+            CSbuffs(target);
+        }
+    }
+    public class Knife_Mysterious : MysteriousKnife
+    {
+        public override string Texture => "MysteriousKnives/Pictures/Projectiles/Knife_Mysterious";
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("诡秘飞刀");
+        }
+        public override void SetDefaults()
+        {
+            Projectile.width = 15;//宽
+            Projectile.height = 15;//高
+            Projectile.scale = 1f;//体积倍率
+            Projectile.timeLeft = 180;//存在时间60 = 1秒
+            Projectile.DamageType = DamageClass.Melee;// 伤害类型
+            Projectile.friendly = true;// 攻击敌方？
+            Projectile.hostile = false;// 攻击友方？
+            Projectile.ignoreWater = true;//忽视水？
+            Projectile.tileCollide = false;//不穿墙？
+            Projectile.penetrate = 1;//穿透数量 -1无限
+            Projectile.aiStyle = -1;//附带原版弹幕AI ID
+            Projectile.extraUpdates = 1;//每帧额外更新次数
+            Projectile.alpha = 255;
+            Main.projFrames[Projectile.type] = 1;//动画被分成几份
+        }
+        public override void AI()
+        {
+            //弹幕贴图角度（朝向弹幕[proj]速度[v]的方向[tor]）
+            Projectile.rotation = MathHelper.Pi / 2 + Projectile.velocity.ToRotation();
+            if (Projectile.timeLeft % 5 == 0) Projectile.velocity *= 0.9f;
+            Lighting.AddLight(Projectile.position,
+                    Main.DiscoR / 255f, Main.DiscoG / 255f, Main.DiscoB / 255f);
+            if (Projectile.timeLeft < 177)//弹幕粒子效果
+            {
+                Dust dust = Dust.NewDustDirect(Projectile.position,
+                    Projectile.width + Main.rand.Next(-5, 5), Projectile.height + Main.rand.Next(-5, 5),
+                    ModContent.DustType<RanbowDust>(), 0f, 0f, 0, default, 1f);
+                // 粒子特效不受重力
+                dust.alpha = 30;
+                dust.scale *= 2f;
+            }
+
+        }
+        public override void Kill(int timeLeft)
+        {
+            Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.Center, Projectile.velocity,
+                ModContent.ProjectileType<MKboom>(), 10, 20, 0);
+            SoundEngine.PlaySound(SoundID.Item14);
+            for (int i = 0; i < 100; i++)
+            {
+                Dust dust = Dust.NewDustDirect(Projectile.position, Projectile.width, Projectile.height,
+                    ModContent.DustType<RanbowDust>(), 0f, 0f, 0, default, 1f);
+                // 粒子特效不受重力
+                dust.alpha = 30;
+                dust.scale *= 1.5f;
+                dust.velocity *= 50;
+                dust.noGravity = false;
+            }
+
+            {
+                Player player = Main.player[Projectile.owner];
+                if (player.inventory[player.selectedItem].type == ModContent.ItemType<MK01>()) RandomShoot(1, 2, 4);
+                if (player.inventory[player.selectedItem].type == ModContent.ItemType<MK02>()) RandomShoot(2, 2, 7);
+                if (player.inventory[player.selectedItem].type == ModContent.ItemType<MK03>()) RandomShoot(3, 3, 8);
+                if (player.inventory[player.selectedItem].type == ModContent.ItemType<MK04>()) RandomShoot(4, 3, 8);
+                if (player.inventory[player.selectedItem].type == ModContent.ItemType<MK05>()) RandomShoot(5, 4, 8);
+                if (player.inventory[player.selectedItem].type == ModContent.ItemType<MK06>()) RandomShoot(6, 4, 8);
+                if (player.inventory[player.selectedItem].type == ModContent.ItemType<MK07>()) RandomShoot(7, 5, 8);
+                if (player.inventory[player.selectedItem].type == ModContent.ItemType<MK08>()) RandomShoot(8, 5, 8);
+                if (player.inventory[player.selectedItem].type == ModContent.ItemType<MK09>()) RandomShoot(9, 6, 8);
+                if (player.inventory[player.selectedItem].type == ModContent.ItemType<MK10>()) RandomShoot(10, 6, 8);
+            }//按等级散射
+
+            base.Kill(timeLeft);
+        }
+        public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)//弹幕命中时
+        {
+            for (int i = 0; i < 100; i++)
+            {
+                Dust dust = Dust.NewDustDirect(Projectile.position, Projectile.width, Projectile.height
+                   , ModContent.DustType<RanbowDust>(), 0f, 0f, 0, default, 1f);
+                dust.alpha = 30;
+                dust.scale *= 2f;
+                dust.velocity *= 50;
+                dust.noGravity = false;
+            }
+            base.OnHitNPC(target, damage, knockback, crit);
+        }
+    }
+    public class RBKnife : MysteriousKnife
+    {
+        public override string Texture => "MysteriousKnives/Pictures/Projectiles/RBKnife";
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("回春飞刀");
+        }
+        public override void SetDefaults()
+        {
+            base.SetDefaults();
+        }
+        public override void AI()
+        {
+            base.AI();
+            Lighting.AddLight(Projectile.position, 0.2f, 0.95f, 0.13f);//RGB
+            if (Projectile.timeLeft < 597)//弹幕粒子效果
+            {
+                Dust dust = Dust.NewDustDirect(Projectile.position, Projectile.width, Projectile.height
+                    , ModContent.DustType<RBDust>(), 1f, 1f, 100, default, 1f);
+                // 粒子特效不受重力
+                dust.alpha = 30;
+                dust.noGravity = true;
+            }
+        }
+        public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)//弹幕命中时
+        {
+            Player player = Main.player[Projectile.owner];
+            if (player.statLife < player.statLifeMax2)
+            {
+                player.statLife += (player.statLifeMax2 - player.statLife) / 20;
+                player.HealEffect((player.statLifeMax2 - player.statLife) / 20);
+                //CombatText.NewText(new Rectangle((int)player.Center.X, (int)player.Center.Y - 20, player.width, player.height), new Color(51, 245, 35), (player.statLifeMax2 - player.statLife) / 20, false, false);
+            }
+            RBbuffs();
+        }
+    }
+    public class SKKnife : MysteriousKnife
+    {
+        public override string Texture => "MysteriousKnives/Pictures/Projectiles/SKKnife";
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("沉沦飞刀");
+        }
+        public override void SetDefaults()
+        {
+            base.SetDefaults();
+        }
+        public override void AI()
+        {
+            base.AI();
+            Lighting.AddLight(Projectile.position, 0.29f, 0.37f, 0.88f);//RGB
+            if (Projectile.timeLeft < 597)//弹幕粒子效果
+            {
+                Dust dust = Dust.NewDustDirect(Projectile.position, Projectile.width, Projectile.height
+                    , ModContent.DustType<SKDust>(), 1f, 1f, 100, default, 1f);
+                // 粒子特效不受重力
+                dust.alpha = 30;
+                dust.noGravity = true;
+            }
+        }
+        public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)//弹幕命中时
+        {
+            SKbuffs(target);
+        }
+    }
+    public class STKnife : MysteriousKnife
+    {
+        public override string Texture => "MysteriousKnives/Pictures/Projectiles/STKnife";
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("力量飞刀");
+        }
+        public override void SetDefaults()
+        {
+            base.SetDefaults();
+        }
+        public override void AI()
+        {
+            base.AI();
+            Lighting.AddLight(Projectile.position, 1f, 0.95f, 0.7f);//RGB
+            if (Projectile.timeLeft < 597)//弹幕粒子效果
+            {
+                Dust dust = Dust.NewDustDirect(Projectile.position, Projectile.width, Projectile.height
+                    , ModContent.DustType<STDust>(), 1f, 1f, 100, default, 1f);
+                // 粒子特效不受重力
+                dust.alpha = 30;
+                dust.noGravity = true;
+            }
+        }
+        public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)//弹幕命中时
+        {
+            STbuffs();
+        }
+    }
+    public class WVKnife : MysteriousKnife
+    {
+        public override string Texture => "MysteriousKnives/Pictures/Projectiles/WVKnife";
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("诡毒飞刀");
+        }
+        public override void SetDefaults()
+        {
+            base.SetDefaults();
+        }
+        public override void AI()
+        {
+            base.AI();
+            Lighting.AddLight(Projectile.position, 0.55f, 0.7f, 0.13f);//RGB
+            if (Projectile.timeLeft < 597)//弹幕粒子效果
+            {
+                Dust dust = Dust.NewDustDirect(Projectile.position, Projectile.width, Projectile.height
+                    , ModContent.DustType<WVDust>(), 1f, 1f, 100, default, 1f);
+                // 粒子特效不受重力
+                dust.alpha = 30;
+                dust.noGravity = true;
+            }
+        }
+        public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)//弹幕命中时
+        {
+            WVbuffs(target);
         }
     }
 }

@@ -14,7 +14,7 @@ namespace MysteriousKnives.Items
 {
 	public class MKpuppetSummon : ModItem
     {
-        public override string Texture => "MysteriousKnives/Items/pictures/MKpuppetSummon";
+        public override string Texture => "MysteriousKnives/Pictures/Items/MKpuppetSummon";
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("傀儡召唤器");
@@ -29,34 +29,37 @@ namespace MysteriousKnives.Items
 			Item.noMelee = true;
 			Item.noUseGraphic = true;
 			Item.useStyle = ItemUseStyleID.Thrust;
-			Item.useTime = 30;
-			Item.useAnimation = 1;
+			Item.useTime = 4;
+			Item.useAnimation = 4;
 			Item.value = Item.sellPrice(0, 1, 0, 0);
 			Item.rare = ItemRarityID.Green;
 			base.SetDefaults();
         }
+        public bool i = true;
         public override bool? UseItem(Player player)
         {
-            foreach (NPC npc in Main.npc)
+            if (i)
             {
-                if (npc.type == ModContent.NPCType<MKpuppet>())
-                {
-                    npc.life = 0;
-                }
-            }
-            NPC.NewNPC(player.GetSource_ItemUse(Item), (int)Main.MouseWorld.X, (int)Main.MouseWorld.Y,
+                NPC.NewNPC(player.GetSource_ItemUse(Item), (int)Main.MouseWorld.X, (int)Main.MouseWorld.Y,
                 ModContent.NPCType<MKpuppet>());
-            if (player.altFunctionUse == 2)
+            }
+            if (!i)
             {
                 foreach (NPC npc in Main.npc)
                 {
-                    if (npc.type == ModContent.NPCType<MKpuppet>()) npc.life = 0;
+                    if (npc.type == ModContent.NPCType<MKpuppet>())
+                        npc.life = 0;
                 }
             }
-            return base.UseItem(player);
-        }
-        public override bool AltFunctionUse(Player player)
-        {
+            i = !i;
+            foreach (NPC npc in Main.npc)
+            {
+                if (npc.boss && npc.CanBeChasedBy())
+                {
+                    i = true;
+                    return i;
+                }
+            }
             return true;
         }
     }

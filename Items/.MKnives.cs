@@ -4,10 +4,13 @@ using MysteriousKnives.Projectiles;
 using System.Collections.Generic;
 using System.Linq;
 using Terraria;
+using Terraria.Audio;
 using Terraria.DataStructures;
 using Terraria.GameContent.Creative;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
+using static MysteriousKnives.Buffs.MysteriousBuffs;
 
 namespace MysteriousKnives.Items
 {
@@ -61,7 +64,7 @@ namespace MysteriousKnives.Items
 
 		public class MK01 : MKnives
 		{
-			public override string Texture => "MysteriousKnives/Items/pictures/MK01";
+			public override string Texture => "MysteriousKnives/Pictures/Items/MK01";
 			public override void SetStaticDefaults()
 			{
 				DisplayName.SetDefault("诡秘飞刀I");
@@ -96,7 +99,7 @@ namespace MysteriousKnives.Items
 		}
 		public class MK02 : MKnives
 		{
-			public override string Texture => "MysteriousKnives/Items/pictures/MK02";
+			public override string Texture => "MysteriousKnives/Pictures/Items/MK02";
 			public override void SetStaticDefaults()
 			{
 				DisplayName.SetDefault("诡秘飞刀II");
@@ -130,7 +133,7 @@ namespace MysteriousKnives.Items
 		}
         public class MK03 : MKnives
 		{
-			public override string Texture => "MysteriousKnives/Items/pictures/MK03";
+			public override string Texture => "MysteriousKnives/Pictures/Items/MK03";
 			public override void SetStaticDefaults()
 			{
 				DisplayName.SetDefault("诡秘飞刀III");
@@ -165,7 +168,7 @@ namespace MysteriousKnives.Items
 		}
 		public class MK04 : MKnives
 		{
-			public override string Texture => "MysteriousKnives/Items/pictures/MK04";
+			public override string Texture => "MysteriousKnives/Pictures/Items/MK04";
 			public override void SetStaticDefaults()
 			{
 				DisplayName.SetDefault("诡秘飞刀IV");
@@ -200,7 +203,7 @@ namespace MysteriousKnives.Items
 		}
 		public class MK05 : MKnives
 		{
-			public override string Texture => "MysteriousKnives/Items/pictures/MK05";
+			public override string Texture => "MysteriousKnives/Pictures/Items/MK05";
 			public override void SetStaticDefaults()
 			{
 				DisplayName.SetDefault("诡秘飞刀V");
@@ -235,7 +238,7 @@ namespace MysteriousKnives.Items
 		}
 		public class MK06 : MKnives
 		{
-			public override string Texture => "MysteriousKnives/Items/pictures/MK06";
+			public override string Texture => "MysteriousKnives/Pictures/Items/MK06";
 			public override void SetStaticDefaults()
 			{
 				DisplayName.SetDefault("诡秘飞刀VI");
@@ -270,7 +273,7 @@ namespace MysteriousKnives.Items
 		}
 		public class MK07 : MKnives
 		{
-			public override string Texture => "MysteriousKnives/Items/pictures/MK07";
+			public override string Texture => "MysteriousKnives/Pictures/Items/MK07";
 			public override void SetStaticDefaults()
 			{
 				DisplayName.SetDefault("诡秘飞刀VII");
@@ -305,7 +308,7 @@ namespace MysteriousKnives.Items
 		}
 		public class MK08 : MKnives
 		{
-			public override string Texture => "MysteriousKnives/Items/pictures/MK08";
+			public override string Texture => "MysteriousKnives/Pictures/Items/MK08";
 			public override void SetStaticDefaults()
 			{
 				DisplayName.SetDefault("诡秘飞刀VIII");
@@ -340,7 +343,7 @@ namespace MysteriousKnives.Items
 		}
 		public class MK09 : MKnives
 		{
-			public override string Texture => "MysteriousKnives/Items/pictures/MK09";
+			public override string Texture => "MysteriousKnives/Pictures/Items/MK09";
 			public override void SetStaticDefaults()
 			{
 				DisplayName.SetDefault("诡秘飞刀IX");
@@ -375,7 +378,7 @@ namespace MysteriousKnives.Items
 		}
 		public class MK10 : MKnives
 		{
-			public override string Texture => "MysteriousKnives/Items/pictures/MK10";
+			public override string Texture => "MysteriousKnives/Pictures/Items/MK10";
 			public override void SetStaticDefaults()
 			{
 				DisplayName.SetDefault("诡秘飞刀·终末X");
@@ -384,31 +387,30 @@ namespace MysteriousKnives.Items
 
 			public override void SetDefaults()
 			{
-				Item.autoReuse = true;
+				Item.autoReuse = false;
 				Item.noMelee = true;
 				Item.noUseGraphic = true;
 				Item.DamageType = DamageClass.Melee;
-				Item.UseSound = SoundID.Item1;
 				Item.useStyle = ItemUseStyleID.Swing;
 				Item.damage = 30;
 				Item.crit = 100;
 				Item.knockBack = 6;
-				Item.useTime = 3;
-				Item.useAnimation = 20;
+				Item.useTime = 4;
+				Item.useAnimation = 4;
 				Item.value = Item.sellPrice(150, 0, 0, 0);
 				Item.rare = ItemRarityID.Green;
 				Item.shoot = ModContent.ProjectileType<MKboomX>();
 				Item.shootSpeed = 10f;
+				Item.channel = true;
 			}
-			
-            public override void ModifyShootStats(Player player, ref Vector2 position, ref Vector2 velocity, 
+			public override void ModifyShootStats(Player player, ref Vector2 position, ref Vector2 velocity, 
 				ref int type, ref int damage, ref float knockback)
             {
 				NPC target = null;
 				var npclist = new List<(NPC npcwho, float distance)>();
 				foreach (NPC npc in Main.npc )
 				{
-					if (npc.active && npc.life != 5 && !npc.friendly && npc.CanBeChasedBy())
+					if (npc.CanBeChasedBy() && !npc.dontTakeDamage)
 					{
 						float LNPC = Vector2.Distance(npc.Center, Main.MouseWorld);
 						npclist.Add((npc, LNPC));
@@ -416,10 +418,15 @@ namespace MysteriousKnives.Items
 				}
 				target = npclist.MinBy(t => t.distance).npcwho;
 
-				Projectile.NewProjectile(player.GetSource_ItemUse(Item),target.Center,
-					(Main.rand.Next(360) * MathHelper.Pi / 180f).ToRotationVector2() * 30f, 
+				if (player.channel && target != null)
+				{
+					player.itemTime = 2;
+					player.itemAnimation = 2;
+					Projectile.NewProjectile(player.GetSource_ItemUse(Item), target.Center,
+					(Main.rand.Next(360) * MathHelper.Pi / 180f).ToRotationVector2() * 30f,
 					Random(8), damage, knockback, 0);
-            }
+				}
+			}
 
             public override void AddRecipes()
 			{
