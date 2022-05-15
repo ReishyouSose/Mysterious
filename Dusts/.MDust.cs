@@ -3,6 +3,7 @@ using Terraria.ModLoader;
 using Terraria;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System;
 
 namespace MysteriousKnives.Dusts
 {
@@ -58,6 +59,8 @@ namespace MysteriousKnives.Dusts
 			}
 			public override bool Update(Dust dust)
 			{
+				float i = 0.001f; i += i;
+				if (dust.noGravity == false) dust.velocity.Y += 0.1f - i;
 				base.Update(dust);
 				Lighting.AddLight((int)(dust.position.X / 16f), (int)(dust.position.Y / 16f), 0.29f, 0.37f, 0.88f);
 				return false;
@@ -71,6 +74,7 @@ namespace MysteriousKnives.Dusts
 			public override string Texture => "MysteriousKnives/Pictures/Dusts/CBDust";
 			public override bool Update(Dust dust)
 			{
+				dust.velocity *= 0.9f;
 				base.Update(dust);
 				Lighting.AddLight((int)(dust.position.X / 16f), (int)(dust.position.Y / 16f), 1f, 0.39f, 0.22f);
 				return false;
@@ -84,6 +88,8 @@ namespace MysteriousKnives.Dusts
 			public override string Texture => "MysteriousKnives/Pictures/Dusts/ABDust";
 			public override bool Update(Dust dust)
 			{
+				float i = 0.001f; i += i;
+				if (dust.noGravity == false) dust.velocity.Y -= 0.1f - i;
 				base.Update(dust);
 				Lighting.AddLight((int)(dust.position.X / 16f), (int)(dust.position.Y / 16f), 0f, 0f, 0f);
 				return false;

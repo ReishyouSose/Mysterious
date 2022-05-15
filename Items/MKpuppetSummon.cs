@@ -38,6 +38,14 @@ namespace MysteriousKnives.Items
         public bool i = true;
         public override bool? UseItem(Player player)
         {
+            foreach (NPC npc in Main.npc)
+            {
+                if (npc.boss && npc.active)
+                {
+                    i = true;
+                    return i;
+                }
+            }
             if (i)
             {
                 NPC.NewNPC(player.GetSource_ItemUse(Item), (int)Main.MouseWorld.X, (int)Main.MouseWorld.Y,
@@ -52,14 +60,7 @@ namespace MysteriousKnives.Items
                 }
             }
             i = !i;
-            foreach (NPC npc in Main.npc)
-            {
-                if (npc.boss && npc.CanBeChasedBy())
-                {
-                    i = true;
-                    return i;
-                }
-            }
+            
             return true;
         }
     }

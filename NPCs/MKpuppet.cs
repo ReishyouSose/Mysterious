@@ -26,7 +26,7 @@ namespace MysteriousKnives.NPCs
             NPC.friendly = false;
             NPC.HitSound = SoundID.NPCHit1;
             NPC.DeathSound = SoundID.NPCDeath6;
-            NPC.value = Item.buyPrice(0, 0, 15, 0);
+            NPC.value = Item.buyPrice(0, 0, 0, 0);
             Main.npcFrameCount[NPC.type] = 3;
             NPC.noGravity = true;
             NPC.noTileCollide = false;

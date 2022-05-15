@@ -87,11 +87,11 @@ namespace MysteriousKnives.Buffs
                 npc.life = 1;
                 npc.StrikeNPC(1, 0, 0);
             }
-            for (int i = 0; i < 100; i++)
+            for (int i = 0; i < 200; i++)
             {
                 Dust dust = Dust.NewDustDirect(npc.position, npc.width, npc.height, ModContent.DustType<CBDust>());
                 dust.scale *= 3f;
-                dust.velocity *= 50;
+                dust.velocity *= 300;
                 dust.noGravity = false;
             }
             SoundEngine.PlaySound(SoundLoader.GetLegacySoundSlot("MysteriousKnives/Sounds/Boom"));
@@ -133,7 +133,12 @@ namespace MysteriousKnives.Buffs
                         ArstalEffect(player, 100);
                         break;
                 }
-                Dust.NewDustDirect(player.position, player.width, player.height, ModContent.DustType<ASDust>());
+                Dust dust = Dust.NewDustDirect(player.position, player.width, player.height, ModContent.DustType<ASDust>());
+                float t = Main.GameUpdateCount * 0.05f;
+                dust.scale *= 1.5f;
+                dust.position = player.Center + new Vector2((float)Math.Cos(t + Math.PI / 1.5f), 
+                    (float)Math.Sin(t + Math.PI / 1.5f)) * 100;
+                dust.velocity = new Vector2(0, 0);
                 base.Update(player, ref buffIndex);
             }
         }
@@ -156,10 +161,17 @@ namespace MysteriousKnives.Buffs
             public float multiple;
             public override void Update(NPC npc, ref int buffIndex)
             {
-                Dust.NewDustDirect(npc.position, npc.width, npc.height, ModContent.DustType<CBDust>());
                 if (npc.buffTime[buffIndex] > 0) count++;
                 else count = 0;
-                multiple = 1 + npc.buffTime[buffIndex] / 180f;
+                x = Math.Max(x, npc.buffTime[buffIndex]);
+                multiple = 1 + x / 180f;
+                Dust dust = Dust.NewDustDirect(npc.position, npc.width, npc.height, ModContent.DustType<CBDust>());
+                float t = Main.GameUpdateCount * 0.05f * (1 + count / 50f);
+                dust.scale *= 1.5f;
+                dust.position = npc.Center + new Vector2((float)Math.Cos(t),
+                    (float)(Math.Sin(t))) * 200 * (90000 - (float)Math.Pow(count, 2))/ 90000f;
+                dust.velocity = new Vector2(0, 0);
+                dust.alpha = (int)(100 - 5 * multiple);
                 base.Update(npc, ref buffIndex);
             }
         }
@@ -327,7 +339,11 @@ namespace MysteriousKnives.Buffs
             }
             public override void Update(NPC npc, ref int buffIndex)
             {
-                Dust.NewDustDirect(npc.position, npc.width, npc.height, ModContent.DustType<CSDust>());
+                Dust dust = Dust.NewDustDirect(npc.position, npc.width, npc.height, ModContent.DustType<CSDust>());
+                float t = Main.GameUpdateCount * 0.05f;
+                dust.scale *= 1.5f;
+                dust.position = npc.Center + new Vector2((float)(-Math.Cos(t) / 2f), (float)Math.Sin(t) / 5f) * 100;
+                dust.velocity = new Vector2(0, 0);
                 base.Update(npc, ref buffIndex);
             }
             public override bool ReApply(NPC npc, int time, int buffIndex)
@@ -397,7 +413,11 @@ namespace MysteriousKnives.Buffs
                         npc.GetGlobalNPC<MKGlobalNPC>().AB7 = true;
                         break;
                 }
-                Dust.NewDustDirect(npc.position, npc.width, npc.height, ModContent.DustType<ABDust>());
+                Dust dust = Dust.NewDustDirect(npc.position, npc.width, npc.height, ModContent.DustType<ABDust>());
+                float t = Main.GameUpdateCount * 0.05f;
+                dust.scale *= 1.5f;
+                dust.position = npc.Center + new Vector2((float)-Math.Sin(t) / 10f, (float)Math.Cos(t) / 20f - 0.5f) * 100f;
+                dust.noGravity = false;
                 base.Update(npc, ref buffIndex);
             }
         }
@@ -446,7 +466,11 @@ namespace MysteriousKnives.Buffs
                         RejuvenationEffect(player, 120);
                         break;
                 }
-                Dust.NewDustDirect(player.position, player.width, player.height, ModContent.DustType<RBDust>());
+                Dust dust = Dust.NewDustDirect(player.position, player.width, player.height, ModContent.DustType<RBDust>());
+                float t = Main.GameUpdateCount * 0.05f;
+                dust.scale *= 1.5f;
+                dust.position = player.Center + new Vector2((float)Math.Cos(t), (float)Math.Sin(t)) * 100;
+                dust.velocity = new Vector2(0, 0);
                 base.Update(player, ref buffIndex);
             }
         }
@@ -488,7 +512,12 @@ namespace MysteriousKnives.Buffs
                         StrengthEffect(player, 0.6f);
                         break;
                 }
-                Dust.NewDustDirect(player.position, player.width, player.height, ModContent.DustType<STDust>());
+                Dust dust = Dust.NewDustDirect(player.position, player.width, player.height, ModContent.DustType<STDust>());
+                float t = Main.GameUpdateCount * 0.05f;
+                dust.scale *= 1.5f;
+                dust.position = player.Center + new Vector2((float)Math.Cos(t - Math.PI / 1.5f),
+                    (float)Math.Sin(t - Math.PI / 1.5f)) * 100;
+                dust.velocity = new Vector2(0, 0);
                 base.Update(player, ref buffIndex);
             }
         }
@@ -523,7 +552,11 @@ namespace MysteriousKnives.Buffs
                         npc.GetGlobalNPC<MKGlobalNPC>().SK3 = true;
                         break;
                 }
-                Dust.NewDustDirect(npc.position, npc.width, npc.height, ModContent.DustType<SKDust>());
+                Dust dust = Dust.NewDustDirect(npc.position, npc.width, npc.height, ModContent.DustType<SKDust>());
+                float t = Main.GameUpdateCount * 0.05f;
+                dust.scale *= 1.5f;
+                dust.position = npc.Center + new Vector2((float)Math.Sin(t) / 10f, (float)Math.Cos(t) / 20f + 0.5f) * 100f;
+                dust.noGravity = false;
                 base.Update(npc, ref buffIndex);
             }
         }
@@ -563,7 +596,12 @@ namespace MysteriousKnives.Buffs
                             VemonDamage(npc, 50);
                             break;
                     }
-                Dust.NewDustDirect(npc.position, npc.width, npc.height, ModContent.DustType<WVDust>());
+                Dust dust = Dust.NewDustDirect(npc.position, npc.width, npc.height, ModContent.DustType<WVDust>());
+                float t = Main.GameUpdateCount * 0.05f;
+                dust.scale *= 1.5f;
+                dust.position = npc.Center + new Vector2((float)(-Math.Cos(t + Math.PI) / 2f), 
+                    (float)(Math.Sin(t + Math.PI) / 5f)) * 100;
+                dust.velocity = new Vector2(0, 0);
                 base.Update(npc, ref buffIndex);
             }
         }

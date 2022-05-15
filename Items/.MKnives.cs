@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using MysteriousKnives.Buffs;
 using MysteriousKnives.Projectiles;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Terraria;
@@ -11,6 +12,7 @@ using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 using static MysteriousKnives.Buffs.MysteriousBuffs;
+using static MysteriousKnives.Dusts.MDust;
 
 namespace MysteriousKnives.Items
 {
@@ -403,12 +405,12 @@ namespace MysteriousKnives.Items
 				Item.shootSpeed = 10f;
 				Item.channel = true;
 			}
-			public override void ModifyShootStats(Player player, ref Vector2 position, ref Vector2 velocity, 
-				ref int type, ref int damage, ref float knockback)
+            public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, 
+				Vector2 velocity, int type, int damage, float knockback)
             {
 				NPC target = null;
 				var npclist = new List<(NPC npcwho, float distance)>();
-				foreach (NPC npc in Main.npc )
+				foreach (NPC npc in Main.npc)
 				{
 					if (npc.CanBeChasedBy() && !npc.dontTakeDamage)
 					{
@@ -417,16 +419,13 @@ namespace MysteriousKnives.Items
 					}
 				}
 				target = npclist.MinBy(t => t.distance).npcwho;
-
 				if (player.channel && target != null)
-				{
-					player.itemTime = 2;
-					player.itemAnimation = 2;
+                {
 					Projectile.NewProjectile(player.GetSource_ItemUse(Item), target.Center,
-					(Main.rand.Next(360) * MathHelper.Pi / 180f).ToRotationVector2() * 30f,
-					Random(8), damage, knockback, 0);
+					new Vector2(0, 0), Item.shoot, damage, knockback, player.whoAmI);
 				}
-			}
+				return false;
+            }
 
             public override void AddRecipes()
 			{

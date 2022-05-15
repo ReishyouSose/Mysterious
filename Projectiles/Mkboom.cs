@@ -6,6 +6,7 @@ using Terraria.ID;
 using static Terraria.ModLoader.PlayerDrawLayer;
 using static MysteriousKnives.Dusts.MDust;
 using static MysteriousKnives.Items.MKnives;
+using Terraria.DataStructures;
 
 namespace MysteriousKnives.Projectiles
 {
@@ -58,6 +59,38 @@ namespace MysteriousKnives.Projectiles
             Projectile.alpha = 255;
             Main.projFrames[Projectile.type] = 1;//动画被分成几份
             base.SetDefaults();
+        }
+        public override void OnSpawn(IEntitySource source)
+        {
+            base.OnSpawn(source);
+        }
+        public override void AI()
+        {
+            Player player = Main.player[Projectile.owner];
+            if (player.channel)
+            {
+                player.itemTime = 2;
+                player.itemAnimation = 2;
+                Projectile.NewProjectile(Projectile.GetSource_FromAI(), Projectile.Center,
+                (Main.rand.Next(360) * MathHelper.Pi / 180f).ToRotationVector2() * 30f,
+                Random(8), Projectile.damage, Projectile.knockBack, player.whoAmI);
+                float t = Main.GameUpdateCount * 0.1f;
+                for (int i = 0; i < 36; i++)
+                {
+                    Dust dust = Dust.NewDustDirect(Projectile.Center, Projectile.width, Projectile.height,
+                        ModContent.DustType<RanbowDust>());
+                    dust.position = Projectile.Center + new Vector2((float)Math.Cos(Math.PI / 18 * (i + t)),
+                        (float)Math.Sin(Math.PI / 18 * (i + t))) * ((float)Math.Cos(t / 2) / 10 + 1) * 100f;
+                }
+                for (int i = 0; i < 36; i++)
+                {
+                    Dust dust = Dust.NewDustDirect(Projectile.Center, Projectile.width, Projectile.height,
+                        ModContent.DustType<RanbowDust>());
+                    dust.position = Projectile.Center + new Vector2((float)-Math.Cos(Math.PI / 18 * (i + t)),
+                        (float)Math.Sin(Math.PI / 18 * (i + t))) * ((float)Math.Cos(t / 2 + Math.PI) / 10 + 1) * 100f;
+                }
+
+            }
         }
     }
 }

@@ -121,7 +121,7 @@ namespace MysteriousKnives.Projectiles
         {
             for (int i = 0; i <= cn + Main.rand.Next(rn); i++)
             {
-                Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.position,
+                Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.Center,
                     (Main.rand.Next(360) * MathHelper.Pi / 180f).ToRotationVector2() * 20f,
                     Random(lv), Projectile.damage, Projectile.knockBack, 0);
             }
@@ -574,8 +574,8 @@ namespace MysteriousKnives.Projectiles
             //Lighting.AddLight(Projectile.position, 0.9f, 0.63f, 1f);//RGB
             if (Projectile.timeLeft < 594)//弹幕粒子效果
             {
-                Dust dust = Dust.NewDustDirect(Projectile.position, Projectile.width, Projectile.height
-                    , ModContent.DustType<CSDust>());
+                Dust dust = Dust.NewDustDirect(Projectile.position, Projectile.width, Projectile.height, 
+                    ModContent.DustType<CSDust>());
                 // 粒子特效不受重力
                 dust.alpha = 30;
                 dust.noGravity = true;
@@ -619,11 +619,9 @@ namespace MysteriousKnives.Projectiles
                     Main.DiscoR / 255f, Main.DiscoG / 255f, Main.DiscoB / 255f);
             if (Projectile.timeLeft < 177)//弹幕粒子效果
             {
-                Dust dust = Dust.NewDustDirect(Projectile.position,
+                Dust dust = Dust.NewDustDirect(Projectile.Center,
                     Projectile.width + Main.rand.Next(-5, 5), Projectile.height + Main.rand.Next(-5, 5),
                     ModContent.DustType<RanbowDust>(), 0f, 0f, 0, default, 1f);
-                // 粒子特效不受重力
-                dust.alpha = 30;
                 dust.scale *= 2f;
             }
 
@@ -631,14 +629,12 @@ namespace MysteriousKnives.Projectiles
         public override void Kill(int timeLeft)
         {
             Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.Center, Projectile.velocity,
-                ModContent.ProjectileType<MKboom>(), 10, 20, 0);
+                ModContent.ProjectileType<MKboom>(), Projectile.damage, 20, 0);
             SoundEngine.PlaySound(SoundID.Item14);
             for (int i = 0; i < 100; i++)
             {
-                Dust dust = Dust.NewDustDirect(Projectile.position, Projectile.width, Projectile.height,
+                Dust dust = Dust.NewDustDirect(Projectile.Center, Projectile.width, Projectile.height,
                     ModContent.DustType<RanbowDust>(), 0f, 0f, 0, default, 1f);
-                // 粒子特效不受重力
-                dust.alpha = 30;
                 dust.scale *= 1.5f;
                 dust.velocity *= 50;
                 dust.noGravity = false;
@@ -664,9 +660,8 @@ namespace MysteriousKnives.Projectiles
         {
             for (int i = 0; i < 100; i++)
             {
-                Dust dust = Dust.NewDustDirect(Projectile.position, Projectile.width, Projectile.height
-                   , ModContent.DustType<RanbowDust>(), 0f, 0f, 0, default, 1f);
-                dust.alpha = 30;
+                Dust dust = Dust.NewDustDirect(Projectile.Center, Projectile.width, Projectile.height, 
+                    ModContent.DustType<RanbowDust>(), 0f, 0f, 0, default, 1f);
                 dust.scale *= 2f;
                 dust.velocity *= 50;
                 dust.noGravity = false;
