@@ -4,6 +4,7 @@ using MysteriousKnives.Projectiles;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Channels;
 using Terraria;
 using Terraria.Audio;
 using Terraria.DataStructures;
@@ -393,7 +394,7 @@ namespace MysteriousKnives.Items
 				Item.noMelee = true;
 				Item.noUseGraphic = true;
 				Item.DamageType = DamageClass.Melee;
-				Item.useStyle = ItemUseStyleID.Swing;
+				Item.useStyle = ItemUseStyleID.Shoot;
 				Item.damage = 30;
 				Item.crit = 100;
 				Item.knockBack = 6;
@@ -401,12 +402,11 @@ namespace MysteriousKnives.Items
 				Item.useAnimation = 4;
 				Item.value = Item.sellPrice(150, 0, 0, 0);
 				Item.rare = ItemRarityID.Green;
-				Item.shoot = ModContent.ProjectileType<MKboomX>();
+				Item.shoot = ModContent.ProjectileType<MKchannel>();
 				Item.shootSpeed = 10f;
 				Item.channel = true;
 			}
-            public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, 
-				Vector2 velocity, int type, int damage, float knockback)
+            public override bool CanUseItem(Player player)
             {
 				NPC target = null;
 				var npclist = new List<(NPC npcwho, float distance)>();
@@ -419,14 +419,15 @@ namespace MysteriousKnives.Items
 					}
 				}
 				target = npclist.MinBy(t => t.distance).npcwho;
-				if (player.channel && target != null)
-                {
-					Projectile.NewProjectile(player.GetSource_ItemUse(Item), target.Center,
-					new Vector2(0, 0), Item.shoot, damage, knockback, player.whoAmI);
-				}
-				return false;
+				if (target != null) return true;
+				else return false;
             }
-
+            public override void HoldItem(Player player)
+            {
+				player.AddBuff(ModContent.BuffType<RejuvenationBlessing>(), 8 * 180);
+				player.AddBuff(ModContent.BuffType<StrengthEX>(), 6 * 180);
+				player.AddBuff(ModContent.BuffType<AstralRay>(), 4 * 180);
+			}
             public override void AddRecipes()
 			{
 				Recipe recipe = CreateRecipe();
