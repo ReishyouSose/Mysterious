@@ -11,6 +11,7 @@ using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 using static MysteriousKnives.Dusts.MDust;
+using static MysteriousKnives.NPCs.MKGlobalNPC;
 
 namespace MysteriousKnives.Buffs
 {
@@ -38,30 +39,19 @@ namespace MysteriousKnives.Buffs
             Segment.Time = player.buffTime[buffIndex];
             base.Update(player, ref buffIndex);
         }
-
-
-        //定义方法
         public static void VemonDamage(NPC npc, int damage)
         {
             npc.life -= damage;
-            if (npc.life <= 0)
-            {
-                npc.life = 1;
-                npc.StrikeNPC(1, 0, 0);
-            }
-            CombatText.NewText(new Rectangle((int)npc.Center.X, (int)npc.Center.Y - 20, npc.width, npc.height),
-                    new Color(180, 230, 50), damage, false, false);
+            NPCnormalDead(npc);
+            CombatText.NewText(new Rectangle((int)npc.position.X, (int)npc.Center.Y - Main.rand.Next(10, 30), 
+                npc.width, npc.height), new Color(180, 230, 50), damage, false, false);
         }
         public static void CrystalDamage(NPC npc, int damage)
         {
             npc.life -= damage;
-            if (npc.life <= 0)
-            {
-                npc.life = 1;
-                npc.StrikeNPC(1, 0, 0);
-            }
-            CombatText.NewText(new Rectangle((int)npc.Center.X, (int)npc.Center.Y - 20, npc.width, npc.height),
-                   new Color(230, 161, 255), damage, false, false);
+            NPCnormalDead(npc);
+            CombatText.NewText(new Rectangle((int)npc.position.X, (int)npc.Center.Y - Main.rand.Next(10, 30), 
+                npc.width, npc.height), new Color(230, 161, 255), damage, false, false);
         }
         public static void RejuvenationEffect(Player player, int boost)
         {
@@ -78,15 +68,11 @@ namespace MysteriousKnives.Buffs
         public static void ConBurst(NPC npc, float multiple, int baseamount)
         {
             multiple = Math.Min(multiple, 20);
-            npc.life -= (int)(baseamount * multiple);
-            CombatText.NewText(new Rectangle((int)npc.Center.X, (int)npc.Center.Y - 20, npc.width, npc.height),
-                    new Color(255, 100, 56), (int)(baseamount * multiple), false, false);
-            //Main.NewText((int)(baseamount * multiple));
-            if (npc.life <= 0)
-            {
-                npc.life = 1;
-                npc.StrikeNPC(1, 0, 0);
-            }
+            int damage = (int)(baseamount * multiple);
+            npc.life -= damage;
+            CombatText.NewText(new Rectangle((int)npc.position.X, (int)npc.Center.Y - Main.rand.Next(10, 30), 
+                npc.width, npc.height), new Color(255, 100, 56), damage, false, false);
+            NPCnormalDead(npc);
             for (int i = 0; i < 200; i++)
             {
                 Dust dust = Dust.NewDustDirect(npc.position, npc.width, npc.height, ModContent.DustType<CBDust>());
@@ -96,9 +82,6 @@ namespace MysteriousKnives.Buffs
             }
             SoundEngine.PlaySound(SoundLoader.GetLegacySoundSlot("MysteriousKnives/Sounds/Boom"));
         }
-
-
-
         /// <summary>
         /// 星辉射线
         /// </summary>
@@ -115,7 +98,6 @@ namespace MysteriousKnives.Buffs
                 Main.buffNoSave[Type] = false;
                 Segment.PlayerSegment = 180;
             }
-
             public override void Update(Player player, ref int buffIndex)
             {
                 switch (Segment.GetPlayerBuffSegment())
@@ -138,7 +120,7 @@ namespace MysteriousKnives.Buffs
                 dust.scale *= 1.5f;
                 dust.position = player.Center + new Vector2((float)Math.Cos(t + Math.PI / 1.5f), 
                     (float)Math.Sin(t + Math.PI / 1.5f)) * 100;
-                dust.velocity = new Vector2(0, 0);
+                dust.velocity *= 0;
                 base.Update(player, ref buffIndex);
             }
         }
@@ -157,167 +139,115 @@ namespace MysteriousKnives.Buffs
                 Main.buffNoSave[Type] = false;
                 base.SetStaticDefaults();
             }
-            public int count = 0, x = 0;
+            public int count = 1, x = 0;
             public float multiple;
             public override void Update(NPC npc, ref int buffIndex)
             {
                 if (npc.buffTime[buffIndex] > 0) count++;
-                else count = 0;
+                else count = 1;
                 x = Math.Max(x, npc.buffTime[buffIndex]);
                 multiple = 1 + x / 180f;
-                Dust dust = Dust.NewDustDirect(npc.position, npc.width, npc.height, ModContent.DustType<CBDust>());
-                float t = Main.GameUpdateCount * 0.05f * (1 + count / 50f);
-                dust.scale *= 1.5f;
-                dust.position = npc.Center + new Vector2((float)Math.Cos(t),
-                    (float)(Math.Sin(t))) * 200 * (90000 - (float)Math.Pow(count, 2))/ 90000f;
-                dust.velocity = new Vector2(0, 0);
-                dust.alpha = (int)(100 - 5 * multiple);
+                float t = Main.GameUpdateCount * 0.1f * (1 + count / 150);
+                for (int i = 0; i < 6; i++)
+                {
+                    Dust dust = Dust.NewDustDirect(npc.position, npc.width, npc.height, ModContent.DustType<CBDust>());
+                    dust.scale *= 1.5f;
+                    dust.position = npc.Center + new Vector2((float)Math.Cos(t + Math.PI / 3 * i) * (int)Math.Pow(-1, i),
+                        (float)(Math.Sin(t + Math.PI / 3 * i)))* 200 * (float)Math.Sin(Math.PI * (1.5 + 0.5 / 300 * count));
+                    dust.velocity *= 0;
+                    dust.alpha = (int)(100 - 5 * multiple);
+                }
                 base.Update(npc, ref buffIndex);
+            }
+            public override bool ReApply(NPC npc, int time, int buffIndex)
+            {
+                npc.buffTime[buffIndex] += time;
+                return true;
             }
         }
         public class ConvergentBurst1 : ConvergentBurst
         {
             public override string Texture => "MysteriousKnives/Pictures/Buffs/ConvergentBurst1";
-            public override void SetStaticDefaults()
-            {
-                base.SetStaticDefaults();
-            }
             public override void Update(NPC npc, ref int buffIndex)
             {
                 if (count > 300)
                 {
                     ConBurst(npc, multiple, 50);
-                    count = 0;
                     x = 0;
                     npc.DelBuff(buffIndex);
                     return;
                 }
                 base.Update(npc, ref buffIndex);
             }
-            public override bool ReApply(NPC npc, int time, int buffIndex)
-            {
-                npc.buffTime[buffIndex] += time;
-                return true;
-            }
         }
         public class ConvergentBurst2 : ConvergentBurst
         {
             public override string Texture => "MysteriousKnives/Pictures/Buffs/ConvergentBurst2";
-            public override void SetStaticDefaults()
-            {
-                base.SetStaticDefaults();
-            }
             public override void Update(NPC npc, ref int buffIndex)
             {
                 if (count > 300)
                 {
                     ConBurst(npc, multiple, 200);
-                    count = 0;
                     x = 0;
                     npc.DelBuff(buffIndex);
                 }
                 base.Update(npc, ref buffIndex);
-            }
-            public override bool ReApply(NPC npc, int time, int buffIndex)
-            {
-                npc.buffTime[buffIndex] += time;
-                return true;
             }
         }
         public class ConvergentBurst3 : ConvergentBurst
         {
             public override string Texture => "MysteriousKnives/Pictures/Buffs/ConvergentBurst3";
-            public override void SetStaticDefaults()
-            {
-                base.SetStaticDefaults();
-            }
             public override void Update(NPC npc, ref int buffIndex)
             {
                 if (count > 300)
                 {
                     ConBurst(npc, multiple, 250);
-                    count = 0;
                     x = 0;
                     npc.DelBuff(buffIndex);
                 }
                 base.Update(npc, ref buffIndex);
-            }
-            public override bool ReApply(NPC npc, int time, int buffIndex)
-            {
-                npc.buffTime[buffIndex] += time;
-                return true;
             }
         }
         public class ConvergentBurst4 : ConvergentBurst
         {
             public override string Texture => "MysteriousKnives/Pictures/Buffs/ConvergentBurst4";
-            public override void SetStaticDefaults()
-            {
-                base.SetStaticDefaults();
-            }
             public override void Update(NPC npc, ref int buffIndex)
             {
                 if (count > 300)
                 {
                     ConBurst(npc, multiple, 500);
-                    count = 0;
                     x = 0;
                     npc.DelBuff(buffIndex);
                 }
                 base.Update(npc, ref buffIndex);
-            }
-            public override bool ReApply(NPC npc, int time, int buffIndex)
-            {
-                npc.buffTime[buffIndex] += time;
-                return true;
             }
         }
         public class ConvergentBurst5 : ConvergentBurst
         {
             public override string Texture => "MysteriousKnives/Pictures/Buffs/ConvergentBurst5";
-            public override void SetStaticDefaults()
-            {
-                base.SetStaticDefaults();
-            }
             public override void Update(NPC npc, ref int buffIndex)
             {
                 if (count > 300)
                 {
                     ConBurst(npc, multiple, 1500);
-                    count = 0;
                     x = 0;
                     npc.DelBuff(buffIndex);
                 }
                 base.Update(npc, ref buffIndex);
-            }
-            public override bool ReApply(NPC npc, int time, int buffIndex)
-            {
-                npc.buffTime[buffIndex] += time;
-                return true;
             }
         }
         public class ConvergentBurst6 : ConvergentBurst
         {
             public override string Texture => "MysteriousKnives/Pictures/Buffs/ConvergentBurst6";
-            public override void SetStaticDefaults()
-            {
-                base.SetStaticDefaults();
-            }
             public override void Update(NPC npc, ref int buffIndex)
             {
                 if (count > 300)
                 {
                     ConBurst(npc, multiple, 3000);
-                    count = 0;
                     x = 0;
                     npc.DelBuff(buffIndex);
                 }
                 base.Update(npc, ref buffIndex);
-            }
-            public override bool ReApply(NPC npc, int time, int buffIndex)
-            {
-                npc.buffTime[buffIndex] += time;
-                return true;
             }
         }
         /// <summary>
@@ -335,7 +265,6 @@ namespace MysteriousKnives.Buffs
                 Main.debuff[Type] = true;
                 Main.buffNoSave[Type] = false;
                 Segment.NPCSegment = 60;
-                Segment.PlayerSegment = 60;
             }
             public override void Update(NPC npc, ref int buffIndex)
             {
@@ -343,7 +272,7 @@ namespace MysteriousKnives.Buffs
                 float t = Main.GameUpdateCount * 0.05f;
                 dust.scale *= 1.5f;
                 dust.position = npc.Center + new Vector2((float)(-Math.Cos(t) / 2f), (float)Math.Sin(t) / 5f) * 100;
-                dust.velocity = new Vector2(0, 0);
+                dust.velocity *= 0;
                 base.Update(npc, ref buffIndex);
             }
             public override bool ReApply(NPC npc, int time, int buffIndex)
@@ -384,7 +313,6 @@ namespace MysteriousKnives.Buffs
                 Main.debuff[Type] = true;
                 Main.buffNoSave[Type] = false;
                 Segment.NPCSegment = 180;
-                Segment.PlayerSegment = 180;
             }
 
             public override void Update(NPC npc, ref int buffIndex)
@@ -470,7 +398,7 @@ namespace MysteriousKnives.Buffs
                 float t = Main.GameUpdateCount * 0.05f;
                 dust.scale *= 1.5f;
                 dust.position = player.Center + new Vector2((float)Math.Cos(t), (float)Math.Sin(t)) * 100;
-                dust.velocity = new Vector2(0, 0);
+                dust.velocity *= 0;
                 base.Update(player, ref buffIndex);
             }
         }
@@ -517,7 +445,7 @@ namespace MysteriousKnives.Buffs
                 dust.scale *= 1.5f;
                 dust.position = player.Center + new Vector2((float)Math.Cos(t - Math.PI / 1.5f),
                     (float)Math.Sin(t - Math.PI / 1.5f)) * 100;
-                dust.velocity = new Vector2(0, 0);
+                dust.velocity *= 0;
                 base.Update(player, ref buffIndex);
             }
         }
@@ -601,7 +529,7 @@ namespace MysteriousKnives.Buffs
                 dust.scale *= 1.5f;
                 dust.position = npc.Center + new Vector2((float)(-Math.Cos(t + Math.PI) / 2f), 
                     (float)(Math.Sin(t + Math.PI) / 5f)) * 100;
-                dust.velocity = new Vector2(0, 0);
+                dust.velocity *= 0;
                 base.Update(npc, ref buffIndex);
             }
         }

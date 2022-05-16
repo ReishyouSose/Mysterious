@@ -21,7 +21,7 @@ namespace MysteriousKnives.Dusts
         public override bool Update(Dust dust)
         {
 			dust.position += dust.velocity;
-			dust.rotation += dust.velocity.X;
+			dust.rotation += (float)Math.PI / 180f;
 			dust.scale -= 0.04f;
 			if (dust.scale < 0f)
 			{

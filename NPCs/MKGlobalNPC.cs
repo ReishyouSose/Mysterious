@@ -1,6 +1,7 @@
 ﻿using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria;
+using static MysteriousKnives.Buffs.MysteriousBuffs;
 
 namespace MysteriousKnives.NPCs
 {
@@ -30,7 +31,20 @@ namespace MysteriousKnives.NPCs
             AB5 = false;
             AB6 = false;
             AB7 = false;
+            npc.buffImmune[ModContent.BuffType<IndescribableFear>()] = false;
+            npc.buffImmune[ModContent.BuffType<ConvergentBurst>()] = false;
+            npc.buffImmune[ModContent.BuffType<Crystallization>()] = false;
+            npc.buffImmune[ModContent.BuffType<SunkerCancer>()] = false;
+            npc.buffImmune[ModContent.BuffType<WeirdVemon>()] = false;
             base.ResetEffects(npc);
+        }
+        public static void NPCnormalDead(NPC npc)
+        {
+            if (npc.life <= 0)
+            {
+                npc.life = 1;
+                npc.StrikeNPC(1, 0, 0, true);
+            }
         }
         public override void ModifyHitPlayer(NPC npc, Player target, ref int damage, ref bool crit)
         {

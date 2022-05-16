@@ -14,23 +14,12 @@ using Terraria.Localization;
 using Terraria.ModLoader;
 using static MysteriousKnives.Buffs.MysteriousBuffs;
 using static MysteriousKnives.Dusts.MDust;
+using static MysteriousKnives.Projectiles.MysteriousKnife;
 
 namespace MysteriousKnives.Items
 {
 	public abstract class MKnives : ModItem
 	{
-		public static int Random(int rand)
-		{
-			int i = Main.rand.Next(rand);
-			if (i == 0) return ModContent.ProjectileType<RBKnife>();
-			else if (i == 1) return ModContent.ProjectileType<WVKnife>();
-			else if (i == 2) return ModContent.ProjectileType<SKKnife>();
-			else if (i == 3) return ModContent.ProjectileType<CSKnife>();
-			else if (i == 4) return ModContent.ProjectileType<ABKnife>();
-			else if (i == 5) return ModContent.ProjectileType<CBKnife>();
-			else if (i == 6) return ModContent.ProjectileType<STKnife>();
-			else return ModContent.ProjectileType<ASKnife>();
-		}
 		public override void SetDefaults()
 		{
 			Item.width = 32;
@@ -48,7 +37,6 @@ namespace MysteriousKnives.Items
 			Item.UseSound = SoundID.Item113;
 			base.SetDefaults();
 		}
-		public abstract void GiveCsBuffs(NPC target);
 
 		/*
         public override void ModifyShootStats(Player player, ref Vector2 position, ref Vector2 velocity, 
@@ -94,11 +82,6 @@ namespace MysteriousKnives.Items
 				recipe.AddTile(TileID.WorkBenches);
 				recipe.Register();
 			}
-
-			public override void GiveCsBuffs(NPC target)
-			{
-				target.AddBuff(ModContent.BuffType<Crystallization>(), 60);
-			}
 		}
 		public class MK02 : MKnives
 		{
@@ -128,11 +111,6 @@ namespace MysteriousKnives.Items
                 recipe.AddTile(TileID.WorkBenches);
                 recipe.Register();
             }
-
-			public override void GiveCsBuffs(NPC target)
-			{
-				target.AddBuff(ModContent.BuffType<Crystallization>(), 60);
-			}
 		}
         public class MK03 : MKnives
 		{
@@ -162,11 +140,6 @@ namespace MysteriousKnives.Items
 				recipe.AddIngredient(ItemID.DirtBlock, 10);
 				recipe.AddTile(TileID.WorkBenches);
 				recipe.Register();
-			}
-
-			public override void GiveCsBuffs(NPC target)
-			{
-				target.AddBuff(ModContent.BuffType<Crystallization>(), 120);
 			}
 		}
 		public class MK04 : MKnives
@@ -198,11 +171,6 @@ namespace MysteriousKnives.Items
 				recipe.AddTile(TileID.WorkBenches);
 				recipe.Register();
 			}
-
-			public override void GiveCsBuffs(NPC target)
-			{
-				target.AddBuff(ModContent.BuffType<Crystallization>(), 180);
-			}
 		}
 		public class MK05 : MKnives
 		{
@@ -232,11 +200,6 @@ namespace MysteriousKnives.Items
 				recipe.AddIngredient(ItemID.DirtBlock, 10);
 				recipe.AddTile(TileID.WorkBenches);
 				recipe.Register();
-			}
-
-			public override void GiveCsBuffs(NPC target)
-			{
-				target.AddBuff(ModContent.BuffType<Crystallization>(), 180);
 			}
 		}
 		public class MK06 : MKnives
@@ -268,11 +231,6 @@ namespace MysteriousKnives.Items
 				recipe.AddTile(TileID.WorkBenches);
 				recipe.Register();
 			}
-
-			public override void GiveCsBuffs(NPC target)
-			{
-				target.AddBuff(ModContent.BuffType<Crystallization>(), 240);
-			}
 		}
 		public class MK07 : MKnives
 		{
@@ -302,11 +260,6 @@ namespace MysteriousKnives.Items
 				recipe.AddIngredient(ItemID.DirtBlock, 10);
 				recipe.AddTile(TileID.WorkBenches);
 				recipe.Register();
-			}
-
-			public override void GiveCsBuffs(NPC target)
-			{
-				target.AddBuff(ModContent.BuffType<Crystallization>(), 240);
 			}
 		}
 		public class MK08 : MKnives
@@ -338,11 +291,6 @@ namespace MysteriousKnives.Items
 				recipe.AddTile(TileID.WorkBenches);
 				recipe.Register();
 			}
-
-			public override void GiveCsBuffs(NPC target)
-			{
-				target.AddBuff(ModContent.BuffType<Crystallization>(), 240);
-			}
 		}
 		public class MK09 : MKnives
 		{
@@ -373,11 +321,6 @@ namespace MysteriousKnives.Items
 				recipe.AddTile(TileID.WorkBenches);
 				recipe.Register();
 			}
-
-			public override void GiveCsBuffs(NPC target)
-			{
-				target.AddBuff(ModContent.BuffType<Crystallization>(), 300);
-			}
 		}
 		public class MK10 : MKnives
 		{
@@ -395,11 +338,11 @@ namespace MysteriousKnives.Items
 				Item.noUseGraphic = true;
 				Item.DamageType = DamageClass.Melee;
 				Item.useStyle = ItemUseStyleID.Shoot;
-				Item.damage = 30;
+				Item.damage = 300;
 				Item.crit = 100;
 				Item.knockBack = 6;
-				Item.useTime = 4;
-				Item.useAnimation = 4;
+				Item.useTime = 2;
+				Item.useAnimation = 2;
 				Item.value = Item.sellPrice(150, 0, 0, 0);
 				Item.rare = ItemRarityID.Green;
 				Item.shoot = ModContent.ProjectileType<MKchannel>();
@@ -409,18 +352,15 @@ namespace MysteriousKnives.Items
             public override bool CanUseItem(Player player)
             {
 				NPC target = null;
-				var npclist = new List<(NPC npcwho, float distance)>();
 				foreach (NPC npc in Main.npc)
-				{
-					if (npc.CanBeChasedBy() && !npc.dontTakeDamage)
-					{
-						float LNPC = Vector2.Distance(npc.Center, Main.MouseWorld);
-						npclist.Add((npc, LNPC));
-					}
-				}
-				target = npclist.MinBy(t => t.distance).npcwho;
+				if (npc.CanBeChasedBy() && !npc.dontTakeDamage) 
+					target = npc;
 				if (target != null) return true;
 				else return false;
+            }
+            public override bool AltFunctionUse(Player player)
+            {
+                return true;
             }
             public override void HoldItem(Player player)
             {
@@ -434,11 +374,6 @@ namespace MysteriousKnives.Items
 				recipe.AddIngredient(ItemID.DirtBlock, 10);
 				recipe.AddTile(TileID.WorkBenches);
 				recipe.Register();
-			}
-
-			public override void GiveCsBuffs(NPC target)
-			{
-				target.AddBuff(ModContent.BuffType<Crystallization>(), 300);
 			}
 		}
 	}
