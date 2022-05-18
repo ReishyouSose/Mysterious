@@ -10,7 +10,6 @@ using Terraria.Audio;
 
 namespace MysteriousKnives.Projectiles
 {
-    
     public abstract class MysteriousKnife : ModProjectile
     {
         public static int Random(int rand)
