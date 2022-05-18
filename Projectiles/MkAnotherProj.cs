@@ -84,7 +84,8 @@ namespace MysteriousKnives.Projectiles
             float t = Main.GameUpdateCount * 0.1f;
             if (dis <= 10) dis++;
             if (dis > 10) dis = 10 * ((float)-Math.Cos(t / 1.25) / 10 + 1f);
-            int fluctuationDamage = (int)(Projectile.damage * (float)(3 + 0.3f * Main.rand.Next(-10, 10)));
+            int fluctuationDamage = (int)(Projectile.damage * (float)(3 + 0.3f * Main.rand.Next(-10, 10)) 
+                                    * target.takenDamageMultiplier * 1.5f);
             if (player.dead) Projectile.Kill();
             if (player.channel)
             {
