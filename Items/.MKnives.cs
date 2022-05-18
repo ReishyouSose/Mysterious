@@ -358,10 +358,6 @@ namespace MysteriousKnives.Items
 				if (target != null) return true;
 				else return false;
             }
-            public override bool AltFunctionUse(Player player)
-            {
-                return true;
-            }
             public override void HoldItem(Player player)
             {
 				player.AddBuff(ModContent.BuffType<RejuvenationBlessing>(), 8 * 180);

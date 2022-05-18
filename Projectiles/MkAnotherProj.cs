@@ -11,6 +11,7 @@ using Terraria.Audio;
 using System.Collections.Generic;
 using System.Linq;
 using static MysteriousKnives.Buffs.MysteriousBuffs;
+using static MysteriousKnives.NPCs.MKGlobalNPC;
 
 namespace MysteriousKnives.Projectiles
 {
@@ -23,8 +24,8 @@ namespace MysteriousKnives.Projectiles
         }
         public override void SetDefaults()
         {
-            Projectile.width = 15;//宽
-            Projectile.height = 15;//高
+            Projectile.width = 16;//宽
+            Projectile.height = 16;//高
             Projectile.scale = 20f;//体积倍率
             Projectile.timeLeft = 1;//存在时间60 = 1秒
             Projectile.DamageType = DamageClass.Melee;// 伤害类型
@@ -63,7 +64,7 @@ namespace MysteriousKnives.Projectiles
         {
             SoundEngine.PlaySound(SoundLoader.GetLegacySoundSlot("MysteriousKnives/Sounds/Channel"));
         }
-        public int dis = 0;
+        public float dis = 0;
         public override void AI()
         {
 
@@ -80,23 +81,26 @@ namespace MysteriousKnives.Projectiles
             }
             target = npclist.MinBy(t => t.distance).npcwho;
 
-            if (dis < 10) dis++;
-            int fluctuationDamage = (int)(Projectile.damage * (float)(1 + 0.1 * Main.rand.Next(-10, 10)));
+            float t = Main.GameUpdateCount * 0.1f;
+            if (dis <= 10) dis++;
+            if (dis > 10) dis = 10 * ((float)-Math.Cos(t / 1.25) / 10 + 1f);
+            int fluctuationDamage = (int)(Projectile.damage * (float)(3 + 0.3f * Main.rand.Next(-10, 10)));
             if (player.dead) Projectile.Kill();
             if (player.channel)
             {
                 player.itemTime = 2;
                 player.itemAnimation = 2;
-                //target.StrikeNPC(fluctuationDamage, 0, 0, true, true);
-                target.life -= fluctuationDamage;
-                player.addDPS(fluctuationDamage);
-                if (target.life <= 0)
+                if (Main.GameUpdateCount % 3 == 0)
                 {
-                    target.life = 1;
-                    target.StrikeNPC(1, 0, 0, true);
+                    target.life -= fluctuationDamage;
+                    if (target.realLife != -1)
+                        Main.npc[target.realLife].life -= fluctuationDamage;
+                    player.addDPS(fluctuationDamage);
+                    CombatText.NewText(new Rectangle((int)target.position.X + Main.rand.Next(-32, 32),
+                        (int)target.Center.Y - Main.rand.Next(16, 32), target.width, target.height),
+                        new Color(Main.DiscoR, Main.DiscoG, Main.DiscoB), fluctuationDamage);
                 }
-                CombatText.NewText(new Rectangle((int)target.position.X, (int)target.Center.Y - Main.rand.Next(10,30), 
-                    target.width, target.height),new Color(Main.DiscoR, Main.DiscoG, Main.DiscoB), fluctuationDamage);
+                NPCnormalDead(target);
                 switch (Main.rand.Next(8))
                 {
                     case 0: target.AddBuff(ModContent.BuffType<Crystallization>(), 300); break;
@@ -107,30 +111,65 @@ namespace MysteriousKnives.Projectiles
                     case 5:
                         if (player.statLife < player.statLifeMax2)
                         {
-                            int i = (player.statLifeMax2 - player.statLife) / 20;
-                            player.statLife += i;
-                            player.HealEffect(i);
+                            Vector2 targetVec = player.Center - Projectile.Center;
+                            targetVec.Normalize();
+                            Projectile.NewProjectile(Projectile.GetSource_FromAI(), target.Center,
+                                targetVec * (Main.rand.Next(-30, 30) * MathHelper.Pi / 180f).ToRotationVector2(),
+                                ModContent.ProjectileType<RB_Ray>(), 0, 0, player.whoAmI);
                         } break;
                 }
-                float t = Main.GameUpdateCount * 0.1f;
-                for (int i = 0; i < 18; i++)
+                for (int i = 0; i < 72; i++)
                 {
                     Dust dust = Dust.NewDustDirect(target.Center, target.width, target.height,
                         ModContent.DustType<RanbowDust>());
-                    dust.position = target.Center + new Vector2((float)Math.Cos(Math.PI / 9 * (i + t)),
-                        (float)Math.Sin(Math.PI / 9 * (i + t))) * ((float)Math.Cos(t / 2) / 10 + 1)
-                        * 10f * dis;
+                    dust.position = target.Center + new Vector2((int)(Math.Pow(-1, i)) * (float)Math.Cos(Math.PI / 36 * (i + t)),
+                        (float)Math.Sin(Math.PI / 36 * (i + t))) * 10f * dis;
                     dust.velocity *= 0;
                 }
-                for (int i = 0; i < 18; i++)
-                {
-                    Dust dust = Dust.NewDustDirect(target.Center, target.width, target.height,
-                        ModContent.DustType<RanbowDust>());
-                    dust.position = target.Center + new Vector2((float)-Math.Cos(Math.PI / 9 * (i + t)),
-                        (float)Math.Sin(Math.PI / 9 * (i + t))) * ((float)Math.Cos(t / 2 + Math.PI) / 10 + 1)
-                        * 10f * dis;
-                    dust.velocity *= 0;
-                }
+            }
+        }
+    }
+
+    public class RB_Ray : ModProjectile
+    {
+        public override string Texture => "MysteriousKnives/Pictures/Projectiles/RB_Ray";
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("回春光束");
+        }
+        public override void SetDefaults()
+        {
+            Projectile.width = 2;//宽
+            Projectile.height = 2;//高
+            Projectile.scale = 1f;//体积倍率
+            Projectile.timeLeft = 6000;//存在时间60 = 1秒
+            Projectile.friendly = false;// 攻击敌方？
+            Projectile.hostile = false;// 攻击友方？
+            Projectile.ignoreWater = true;//忽视水？
+            Projectile.tileCollide = false;//不穿墙？
+            Projectile.penetrate = 1;//穿透数量 -1无限
+            Projectile.aiStyle = -1;//附带原版弹幕AI ID
+            Projectile.alpha = 255;
+            Projectile.extraUpdates = 99;
+            Main.projFrames[Projectile.type] = 1;//动画被分成几份
+        }
+        public override void AI()
+        {
+            Player player = Main.player[Projectile.owner];
+            Vector2 deflection = Vector2.Normalize(player.Center - Projectile.Center) * 30f;
+            Projectile.velocity = (Projectile.velocity + deflection) * 30 / 31f;
+            if (Vector2.Distance(player.Center, Projectile.Center) < 16)
+            {
+                int i = (player.statLifeMax2 - player.statLife) / 20;
+                player.statLife += i;
+                player.HealEffect(i);
+                Projectile.Kill();
+            }
+            for (int i = 0; i < 30; i++)
+            {
+                Dust dust = Dust.NewDustDirect(Projectile.Center, Projectile.width, Projectile.height,
+                    ModContent.DustType<RBDust>());
+                dust.velocity *= 0;
             }
         }
     }

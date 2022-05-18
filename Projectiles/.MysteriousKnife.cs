@@ -25,13 +25,13 @@ namespace MysteriousKnives.Projectiles
             else if (i == 6) return ModContent.ProjectileType<STKnife>();
             else return ModContent.ProjectileType<ASKnife>();
         }
-        public void RandomShoot(int cn, int rn, int lv)
+        public void RandomShoot(Player player, int cn, int rn, int lv)
         {
             for (int i = 0; i <= cn + Main.rand.Next(rn); i++)
             {
                 Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.Center,
                     (Main.rand.Next(360) * MathHelper.Pi / 180f).ToRotationVector2() * 20f,
-                    Random(lv), Projectile.damage, Projectile.knockBack, 0);
+                    Random(lv), Projectile.damage, Projectile.knockBack, player.whoAmI);
             }
         }
         public void LessDust(int type)
@@ -143,13 +143,8 @@ namespace MysteriousKnives.Projectiles
                 }
                 if (target != null)
                 {
-                    // 计算朝向目标的向量
-                    Vector2 targetVec = target.Center - Projectile.Center;
-                    targetVec.Normalize();
-                    // 目标向量是朝向目标的大小为20的向量(追踪速度）
-                    targetVec *= 30f;
-                    // 朝向npc的单位向量*20 + 3.33%偏移量（最总便宜）
-                    Projectile.velocity = (Projectile.velocity * 30f + targetVec) / 31f;
+                    Vector2 deflection = Vector2.Normalize(target.Center - Projectile.Center) * 30f;
+                    Projectile.velocity = (Projectile.velocity * 30f + deflection) / 31f;
                 }
             }
 
@@ -162,6 +157,8 @@ namespace MysteriousKnives.Projectiles
         /// <param name="target"></param>
         public void CSbuffs(NPC target)
         {
+            if (target.realLife != -1)
+                target = Main.npc[target.realLife];
             int i = 60;
             Player player = Main.player[Projectile.owner];
             switch (GetMKID(player))
@@ -184,6 +181,8 @@ namespace MysteriousKnives.Projectiles
         /// <param name="target"></param>
         public void CBbuffs(NPC target)
         {
+            if (target.realLife != -1)
+                target = Main.npc[target.realLife];
             Player player = Main.player[Projectile.owner];
             int i = 180;
             switch (GetMKID(player))
@@ -205,6 +204,8 @@ namespace MysteriousKnives.Projectiles
         /// <param name="target"></param>
         public void WVbuffs(NPC target)
         {
+            if (target.realLife != -1)
+                target = Main.npc[target.realLife];
             Player player = Main.player[Projectile.owner];
             int i = 180;
             switch (GetMKID(player))
@@ -227,6 +228,8 @@ namespace MysteriousKnives.Projectiles
         /// <param name="target"></param>
         public void SKbuffs(NPC target)
         {
+            if (target.realLife != -1)
+                target = Main.npc[target.realLife];
             Player player = Main.player[Projectile.owner];
             int i = 180;
             switch (GetMKID(player))
@@ -249,6 +252,8 @@ namespace MysteriousKnives.Projectiles
         /// <param name="target"></param>
         public void ABbuffs(NPC target)
         {
+            if (target.realLife != -1)
+                target = Main.npc[target.realLife];
             Player player = Main.player[Projectile.owner];
             int i = 180;
             switch (GetMKID(player))
@@ -291,16 +296,16 @@ namespace MysteriousKnives.Projectiles
             int i = 180;
             switch (GetMKID(player))
             {
-                case 1: player.AddBuff(ModContent.BuffType<AstralRay>(), i); break;
-                case 2: player.AddBuff(ModContent.BuffType<AstralRay>(), i * 2); break;
-                case 3: player.AddBuff(ModContent.BuffType<AstralRay>(), i * 3); break;
-                case 4: player.AddBuff(ModContent.BuffType<AstralRay>(), i * 4); break;
-                case 5: player.AddBuff(ModContent.BuffType<AstralRay>(), i * 5); break;
-                case 6: player.AddBuff(ModContent.BuffType<AstralRay>(), i * 6); break;
-                case 7: player.AddBuff(ModContent.BuffType<AstralRay>(), i * 6); break;
-                case 8: player.AddBuff(ModContent.BuffType<AstralRay>(), i * 7); break;
-                case 9: player.AddBuff(ModContent.BuffType<AstralRay>(), i * 7); break;
-                case 10: player.AddBuff(ModContent.BuffType<AstralRay>(), i * 7); break;
+                case 1: player.AddBuff(ModContent.BuffType<RejuvenationBlessing>(), i); break;
+                case 2: player.AddBuff(ModContent.BuffType<RejuvenationBlessing>(), i * 2); break;
+                case 3: player.AddBuff(ModContent.BuffType<RejuvenationBlessing>(), i * 3); break;
+                case 4: player.AddBuff(ModContent.BuffType<RejuvenationBlessing>(), i * 4); break;
+                case 5: player.AddBuff(ModContent.BuffType<RejuvenationBlessing>(), i * 5); break;
+                case 6: player.AddBuff(ModContent.BuffType<RejuvenationBlessing>(), i * 6); break;
+                case 7: player.AddBuff(ModContent.BuffType<RejuvenationBlessing>(), i * 6); break;
+                case 8: player.AddBuff(ModContent.BuffType<RejuvenationBlessing>(), i * 7); break;
+                case 9: player.AddBuff(ModContent.BuffType<RejuvenationBlessing>(), i * 7); break;
+                case 10: player.AddBuff(ModContent.BuffType<RejuvenationBlessing>(), i * 7); break;
             }
         }
         /// <summary>
@@ -518,8 +523,9 @@ namespace MysteriousKnives.Projectiles
             }
             public override void Kill(int timeLeft)
             {
+                Player player = Main.player[Projectile.owner];
                 Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.Center, Projectile.velocity,
-                    ModContent.ProjectileType<MKboom>(), Projectile.damage, 20, 0);
+                    ModContent.ProjectileType<MKboom>(), Projectile.damage, 20, player.whoAmI);
                 SoundEngine.PlaySound(SoundID.Item14);
                 for (int i = 0; i < 100; i++)
                 {
@@ -531,17 +537,16 @@ namespace MysteriousKnives.Projectiles
                 }
 
                 {
-                    Player player = Main.player[Projectile.owner];
-                    if (player.inventory[player.selectedItem].type == ModContent.ItemType<MK01>()) RandomShoot(1, 2, 4);
-                    if (player.inventory[player.selectedItem].type == ModContent.ItemType<MK02>()) RandomShoot(2, 2, 7);
-                    if (player.inventory[player.selectedItem].type == ModContent.ItemType<MK03>()) RandomShoot(3, 3, 8);
-                    if (player.inventory[player.selectedItem].type == ModContent.ItemType<MK04>()) RandomShoot(4, 3, 8);
-                    if (player.inventory[player.selectedItem].type == ModContent.ItemType<MK05>()) RandomShoot(5, 4, 8);
-                    if (player.inventory[player.selectedItem].type == ModContent.ItemType<MK06>()) RandomShoot(6, 4, 8);
-                    if (player.inventory[player.selectedItem].type == ModContent.ItemType<MK07>()) RandomShoot(7, 5, 8);
-                    if (player.inventory[player.selectedItem].type == ModContent.ItemType<MK08>()) RandomShoot(8, 5, 8);
-                    if (player.inventory[player.selectedItem].type == ModContent.ItemType<MK09>()) RandomShoot(9, 6, 8);
-                    if (player.inventory[player.selectedItem].type == ModContent.ItemType<MK10>()) RandomShoot(10, 6, 8);
+                    if (player.inventory[player.selectedItem].type == ModContent.ItemType<MK01>()) RandomShoot(player, 1, 2, 4);
+                    if (player.inventory[player.selectedItem].type == ModContent.ItemType<MK02>()) RandomShoot(player, 2, 2, 7);
+                    if (player.inventory[player.selectedItem].type == ModContent.ItemType<MK03>()) RandomShoot(player, 3, 3, 8);
+                    if (player.inventory[player.selectedItem].type == ModContent.ItemType<MK04>()) RandomShoot(player, 4, 3, 8);
+                    if (player.inventory[player.selectedItem].type == ModContent.ItemType<MK05>()) RandomShoot(player, 5, 4, 8);
+                    if (player.inventory[player.selectedItem].type == ModContent.ItemType<MK06>()) RandomShoot(player, 6, 4, 8);
+                    if (player.inventory[player.selectedItem].type == ModContent.ItemType<MK07>()) RandomShoot(player, 7, 5, 8);
+                    if (player.inventory[player.selectedItem].type == ModContent.ItemType<MK08>()) RandomShoot(player, 8, 5, 8);
+                    if (player.inventory[player.selectedItem].type == ModContent.ItemType<MK09>()) RandomShoot(player, 9, 6, 8);
+                    if (player.inventory[player.selectedItem].type == ModContent.ItemType<MK10>()) RandomShoot(player, 10, 6, 8);
                 }//按等级散射
                 base.Kill(timeLeft);
             }

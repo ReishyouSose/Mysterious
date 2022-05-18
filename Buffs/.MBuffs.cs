@@ -42,16 +42,19 @@ namespace MysteriousKnives.Buffs
         public static void VemonDamage(NPC npc, int damage)
         {
             npc.life -= damage;
+            if(npc.realLife != -1)
+                Main.npc[npc.realLife].life -= damage;
             NPCnormalDead(npc);
+            if(npc.realLife == -1)
             CombatText.NewText(new Rectangle((int)npc.position.X, (int)npc.Center.Y - Main.rand.Next(10, 30), 
-                npc.width, npc.height), new Color(180, 230, 50), damage, false, false);
+                npc.width, npc.height), new Color(180, 230, 50), damage, false, true);
         }
         public static void CrystalDamage(NPC npc, int damage)
         {
             npc.life -= damage;
             NPCnormalDead(npc);
             CombatText.NewText(new Rectangle((int)npc.position.X, (int)npc.Center.Y - Main.rand.Next(10, 30), 
-                npc.width, npc.height), new Color(230, 161, 255), damage, false, false);
+                npc.width, npc.height), new Color(230, 161, 255), damage, false, true);
         }
         public static void RejuvenationEffect(Player player, int boost)
         {
@@ -65,10 +68,10 @@ namespace MysteriousKnives.Buffs
         {
             player.GetArmorPenetration<GenericDamageClass>() += boost;
         }
-        public static void ConBurst(NPC npc, float multiple, int baseamount)
+        public static void ConBurst(NPC npc, float amend, float multiple, float baseamount)
         {
-            multiple = Math.Min(multiple, 20);
-            int damage = (int)(baseamount * multiple);
+            multiple = Math.Min(multiple, 20f * amend);
+            int damage = (int)(baseamount * multiple / amend);
             npc.life -= damage;
             CombatText.NewText(new Rectangle((int)npc.position.X, (int)npc.Center.Y - Main.rand.Next(10, 30), 
                 npc.width, npc.height), new Color(255, 100, 56), damage, false, false);
@@ -139,24 +142,33 @@ namespace MysteriousKnives.Buffs
                 Main.buffNoSave[Type] = false;
                 base.SetStaticDefaults();
             }
-            public int count = 1, x = 0;
-            public float multiple;
+            public int count = 0, x = 0;
+            public float multiple, ament;
             public override void Update(NPC npc, ref int buffIndex)
             {
                 if (npc.buffTime[buffIndex] > 0) count++;
-                else count = 1;
+                else count = 0;
                 x = Math.Max(x, npc.buffTime[buffIndex]);
                 multiple = 1 + x / 180f;
                 float t = Main.GameUpdateCount * 0.1f * (1 + count / 150);
-                for (int i = 0; i < 6; i++)
-                {
-                    Dust dust = Dust.NewDustDirect(npc.position, npc.width, npc.height, ModContent.DustType<CBDust>());
-                    dust.scale *= 1.5f;
-                    dust.position = npc.Center + new Vector2((float)Math.Cos(t + Math.PI / 3 * i) * (int)Math.Pow(-1, i),
-                        (float)(Math.Sin(t + Math.PI / 3 * i)))* 200 * (float)Math.Sin(Math.PI * (1.5 + 0.5 / 300 * count));
-                    dust.velocity *= 0;
-                    dust.alpha = (int)(100 - 5 * multiple);
-                }
+                if (count < 270)
+                    for (int i = 0; i < 12; i++)
+                    {
+                        Dust dust = Dust.NewDustDirect(npc.position, npc.width, npc.height, ModContent.DustType<CBDust>());
+                        dust.position = npc.Center + new Vector2((float)Math.Cos(t + Math.PI / 6 * i) * (int)Math.Pow(-1, i),
+                            (float)(Math.Sin(t + Math.PI / 6 * i)))* 200 * (float)Math.Sin(Math.PI * (1.5 + 0.5 / 270 * count));
+                        dust.velocity *= 0;
+                    }
+                if (270 <= count)
+                    for(float i = 0; i < multiple; i += 1 * ament)
+                    {
+                        Dust dust = Dust.NewDustDirect(npc.position, npc.width, npc.height, ModContent.DustType<CBDust>());
+                        dust.position = npc.Center + new Vector2(
+                            -(float)Math.Sin(Math.PI / (10 * ament) * i * (count - 270) / 30),
+                             (float)Math.Cos(Math.PI / (10 * ament) * i * (count - 270) / 30)
+                            ) * 70;
+                        dust.velocity *= 0;
+                    }
                 base.Update(npc, ref buffIndex);
             }
             public override bool ReApply(NPC npc, int time, int buffIndex)
@@ -170,9 +182,11 @@ namespace MysteriousKnives.Buffs
             public override string Texture => "MysteriousKnives/Pictures/Buffs/ConvergentBurst1";
             public override void Update(NPC npc, ref int buffIndex)
             {
-                if (count > 300)
+                ament = 0.25f;
+                if (count >= 300)
                 {
-                    ConBurst(npc, multiple, 50);
+                    ConBurst(npc, ament, multiple, 50);
+                    count = 0;
                     x = 0;
                     npc.DelBuff(buffIndex);
                     return;
@@ -185,9 +199,11 @@ namespace MysteriousKnives.Buffs
             public override string Texture => "MysteriousKnives/Pictures/Buffs/ConvergentBurst2";
             public override void Update(NPC npc, ref int buffIndex)
             {
-                if (count > 300)
+                ament = 0.33f;
+                if (count >= 300)
                 {
-                    ConBurst(npc, multiple, 200);
+                    ConBurst(npc, ament, multiple, 200);
+                    count = 0;
                     x = 0;
                     npc.DelBuff(buffIndex);
                 }
@@ -199,9 +215,11 @@ namespace MysteriousKnives.Buffs
             public override string Texture => "MysteriousKnives/Pictures/Buffs/ConvergentBurst3";
             public override void Update(NPC npc, ref int buffIndex)
             {
-                if (count > 300)
+                ament = 0.4f;
+                if (count >= 300)
                 {
-                    ConBurst(npc, multiple, 250);
+                    ConBurst(npc, ament, multiple, 250);
+                    count = 0;
                     x = 0;
                     npc.DelBuff(buffIndex);
                 }
@@ -213,9 +231,11 @@ namespace MysteriousKnives.Buffs
             public override string Texture => "MysteriousKnives/Pictures/Buffs/ConvergentBurst4";
             public override void Update(NPC npc, ref int buffIndex)
             {
-                if (count > 300)
+                ament = 0.5f;
+                if (count >= 300)
                 {
-                    ConBurst(npc, multiple, 500);
+                    ConBurst(npc, ament, multiple, 500);
+                    count = 0;
                     x = 0;
                     npc.DelBuff(buffIndex);
                 }
@@ -227,9 +247,11 @@ namespace MysteriousKnives.Buffs
             public override string Texture => "MysteriousKnives/Pictures/Buffs/ConvergentBurst5";
             public override void Update(NPC npc, ref int buffIndex)
             {
-                if (count > 300)
+                ament = 0.75f;
+                if (count >= 300)
                 {
-                    ConBurst(npc, multiple, 1500);
+                    ConBurst(npc, ament, multiple, 1500);
+                    count = 0;
                     x = 0;
                     npc.DelBuff(buffIndex);
                 }
@@ -241,9 +263,11 @@ namespace MysteriousKnives.Buffs
             public override string Texture => "MysteriousKnives/Pictures/Buffs/ConvergentBurst6";
             public override void Update(NPC npc, ref int buffIndex)
             {
-                if (count > 300)
+                ament = 0.9f;
+                if (count >= 300)
                 {
-                    ConBurst(npc, multiple, 3000);
+                    ConBurst(npc, ament, multiple, 3000);
+                    count = 0;
                     x = 0;
                     npc.DelBuff(buffIndex);
                 }
@@ -270,7 +294,7 @@ namespace MysteriousKnives.Buffs
             {
                 Dust dust = Dust.NewDustDirect(npc.position, npc.width, npc.height, ModContent.DustType<CSDust>());
                 float t = Main.GameUpdateCount * 0.05f;
-                dust.scale *= 1.5f;
+                //dust.scale *= 1.5f;
                 dust.position = npc.Center + new Vector2((float)(-Math.Cos(t) / 2f), (float)Math.Sin(t) / 5f) * 100;
                 dust.velocity *= 0;
                 base.Update(npc, ref buffIndex);
@@ -524,12 +548,15 @@ namespace MysteriousKnives.Buffs
                             VemonDamage(npc, 50);
                             break;
                     }
-                Dust dust = Dust.NewDustDirect(npc.position, npc.width, npc.height, ModContent.DustType<WVDust>());
-                float t = Main.GameUpdateCount * 0.05f;
-                dust.scale *= 1.5f;
-                dust.position = npc.Center + new Vector2((float)(-Math.Cos(t + Math.PI) / 2f), 
-                    (float)(Math.Sin(t + Math.PI) / 5f)) * 100;
-                dust.velocity *= 0;
+                if (npc.realLife == -1)
+                {
+                    Dust dust = Dust.NewDustDirect(npc.position, npc.width, npc.height, ModContent.DustType<WVDust>());
+                    float t = Main.GameUpdateCount * 0.05f;
+                    //dust.scale *= 1.5f;
+                    dust.position = npc.Center + new Vector2((float)(-Math.Cos(t + Math.PI) / 2f),
+                        (float)(Math.Sin(t + Math.PI) / 5f)) * 100;
+                    dust.velocity *= 0;
+                }
                 base.Update(npc, ref buffIndex);
             }
         }

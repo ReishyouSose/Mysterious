@@ -36,10 +36,20 @@ namespace MysteriousKnives.NPCs
             npc.buffImmune[ModContent.BuffType<Crystallization>()] = false;
             npc.buffImmune[ModContent.BuffType<SunkerCancer>()] = false;
             npc.buffImmune[ModContent.BuffType<WeirdVemon>()] = false;
-            base.ResetEffects(npc);
+            if (npc.realLife != -1)
+            {
+                npc.buffImmune[ModContent.BuffType<IndescribableFear>()] = true;
+                npc.buffImmune[ModContent.BuffType<ConvergentBurst>()] = true;
+                npc.buffImmune[ModContent.BuffType<Crystallization>()] = true;
+                npc.buffImmune[ModContent.BuffType<SunkerCancer>()] = true;
+                return;
+            }
+                base.ResetEffects(npc);
         }
         public static void NPCnormalDead(NPC npc)
         {
+            if (npc.realLife != -1)
+                npc = Main.npc[npc.realLife];
             if (npc.life <= 0)
             {
                 npc.life = 1;
