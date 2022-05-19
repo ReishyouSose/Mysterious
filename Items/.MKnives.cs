@@ -65,7 +65,7 @@ namespace MysteriousKnives.Items
 				Item.crit = 10;
 				Item.knockBack = 6;
 				Item.value = Item.sellPrice(0, 1, 0, 0);
-				Item.rare = ItemRarityID.Green;
+				Item.rare = ModContent.RarityType<Rare_Gray>();
 				base.SetDefaults();
 			}
 			public override void AddRecipes()
@@ -102,7 +102,7 @@ namespace MysteriousKnives.Items
 				Item.crit = 20;
 				Item.knockBack = 6;
 				Item.value = Item.sellPrice(0, 10, 0, 0);
-				Item.rare = ItemRarityID.Green;
+				Item.rare = ModContent.RarityType<Rare_White>();
 				base.SetDefaults();
 			}
             public override void AddRecipes()
@@ -137,7 +137,7 @@ namespace MysteriousKnives.Items
 				Item.crit = 30;
 				Item.knockBack = 6;
 				Item.value = Item.sellPrice(0, 30, 0, 0);
-				Item.rare = ItemRarityID.Green;
+				Item.rare = ModContent.RarityType<Rare_Green>();
 				base.SetDefaults();
 			}
 			public override void AddRecipes()
@@ -174,7 +174,7 @@ namespace MysteriousKnives.Items
 				Item.crit = 40;
 				Item.knockBack = 6;
 				Item.value = Item.sellPrice(0, 80, 0, 0);
-				Item.rare = ItemRarityID.Green;
+				Item.rare = ModContent.RarityType<Rare_Blue>();
 				base.SetDefaults();
 			}
 			public override void AddRecipes()
@@ -209,7 +209,7 @@ namespace MysteriousKnives.Items
 				Item.crit = 50;
 				Item.knockBack = 6;
 				Item.value = Item.sellPrice(1, 50, 0, 0);
-				Item.rare = ItemRarityID.Green;
+				Item.rare = ModContent.RarityType<Rare_Purple>();
 				base.SetDefaults();
 			}
 			public override void AddRecipes()
@@ -244,7 +244,7 @@ namespace MysteriousKnives.Items
 				Item.crit = 60;
 				Item.knockBack = 6;
 				Item.value = Item.sellPrice(4, 0, 0, 0);
-				Item.rare = ItemRarityID.Green;
+				Item.rare = ModContent.RarityType<Rare_Pink>();
 				base.SetDefaults();
 			}
 			public override void AddRecipes()
@@ -281,7 +281,7 @@ namespace MysteriousKnives.Items
 				Item.crit = 70;
 				Item.knockBack = 6;
 				Item.value = Item.sellPrice(10, 0, 0, 0);
-				Item.rare = ItemRarityID.Green;
+				Item.rare = ModContent.RarityType<Rare_Orange>();
 				base.SetDefaults();
 			}
 
@@ -315,7 +315,7 @@ namespace MysteriousKnives.Items
 				Item.crit = 80;
 				Item.knockBack = 6;
 				Item.value = Item.sellPrice(30, 0, 0, 0);
-				Item.rare = ItemRarityID.Green;
+				Item.rare = ModContent.RarityType<Rare_Gold>();
 				base.SetDefaults();
 			}
 			public override void AddRecipes()
@@ -347,7 +347,7 @@ namespace MysteriousKnives.Items
 				Item.crit = 90;
 				Item.knockBack = 6;
 				Item.value = Item.sellPrice(80, 0, 0, 0);
-				Item.rare = ItemRarityID.Green;
+				Item.rare = ModContent.RarityType<Rare_Red>();
 				base.SetDefaults();
 			}
 			public override void AddRecipes()
@@ -385,7 +385,7 @@ namespace MysteriousKnives.Items
 				Item.useTime = 60;
 				Item.useAnimation = 60;
 				Item.value = Item.sellPrice(150, 0, 0, 0);
-				Item.rare = ItemRarityID.Green;
+				Item.rare = ModContent.RarityType<Rare_Ranbow>();
 				Item.shoot = ModContent.ProjectileType<MKchannel>();
 				Item.shootSpeed = 10f;
 				Item.channel = true;

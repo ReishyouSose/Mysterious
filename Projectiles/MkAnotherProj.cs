@@ -28,7 +28,7 @@ namespace MysteriousKnives.Projectiles
             Projectile.height = 16;//高
             Projectile.scale = 20f;//体积倍率
             Projectile.timeLeft = 1;//存在时间60 = 1秒
-            Projectile.DamageType = DamageClass.Melee;// 伤害类型
+            Projectile.DamageType = DamageClass.Generic;// 伤害类型
             Projectile.friendly = true;// 攻击敌方？
             Projectile.hostile = false;// 攻击友方？
             Projectile.ignoreWater = true;//忽视水？

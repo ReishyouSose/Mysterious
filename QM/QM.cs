@@ -6,29 +6,29 @@ using Terraria.DataStructures;
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using MysteriousKnives.Buffs;
+using MysteriousKnives.Items;
 
 namespace MysteriousKnives.QM
 {
 	public abstract class QM : ModItem
     {
-        public override void SetDefaults()
+		public override void SetDefaults()
 		{
 			Item.width = 20;
 			Item.height = 26;
-			Item.rare = ItemRarityID.Pink;
 			Item.maxStack = 9999;
 			base.SetDefaults();
 		}
         public abstract class 剧毒之水 : QM
 		{
-            public override void SetStaticDefaults()
+			public override void SetStaticDefaults()
 			{
 				Tooltip.SetDefault("众多毒性物质提取的精华浓缩在这一小瓶水中");
 				base.SetStaticDefaults();
 			}
             public override void SetDefaults()
             {
-				Item.rare = 12;
+				Item.rare = ModContent.RarityType<WVRare>();
                 base.SetDefaults();
             }
             public class 剧毒01 : 剧毒之水
@@ -144,13 +144,12 @@ namespace MysteriousKnives.QM
 
 			public override void SetStaticDefaults()
 			{
-				Tooltip.SetDefault("晶体化后可是很脆的~\n" +
-					"多喝几瓶以查看淬炼后的效果（危）\n" +
-					"不消耗");
+				Tooltip.SetDefault("晶体化后可是很脆的~");
 				base.SetStaticDefaults();
 			}
 			public override void SetDefaults()
 			{
+				ModContent.RarityType<CSRare>();
 				base.SetDefaults();
 			}
 			public class 结晶01 : 结晶之水
@@ -281,7 +280,6 @@ namespace MysteriousKnives.QM
 		//S沉沦
 		public abstract class 沉沦之水 : QM
 		{
-
 			public override void SetStaticDefaults()
 			{
 				Tooltip.SetDefault("周围的物质都会逐渐沉静\n" +
@@ -291,6 +289,7 @@ namespace MysteriousKnives.QM
 			}
 			public override void SetDefaults()
 			{
+				Item.rare = ModContent.RarityType<SKRare>();
 				base.SetDefaults();
 			}
 			public class 沉沦01 : 沉沦之水
@@ -366,13 +365,12 @@ namespace MysteriousKnives.QM
 
 			public override void SetStaticDefaults()
 			{
-				Tooltip.SetDefault("充盈的生命能量！\n" +
-					"喝下以查看淬炼后的效果（危）\n" +
-					"不消耗");
+				Tooltip.SetDefault("充盈的生命能量！");
 				base.SetStaticDefaults();
 			}
 			public override void SetDefaults()
 			{
+				ModContent.RarityType<RBRare>();
 				base.SetDefaults();
 			}
 			public class 生命01 : 生命之水
@@ -565,13 +563,12 @@ namespace MysteriousKnives.QM
 
 			public override void SetStaticDefaults()
 			{
-				Tooltip.SetDefault("好！很有精神！\n" +
-					"喝下以查看淬炼后的效果（危）\n" +
-					"不消耗");
+				Tooltip.SetDefault("好！很有精神！");
 				base.SetStaticDefaults();
 			}
 			public override void SetDefaults()
 			{
+				ModContent.RarityType<STRare>();
 				base.SetDefaults();
 			}
 			public class 力量01 : 力量之水
@@ -716,15 +713,13 @@ namespace MysteriousKnives.QM
 		{
 			public override void SetStaticDefaults()
 			{
-				Tooltip.SetDefault("烫烫烫烫烫烫烫烫烫烫！\n" +
-					"多喝几瓶以查看淬炼后的效果（危）\n" +
-					"不消耗");
+				Tooltip.SetDefault("烫烫烫烫烫烫烫烫烫烫！");
 				base.SetStaticDefaults();
 			}
             public override void SetDefaults()
-            {
-				Item.rare = 12;
-                base.SetDefaults();
+			{
+				ModContent.RarityType<CBRare>();
+				base.SetDefaults();
             }
             public class 凝爆01 : 凝爆之水
 			{
@@ -863,13 +858,12 @@ namespace MysteriousKnives.QM
 
 			public override void SetStaticDefaults()
 			{
-				Tooltip.SetDefault("▊▊▊▊在凝视你\n" +
-					"喝下以查看淬炼后的效果（危）\n" +
-					"不消耗");
+				Tooltip.SetDefault("▊▊▊▊在凝视你");
 				base.SetStaticDefaults();
 			}
 			public override void SetDefaults()
 			{
+				ModContent.RarityType<ABRare>();
 				base.SetDefaults();
 			}
 			public class 深渊01 : 深渊之水
@@ -1035,16 +1029,14 @@ namespace MysteriousKnives.QM
 
 		public abstract class 星辉之水 : QM
 		{
-
 			public override void SetStaticDefaults()
 			{
-				Tooltip.SetDefault("星辉宙域的光辉洒落于此\n" +
-					"喝下以查看淬炼后的效果（危）\n" +
-					"不消耗");
+				Tooltip.SetDefault("星辉宙域的光辉洒落于此");
 				base.SetStaticDefaults();
 			}
 			public override void SetDefaults()
 			{
+				ModContent.RarityType<ASRare>();
 				base.SetDefaults();
 			}
 			public class 星辉01 : 星辉之水

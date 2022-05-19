@@ -81,7 +81,7 @@ namespace MysteriousKnives.Dusts
 			}
 		}
 		/// <summary>
-		/// 深渊粒子0,0,0
+		/// 深渊粒子0.33f,0.33f,0.33f
 		/// </summary>
 		public class ABDust : MDust
 		{
@@ -91,7 +91,7 @@ namespace MysteriousKnives.Dusts
 				float i = 0.001f; i += i;
 				if (dust.noGravity == false) dust.velocity.Y -= 0.1f - i;
 				base.Update(dust);
-				Lighting.AddLight((int)(dust.position.X / 16f), (int)(dust.position.Y / 16f), 0f, 0f, 0f);
+				Lighting.AddLight((int)(dust.position.X / 16f), (int)(dust.position.Y / 16f), 0.33f, 0.33f, 0.33f);
 				return false;
 			}
 		}

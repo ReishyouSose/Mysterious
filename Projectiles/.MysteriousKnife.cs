@@ -74,7 +74,7 @@ namespace MysteriousKnives.Projectiles
             Projectile.height = 30;//高
             Projectile.scale = 1f;//体积倍率
             Projectile.timeLeft = 600;//存在时间60 = 1秒
-            Projectile.DamageType = DamageClass.Melee;// 伤害类型
+            Projectile.DamageType = DamageClass.Generic;// 伤害类型
             Projectile.friendly = true;// 攻击敌方？
             Projectile.hostile = false;// 攻击友方？
             Projectile.ignoreWater = true;//忽视水？
@@ -337,7 +337,7 @@ namespace MysteriousKnives.Projectiles
             public override void AI()
             {
                 base.AI();
-                Lighting.AddLight(Projectile.Center, 0f, 0f, 0f);//RGB
+                Lighting.AddLight(Projectile.Center, 0.33f, 0.33f, 0.33f);//RGB
                 LessDust(ModContent.DustType<ABDust>());
             }
             public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)//弹幕命中时
@@ -494,7 +494,7 @@ namespace MysteriousKnives.Projectiles
                 Projectile.height = 15;//高
                 Projectile.scale = 1f;//体积倍率
                 Projectile.timeLeft = 180;//存在时间60 = 1秒
-                Projectile.DamageType = DamageClass.Melee;// 伤害类型
+                Projectile.DamageType = DamageClass.Generic;// 伤害类型
                 Projectile.friendly = true;// 攻击敌方？
                 Projectile.hostile = false;// 攻击友方？
                 Projectile.ignoreWater = true;//忽视水？
