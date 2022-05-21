@@ -3,14 +3,14 @@ using Terraria;
 using Terraria.GameContent.Creative;
 using Terraria.ID;
 using Terraria.ModLoader;
-using static MysteriousKnives.QM.QM.剧毒之水;
-using static MysteriousKnives.QM.QM.结晶之水;
-using static MysteriousKnives.QM.QM.生命之水;
-using static MysteriousKnives.QM.QM.星辉之水;
-using static MysteriousKnives.QM.QM.凝爆之水;
-using static MysteriousKnives.QM.QM.力量之水;
-using static MysteriousKnives.QM.QM.沉沦之水;
-using static MysteriousKnives.QM.QM.深渊之水;
+using static MysteriousKnives.Items.QM.诡毒之水;
+using static MysteriousKnives.Items.QM.结晶之水;
+using static MysteriousKnives.Items.QM.沉沦之水;
+using static MysteriousKnives.Items.QM.生命之水;
+using static MysteriousKnives.Items.QM.凝爆之水;
+using static MysteriousKnives.Items.QM.深渊之水;
+using static MysteriousKnives.Items.QM.力量之水;
+using static MysteriousKnives.Items.QM.星辉之水;
 using static MysteriousKnives.Buffs.MysteriousBuffs;
 
 namespace MysteriousKnives.Items
@@ -34,20 +34,6 @@ namespace MysteriousKnives.Items
 			Item.UseSound = SoundID.Item113;
 			base.SetDefaults();
 		}
-        /*
-        public override void ModifyShootStats(Player player, ref Vector2 position, ref Vector2 velocity, 
-			ref int type, ref int damage, ref float knockback)
-        {
-			int cn = 2, rn = Main.rand.Next(2);
-			float fx = (cn + rn) / 2f;
-			Vector2 vec = Main.MouseWorld - player.Center;
-			for (int num = cn + rn; num >= 0; num--)
-            {
-				Vector2 shootVec = (vec.ToRotation() + (num - fx) * MathHelper.Pi / 60f).ToRotationVector2() * 20f;
-				Projectile.NewProjectile(player.GetSource_ItemUse(Item), position, shootVec, 
-					type, damage, knockback);
-            }
-        }*/
         public class MK01 : MKnives
 		{
 			public override string Texture => "MysteriousKnives/Pictures/Items/MK01";
@@ -71,7 +57,7 @@ namespace MysteriousKnives.Items
 			public override void AddRecipes()
 			{
 				Recipe recipe = CreateRecipe();
-				recipe.AddIngredient(ModContent.ItemType<剧毒01>(), 1);
+				recipe.AddIngredient(ModContent.ItemType<诡毒01>(), 1);
 				recipe.AddIngredient(ModContent.ItemType<结晶01>(), 1);
 				recipe.AddIngredient(ModContent.ItemType<沉沦01>(), 1);
 				recipe.AddIngredient(ModContent.ItemType<生命01>(), 1);
@@ -109,7 +95,7 @@ namespace MysteriousKnives.Items
 			{
 				Recipe recipe = CreateRecipe();
 				recipe.AddIngredient(ItemID.TissueSample, 10);
-				recipe.AddIngredient(ModContent.ItemType<剧毒02>(), 1);
+				recipe.AddIngredient(ModContent.ItemType<诡毒02>(), 1);
 				recipe.AddIngredient(ModContent.ItemType<生命02>(), 1);
 				recipe.AddIngredient(ModContent.ItemType<力量01>(), 1);
 				recipe.AddIngredient(ModContent.ItemType<凝爆01>(), 1);
@@ -143,7 +129,7 @@ namespace MysteriousKnives.Items
 			public override void AddRecipes()
 			{
 				Recipe recipe = CreateRecipe();
-				recipe.AddIngredient(ModContent.ItemType<剧毒03>(), 1);
+				recipe.AddIngredient(ModContent.ItemType<诡毒03>(), 1);
 				recipe.AddIngredient(ModContent.ItemType<生命03>(), 1);
 				recipe.AddIngredient(ModContent.ItemType<沉沦02>(), 1);
 				recipe.AddIngredient(ModContent.ItemType<结晶02>(), 1);
@@ -215,7 +201,7 @@ namespace MysteriousKnives.Items
 			public override void AddRecipes()
 			{
 				Recipe recipe = CreateRecipe();
-				recipe.AddIngredient(ModContent.ItemType<剧毒04>(), 1);
+				recipe.AddIngredient(ModContent.ItemType<诡毒04>(), 1);
 				recipe.AddIngredient(ModContent.ItemType<生命05>(), 1);
 				recipe.AddIngredient(ModContent.ItemType<力量04>(), 1);
 				recipe.AddIngredient(ModContent.ItemType<凝爆04>(), 1);
@@ -374,16 +360,18 @@ namespace MysteriousKnives.Items
 			}
 			public override void SetDefaults()
 			{
+				Item.width = 32;
+				Item.height = 32;
 				Item.autoReuse = false;
 				Item.noMelee = true;
 				Item.noUseGraphic = true;
 				Item.DamageType = DamageClass.Melee;
 				Item.useStyle = ItemUseStyleID.Shoot;
 				Item.damage = 300;
+				Item.knockBack = 20;
 				Item.crit = 100;
-				Item.knockBack = 6;
-				Item.useTime = 60;
-				Item.useAnimation = 60;
+				Item.useTime = 2;
+				Item.useAnimation = 2;
 				Item.value = Item.sellPrice(150, 0, 0, 0);
 				Item.rare = ModContent.RarityType<Rare_Ranbow>();
 				Item.shoot = ModContent.ProjectileType<MKchannel>();

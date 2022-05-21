@@ -18,9 +18,8 @@ namespace MysteriousKnives.Items
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("傀儡召唤器");
-            Tooltip.SetDefault("于鼠标处召唤一个无敌傀儡\n" +
-                "只能存在一个\n" +
-				"右键使用召回");
+            Tooltip.SetDefault("于鼠标处召唤一个傀儡\n" +
+                "再次使用召回");
             base.SetStaticDefaults();
         }
         public override void SetDefaults()
@@ -36,31 +35,31 @@ namespace MysteriousKnives.Items
 			base.SetDefaults();
         }
         public bool i = true;
-        public override bool? UseItem(Player player)
+        public override bool CanUseItem(Player player)
         {
             foreach (NPC npc in Main.npc)
             {
                 if (npc.boss && npc.active)
-                {
-                    i = true;
-                    return i;
-                }
+                    return false;
             }
-            if (i)
+            return true;
+        }
+        public override bool? UseItem(Player player)
+        {
+            foreach (NPC npc in Main.npc)
             {
-                NPC.NewNPC(player.GetSource_ItemUse(Item), (int)Main.MouseWorld.X, (int)Main.MouseWorld.Y,
-                ModContent.NPCType<MKpuppet>());
-            }
-            if (!i)
-            {
-                foreach (NPC npc in Main.npc)
+                if (npc.type == ModContent.NPCType<MKpuppet>() && npc.active)
                 {
-                    if (npc.type == ModContent.NPCType<MKpuppet>())
+                    if (npc.ai[0] == player.whoAmI)
                         npc.life = 0;
                 }
+                else
+                {
+                    NPC puppet = NPC.NewNPCDirect(player.GetSource_ItemUse(Item), (int)Main.MouseWorld.X, (int)Main.MouseWorld.Y,
+                        ModContent.NPCType<MKpuppet>());
+                    puppet.ai[0] = player.whoAmI;
+                }
             }
-            i = !i;
-            
             return true;
         }
     }

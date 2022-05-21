@@ -8,7 +8,7 @@ using System.Collections.Generic;
 using MysteriousKnives.Buffs;
 using MysteriousKnives.Items;
 
-namespace MysteriousKnives.QM
+namespace MysteriousKnives.Items
 {
 	public abstract class QM : ModItem
     {
@@ -19,8 +19,9 @@ namespace MysteriousKnives.QM
 			Item.maxStack = 9999;
 			base.SetDefaults();
 		}
-        public abstract class 剧毒之水 : QM
+        public abstract class 诡毒之水 : QM
 		{
+			public override string Texture => "MysteriousKnives/Pictures/Items/诡毒";
 			public override void SetStaticDefaults()
 			{
 				Tooltip.SetDefault("众多毒性物质提取的精华浓缩在这一小瓶水中");
@@ -31,11 +32,11 @@ namespace MysteriousKnives.QM
 				Item.rare = ModContent.RarityType<WVRare>();
                 base.SetDefaults();
             }
-            public class 剧毒01 : 剧毒之水
+            public class 诡毒01 : 诡毒之水
 			{
 				public override void SetStaticDefaults()
 				{
-					DisplayName.SetDefault("剧毒之水I");
+					DisplayName.SetDefault("诡毒之水I");
 					base.SetStaticDefaults();
 				}
 				public override void AddRecipes()
@@ -59,11 +60,11 @@ namespace MysteriousKnives.QM
 				}
 			}
 
-			public class 剧毒02 : 剧毒之水
+			public class 诡毒02 : 诡毒之水
 			{
 				public override void SetStaticDefaults()
 				{
-					DisplayName.SetDefault("剧毒之水II");
+					DisplayName.SetDefault("诡毒之水II");
 					base.SetStaticDefaults();
 				}
 				public override void SetDefaults()
@@ -84,11 +85,11 @@ namespace MysteriousKnives.QM
 				}
 			}
 
-			public class 剧毒03 : 剧毒之水
+			public class 诡毒03 : 诡毒之水
 			{
 				public override void SetStaticDefaults()
 				{
-					DisplayName.SetDefault("剧毒之水III");
+					DisplayName.SetDefault("诡毒之水III");
 					base.SetStaticDefaults();
 				}
 				public override void SetDefaults()
@@ -112,11 +113,11 @@ namespace MysteriousKnives.QM
 					}
 				}
 			}
-			public class 剧毒04 : 剧毒之水
+			public class 诡毒04 : 诡毒之水
 			{
 				public override void SetStaticDefaults()
 				{
-					DisplayName.SetDefault("剧毒之水IV");
+					DisplayName.SetDefault("诡毒之水IV");
 					base.SetStaticDefaults();
 				}
 				public override void SetDefaults()
@@ -141,7 +142,7 @@ namespace MysteriousKnives.QM
 
 		public abstract class 结晶之水 : QM
 		{
-
+			public override string Texture => "MysteriousKnives/Pictures/Items/结晶";
 			public override void SetStaticDefaults()
 			{
 				Tooltip.SetDefault("晶体化后可是很脆的~");
@@ -280,6 +281,7 @@ namespace MysteriousKnives.QM
 		//S沉沦
 		public abstract class 沉沦之水 : QM
 		{
+			public override string Texture => "MysteriousKnives/Pictures/Items/沉沦";
 			public override void SetStaticDefaults()
 			{
 				Tooltip.SetDefault("周围的物质都会逐渐沉静\n" +
@@ -362,7 +364,7 @@ namespace MysteriousKnives.QM
 		//L生命
 		public abstract class 生命之水 : QM
 		{
-
+			public override string Texture => "MysteriousKnives/Pictures/Items/生命";
 			public override void SetStaticDefaults()
 			{
 				Tooltip.SetDefault("充盈的生命能量！");
@@ -560,7 +562,7 @@ namespace MysteriousKnives.QM
 		//P力量
 		public abstract class 力量之水 : QM
 		{
-
+			public override string Texture => "MysteriousKnives/Pictures/Items/力量";
 			public override void SetStaticDefaults()
 			{
 				Tooltip.SetDefault("好！很有精神！");
@@ -711,6 +713,7 @@ namespace MysteriousKnives.QM
 
 		public abstract class 凝爆之水 : QM
 		{
+			public override string Texture => "MysteriousKnives/Pictures/Items/凝爆";
 			public override void SetStaticDefaults()
 			{
 				Tooltip.SetDefault("烫烫烫烫烫烫烫烫烫烫！");
@@ -855,7 +858,7 @@ namespace MysteriousKnives.QM
 
 		public abstract class 深渊之水 : QM
 		{
-
+			public override string Texture => "MysteriousKnives/Pictures/Items/深渊";
 			public override void SetStaticDefaults()
 			{
 				Tooltip.SetDefault("▊▊▊▊在凝视你");
@@ -1029,6 +1032,7 @@ namespace MysteriousKnives.QM
 
 		public abstract class 星辉之水 : QM
 		{
+			public override string Texture => "MysteriousKnives/Pictures/Items/星辉";
 			public override void SetStaticDefaults()
 			{
 				Tooltip.SetDefault("星辉宙域的光辉洒落于此");

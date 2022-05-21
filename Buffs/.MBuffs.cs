@@ -513,7 +513,7 @@ namespace MysteriousKnives.Buffs
             }
         }
         /// <summary>
-        /// 诡异剧毒
+        /// 诡异诡毒
         /// </summary>
         public class WeirdVemon : MysteriousBuffs
         {
@@ -521,7 +521,7 @@ namespace MysteriousKnives.Buffs
             public override void SetStaticDefaults()
             {
                 base.SetStaticDefaults();
-                DisplayName.SetDefault("诡异剧毒");//WeirdVemon
+                DisplayName.SetDefault("诡异诡毒");//WeirdVemon
                 Description.SetDefault("怎么就掉血了呢?");
                 Main.buffNoTimeDisplay[Type] = false;
                 Main.debuff[Type] = true;

@@ -30,7 +30,8 @@ namespace MysteriousKnives.Projectiles
             {
                 Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.Center,
                     (Main.rand.Next(360) * MathHelper.Pi / 180f).ToRotationVector2() * 20f,
-                    Random(lv), Projectile.damage, Projectile.knockBack, player.whoAmI);
+                    Random(lv), (int)(Projectile.damage * (float)(1 + (int)player.GetCritChance(DamageClass.Melee) / 100)), 
+                    Projectile.knockBack, player.whoAmI);
             }
         }
         public void LessDust(int type)
@@ -38,7 +39,7 @@ namespace MysteriousKnives.Projectiles
             if (Projectile.timeLeft < 597)//弹幕粒子效果
             {
                 Dust dust = Dust.NewDustDirect(Projectile.position, Projectile.width, Projectile.height, type);
-                dust.alpha = 30;
+                dust.alpha = 0;
                 dust.noGravity = true;
                 dust.scale *= 0.5f;
                 dust.position = Projectile.Center;
@@ -108,7 +109,7 @@ namespace MysteriousKnives.Projectiles
         public override void AI()
         {
             Player player = Main.player[Projectile.owner];
-            if (player.inventory[player.selectedItem].type == ModContent.ItemType<MK10>())
+            if (GetMKID(player) == 10)
             {
                 Projectile.extraUpdates = 1;
                 if (Projectile.timeLeft > 540) Projectile.friendly = false;
@@ -147,7 +148,8 @@ namespace MysteriousKnives.Projectiles
                 }
             }
 
-            if (Projectile.timeLeft < 60) Projectile.alpha += (255 - Projectile.alpha) / 60;
+            if (Projectile.timeLeft < 60 && Projectile.alpha < 255) Projectile.alpha += 255 / 60;
+            else if (Projectile.alpha > 255) Projectile.alpha = 255;
             base.AI();
         }//发射角 追踪 淡出
         /// <summary>
@@ -184,17 +186,20 @@ namespace MysteriousKnives.Projectiles
                 target = Main.npc[target.realLife];
             Player player = Main.player[Projectile.owner];
             int i = 180;
-            switch (GetMKID(player))
+            if (target.rarity != 0 || target.boss)
             {
-                case 2: target.AddBuff(ModContent.BuffType<ConvergentBurst1>(), i); break;
-                case 3: target.AddBuff(ModContent.BuffType<ConvergentBurst2>(), i); break;
-                case 4: target.AddBuff(ModContent.BuffType<ConvergentBurst3>(), i); break;
-                case 5: target.AddBuff(ModContent.BuffType<ConvergentBurst4>(), i); break;
-                case 6: target.AddBuff(ModContent.BuffType<ConvergentBurst4>(), i); break;
-                case 7: target.AddBuff(ModContent.BuffType<ConvergentBurst4>(), i); break;
-                case 8: target.AddBuff(ModContent.BuffType<ConvergentBurst5>(), i); break;
-                case 9: target.AddBuff(ModContent.BuffType<ConvergentBurst6>(), i); break;
-                case 10: target.AddBuff(ModContent.BuffType<ConvergentBurst6>(), i); break;
+                switch (GetMKID(player))
+                {
+                    case 2: target.AddBuff(ModContent.BuffType<ConvergentBurst1>(), i); break;
+                    case 3: target.AddBuff(ModContent.BuffType<ConvergentBurst2>(), i); break;
+                    case 4: target.AddBuff(ModContent.BuffType<ConvergentBurst3>(), i); break;
+                    case 5: target.AddBuff(ModContent.BuffType<ConvergentBurst4>(), i); break;
+                    case 6: target.AddBuff(ModContent.BuffType<ConvergentBurst4>(), i); break;
+                    case 7: target.AddBuff(ModContent.BuffType<ConvergentBurst4>(), i); break;
+                    case 8: target.AddBuff(ModContent.BuffType<ConvergentBurst5>(), i); break;
+                    case 9: target.AddBuff(ModContent.BuffType<ConvergentBurst6>(), i); break;
+                    case 10: target.AddBuff(ModContent.BuffType<ConvergentBurst6>(), i); break;
+                }
             }
         }
         /// <summary>
@@ -524,7 +529,9 @@ namespace MysteriousKnives.Projectiles
             {
                 Player player = Main.player[Projectile.owner];
                 Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.Center, Projectile.velocity,
-                    ModContent.ProjectileType<MKboom>(), Projectile.damage, 20, player.whoAmI);
+                    ModContent.ProjectileType<MKboom>(), 
+                    (int)(Projectile.damage * (float)(1 + (int)player.GetCritChance(DamageClass.Melee) / 100)), 
+                    20, player.whoAmI);
                 SoundEngine.PlaySound(SoundID.Item14);
                 for (int i = 0; i < 100; i++)
                 {

@@ -88,12 +88,14 @@ namespace MysteriousKnives.Projectiles
             if (player.channel)
             {
                 Projectile.timeLeft = 2;
-                player.itemTime = 60;
-                player.itemAnimation = 60;
+                player.itemTime = 2;
+                player.itemAnimation = 2;
                 if (Main.GameUpdateCount % 3 == 0)
                 {
                     int damage = (int)(Projectile.damage * (float)(3 + 0.3f * Main.rand.Next(-10, 10)) 
-                                 * target.takenDamageMultiplier * 1.5f);
+                                 * target.takenDamageMultiplier * 1.5f
+                                 * (1 + (player.GetTotalCritChance(DamageClass.Melee)) / 100)
+                                    + player.GetTotalAttackSpeed(DamageClass.Melee));
                     target.life -= damage;
                     if (target.realLife != -1)
                         Main.npc[target.realLife].life -= damage;
@@ -105,7 +107,11 @@ namespace MysteriousKnives.Projectiles
                 switch (Main.rand.Next(8))
                 {
                     case 0: target.AddBuff(ModContent.BuffType<Crystallization>(), 300); break;
-                    case 1: target.AddBuff(ModContent.BuffType<ConvergentBurst6>(), 180); break;
+                    case 1:
+                        if (target.rarity != 0 || target.boss)
+                        {
+                            target.AddBuff(ModContent.BuffType<ConvergentBurst6>(), 180);
+                        } break;
                     case 2: target.AddBuff(ModContent.BuffType<IndescribableFear>(), 7 * 180); break;
                     case 3: target.AddBuff(ModContent.BuffType<SunkerCancer>(), 720); break;
                     case 4: target.AddBuff(ModContent.BuffType<WeirdVemon>(), 720); break;

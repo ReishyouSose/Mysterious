@@ -23,10 +23,7 @@ namespace MysteriousKnives.Dusts
 			dust.position += dust.velocity;
 			dust.rotation += (float)Math.PI / 180f;
 			dust.scale -= 0.04f;
-			if (dust.scale <= 0f)
-			{
-				dust.active = false;
-			}
+			if (dust.scale <= 0f) dust.active = false;
 			return base.Update(dust);
         }
 

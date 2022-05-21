@@ -44,7 +44,7 @@ namespace MysteriousKnives.NPCs
                 npc.buffImmune[ModContent.BuffType<SunkerCancer>()] = true;
                 return;
             }
-                base.ResetEffects(npc);
+            base.ResetEffects(npc);
         }
         public static void NPCnormalDead(NPC npc)
         {
