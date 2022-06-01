@@ -75,7 +75,7 @@ namespace MysteriousKnives.Items
     {
         public override Color RarityColor => new(255, 0, 0);
     }
-    public class Rare_Ranbow : ModRarity
+    public class Rare_Rainbow : ModRarity
     {
         public override Color RarityColor => Main.DiscoColor;
     }

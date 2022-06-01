@@ -2,6 +2,9 @@
 using Terraria.ModLoader;
 using Terraria;
 using static MysteriousKnives.Buffs.MysteriousBuffs;
+using System.Collections.Generic;
+using System;
+using System.Linq;
 
 namespace MysteriousKnives.NPCs
 {
@@ -36,15 +39,6 @@ namespace MysteriousKnives.NPCs
             npc.buffImmune[ModContent.BuffType<Crystallization>()] = false;
             npc.buffImmune[ModContent.BuffType<SunkerCancer>()] = false;
             npc.buffImmune[ModContent.BuffType<WeirdVemon>()] = false;
-            if (npc.realLife != -1)
-            {
-                npc.buffImmune[ModContent.BuffType<IndescribableFear>()] = true;
-                npc.buffImmune[ModContent.BuffType<ConvergentBurst>()] = true;
-                npc.buffImmune[ModContent.BuffType<Crystallization>()] = true;
-                npc.buffImmune[ModContent.BuffType<SunkerCancer>()] = true;
-                return;
-            }
-            base.ResetEffects(npc);
         }
         public static void NPCnormalDead(NPC npc)
         {
@@ -61,14 +55,12 @@ namespace MysteriousKnives.NPCs
             if (SK1) damage -= (int)(damage * 0.1f);
             if (SK2) damage -= (int)(damage * 0.2f);
             if (SK3) damage -= (int)(damage * 0.4f);
-            base.ModifyHitPlayer(npc, target, ref damage, ref crit);
         }
         public override void ModifyHitNPC(NPC npc, NPC target, ref int damage, ref float knockback, ref bool crit)
         {
             if (SK1) damage -= (int)(damage * 0.1f);
             if (SK2) damage -= (int)(damage * 0.2f);
             if (SK3) damage -= (int)(damage * 0.4f);
-            base.ModifyHitNPC(npc, target, ref damage, ref knockback, ref crit);
         }
         public override void ModifyHitByItem(NPC npc, Player player, Item item, ref int damage, ref float knockback, ref bool crit)
         {
@@ -79,7 +71,6 @@ namespace MysteriousKnives.NPCs
             if (AB5) damage += (int)(damage * 0.25f);
             if (AB6) damage += (int)(damage * 0.3f);
             if (AB7) damage += (int)(damage * 0.5f);
-            base.ModifyHitByItem(npc, player, item, ref damage, ref knockback, ref crit);
         }
         public override void ModifyHitByProjectile(NPC npc, Projectile Projectile, ref int damage, ref float knockback, ref bool crit, ref int hitDirection)
         {
@@ -90,7 +81,6 @@ namespace MysteriousKnives.NPCs
             if (AB5) damage += (int)(damage * 0.25f);
             if (AB6) damage += (int)(damage * 0.3f);
             if (AB7) damage += (int)(damage * 0.5f);
-            base.ModifyHitByProjectile(npc, Projectile, ref damage, ref knockback, ref crit, ref hitDirection);
         }
     }
 }

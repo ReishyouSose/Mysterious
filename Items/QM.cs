@@ -41,18 +41,18 @@ namespace MysteriousKnives.Items
 				}
 				public override void AddRecipes()
 				{
-					if (ModLoader.TryGetMod("CalamityMod", out var mod))
+					if (ModLoader.TryGetMod("CalamityMod", out Mod CalamityMod))
 					{
 						Recipe recipe = CreateRecipe();
 						recipe.AddIngredient(ItemID.WormTooth, 10);
 						recipe.AddIngredient(ItemID.JungleSpores, 10);
 						recipe.AddIngredient(ItemID.Stinger, 10);
 						recipe.AddIngredient(ItemID.BottledWater, 10);
-						recipe.AddIngredient(mod.Find<ModItem>("EbonianGel"), 10);
-						recipe.AddIngredient(mod.Find<ModItem>("SulphurousSand"), 20);
-						recipe.AddIngredient(mod.Find<ModItem>("SulphurousSandstone"), 20);
-						recipe.AddIngredient(mod.Find<ModItem>("HardenedSulphurousSandstone"), 20);
-						recipe.AddIngredient(mod.Find<ModItem>("SulfuricScale"), 10);
+						recipe.AddIngredient(CalamityMod.Find<ModItem>("EbonianGel"), 10);
+						recipe.AddIngredient(CalamityMod.Find<ModItem>("SulphurousSand"), 20);
+						recipe.AddIngredient(CalamityMod.Find<ModItem>("SulphurousSandstone"), 20);
+						recipe.AddIngredient(CalamityMod.Find<ModItem>("HardenedSulphurousSandstone"), 20);
+						recipe.AddIngredient(CalamityMod.Find<ModItem>("SulfuricScale"), 10);
 						recipe.AddTile(TileID.Bottles);
 						recipe.ReplaceResult(this, 1);
 						recipe.Register();
@@ -73,11 +73,11 @@ namespace MysteriousKnives.Items
 				}
 				public override void AddRecipes()
 				{
-					if (ModLoader.TryGetMod("CalamityMod", out var mod))
+					if (ModLoader.TryGetMod("CalamityMod", out Mod CalamityMod))
 					{
 						Recipe recipe = CreateRecipe();
 						recipe.AddIngredient(ItemID.BottledWater, 10);
-						recipe.AddIngredient(mod.Find<ModItem>("TrueShadowScale"), 10);
+						recipe.AddIngredient(CalamityMod.Find<ModItem>("TrueShadowScale"), 10);
 						recipe.AddTile(TileID.AlchemyTable);
 						recipe.ReplaceResult(this, 1);
 						recipe.Register();
@@ -98,15 +98,15 @@ namespace MysteriousKnives.Items
 				}
 				public override void AddRecipes()
 				{
-					if (ModLoader.TryGetMod("CalamityMod", out var mod))
+					if (ModLoader.TryGetMod("CalamityMod", out Mod CalamityMod))
 					{
 						Recipe recipe = CreateRecipe();
 						recipe.AddIngredient(ItemID.BottledWater, 10);
 						recipe.AddIngredient(ItemID.SpiderFang, 10);
 						recipe.AddIngredient(ItemID.Ichor, 10);
-						recipe.AddIngredient(mod.Find<ModItem>("MolluskHusk"), 10);
-						recipe.AddIngredient(mod.Find<ModItem>("BlightedLens"), 10);
-						recipe.AddIngredient(mod.Find<ModItem>("CorrodedFossil"), 10);
+						recipe.AddIngredient(CalamityMod.Find<ModItem>("MolluskHusk"), 10);
+						recipe.AddIngredient(CalamityMod.Find<ModItem>("BlightedLens"), 10);
+						recipe.AddIngredient(CalamityMod.Find<ModItem>("CorrodedFossil"), 10);
 						recipe.AddTile(TileID.AlchemyTable);
 						recipe.ReplaceResult(this, 1);
 						recipe.Register();
@@ -126,12 +126,12 @@ namespace MysteriousKnives.Items
 				}
 				public override void AddRecipes()
 				{
-					if (ModLoader.TryGetMod("CalamityMod", out var mod))
+					if (ModLoader.TryGetMod("CalamityMod", out Mod CalamityMod))
 					{
 						Recipe recipe = CreateRecipe();
 						recipe.AddIngredient(ItemID.BottledWater, 10);
-						recipe.AddIngredient(mod.Find<ModItem>("PlagueCellCluster"), 10);
-						recipe.AddIngredient(mod.Find<ModItem>("InfectedArmorPlating"), 10);
+						recipe.AddIngredient(CalamityMod.Find<ModItem>("PlagueCellCluster"), 10);
+						recipe.AddIngredient(CalamityMod.Find<ModItem>("InfectedArmorPlating"), 10);
 						recipe.AddTile(TileID.AlchemyTable);
 						recipe.ReplaceResult(this, 1);
 						recipe.Register();
@@ -162,7 +162,7 @@ namespace MysteriousKnives.Items
 				}
 				public override void AddRecipes()
 				{
-					if (ModLoader.TryGetMod("CalamityMod", out var mod))
+					if (ModLoader.TryGetMod("CalamityMod", out Mod CalamityMod))
 					{
 						Recipe recipe = CreateRecipe();
 						recipe.AddIngredient(ItemID.LargeRuby, 1);
@@ -174,9 +174,9 @@ namespace MysteriousKnives.Items
 						recipe.AddIngredient(ItemID.LargeDiamond, 1);
 						recipe.AddIngredient(ItemID.BottledWater, 10);
 						recipe.AddIngredient(ItemID.LavaBucket, 10);
-						recipe.AddIngredient(mod.Find<ModItem>("PrismaticGuppy"), 1);
-						recipe.AddIngredient(mod.Find<ModItem>("SeaPrism"), 10);
-						recipe.AddIngredient(mod.Find<ModItem>("PrismShard"), 10);
+						recipe.AddIngredient(CalamityMod.Find<ModItem>("PrismaticGuppy"), 1);
+						recipe.AddIngredient(CalamityMod.Find<ModItem>("SeaPrism"), 10);
+						recipe.AddIngredient(CalamityMod.Find<ModItem>("PrismShard"), 10);
 						recipe.AddTile(TileID.Furnaces);
 						recipe.ReplaceResult(this, 1);
 						recipe.Register();
@@ -193,15 +193,15 @@ namespace MysteriousKnives.Items
 				}
 				public override void AddRecipes()
 				{
-					if (ModLoader.TryGetMod("CalamityMod", out var mod))
+					if (ModLoader.TryGetMod("CalamityMod", out Mod CalamityMod))
 					{
 						Recipe recipe = CreateRecipe();
 						recipe.AddIngredient(ItemID.AncientBattleArmorMaterial, 3);
 						recipe.AddIngredient(ItemID.BottledWater, 10);
 						recipe.AddIngredient(ItemID.LavaBucket, 10);
 						recipe.AddIngredient(ItemID.CrystalShard, 20);
-						recipe.AddIngredient(mod.Find<ModItem>("EssenceofEleum"), 10);
-						recipe.AddIngredient(mod.Find<ModItem>("VerstaltiteBar"), 10);
+						recipe.AddIngredient(CalamityMod.Find<ModItem>("EssenceofEleum"), 10);
+						recipe.AddIngredient(CalamityMod.Find<ModItem>("VerstaltiteBar"), 10);
 						recipe.AddTile(TileID.Hellforge);
 						recipe.ReplaceResult(this, 1);
 						recipe.Register();
@@ -218,13 +218,13 @@ namespace MysteriousKnives.Items
 				}
 				public override void AddRecipes()
 				{
-					if (ModLoader.TryGetMod("CalamityMod", out var mod))
+					if (ModLoader.TryGetMod("CalamityMod", out Mod CalamityMod))
 					{
 						Recipe recipe = CreateRecipe();
 						recipe.AddIngredient(ItemID.BottledWater, 10);
 						recipe.AddIngredient(ItemID.LavaBucket, 10);
-						recipe.AddIngredient(mod.Find<ModItem>("Lumenite"), 10);
-						recipe.AddIngredient(mod.Find<ModItem>("CoreofEleum"), 10);
+						recipe.AddIngredient(CalamityMod.Find<ModItem>("Lumenite"), 10);
+						recipe.AddIngredient(CalamityMod.Find<ModItem>("CoreofEleum"), 10);
 						recipe.AddTile(TileID.AdamantiteForge);
 						recipe.ReplaceResult(this, 1);
 						recipe.Register();
@@ -241,12 +241,12 @@ namespace MysteriousKnives.Items
 				}
 				public override void AddRecipes()
 				{
-					if (ModLoader.TryGetMod("CalamityMod", out var mod))
+					if (ModLoader.TryGetMod("CalamityMod", out Mod CalamityMod))
 					{
 						Recipe recipe = CreateRecipe();
 						recipe.AddIngredient(ItemID.BottledWater, 10);
 						recipe.AddIngredient(ItemID.LavaBucket, 10);
-						recipe.AddIngredient(mod.Find<ModItem>("DivineGeode"), 10);
+						recipe.AddIngredient(CalamityMod.Find<ModItem>("DivineGeode"), 10);
 						recipe.AddTile(TileID.AdamantiteForge);
 						recipe.ReplaceResult(this, 1);
 						recipe.Register();
@@ -263,12 +263,12 @@ namespace MysteriousKnives.Items
 				}
 				public override void AddRecipes()
 				{
-					if (ModLoader.TryGetMod("CalamityMod", out var mod))
+					if (ModLoader.TryGetMod("CalamityMod", out Mod CalamityMod))
 					{
 						Recipe recipe = CreateRecipe();
 						recipe.AddIngredient(ItemID.BottledWater, 10);
 						recipe.AddIngredient(ItemID.LavaBucket, 10);
-						recipe.AddIngredient(mod.Find<ModItem>("ExoPrism"), 10);
+						recipe.AddIngredient(CalamityMod.Find<ModItem>("ExoPrism"), 10);
 						recipe.AddTile(TileID.AdamantiteForge);
 						recipe.ReplaceResult(this, 1);
 						recipe.Register();
@@ -303,13 +303,13 @@ namespace MysteriousKnives.Items
 				}
 				public override void AddRecipes()
 				{
-					if (ModLoader.TryGetMod("CalamityMod", out var mod))
+					if (ModLoader.TryGetMod("CalamityMod", out Mod CalamityMod))
 					{
 						Recipe recipe = CreateRecipe();
 						recipe.AddIngredient(ItemID.BottledWater, 10);
-						recipe.AddIngredient(mod.Find<ModItem>("SunkenSailfish"), 1);
-						recipe.AddIngredient(mod.Find<ModItem>("VictideBar"), 10);
-						recipe.AddIngredient(mod.Find<ModItem>("Navystone"), 20);
+						recipe.AddIngredient(CalamityMod.Find<ModItem>("SunkenSailfish"), 1);
+						recipe.AddIngredient(CalamityMod.Find<ModItem>("VictideBar"), 10);
+						recipe.AddIngredient(CalamityMod.Find<ModItem>("Navystone"), 20);
 						recipe.AddTile(TileID.Bottles);
 						recipe.ReplaceResult(this, 1);
 						recipe.Register();
@@ -326,11 +326,11 @@ namespace MysteriousKnives.Items
 				}
 				public override void AddRecipes()
 				{
-					if (ModLoader.TryGetMod("CalamityMod", out var mod))
+					if (ModLoader.TryGetMod("CalamityMod", out Mod CalamityMod))
 					{
 						Recipe recipe = CreateRecipe();
 						recipe.AddIngredient(ItemID.BottledWater, 10);
-						recipe.AddIngredient(mod.Find<ModItem>("ScarredAngelfish"), 1);
+						recipe.AddIngredient(CalamityMod.Find<ModItem>("ScarredAngelfish"), 1);
 						recipe.AddTile(TileID.Bottles);
 						recipe.ReplaceResult(this, 1);
 						recipe.Register();
@@ -347,11 +347,11 @@ namespace MysteriousKnives.Items
 				}
 				public override void AddRecipes()
 				{
-					if (ModLoader.TryGetMod("CalamityMod", out var mod))
+					if (ModLoader.TryGetMod("CalamityMod", out Mod CalamityMod))
 					{
 						Recipe recipe = CreateRecipe();
 						recipe.AddIngredient(ItemID.BottledWater, 10);
-						recipe.AddIngredient(mod.Find<ModItem>("EndothermicEnergy"), 10);
+						recipe.AddIngredient(CalamityMod.Find<ModItem>("EndothermicEnergy"), 10);
 						recipe.AddTile(TileID.Bottles);
 						recipe.ReplaceResult(this, 1);
 						recipe.Register();
@@ -384,14 +384,14 @@ namespace MysteriousKnives.Items
 				}
 				public override void AddRecipes()
 				{
-					if (ModLoader.TryGetMod("CalamityMod", out var mod))
+					if (ModLoader.TryGetMod("CalamityMod", out Mod CalamityMod))
 					{
 						Recipe recipe = CreateRecipe();
 						recipe.AddIngredient(ItemID.LifeCrystal, 10);
 						recipe.AddIngredient(ItemID.BottledWater, 10);
-						recipe.AddIngredient(mod.Find<ModItem>("PlantyMush"), 20);
-						recipe.AddIngredient(mod.Find<ModItem>("CoralskinFoolfish"), 1);
-						recipe.AddIngredient(mod.Find<ModItem>("EutrophicSand"), 20);
+						recipe.AddIngredient(CalamityMod.Find<ModItem>("PlantyMush"), 20);
+						recipe.AddIngredient(CalamityMod.Find<ModItem>("CoralskinFoolfish"), 1);
+						recipe.AddIngredient(CalamityMod.Find<ModItem>("EutrophicSand"), 20);
 						recipe.AddTile(TileID.Bottles);
 						recipe.ReplaceResult(this, 1);
 						recipe.Register();
@@ -408,13 +408,13 @@ namespace MysteriousKnives.Items
 				}
 				public override void AddRecipes()
 				{
-					if (ModLoader.TryGetMod("CalamityMod", out var mod))
+					if (ModLoader.TryGetMod("CalamityMod", out Mod CalamityMod))
 					{
 						Recipe recipe = CreateRecipe();
 						recipe.AddIngredient(ItemID.BottledWater, 10);
 						recipe.AddIngredient(ItemID.BeeWax, 10);
-						recipe.AddIngredient(mod.Find<ModItem>("PurifiedJam"), 1);
-						recipe.AddIngredient(mod.Find<ModItem>("PurifiedGel"), 10);
+						recipe.AddIngredient(CalamityMod.Find<ModItem>("PurifiedJam"), 1);
+						recipe.AddIngredient(CalamityMod.Find<ModItem>("PurifiedGel"), 10);
 						recipe.AddTile(TileID.AlchemyTable);
 						recipe.ReplaceResult(this, 1);
 						recipe.Register();
@@ -431,7 +431,7 @@ namespace MysteriousKnives.Items
 				}
 				public override void AddRecipes()
 				{
-					if (ModLoader.TryGetMod("CalamityMod", out var mod))
+					if (ModLoader.TryGetMod("CalamityMod", out Mod CalamityMod))
 					{
 						Recipe recipe = CreateRecipe();
 						recipe.AddIngredient(ItemID.BottledWater, 10);
@@ -439,9 +439,9 @@ namespace MysteriousKnives.Items
 						recipe.AddIngredient(ItemID.AncientCloth, 3);
 						recipe.AddIngredient(ItemID.SoulofFlight, 10);
 						recipe.AddIngredient(ItemID.ButterflyDust, 3);
-						recipe.AddIngredient(mod.Find<ModItem>("TitanHeart"), 3);
-						recipe.AddIngredient(mod.Find<ModItem>("TrapperBulb"), 3);
-						recipe.AddIngredient(mod.Find<ModItem>("BeetleJuice"), 10);
+						recipe.AddIngredient(CalamityMod.Find<ModItem>("TitanHeart"), 3);
+						recipe.AddIngredient(CalamityMod.Find<ModItem>("TrapperBulb"), 3);
+						recipe.AddIngredient(CalamityMod.Find<ModItem>("BeetleJuice"), 10);
 						recipe.AddTile(TileID.AlchemyTable);
 						recipe.ReplaceResult(this, 1);
 						recipe.Register();
@@ -458,13 +458,13 @@ namespace MysteriousKnives.Items
 				}
 				public override void AddRecipes()
 				{
-					if (ModLoader.TryGetMod("CalamityMod", out var mod))
+					if (ModLoader.TryGetMod("CalamityMod", out Mod CalamityMod))
 					{
 						Recipe recipe = CreateRecipe();
 						recipe.AddIngredient(ItemID.BottledWater, 10);
 						recipe.AddIngredient(ItemID.SoulofSight, 10);
 						recipe.AddIngredient(ItemID.LifeFruit, 10);
-						recipe.AddIngredient(mod.Find<ModItem>("LivingShard"), 10);
+						recipe.AddIngredient(CalamityMod.Find<ModItem>("LivingShard"), 10);
 						recipe.AddTile(TileID.AlchemyTable);
 						recipe.ReplaceResult(this, 1);
 						recipe.Register();
@@ -481,13 +481,13 @@ namespace MysteriousKnives.Items
 				}
 				public override void AddRecipes()
 				{
-					if (ModLoader.TryGetMod("CalamityMod", out var mod))
+					if (ModLoader.TryGetMod("CalamityMod", out Mod CalamityMod))
 					{
 						Recipe recipe = CreateRecipe();
 						recipe.AddIngredient(ItemID.BottledWater, 10);
 						recipe.AddIngredient(ItemID.BeetleHusk, 10);
-						recipe.AddIngredient(mod.Find<ModItem>("BarofLife"), 10);
-						recipe.AddIngredient(mod.Find<ModItem>("ExodiunClusterOre"), 20);
+						recipe.AddIngredient(CalamityMod.Find<ModItem>("BarofLife"), 10);
+						recipe.AddIngredient(CalamityMod.Find<ModItem>("ExodiunClusterOre"), 20);
 						recipe.AddTile(TileID.AlchemyTable);
 						recipe.ReplaceResult(this, 1);
 						recipe.Register();
@@ -504,11 +504,11 @@ namespace MysteriousKnives.Items
 				}
 				public override void AddRecipes()
 				{
-					if (ModLoader.TryGetMod("CalamityMod", out var mod))
+					if (ModLoader.TryGetMod("CalamityMod", out Mod CalamityMod))
 					{
 						Recipe recipe = CreateRecipe();
 						recipe.AddIngredient(ItemID.BottledWater, 10);
-						recipe.AddIngredient(mod.Find<ModItem>("ArmoredShell"), 20);
+						recipe.AddIngredient(CalamityMod.Find<ModItem>("ArmoredShell"), 20);
 						recipe.AddTile(TileID.AlchemyTable);
 						recipe.ReplaceResult(this, 1);
 						recipe.Register();
@@ -525,11 +525,11 @@ namespace MysteriousKnives.Items
 				}
 				public override void AddRecipes()
 				{
-					if (ModLoader.TryGetMod("CalamityMod", out var mod))
+					if (ModLoader.TryGetMod("CalamityMod", out Mod CalamityMod))
 					{
 						Recipe recipe = CreateRecipe();
 						recipe.AddIngredient(ItemID.BottledWater, 10);
-						recipe.AddIngredient(mod.Find<ModItem>("AuricBar"), 10);
+						recipe.AddIngredient(CalamityMod.Find<ModItem>("AuricBar"), 10);
 						recipe.AddTile(TileID.AlchemyTable);
 						recipe.ReplaceResult(this, 1);
 						recipe.Register();
@@ -546,11 +546,11 @@ namespace MysteriousKnives.Items
 				}
 				public override void AddRecipes()
 				{
-					if (ModLoader.TryGetMod("CalamityMod", out var mod))
+					if (ModLoader.TryGetMod("CalamityMod", out Mod CalamityMod))
 					{
 						Recipe recipe = CreateRecipe();
 						recipe.AddIngredient(ItemID.BottledWater, 10);
-						recipe.AddIngredient(mod.Find<ModItem>("MiracleMatter"), 3); 
+						recipe.AddIngredient(CalamityMod.Find<ModItem>("MiracleMatter"), 3); 
 						recipe.AddTile(TileID.AlchemyTable);
 						recipe.ReplaceResult(this, 1);
 						recipe.Register();
@@ -582,13 +582,13 @@ namespace MysteriousKnives.Items
 				}
 				public override void AddRecipes()
 				{
-					if (ModLoader.TryGetMod("CalamityMod", out var mod))
+					if (ModLoader.TryGetMod("CalamityMod", out Mod CalamityMod))
 					{
 						Recipe recipe = CreateRecipe();
 						recipe.AddIngredient(ItemID.BottledWater, 10);
 						recipe.AddIngredient(ItemID.Bone, 10);
-						recipe.AddIngredient(mod.Find<ModItem>("AncientBoneDust"), 10);
-						recipe.AddIngredient(mod.Find<ModItem>("DemonicBoneAsh"), 10);
+						recipe.AddIngredient(CalamityMod.Find<ModItem>("AncientBoneDust"), 10);
+						recipe.AddIngredient(CalamityMod.Find<ModItem>("DemonicBoneAsh"), 10);
 						recipe.AddTile(TileID.AlchemyTable);
 						recipe.ReplaceResult(this, 1);
 						recipe.Register();
@@ -605,12 +605,12 @@ namespace MysteriousKnives.Items
 				}
 				public override void AddRecipes()
 				{
-					if (ModLoader.TryGetMod("CalamityMod", out var mod))
+					if (ModLoader.TryGetMod("CalamityMod", out Mod CalamityMod))
 					{
 						Recipe recipe = CreateRecipe();
 						recipe.AddIngredient(ItemID.BottledWater, 10);
 						recipe.AddIngredient(ItemID.SoulofLight, 10);
-						recipe.AddIngredient(mod.Find<ModItem>(" EssenceofSunlight"), 10);
+						recipe.AddIngredient(CalamityMod.Find<ModItem>(" EssenceofSunlight"), 10);
 						recipe.AddTile(TileID.AlchemyTable);
 						recipe.ReplaceResult(this, 1);
 						recipe.Register();
@@ -627,16 +627,16 @@ namespace MysteriousKnives.Items
 				}
 				public override void AddRecipes()
 				{
-					if (ModLoader.TryGetMod("CalamityMod", out var mod))
+					if (ModLoader.TryGetMod("CalamityMod", out Mod CalamityMod))
 					{
 						Recipe recipe = CreateRecipe();
 						recipe.AddIngredient(ItemID.BottledWater, 10);
 						recipe.AddIngredient(ItemID.SoulofMight, 10);
 						recipe.AddIngredient(ItemID.BlackFairyDust, 3);
 						recipe.AddIngredient(ItemID.BrokenHeroSword, 3);
-						recipe.AddIngredient(mod.Find<ModItem>("SolarVeil"), 10);
-						recipe.AddIngredient(mod.Find<ModItem>("GrandScale"), 3);
-						recipe.AddIngredient(mod.Find<ModItem>("CoreofSunlight"), 10);
+						recipe.AddIngredient(CalamityMod.Find<ModItem>("SolarVeil"), 10);
+						recipe.AddIngredient(CalamityMod.Find<ModItem>("GrandScale"), 3);
+						recipe.AddIngredient(CalamityMod.Find<ModItem>("CoreofSunlight"), 10);
 						recipe.AddTile(TileID.AlchemyTable);
 						recipe.ReplaceResult(this, 1);
 						recipe.Register();
@@ -653,12 +653,12 @@ namespace MysteriousKnives.Items
 				}
 				public override void AddRecipes()
 				{
-					if (ModLoader.TryGetMod("CalamityMod", out var mod))
+					if (ModLoader.TryGetMod("CalamityMod", out Mod CalamityMod))
 					{
 						Recipe recipe = CreateRecipe();
 						recipe.AddIngredient(ItemID.BottledWater, 10);
-						recipe.AddIngredient(mod.Find<ModItem>("MeldiateBar"), 10);
-						recipe.AddIngredient(mod.Find<ModItem>("EffulgentFeather"), 10);
+						recipe.AddIngredient(CalamityMod.Find<ModItem>("MeldiateBar"), 10);
+						recipe.AddIngredient(CalamityMod.Find<ModItem>("EffulgentFeather"), 10);
 						recipe.AddTile(TileID.AlchemyTable);
 						recipe.ReplaceResult(this, 1);
 						recipe.Register();
@@ -675,13 +675,13 @@ namespace MysteriousKnives.Items
 				}
 				public override void AddRecipes()
 				{
-					if (ModLoader.TryGetMod("CalamityMod", out var mod))
+					if (ModLoader.TryGetMod("CalamityMod", out Mod CalamityMod))
 					{
 						Recipe recipe = CreateRecipe();
 						recipe.AddIngredient(ItemID.BottledWater, 10);
-						recipe.AddIngredient(mod.Find<ModItem>("TwistingNether"), 1);
-						recipe.AddIngredient(mod.Find<ModItem>("RuinousSoul"), 10);
-						recipe.AddIngredient(mod.Find<ModItem>("ReaperTooth"), 3);
+						recipe.AddIngredient(CalamityMod.Find<ModItem>("TwistingNether"), 1);
+						recipe.AddIngredient(CalamityMod.Find<ModItem>("RuinousSoul"), 10);
+						recipe.AddIngredient(CalamityMod.Find<ModItem>("ReaperTooth"), 3);
 						recipe.AddTile(TileID.AlchemyTable);
 						recipe.ReplaceResult(this, 1);
 						recipe.Register();
@@ -698,11 +698,11 @@ namespace MysteriousKnives.Items
 				}
 				public override void AddRecipes()
 				{
-					if (ModLoader.TryGetMod("CalamityMod", out var mod))
+					if (ModLoader.TryGetMod("CalamityMod", out Mod CalamityMod))
 					{
 						Recipe recipe = CreateRecipe();
 						recipe.AddIngredient(ItemID.BottledWater, 10);
-						recipe.AddIngredient(mod.Find<ModItem>("AscendantSpiritEssence"), 10);
+						recipe.AddIngredient(CalamityMod.Find<ModItem>("AscendantSpiritEssence"), 10);
 						recipe.AddTile(TileID.AlchemyTable);
 						recipe.ReplaceResult(this, 1);
 						recipe.Register();
@@ -733,15 +733,15 @@ namespace MysteriousKnives.Items
 				}
 				public override void AddRecipes()
 				{
-					if (ModLoader.TryGetMod("CalamityMod", out var mod))
+					if (ModLoader.TryGetMod("CalamityMod", out Mod CalamityMod))
 					{
 						Recipe recipe = CreateRecipe();
 						recipe.AddIngredient(ItemID.BottledWater, 10);
 						recipe.AddIngredient(ItemID.MeteoriteBar, 10);
 						recipe.AddIngredient(ItemID.HellstoneBar, 10);
-						recipe.AddIngredient(mod.Find<ModItem>("BrimstoneFish"), 1);
-						recipe.AddIngredient(mod.Find<ModItem>("CragBullhead"), 1);
-						recipe.AddIngredient(mod.Find<ModItem>("BrimstoneSlag"), 20);
+						recipe.AddIngredient(CalamityMod.Find<ModItem>("BrimstoneFish"), 1);
+						recipe.AddIngredient(CalamityMod.Find<ModItem>("CragBullhead"), 1);
+						recipe.AddIngredient(CalamityMod.Find<ModItem>("BrimstoneSlag"), 20);
 						recipe.AddTile(TileID.Furnaces);
 						recipe.ReplaceResult(this, 1);
 						recipe.Register();
@@ -758,7 +758,7 @@ namespace MysteriousKnives.Items
 				}
 				public override void AddRecipes()
 				{
-					if (ModLoader.TryGetMod("CalamityMod", out var mod))
+					if (ModLoader.TryGetMod("CalamityMod", out Mod CalamityMod))
 					{
 						Recipe recipe = CreateRecipe();
 						recipe.AddIngredient(ItemID.BottledWater, 10);
@@ -779,12 +779,12 @@ namespace MysteriousKnives.Items
 				}
 				public override void AddRecipes()
 				{
-					if (ModLoader.TryGetMod("CalamityMod", out var mod))
+					if (ModLoader.TryGetMod("CalamityMod", out Mod CalamityMod))
 					{
 						Recipe recipe = CreateRecipe();
 						recipe.AddIngredient(ItemID.BottledWater, 10);
 						recipe.AddIngredient(ItemID.LunarTabletFragment, 10);
-						recipe.AddIngredient(mod.Find<ModItem>("UnholyCore"), 10);
+						recipe.AddIngredient(CalamityMod.Find<ModItem>("UnholyCore"), 10);
 						recipe.AddTile(TileID.AdamantiteForge);
 						recipe.ReplaceResult(this, 1);
 						recipe.Register();
@@ -801,12 +801,12 @@ namespace MysteriousKnives.Items
 				}
 				public override void AddRecipes()
 				{
-					if (ModLoader.TryGetMod("CalamityMod", out var mod))
+					if (ModLoader.TryGetMod("CalamityMod", out Mod CalamityMod))
 					{
 						Recipe recipe = CreateRecipe();
 						recipe.AddIngredient(ItemID.BottledWater, 10);
-						recipe.AddIngredient(mod.Find<ModItem>("CruptixBar"), 10);
-						recipe.AddIngredient(mod.Find<ModItem>("UnholyEssence"), 10);
+						recipe.AddIngredient(CalamityMod.Find<ModItem>("CruptixBar"), 10);
+						recipe.AddIngredient(CalamityMod.Find<ModItem>("UnholyEssence"), 10);
 						recipe.AddTile(TileID.AdamantiteForge);
 						recipe.ReplaceResult(this, 1);
 						recipe.Register();
@@ -823,11 +823,11 @@ namespace MysteriousKnives.Items
 				}
 				public override void AddRecipes()
 				{
-					if (ModLoader.TryGetMod("CalamityMod", out var mod))
+					if (ModLoader.TryGetMod("CalamityMod", out Mod CalamityMod))
 					{
 						Recipe recipe = CreateRecipe();
 						recipe.AddIngredient(ItemID.BottledWater, 10);
-						recipe.AddIngredient(mod.Find<ModItem>("HellcasterFragment"), 10);
+						recipe.AddIngredient(CalamityMod.Find<ModItem>("HellcasterFragment"), 10);
 						recipe.AddTile(TileID.AdamantiteForge);
 						recipe.ReplaceResult(this, 1);
 						recipe.Register();
@@ -843,11 +843,11 @@ namespace MysteriousKnives.Items
 				}
 				public override void AddRecipes()
 				{
-					if (ModLoader.TryGetMod("CalamityMod", out var mod))
+					if (ModLoader.TryGetMod("CalamityMod", out Mod CalamityMod))
 					{
 						Recipe recipe = CreateRecipe();
 						recipe.AddIngredient(ItemID.BottledWater, 10);
-						recipe.AddIngredient(mod.Find<ModItem>("CalamitousEssence"), 10);
+						recipe.AddIngredient(CalamityMod.Find<ModItem>("CalamitousEssence"), 10);
 						recipe.AddTile(TileID.AdamantiteForge);
 						recipe.ReplaceResult(this, 1);
 						recipe.Register();
@@ -878,15 +878,15 @@ namespace MysteriousKnives.Items
 				}
 				public override void AddRecipes()
 				{
-					if (ModLoader.TryGetMod("CalamityMod", out var mod))
+					if (ModLoader.TryGetMod("CalamityMod", out Mod CalamityMod))
 					{
 						Recipe recipe = CreateRecipe();
 						recipe.AddIngredient(ItemID.BottledWater, 10);
 						recipe.AddIngredient(ItemID.DemoniteBar, 10);
 						recipe.AddIngredient(ItemID.ShadowScale, 10);
-						recipe.AddIngredient(mod.Find<ModItem>("CoastalDemonfish"), 1);
-						recipe.AddIngredient(mod.Find<ModItem>("Shadowfish"), 1);
-						recipe.AddIngredient(mod.Find<ModItem>("AbyssGravel"), 20);
+						recipe.AddIngredient(CalamityMod.Find<ModItem>("CoastalDemonfish"), 1);
+						recipe.AddIngredient(CalamityMod.Find<ModItem>("Shadowfish"), 1);
+						recipe.AddIngredient(CalamityMod.Find<ModItem>("AbyssGravel"), 20);
 						recipe.AddTile(TileID.Hellforge);
 						recipe.ReplaceResult(this, 1);
 						recipe.Register();
@@ -903,12 +903,12 @@ namespace MysteriousKnives.Items
 				}
 				public override void AddRecipes()
 				{
-					if (ModLoader.TryGetMod("CalamityMod", out var mod))
+					if (ModLoader.TryGetMod("CalamityMod", out Mod CalamityMod))
 					{
 						Recipe recipe = CreateRecipe();
 						recipe.AddIngredient(ItemID.BottledWater, 10);
 						recipe.AddIngredient(ItemID.SoulofNight, 10);
-						recipe.AddIngredient(mod.Find<ModItem>("EssenceofChaos"), 10);
+						recipe.AddIngredient(CalamityMod.Find<ModItem>("EssenceofChaos"), 10);
 						recipe.AddTile(TileID.Hellforge);
 						recipe.ReplaceResult(this, 1);
 						recipe.Register();
@@ -925,18 +925,18 @@ namespace MysteriousKnives.Items
 				}
 				public override void AddRecipes()
 				{
-					if (ModLoader.TryGetMod("CalamityMod", out var mod))
+					if (ModLoader.TryGetMod("CalamityMod", out Mod CalamityMod))
 					{
 						Recipe recipe = CreateRecipe();
 						recipe.AddIngredient(ItemID.BottledWater, 10);
 						recipe.AddIngredient(ItemID.SoulofFright, 10);
 						recipe.AddIngredient(ItemID.Ectoplasm, 10);
 						recipe.AddIngredient(ItemID.SpookyTwig, 10);
-						recipe.AddIngredient(mod.Find<ModItem>("Voidstone"), 20);
-						recipe.AddIngredient(mod.Find<ModItem>("Tenebris"), 20);
-						recipe.AddIngredient(mod.Find<ModItem>("CalamityDust"), 10);
-						recipe.AddIngredient(mod.Find<ModItem>("DepthCells"), 10);
-						recipe.AddIngredient(mod.Find<ModItem>("CoreofChaos"), 10);
+						recipe.AddIngredient(CalamityMod.Find<ModItem>("Voidstone"), 20);
+						recipe.AddIngredient(CalamityMod.Find<ModItem>("Tenebris"), 20);
+						recipe.AddIngredient(CalamityMod.Find<ModItem>("CalamityDust"), 10);
+						recipe.AddIngredient(CalamityMod.Find<ModItem>("DepthCells"), 10);
+						recipe.AddIngredient(CalamityMod.Find<ModItem>("CoreofChaos"), 10);
 						recipe.AddTile(TileID.AdamantiteForge);
 						recipe.ReplaceResult(this, 1);
 						recipe.Register();
@@ -953,11 +953,11 @@ namespace MysteriousKnives.Items
 				}
 				public override void AddRecipes()
 				{
-					if (ModLoader.TryGetMod("CalamityMod", out var mod))
+					if (ModLoader.TryGetMod("CalamityMod", out Mod CalamityMod))
 					{
 						Recipe recipe = CreateRecipe();
 						recipe.AddIngredient(ItemID.BottledWater, 10);
-						recipe.AddIngredient(mod.Find<ModItem>("Phantoplasm"), 10);
+						recipe.AddIngredient(CalamityMod.Find<ModItem>("Phantoplasm"), 10);
 						recipe.AddTile(TileID.AdamantiteForge);
 						recipe.ReplaceResult(this, 1);
 						recipe.Register();
@@ -974,11 +974,11 @@ namespace MysteriousKnives.Items
 				}
 				public override void AddRecipes()
 				{
-					if (ModLoader.TryGetMod("CalamityMod", out var mod))
+					if (ModLoader.TryGetMod("CalamityMod", out Mod CalamityMod))
 					{
 						Recipe recipe = CreateRecipe();
 						recipe.AddIngredient(ItemID.BottledWater, 10);
-						recipe.AddIngredient(mod.Find<ModItem>("DarkPlasma"), 1);
+						recipe.AddIngredient(CalamityMod.Find<ModItem>("DarkPlasma"), 1);
 						recipe.AddTile(TileID.AdamantiteForge);
 						recipe.ReplaceResult(this, 1);
 						recipe.Register();
@@ -995,12 +995,12 @@ namespace MysteriousKnives.Items
 				}
 				public override void AddRecipes()
 				{
-					if (ModLoader.TryGetMod("CalamityMod", out var mod))
+					if (ModLoader.TryGetMod("CalamityMod", out Mod CalamityMod))
 					{
 						Recipe recipe = CreateRecipe();
 						recipe.AddIngredient(ItemID.BottledWater, 10);
-						recipe.AddIngredient(mod.Find<ModItem>("NightmareFuel"), 10);
-						recipe.AddIngredient(mod.Find<ModItem>("DarksunFragment"), 10);
+						recipe.AddIngredient(CalamityMod.Find<ModItem>("NightmareFuel"), 10);
+						recipe.AddIngredient(CalamityMod.Find<ModItem>("DarksunFragment"), 10);
 						recipe.AddTile(TileID.AdamantiteForge);
 						recipe.ReplaceResult(this, 1);
 						recipe.Register();
@@ -1017,11 +1017,11 @@ namespace MysteriousKnives.Items
 				}
 				public override void AddRecipes()
 				{
-					if (ModLoader.TryGetMod("CalamityMod", out var mod))
+					if (ModLoader.TryGetMod("CalamityMod", out Mod CalamityMod))
 					{
 						Recipe recipe = CreateRecipe();
 						recipe.AddIngredient(ItemID.BottledWater, 10);
-						recipe.AddIngredient(mod.Find<ModItem>("ShadowspecBar"), 10);
+						recipe.AddIngredient(CalamityMod.Find<ModItem>("ShadowspecBar"), 10);
 						recipe.AddTile(TileID.AdamantiteForge);
 						recipe.ReplaceResult(this, 1);
 						recipe.Register();
@@ -1052,14 +1052,14 @@ namespace MysteriousKnives.Items
 				}
 				public override void AddRecipes()
 				{
-					if (ModLoader.TryGetMod("CalamityMod", out var mod))
+					if (ModLoader.TryGetMod("CalamityMod", out Mod CalamityMod))
 					{
 						Recipe recipe = CreateRecipe();
 						recipe.AddIngredient(ItemID.BottledWater, 10);
-						recipe.AddIngredient(mod.Find<ModItem>("Stardust"), 10);
-						recipe.AddIngredient(mod.Find<ModItem>("AldebaranAlewife"), 1);
-						recipe.AddIngredient(mod.Find<ModItem>("AstralFossil"), 20);
-						recipe.AddIngredient(mod.Find<ModItem>("AstralSilt"), 20);
+						recipe.AddIngredient(CalamityMod.Find<ModItem>("Stardust"), 10);
+						recipe.AddIngredient(CalamityMod.Find<ModItem>("AldebaranAlewife"), 1);
+						recipe.AddIngredient(CalamityMod.Find<ModItem>("AstralFossil"), 20);
+						recipe.AddIngredient(CalamityMod.Find<ModItem>("AstralSilt"), 20);
 						recipe.AddTile(TileID.Hellforge);
 						recipe.ReplaceResult(this, 1);
 						recipe.Register();
@@ -1076,12 +1076,12 @@ namespace MysteriousKnives.Items
 				}
 				public override void AddRecipes()
 				{
-					if (ModLoader.TryGetMod("CalamityMod", out var mod))
+					if (ModLoader.TryGetMod("CalamityMod", out Mod CalamityMod))
 					{
 						Recipe recipe = CreateRecipe();
 						recipe.AddIngredient(ItemID.BottledWater, 10);
-						recipe.AddIngredient(mod.Find<ModItem>("HadarianMembrane"), 3);
-						recipe.AddIngredient(mod.Find<ModItem>("AstralJelly"), 10);
+						recipe.AddIngredient(CalamityMod.Find<ModItem>("HadarianMembrane"), 3);
+						recipe.AddIngredient(CalamityMod.Find<ModItem>("AstralJelly"), 10);
 						recipe.AddTile(TileID.AdamantiteForge);
 						recipe.ReplaceResult(this, 1);
 						recipe.Register();
@@ -1098,13 +1098,13 @@ namespace MysteriousKnives.Items
 				}
 				public override void AddRecipes()
 				{
-					if (ModLoader.TryGetMod("CalamityMod", out var mod))
+					if (ModLoader.TryGetMod("CalamityMod", out Mod CalamityMod))
 					{
 						Recipe recipe = CreateRecipe();
 						recipe.AddIngredient(ItemID.BottledWater, 10);
 						recipe.AddIngredient(ItemID.LunarBar, 10);
-						recipe.AddIngredient(mod.Find<ModItem>("GalacticaSingularity"), 10);
-						recipe.AddIngredient(mod.Find<ModItem>("AstralBar"), 10);
+						recipe.AddIngredient(CalamityMod.Find<ModItem>("GalacticaSingularity"), 10);
+						recipe.AddIngredient(CalamityMod.Find<ModItem>("AstralBar"), 10);
 						recipe.AddTile(TileID.AdamantiteForge);
 						recipe.ReplaceResult(this, 1);
 						recipe.Register();
@@ -1121,11 +1121,11 @@ namespace MysteriousKnives.Items
 				}
 				public override void AddRecipes()
 				{
-					if (ModLoader.TryGetMod("CalamityMod", out var mod))
+					if (ModLoader.TryGetMod("CalamityMod", out Mod CalamityMod))
 					{
 						Recipe recipe = CreateRecipe();
 						recipe.AddIngredient(ItemID.BottledWater, 10);
-						recipe.AddIngredient(mod.Find<ModItem>("CosmiliteBar"), 10);
+						recipe.AddIngredient(CalamityMod.Find<ModItem>("CosmiliteBar"), 10);
 						recipe.AddTile(TileID.AdamantiteForge);
 						recipe.ReplaceResult(this, 1);
 						recipe.Register();

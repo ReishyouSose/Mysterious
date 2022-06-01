@@ -1,8 +1,8 @@
 ﻿using MysteriousKnives.Projectiles;
-using Terraria;
 using Terraria.GameContent.Creative;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Terraria;
 using static MysteriousKnives.Items.QM.诡毒之水;
 using static MysteriousKnives.Items.QM.结晶之水;
 using static MysteriousKnives.Items.QM.沉沦之水;
@@ -12,6 +12,10 @@ using static MysteriousKnives.Items.QM.深渊之水;
 using static MysteriousKnives.Items.QM.力量之水;
 using static MysteriousKnives.Items.QM.星辉之水;
 using static MysteriousKnives.Buffs.MysteriousBuffs;
+using static MysteriousKnives.Projectiles.MysteriousKnife;
+using Terraria.DataStructures;
+using Terraria.Utilities;
+using static MysteriousKnives.Items.MKprefix;
 
 namespace MysteriousKnives.Items
 {
@@ -29,7 +33,7 @@ namespace MysteriousKnives.Items
 			Item.DamageType = DamageClass.Melee;
 			Item.UseSound = SoundID.Item1;
 			Item.useStyle = ItemUseStyleID.Swing;
-			Item.shoot = ModContent.ProjectileType<Knife_Mysterious>();
+			Item.shoot = ModContent.ProjectileType<MysteriousCore>();
 			Item.shootSpeed = 10f;
 			Item.UseSound = SoundID.Item113;
 			base.SetDefaults();
@@ -61,10 +65,10 @@ namespace MysteriousKnives.Items
 				recipe.AddIngredient(ModContent.ItemType<结晶01>(), 1);
 				recipe.AddIngredient(ModContent.ItemType<沉沦01>(), 1);
 				recipe.AddIngredient(ModContent.ItemType<生命01>(), 1);
-				if (ModLoader.TryGetMod("CalamityMod", out var mod))
+				if (ModLoader.TryGetMod("CalamityMod", out Mod CalamityMod))
 				{
-					recipe.AddIngredient(Mod.Find<ModItem>("EnergyCore").Type, 3);
-					recipe.AddIngredient(mod.Find<ModItem>("BloodOrb"), 100);
+					recipe.AddIngredient(CalamityMod.Find<ModItem>("EnergyCore").Type, 3);
+					recipe.AddIngredient(CalamityMod.Find<ModItem>("BloodOrb"), 100);
 				}
 				recipe.AddTile(TileID.Anvils);
 				recipe.ReplaceResult(this, 1);
@@ -79,7 +83,7 @@ namespace MysteriousKnives.Items
 			{
 				DisplayName.SetDefault("诡秘飞刀II");
 				Tooltip.SetDefault("射出一团不明物质，随后炸出数把诡秘飞刀\n" +
-					"散射1+2");
+					"散射2+2");
 				CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
 			}
 			public override void SetDefaults()
@@ -114,7 +118,7 @@ namespace MysteriousKnives.Items
 			{
 				DisplayName.SetDefault("诡秘飞刀III");
 				Tooltip.SetDefault("射出一团不明物质，随后炸出数把诡秘飞刀\n" +
-					"散射1+2");
+					"散射3+3");
 				CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
 			}
 			public override void SetDefaults()
@@ -151,7 +155,7 @@ namespace MysteriousKnives.Items
 			{
 				DisplayName.SetDefault("诡秘飞刀IV");
 				Tooltip.SetDefault("射出一团不明物质，随后炸出数把诡秘飞刀\n" +
-					"散射1+2");
+					"散射4+3");
 				CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
 			}
 			public override void SetDefaults()
@@ -186,7 +190,7 @@ namespace MysteriousKnives.Items
 			{
 				DisplayName.SetDefault("诡秘飞刀V");
 				Tooltip.SetDefault("射出一团不明物质，随后炸出数把诡秘飞刀\n" +
-					"散射1+2");
+					"散射5+4");
 				CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
 			}
 			public override void SetDefaults()
@@ -221,7 +225,7 @@ namespace MysteriousKnives.Items
 			{
 				DisplayName.SetDefault("诡秘飞刀VI");
 				Tooltip.SetDefault("射出一团不明物质，随后炸出数把诡秘飞刀\n" +
-					"散射1+2");
+					"散射6+4");
 				CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
 			}
 			public override void SetDefaults()
@@ -242,8 +246,8 @@ namespace MysteriousKnives.Items
 					recipe.AddIngredient(ModContent.ItemType<力量05>(), 1);
 					recipe.AddIngredient(ModContent.ItemType<深渊05>(), 1);
 					recipe.AddIngredient(ModContent.ItemType<MK05>(), 1);
-					if (ModLoader.TryGetMod("CalamityMod", out var mod))
-						recipe.AddIngredient(mod.Find<ModItem>("BloodstoneCore"), 10);
+					if (ModLoader.TryGetMod("CalamityMod", out Mod CalamityMod))
+						recipe.AddIngredient(CalamityMod.Find<ModItem>("BloodstoneCore"), 10);
 					recipe.AddTile(TileID.LunarCraftingStation);
 					recipe.ReplaceResult(this, 1);
 					recipe.Register();
@@ -258,7 +262,7 @@ namespace MysteriousKnives.Items
 			{
 				DisplayName.SetDefault("诡秘飞刀VII");
 				Tooltip.SetDefault("射出一团不明物质，随后炸出数把诡秘飞刀\n" +
-					"散射1+2");
+					"散射7+5");
 				CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
 			}
 			public override void SetDefaults()
@@ -278,8 +282,8 @@ namespace MysteriousKnives.Items
 				recipe.AddIngredient(ModContent.ItemType<深渊06>(), 1);
 				recipe.AddIngredient(ModContent.ItemType<星辉04>(), 1);
 				recipe.AddIngredient(ModContent.ItemType<MK06>(), 1);
-				if (ModLoader.TryGetMod("CalamityMod", out var mod))
-					recipe.AddTile(mod.Find<ModTile>("CosmicAnvil"));
+				if (ModLoader.TryGetMod("CalamityMod", out Mod CalamityMod))
+					recipe.AddTile(CalamityMod.Find<ModTile>("CosmicAnvil"));
 				else recipe.ReplaceResult(this, 1);
 				recipe.Register();
 			}
@@ -292,7 +296,7 @@ namespace MysteriousKnives.Items
 			{
 				DisplayName.SetDefault("诡秘飞刀VIII");
 				Tooltip.SetDefault("射出一团不明物质，随后炸出数把诡秘飞刀\n" +
-					"散射1+2");
+					"散射8+5");
 				CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
 			}
 			public override void SetDefaults()
@@ -310,8 +314,8 @@ namespace MysteriousKnives.Items
 				recipe.AddIngredient(ModContent.ItemType<生命07>(), 1);
 				recipe.AddIngredient(ModContent.ItemType<凝爆05>(), 1);
 				recipe.AddIngredient(ModContent.ItemType<MK07>(), 1);
-				if (ModLoader.TryGetMod("CalamityMod", out var mod))
-					recipe.AddTile(mod.Find<ModTile>("CosmicAnvil"));
+				if (ModLoader.TryGetMod("CalamityMod", out Mod CalamityMod))
+					recipe.AddTile(CalamityMod.Find<ModTile>("CosmicAnvil"));
 				else recipe.ReplaceResult(this, 1);
 				recipe.Register();
 			}
@@ -324,7 +328,7 @@ namespace MysteriousKnives.Items
 			{
 				DisplayName.SetDefault("诡秘飞刀IX");
 				Tooltip.SetDefault("射出一团不明物质，随后炸出数把诡秘飞刀\n" +
-					"散射1+2");
+					"散射9+6");
 				CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
 			}
 			public override void SetDefaults()
@@ -343,8 +347,8 @@ namespace MysteriousKnives.Items
 				recipe.AddIngredient(ModContent.ItemType<凝爆06>(), 1);
 				recipe.AddIngredient(ModContent.ItemType<深渊07>(), 1);
 				recipe.AddIngredient(ModContent.ItemType<MK08>(), 1);
-				if (ModLoader.TryGetMod("CalamityMod", out var mod))
-					recipe.AddTile(mod.Find<ModTile>("DraedonsForge"));
+				if (ModLoader.TryGetMod("CalamityMod", out Mod CalamityMod))
+					recipe.AddTile(CalamityMod.Find<ModTile>("DraedonsForge"));
 				else recipe.ReplaceResult(this, 1);
 				recipe.Register();
 			}
@@ -370,14 +374,18 @@ namespace MysteriousKnives.Items
 				Item.damage = 300;
 				Item.knockBack = 20;
 				Item.crit = 100;
-				Item.useTime = 2;
-				Item.useAnimation = 2;
+				Item.useTime = 15;
+				Item.useAnimation = 15;
 				Item.value = Item.sellPrice(150, 0, 0, 0);
-				Item.rare = ModContent.RarityType<Rare_Ranbow>();
+				Item.rare = ModContent.RarityType<Rare_Rainbow>();
 				Item.shoot = ModContent.ProjectileType<MKchannel>();
 				Item.shootSpeed = 10f;
 				Item.channel = true;
 			}
+            /*public override void OnCreate(ItemCreationContext context)
+			{
+				Item.Prefix(ModContent.PrefixType<MKprefix01>());
+			}*/
             public override bool CanUseItem(Player player)
             {
 				NPC target = null;
@@ -397,10 +405,10 @@ namespace MysteriousKnives.Items
 			{
 				Recipe recipe = CreateRecipe();
 				recipe.AddIngredient(ModContent.ItemType<MK09>(), 1);
-				if (ModLoader.TryGetMod("CalamityMod", out var mod))
+				if (ModLoader.TryGetMod("CalamityMod", out Mod CalamityMod))
 				{
-					recipe.AddIngredient(mod.Find<ModItem>("Rock"), 1);
-					recipe.AddTile(mod.Find<ModTile>("DraedonsForge"));
+					recipe.AddIngredient(CalamityMod.Find<ModItem>("Rock"), 1);
+					recipe.AddTile(CalamityMod.Find<ModTile>("DraedonsForge"));
 				}
 				else recipe.AddTile(TileID.LunarCraftingStation);
 				recipe.ReplaceResult(this, 1);
@@ -408,5 +416,4 @@ namespace MysteriousKnives.Items
 			}
 		}
 	}
-
 }

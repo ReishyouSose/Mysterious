@@ -147,9 +147,9 @@ namespace MysteriousKnives.Dusts
 		/// <summary>
 		/// 彩色粒子
 		/// </summary>
-		public class RanbowDust : MDust
+		public class RainbowDust : MDust
 		{
-			public override string Texture => "MysteriousKnives/Pictures/Dusts/RanbowDust";
+			public override string Texture => "MysteriousKnives/Pictures/Dusts/RainbowDust";
 			public override void OnSpawn(Dust dust)
 			{
 				base.OnSpawn(dust);
@@ -163,7 +163,27 @@ namespace MysteriousKnives.Dusts
 				base.Update(dust);
 				Lighting.AddLight((int)(dust.position.X / 16f), (int)(dust.position.Y / 16f), 
 					Main.DiscoR / 255f, Main.DiscoG / 255f, Main.DiscoB / 255f);
-				//Lighting.AddLight((int)(dust.position.X / 16f), (int)(dust.position.Y / 16f), 0.9f, 0.63f, 1f);
+				return false;
+			}
+		}
+		/// <summary>
+		/// 空洞粒子
+		/// </summary>
+		public class HalloweenDust : MDust
+		{
+			public override string Texture => "MysteriousKnives/Pictures/Dusts/HalloweenDust";
+			public override void OnSpawn(Dust dust)
+			{
+				base.OnSpawn(dust);
+			}
+			public override bool Update(Dust dust)
+			{
+				float i = 0.001f; i += i;
+				if (dust.noGravity == false) dust.velocity.Y += 0.2f + i;
+				dust.rotation += dust.velocity.Y;
+				dust.velocity *= 0.9f;
+				Lighting.AddLight((int)(dust.position.X / 16f), (int)(dust.position.Y / 16f), 1f, 1f, 1f);
+				base.Update(dust);
 				return false;
 			}
 		}

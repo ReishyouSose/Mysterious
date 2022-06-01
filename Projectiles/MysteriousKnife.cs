@@ -7,33 +7,14 @@ using static MysteriousKnives.Items.MKnives;
 using static MysteriousKnives.Buffs.MysteriousBuffs;
 using static MysteriousKnives.Dusts.MDust;
 using Terraria.Audio;
+using Microsoft.Xna.Framework.Graphics;
+using static System.Net.Mime.MediaTypeNames;
+using Terraria.DataStructures;
 
 namespace MysteriousKnives.Projectiles
 {
     public abstract class MysteriousKnife : ModProjectile
     {
-        public static int Random(int rand)
-        {
-            int i = Main.rand.Next(rand );
-            if (i == 0) return ModContent.ProjectileType<RBKnife>();
-            else if (i == 1) return ModContent.ProjectileType<WVKnife>();
-            else if (i == 2) return ModContent.ProjectileType<SKKnife>();
-            else if (i == 3) return ModContent.ProjectileType<CSKnife>();
-            else if (i == 4) return ModContent.ProjectileType<ABKnife>();
-            else if (i == 5) return ModContent.ProjectileType<CBKnife>();
-            else if (i == 6) return ModContent.ProjectileType<STKnife>();
-            else return ModContent.ProjectileType<ASKnife>();
-        }
-        public void RandomShoot(Player player, int cn, int rn, int lv)
-        {
-            for (int i = 0; i <= cn + Main.rand.Next(rn); i++)
-            {
-                Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.Center,
-                    (Main.rand.Next(360) * MathHelper.Pi / 180f).ToRotationVector2() * 20f,
-                    Random(lv), (int)(Projectile.damage * (float)(1 + (int)player.GetCritChance(DamageClass.Melee) / 100)), 
-                    Projectile.knockBack, player.whoAmI);
-            }
-        }
         public void LessDust(int type)
         {
             if (Projectile.timeLeft < 597)//弹幕粒子效果
@@ -45,29 +26,24 @@ namespace MysteriousKnives.Projectiles
                 dust.position = Projectile.Center;
             }
         }
-        public static int GetMKID(Player player)
+        public int MKID;
+        /*if (player.inventory[player.selectedItem].type == ModContent.ItemType<MK01>())*/
+        public override void OnSpawn(IEntitySource source)
         {
-            if (player.inventory[player.selectedItem].type == ModContent.ItemType<MK01>())
-                return 1;
-            else if (player.inventory[player.selectedItem].type == ModContent.ItemType<MK02>())
-                return 2;
-            else if (player.inventory[player.selectedItem].type == ModContent.ItemType<MK03>())
-                return 3;
-            else if (player.inventory[player.selectedItem].type == ModContent.ItemType<MK04>())
-                return 4;
-            else if (player.inventory[player.selectedItem].type == ModContent.ItemType<MK05>())
-                return 5;
-            else if (player.inventory[player.selectedItem].type == ModContent.ItemType<MK06>())
-                return 6;
-            else if (player.inventory[player.selectedItem].type == ModContent.ItemType<MK07>())
-                return 7;
-            else if (player.inventory[player.selectedItem].type == ModContent.ItemType<MK08>())
-                return 8;
-            else if (player.inventory[player.selectedItem].type == ModContent.ItemType<MK09>())
-                return 9;
-            else if (player.inventory[player.selectedItem].type == ModContent.ItemType<MK10>())
-                return 10;
-            else return 0;
+            if (source is EntitySource_ItemUse_WithAmmo use)
+            {
+                Item item = use.Item;
+                if (item.type == ModContent.ItemType<MK01>()) MKID = 1;
+                else if (item.type == ModContent.ItemType<MK02>()) MKID = 2;
+                else if (item.type == ModContent.ItemType<MK03>()) MKID = 3;
+                else if (item.type == ModContent.ItemType<MK04>()) MKID = 4;
+                else if (item.type == ModContent.ItemType<MK05>()) MKID = 5;
+                else if (item.type == ModContent.ItemType<MK06>()) MKID = 6;
+                else if (item.type == ModContent.ItemType<MK07>()) MKID = 7;
+                else if (item.type == ModContent.ItemType<MK08>()) MKID = 8;
+                else if (item.type == ModContent.ItemType<MK09>()) MKID = 9;
+                else if (item.type == ModContent.ItemType<MK10>()) MKID = 10;
+            }
         }
         public override void SetDefaults()
         {
@@ -84,43 +60,13 @@ namespace MysteriousKnives.Projectiles
             Projectile.aiStyle = -1;//附带原版弹幕AI ID
             Projectile.alpha = 0;
             Main.projFrames[Projectile.type] = 1;//动画被分成几份
-            { 
-            //Projectile.extraUpdates = 1;
-             /*
-        Projectile.aiStyle = 304;//附带原版弹幕AI ID
-        aiType = ProjectileID.VampireKnife;//让此弹幕继承某种弹幕AI
-
-        // 累加帧计时器
-        Projectile.frameCounter++;
-        // 当计时器经过了7帧
-        if (Projectile.frameCounter % 7 == 0)
-        {
-            // 重置计时器
-            Projectile.frameCounter = 0;
-            // 选择下一帧动画
-            // 让弹幕的帧与等于与5进行模运算，也就是除以5的余数
-            Projectile.frame++;
-            Projectile.frame %= 5;
-        }
-        */
-            }
             base.SetDefaults();
         }
         public override void AI()
         {
-            Player player = Main.player[Projectile.owner];
-            if (GetMKID(player) == 10)
-            {
-                Projectile.extraUpdates = 1;
-                if (Projectile.timeLeft > 540) Projectile.friendly = false;
-                else Projectile.friendly = true;
-            }
-            else
-            {
-                Projectile.extraUpdates = 0;
-                if (Projectile.timeLeft > 570) Projectile.friendly = false;
-                else Projectile.friendly = true;
-            }
+            Projectile.extraUpdates = 0;
+            if (Projectile.timeLeft > 570) Projectile.friendly = false;
+            else Projectile.friendly = true;
             //弹幕发射角度（朝向弹幕[proj]速度[v]的方向[tor]）
             Projectile.rotation = MathHelper.Pi / 2 + Projectile.velocity.ToRotation();
             if (Projectile.timeLeft %3 == 0 && Projectile.timeLeft >= 590) Projectile.velocity *= 0.9f;
@@ -161,8 +107,7 @@ namespace MysteriousKnives.Projectiles
             if (target.realLife != -1)
                 target = Main.npc[target.realLife];
             int i = 60;
-            Player player = Main.player[Projectile.owner];
-            switch (GetMKID(player))
+            switch (MKID)
             {
                 case 1: target.AddBuff(ModContent.BuffType<Crystallization>(), i); break;
                 case 2: target.AddBuff(ModContent.BuffType<Crystallization>(), i); break;
@@ -184,11 +129,10 @@ namespace MysteriousKnives.Projectiles
         {
             if (target.realLife != -1)
                 target = Main.npc[target.realLife];
-            Player player = Main.player[Projectile.owner];
             int i = 180;
             if (target.rarity != 0 || target.boss)
             {
-                switch (GetMKID(player))
+                switch (MKID)
                 {
                     case 2: target.AddBuff(ModContent.BuffType<ConvergentBurst1>(), i); break;
                     case 3: target.AddBuff(ModContent.BuffType<ConvergentBurst2>(), i); break;
@@ -210,9 +154,8 @@ namespace MysteriousKnives.Projectiles
         {
             if (target.realLife != -1)
                 target = Main.npc[target.realLife];
-            Player player = Main.player[Projectile.owner];
             int i = 180;
-            switch (GetMKID(player))
+            switch (MKID)
             {
                 case 1: target.AddBuff(ModContent.BuffType<WeirdVemon>(), i); break;
                 case 2: target.AddBuff(ModContent.BuffType<WeirdVemon>(), i*2); break;
@@ -234,9 +177,8 @@ namespace MysteriousKnives.Projectiles
         {
             if (target.realLife != -1)
                 target = Main.npc[target.realLife];
-            Player player = Main.player[Projectile.owner];
             int i = 180;
-            switch (GetMKID(player))
+            switch (MKID)
             {
                 case 1: target.AddBuff(ModContent.BuffType<SunkerCancer>(), i); break;
                 case 2: target.AddBuff(ModContent.BuffType<SunkerCancer>(), i); break;
@@ -258,9 +200,8 @@ namespace MysteriousKnives.Projectiles
         {
             if (target.realLife != -1)
                 target = Main.npc[target.realLife];
-            Player player = Main.player[Projectile.owner];
             int i = 180;
-            switch (GetMKID(player))
+            switch (MKID)
             {
                 case 2: target.AddBuff(ModContent.BuffType<IndescribableFear>(), i); break;
                 case 3: target.AddBuff(ModContent.BuffType<IndescribableFear>(), i * 2); break;
@@ -277,10 +218,10 @@ namespace MysteriousKnives.Projectiles
         /// 施加星辉
         /// </summary>
         /// <param name="target"></param>
-        public static void ASbuffs(Player player)
+        public void ASbuffs(Player player)
         {
             int i = 180;
-            switch (GetMKID(player))
+            switch (MKID)
             {
                 case 3: player.AddBuff(ModContent.BuffType<AstralRay>(), i); break;
                 case 4: player.AddBuff(ModContent.BuffType<AstralRay>(), i * 2); break;
@@ -295,10 +236,10 @@ namespace MysteriousKnives.Projectiles
         /// <summary>
         /// 施加回春
         /// </summary>
-        public static void RBbuffs(Player player)
+        public void RBbuffs(Player player)
         {
             int i = 180;
-            switch (GetMKID(player))
+            switch (MKID)
             {
                 case 1: player.AddBuff(ModContent.BuffType<RejuvenationBlessing>(), i); break;
                 case 2: player.AddBuff(ModContent.BuffType<RejuvenationBlessing>(), i * 2); break;
@@ -315,10 +256,10 @@ namespace MysteriousKnives.Projectiles
         /// <summary>
         /// 施加筋力
         /// </summary>
-        public static void STbuffs(Player player)
+        public void STbuffs(Player player)
         {
             int i = 180;
-            switch (GetMKID(player))
+            switch (MKID)
             {
                 case 1: player.AddBuff(ModContent.BuffType<StrengthEX>(), i); break;
                 case 2: player.AddBuff(ModContent.BuffType<StrengthEX>(), i * 2); break;
@@ -334,7 +275,7 @@ namespace MysteriousKnives.Projectiles
         }
         public class ABKnife : MysteriousKnife
         {
-            public override string Texture => "MysteriousKnives/Pictures/Projectiles/ABKnife";
+            public override string Texture => "MysteriousKnives/Pictures/Projectiles/Knife/ABKnife";
             public override void SetStaticDefaults()
             {
                 DisplayName.SetDefault("深渊飞刀");
@@ -352,7 +293,7 @@ namespace MysteriousKnives.Projectiles
         }
         public class ASKnife : MysteriousKnife
         {
-            public override string Texture => "MysteriousKnives/Pictures/Projectiles/ASKnife";
+            public override string Texture => "MysteriousKnives/Pictures/Projectiles/Knife/ASKnife";
             public override void SetStaticDefaults()
             {
                 DisplayName.SetDefault("星辉飞刀");
@@ -371,7 +312,7 @@ namespace MysteriousKnives.Projectiles
         }
         public class CBKnife : MysteriousKnife
         {
-            public override string Texture => "MysteriousKnives/Pictures/Projectiles/CBKnife";
+            public override string Texture => "MysteriousKnives/Pictures/Projectiles/Knife/CBKnife";
             public override void SetStaticDefaults()
             {
                 DisplayName.SetDefault("凝爆飞刀");
@@ -389,7 +330,7 @@ namespace MysteriousKnives.Projectiles
         }
         public class CSKnife : MysteriousKnife
         {
-            public override string Texture => "MysteriousKnives/Pictures/Projectiles/CSKnife";
+            public override string Texture => "MysteriousKnives/Pictures/Projectiles/Knife/CSKnife";
             public override void SetStaticDefaults()
             {
                 DisplayName.SetDefault("结晶飞刀");
@@ -407,7 +348,7 @@ namespace MysteriousKnives.Projectiles
         }
         public class RBKnife : MysteriousKnife
         {
-            public override string Texture => "MysteriousKnives/Pictures/Projectiles/RBKnife";
+            public override string Texture => "MysteriousKnives/Pictures/Projectiles/Knife/RBKnife";
             public override void SetStaticDefaults()
             {
                 DisplayName.SetDefault("回春飞刀");
@@ -432,7 +373,7 @@ namespace MysteriousKnives.Projectiles
         }
         public class SKKnife : MysteriousKnife
         {
-            public override string Texture => "MysteriousKnives/Pictures/Projectiles/SKKnife";
+            public override string Texture => "MysteriousKnives/Pictures/Projectiles/Knife/SKKnife";
             public override void SetStaticDefaults()
             {
                 DisplayName.SetDefault("沉沦飞刀");
@@ -450,7 +391,7 @@ namespace MysteriousKnives.Projectiles
         }
         public class STKnife : MysteriousKnife
         {
-            public override string Texture => "MysteriousKnives/Pictures/Projectiles/STKnife";
+            public override string Texture => "MysteriousKnives/Pictures/Projectiles/Knife/STKnife";
             public override void SetStaticDefaults()
             {
                 DisplayName.SetDefault("力量飞刀");
@@ -469,7 +410,7 @@ namespace MysteriousKnives.Projectiles
         }
         public class WVKnife : MysteriousKnife
         {
-            public override string Texture => "MysteriousKnives/Pictures/Projectiles/WVKnife";
+            public override string Texture => "MysteriousKnives/Pictures/Projectiles/Knife/WVKnife";
             public override void SetStaticDefaults()
             {
                 DisplayName.SetDefault("诡毒飞刀");
@@ -486,75 +427,4 @@ namespace MysteriousKnives.Projectiles
             }
         }
     }
-    public class Knife_Mysterious : MysteriousKnife
-        {
-            public override string Texture => "MysteriousKnives/Pictures/Projectiles/Knife_Mysterious";
-            public override void SetStaticDefaults()
-            {
-                DisplayName.SetDefault("诡秘飞刀");
-            }
-            public override void SetDefaults()
-            {
-                Projectile.width = 15;//宽
-                Projectile.height = 15;//高
-                Projectile.scale = 1f;//体积倍率
-                Projectile.timeLeft = 180;//存在时间60 = 1秒
-                Projectile.DamageType = DamageClass.Generic;// 伤害类型
-                Projectile.friendly = true;// 攻击敌方？
-                Projectile.hostile = false;// 攻击友方？
-                Projectile.ignoreWater = true;//忽视水？
-                Projectile.tileCollide = false;//不穿墙？
-                Projectile.penetrate = 1;//穿透数量 -1无限
-                Projectile.aiStyle = -1;//附带原版弹幕AI ID
-                Projectile.extraUpdates = 1;//每帧额外更新次数
-                Projectile.alpha = 255;
-                Main.projFrames[Projectile.type] = 1;//动画被分成几份
-            }
-            public override void AI()
-            {
-                //弹幕贴图角度（朝向弹幕[proj]速度[v]的方向[tor]）
-                Projectile.rotation = MathHelper.Pi / 2 + Projectile.velocity.ToRotation();
-                if (Projectile.timeLeft % 5 == 0) Projectile.velocity *= 0.9f;
-                Lighting.AddLight(Projectile.Center,
-                        Main.DiscoR / 255f, Main.DiscoG / 255f, Main.DiscoB / 255f);
-                if (Projectile.timeLeft < 177)//弹幕粒子效果
-                {
-                    Dust dust = Dust.NewDustDirect(Projectile.Center, Projectile.width, Projectile.height,
-                        ModContent.DustType<RanbowDust>(), 0f, 0f, 0, default, 1f);
-                    dust.scale *= 2f;
-                }
-
-            }
-            public override void Kill(int timeLeft)
-            {
-                Player player = Main.player[Projectile.owner];
-                Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.Center, Projectile.velocity,
-                    ModContent.ProjectileType<MKboom>(), 
-                    (int)(Projectile.damage * (float)(1 + (int)player.GetCritChance(DamageClass.Melee) / 100)), 
-                    20, player.whoAmI);
-                SoundEngine.PlaySound(SoundID.Item14);
-                for (int i = 0; i < 100; i++)
-                {
-                    Dust dust = Dust.NewDustDirect(Projectile.Center, Projectile.width, Projectile.height,
-                        ModContent.DustType<RanbowDust>(), 0f, 0f, 0, default, 1f);
-                    dust.scale *= 1.5f;
-                    dust.velocity *= 50;
-                    dust.noGravity = false;
-                }
-
-                {
-                    if (player.inventory[player.selectedItem].type == ModContent.ItemType<MK01>()) RandomShoot(player, 1, 2, 4);
-                    if (player.inventory[player.selectedItem].type == ModContent.ItemType<MK02>()) RandomShoot(player, 2, 2, 7);
-                    if (player.inventory[player.selectedItem].type == ModContent.ItemType<MK03>()) RandomShoot(player, 3, 3, 8);
-                    if (player.inventory[player.selectedItem].type == ModContent.ItemType<MK04>()) RandomShoot(player, 4, 3, 8);
-                    if (player.inventory[player.selectedItem].type == ModContent.ItemType<MK05>()) RandomShoot(player, 5, 4, 8);
-                    if (player.inventory[player.selectedItem].type == ModContent.ItemType<MK06>()) RandomShoot(player, 6, 4, 8);
-                    if (player.inventory[player.selectedItem].type == ModContent.ItemType<MK07>()) RandomShoot(player, 7, 5, 8);
-                    if (player.inventory[player.selectedItem].type == ModContent.ItemType<MK08>()) RandomShoot(player, 8, 5, 8);
-                    if (player.inventory[player.selectedItem].type == ModContent.ItemType<MK09>()) RandomShoot(player, 9, 6, 8);
-                    if (player.inventory[player.selectedItem].type == ModContent.ItemType<MK10>()) RandomShoot(player, 10, 6, 8);
-                }//按等级散射
-                base.Kill(timeLeft);
-            }
-        }
 }

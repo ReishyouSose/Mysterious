@@ -3,9 +3,8 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
-using static Terraria.ModLoader.PlayerDrawLayer;
 using static MysteriousKnives.Dusts.MDust;
-using static MysteriousKnives.Items.MKnives;
+using static MysteriousKnives.Projectiles.MysteriousKnife;
 using Terraria.DataStructures;
 using Terraria.Audio;
 using System.Collections.Generic;
@@ -15,9 +14,107 @@ using static MysteriousKnives.NPCs.MKGlobalNPC;
 
 namespace MysteriousKnives.Projectiles
 {
+    public class MysteriousCore : MysteriousKnife
+    {
+        public override string Texture => "MysteriousKnives/Pictures/Projectiles/Another/MysteriousCore";
+
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("诡秘飞刀");
+        }
+        public override void SetDefaults()
+        {
+            Projectile.width = 15;//宽
+            Projectile.height = 15;//高
+            Projectile.scale = 1f;//体积倍率
+            Projectile.timeLeft = 180;//存在时间60 = 1秒
+            Projectile.DamageType = DamageClass.Generic;// 伤害类型
+            Projectile.friendly = true;// 攻击敌方？
+            Projectile.hostile = false;// 攻击友方？
+            Projectile.ignoreWater = true;//忽视水？
+            Projectile.tileCollide = false;//不穿墙？
+            Projectile.penetrate = 1;//穿透数量 -1无限
+            Projectile.aiStyle = -1;//附带原版弹幕AI ID
+            Projectile.extraUpdates = 1;//每帧额外更新次数
+            Projectile.alpha = 255;
+            //AIType = ProjectileID.RainbowCrystal;
+            Main.projFrames[Projectile.type] = 1;//动画被分成几份
+        }
+        public int d;
+        public override void AI()
+        {
+            //弹幕贴图角度（朝向弹幕[proj]速度[v]的方向[tor]）
+            Projectile.rotation = MathHelper.Pi / 2 + Projectile.velocity.ToRotation();
+            if (Projectile.timeLeft % 5 == 0) Projectile.velocity *= 0.9f;
+            Lighting.AddLight(Projectile.Center,
+                    Main.DiscoR / 255f, Main.DiscoG / 255f, Main.DiscoB / 255f);
+            if (Main.dayTime) d = ModContent.DustType<HalloweenDust>();
+            else if (!Main.dayTime) d = ModContent.DustType<RainbowDust>();
+            if (Projectile.timeLeft < 177)//弹幕粒子效果
+            {
+                Dust dust = Dust.NewDustDirect(Projectile.Center, Projectile.width, Projectile.height, d);
+                dust.scale *= 2f;
+            }
+        }
+        public static int Random(int rand)
+        {
+            int i = Main.rand.Next(rand);
+            if (i == 0) return ModContent.ProjectileType<RBKnife>();
+            else if (i == 1) return ModContent.ProjectileType<WVKnife>();
+            else if (i == 2) return ModContent.ProjectileType<SKKnife>();
+            else if (i == 3) return ModContent.ProjectileType<CSKnife>();
+            else if (i == 4) return ModContent.ProjectileType<ABKnife>();
+            else if (i == 5) return ModContent.ProjectileType<CBKnife>();
+            else if (i == 6) return ModContent.ProjectileType<STKnife>();
+            else return ModContent.ProjectileType<ASKnife>();
+        }
+        public void RandomShoot(Player player, int cn, int rn, int lv)
+        {
+            for (int i = 0; i <= cn + Main.rand.Next(rn); i++)
+            {
+                Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.Center,
+                    (Main.rand.Next(360) * MathHelper.Pi / 180f).ToRotationVector2() * 20f,
+                    Random(lv), (int)(Projectile.damage * (float)(1 + (int)player.GetCritChance(DamageClass.Melee) / 100)),
+                    Projectile.knockBack, player.whoAmI);
+            }
+        }
+
+        public override void Kill(int timeLeft)
+        {
+            Player player = Main.player[Projectile.owner];
+            Projectile proj = Projectile.NewProjectileDirect(Projectile.GetSource_Death(), Projectile.Center, Projectile.velocity,
+                ModContent.ProjectileType<MKboom>(),
+                (int)(Projectile.damage * (float)(1 + (int)player.GetCritChance(DamageClass.Melee) / 100)),
+                20, player.whoAmI);
+            proj.CritChance = Projectile.CritChance;
+            SoundEngine.PlaySound(SoundID.Item14);
+            if (Main.dayTime) d = ModContent.DustType<HalloweenDust>();
+            else if (!Main.dayTime) d = ModContent.DustType<RainbowDust>();
+            for (int i = 0; i < 100; i++)
+            {
+                Dust dust = Dust.NewDustDirect(Projectile.Center, Projectile.width, Projectile.height, d);
+                dust.scale *= 1.5f;
+                dust.velocity *= 50;
+                dust.noGravity = false;
+            }
+            switch (MKID)
+            {
+                case 1: RandomShoot(player, 1, 2, 4); break;
+                case 2: RandomShoot(player, 2, 2, 7); break;
+                case 3: RandomShoot(player, 3, 3, 8); break;
+                case 4: RandomShoot(player, 4, 3, 8); break;
+                case 5: RandomShoot(player, 5, 4, 8); break;
+                case 6: RandomShoot(player, 6, 4, 8); break;
+                case 7: RandomShoot(player, 7, 5, 8); break;
+                case 8: RandomShoot(player, 8, 5, 8); break;
+                case 9: RandomShoot(player, 9, 6, 8); break;
+                case 10: RandomShoot(player, 10, 6, 8); break;
+            }
+        }
+    }
     public class MKboom : ModProjectile
     {
-        public override string Texture => "MysteriousKnives/Pictures/Projectiles/MKboom";
+        public override string Texture => "MysteriousKnives/Pictures/Projectiles/Another/MKboom";
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("诡秘飞刀");
@@ -33,7 +130,7 @@ namespace MysteriousKnives.Projectiles
             Projectile.hostile = false;// 攻击友方？
             Projectile.ignoreWater = true;//忽视水？
             Projectile.tileCollide = false;//不穿墙？
-            Projectile.penetrate = -1;//穿透数量 -1无限
+            Projectile.penetrate = 1;//穿透数量 -1无限
             Projectile.aiStyle = -1;//附带原版弹幕AI ID
             Projectile.alpha = 255;
             Main.projFrames[Projectile.type] = 1;//动画被分成几份
@@ -43,7 +140,7 @@ namespace MysteriousKnives.Projectiles
 
     public class MKchannel : ModProjectile
     {
-        public override string Texture => "MysteriousKnives/Pictures/Projectiles/MKchannel";
+        public override string Texture => "MysteriousKnives/Pictures/Projectiles/Another/MKchannel";
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("诡秘飞刀");
@@ -62,9 +159,10 @@ namespace MysteriousKnives.Projectiles
         }
         public override void OnSpawn(IEntitySource source)
         {
-            SoundEngine.PlaySound(SoundLoader.GetLegacySoundSlot("MysteriousKnives/Sounds/Channel"));
+            SoundEngine.PlaySound(new("MysteriousKnives/Sounds/Channel"));
         }
         public float dis = 0;
+        public int d;
         public override void AI()
         {
 
@@ -83,8 +181,8 @@ namespace MysteriousKnives.Projectiles
 
             float t = Main.GameUpdateCount * 0.1f;
             if (dis <= 10) dis++;
-            if (dis > 10) dis = 10 * ((float)-Math.Cos(t / 1.25) / 10 + 1f);
-            if (player.dead || !player.channel) Projectile.Kill();
+            if (dis > 10) dis = 10 * ((float)-Math.Cos(t / 1.25) / 10 + 1);
+            if (!player.channel) Projectile.Kill();
             if (player.channel)
             {
                 Projectile.timeLeft = 2;
@@ -92,13 +190,13 @@ namespace MysteriousKnives.Projectiles
                 player.itemAnimation = 2;
                 if (Main.GameUpdateCount % 3 == 0)
                 {
-                    int damage = (int)(Projectile.damage * (float)(3 + 0.3f * Main.rand.Next(-10, 10)) 
-                                 * target.takenDamageMultiplier * 1.5f
-                                 * (1 + (player.GetTotalCritChance(DamageClass.Melee)) / 100)
-                                    + player.GetTotalAttackSpeed(DamageClass.Melee));
-                    target.life -= damage;
+                    float addition = 1 + (player.GetTotalCritChance(DamageClass.Melee)) / 100
+                        + player.GetTotalAttackSpeed(DamageClass.Melee);
+                    float random = 1 + 0.01f * Main.rand.Next(-15, 15);
+                    int damage = (int)(Projectile.damage * target.takenDamageMultiplier * 4.5f * addition * random);
                     if (target.realLife != -1)
-                        Main.npc[target.realLife].life -= damage;
+                        target = Main.npc[target.realLife];
+                    target.life -= damage;
                     player.addDPS(damage);
                     CombatText.NewText(new Rectangle((int)target.position.X + Main.rand.Next(-32, 32),
                         (int)target.Center.Y - Main.rand.Next(16, 32), target.width, target.height), Main.DiscoColor, damage);
@@ -124,10 +222,11 @@ namespace MysteriousKnives.Projectiles
                                 ModContent.ProjectileType<RB_Ray>(), 0, 0, player.whoAmI);
                         } break;
                 }
+                if (Main.dayTime) d = ModContent.DustType<HalloweenDust>();
+                else if(!Main.dayTime) d = ModContent.DustType<RainbowDust>();
                 for (int i = 0; i < 72; i++)
                 {
-                    Dust dust = Dust.NewDustDirect(target.Center, target.width, target.height,
-                        ModContent.DustType<RanbowDust>());
+                    Dust dust = Dust.NewDustDirect(target.Center, target.width, target.height, d);
                     dust.position = target.Center + new Vector2((int)(Math.Pow(-1, i)) * (float)Math.Cos(Math.PI / 36 * (i + t)),
                         (float)Math.Sin(Math.PI / 36 * (i + t))) * 10f * dis;
                     dust.velocity *= 0;
@@ -138,7 +237,7 @@ namespace MysteriousKnives.Projectiles
 
     public class RB_Ray : ModProjectile
     {
-        public override string Texture => "MysteriousKnives/Pictures/Projectiles/RB_Ray";
+        public override string Texture => "MysteriousKnives/Pictures/Projectiles/Another/RB_Ray";
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("回春光束");

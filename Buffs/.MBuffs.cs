@@ -12,6 +12,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using static MysteriousKnives.Dusts.MDust;
 using static MysteriousKnives.NPCs.MKGlobalNPC;
+using static MysteriousKnives.Projectiles.MKSphere;
 
 namespace MysteriousKnives.Buffs
 {
@@ -31,8 +32,7 @@ namespace MysteriousKnives.Buffs
         }//初始化
         public override void Update(NPC npc, ref int buffIndex)
         {
-            Segment.Time = npc.buffTime[buffIndex];//被分段时间为npc的buff剩余时间
-            base.Update(npc, ref buffIndex);
+            Segment.Time = npc.buffTime[buffIndex];
         }
         public override void Update(Player player, ref int buffIndex)
         {
@@ -56,9 +56,9 @@ namespace MysteriousKnives.Buffs
             CombatText.NewText(new Rectangle((int)npc.position.X, (int)npc.Center.Y - Main.rand.Next(10, 30), 
                 npc.width, npc.height), new Color(230, 161, 255), damage, false, true);
         }
-        public static void RejuvenationEffect(Player player, int boost)
+        public static void RejuvenationEffect(Player player, int regen)
         {
-            player.lifeRegen += boost;
+            player.statLife += regen;
         }
         public static void StrengthEffect(Player player, float boost)
         {
@@ -83,7 +83,7 @@ namespace MysteriousKnives.Buffs
                 dust.velocity *= 300;
                 dust.noGravity = false;
             }
-            SoundEngine.PlaySound(SoundLoader.GetLegacySoundSlot("MysteriousKnives/Sounds/Boom"));
+            SoundEngine.PlaySound(new("MysteriousKnives/Sounds/Boom"));
         }
         /// <summary>
         /// 星辉射线
@@ -101,8 +101,26 @@ namespace MysteriousKnives.Buffs
                 Main.buffNoSave[Type] = false;
                 Segment.PlayerSegment = 180;
             }
+            public bool i = true;
+            public int ply;
             public override void Update(Player player, ref int buffIndex)
             {
+                if (i) Projectile.NewProjectile(Entity.GetSource_NaturalSpawn(), player.position, new Vector2(0, 0),
+                     ModContent.ProjectileType<ASsphere>(), 0, 0, player.whoAmI);
+                i = false;
+                if (player.buffTime[buffIndex] == 0)
+                {
+                    foreach (Projectile proj in Main.projectile)
+                    {
+                        if (proj.type == ModContent.ProjectileType<ASsphere>() && proj.ai[0] == player.whoAmI)
+                        {
+                            proj.Kill();
+                            i = true;
+                            ply = player.whoAmI;
+
+                        }
+                    }
+                }
                 switch (Segment.GetPlayerBuffSegment())
                 {
                     case 0:
@@ -118,13 +136,16 @@ namespace MysteriousKnives.Buffs
                         ArstalEffect(player, 100);
                         break;
                 }
-                Dust dust = Dust.NewDustDirect(player.position, player.width, player.height, ModContent.DustType<ASDust>());
-                float t = Main.GameUpdateCount * 0.05f;
-                dust.scale *= 1.5f;
-                dust.position = player.Center + new Vector2((float)Math.Cos(t + Math.PI / 1.5f), 
-                    (float)Math.Sin(t + Math.PI / 1.5f)) * 100;
-                dust.velocity *= 0;
                 base.Update(player, ref buffIndex);
+            }
+            public override bool RightClick(int buffIndex)
+            {
+                foreach (Projectile proj in Main.projectile)
+                {
+                    if (proj.type == ModContent.ProjectileType<ASsphere>() && proj.ai[0] == ply)
+                        proj.Kill();
+                }
+                return true;
             }
         }
         /// <summary>
@@ -146,6 +167,8 @@ namespace MysteriousKnives.Buffs
             public float multiple, ament;
             public override void Update(NPC npc, ref int buffIndex)
             {
+                if (!npc.CanBeChasedBy())
+                    npc.DelBuff(buffIndex);
                 if (npc.buffTime[buffIndex] > 0) count++;
                 else count = 0;
                 x = Math.Max(x, npc.buffTime[buffIndex]);
@@ -292,12 +315,14 @@ namespace MysteriousKnives.Buffs
             }
             public override void Update(NPC npc, ref int buffIndex)
             {
-                Dust dust = Dust.NewDustDirect(npc.position, npc.width, npc.height, ModContent.DustType<CSDust>());
-                float t = Main.GameUpdateCount * 0.05f;
-                //dust.scale *= 1.5f;
-                dust.position = npc.Center + new Vector2((float)(-Math.Cos(t) / 2f), (float)Math.Sin(t) / 5f) * 100;
-                dust.velocity *= 0;
-                base.Update(npc, ref buffIndex);
+                if (npc.realLife == -1)
+                {
+                    Dust dust = Dust.NewDustDirect(npc.position, npc.width, npc.height, ModContent.DustType<CSDust>());
+                    float t = Main.GameUpdateCount * 0.05f;
+                    //dust.scale *= 1.5f;
+                    dust.position = npc.Center + new Vector2((float)(-Math.Cos(t) / 2f), (float)Math.Sin(t) / 5f) * 100;
+                    dust.velocity *= 0;
+                }
             }
             public override bool ReApply(NPC npc, int time, int buffIndex)
             {
@@ -365,12 +390,14 @@ namespace MysteriousKnives.Buffs
                         npc.GetGlobalNPC<MKGlobalNPC>().AB7 = true;
                         break;
                 }
-                Dust dust = Dust.NewDustDirect(npc.position, npc.width, npc.height, ModContent.DustType<ABDust>());
-                float t = Main.GameUpdateCount * 0.05f;
-                dust.scale *= 1.5f;
-                dust.position = npc.Center + new Vector2((float)-Math.Sin(t) / 10f, (float)Math.Cos(t) / 20f - 0.5f) * 100f;
-                dust.noGravity = false;
-                base.Update(npc, ref buffIndex);
+                if (npc.realLife == -1)
+                {
+                    Dust dust = Dust.NewDustDirect(npc.position, npc.width, npc.height, ModContent.DustType<ABDust>());
+                    float t = Main.GameUpdateCount * 0.05f;
+                    dust.scale *= 1.5f;
+                    dust.position = npc.Center + new Vector2((float)-Math.Sin(t) / 10f, (float)Math.Cos(t) / 20f - 0.5f) * 100f;
+                    dust.noGravity = false;
+                }
             }
         }
         /// <summary>
@@ -389,41 +416,84 @@ namespace MysteriousKnives.Buffs
                 Main.buffNoSave[Type] = false;
                 Segment.PlayerSegment = 180;
             }
+            public bool i = true;
+            public int ply;
             public override void Update(Player player, ref int buffIndex)
             {
+                if (i) Projectile.NewProjectile(Entity.GetSource_NaturalSpawn(), player.position, new Vector2(0, 0),
+                     ModContent.ProjectileType<RBsphere>(), 0, 0, player.whoAmI);
+                i = false;
+                if (player.buffTime[buffIndex] == 0)
+                {
+                    foreach (Projectile proj in Main.projectile)
+                    {
+                        if (proj.type == ModContent.ProjectileType<RBsphere>() && proj.ai[0] == player.whoAmI)
+                        {
+                            proj.Kill();
+                            i = true;
+                            ply = player.whoAmI;
+                        }
+                            
+                    }
+                }
+                if (player.statLife < player.statLifeMax)
                 switch (Segment.GetPlayerBuffSegment())
                 {
-                    case 0:
-                        RejuvenationEffect(player, 10);
+                    case 0://10*1
+                        if(player.buffTime[buffIndex] % 6 == 0)
+                            RejuvenationEffect(player, 1);
                         break;
-                    case 1:
-                        RejuvenationEffect(player, 25);
+                    case 1://20*1+5*1
+                        if(player.buffTime[buffIndex] % 3 == 0)
+                            RejuvenationEffect(player, 1);
+                        if(player.buffTime[buffIndex] % 12 == 0)
+                            RejuvenationEffect(player, 1);
                         break;
-                    case 2:
-                        RejuvenationEffect(player, 40);
+                    case 2://20*2
+                        if(player.buffTime[buffIndex] % 3 == 0)
+                            RejuvenationEffect(player, 2);
                         break;
-                    case 3:
-                        RejuvenationEffect(player, 55);
+                    case 3://20*2+15*1
+                        if (player.buffTime[buffIndex] % 3 == 0)
+                            RejuvenationEffect(player, 2);
+                        if (player.buffTime[buffIndex] % 4 == 0)
+                            RejuvenationEffect(player, 1);
                         break;
-                    case 4:
-                        RejuvenationEffect(player, 70);
+                    case 4://60*1+10*1
+                        if (player.buffTime[buffIndex] % 1 == 0)
+                            RejuvenationEffect(player, 1);
+                        if (player.buffTime[buffIndex] % 6 == 0)
+                            RejuvenationEffect(player, 1);
                         break;
-                    case 5:
-                        RejuvenationEffect(player, 85);
+                    case 5://60*1+20*1+5*1
+                        if (player.buffTime[buffIndex] % 1 == 0)
+                            RejuvenationEffect(player, 1);
+                        if (player.buffTime[buffIndex] % 3 == 0)
+                            RejuvenationEffect(player, 1);
+                        if (player.buffTime[buffIndex] % 12 == 0)
+                            RejuvenationEffect(player, 1);
                         break;
-                    case 6:
-                        RejuvenationEffect(player, 100);
+                    case 6://60*1+20*2
+                        if (player.buffTime[buffIndex] % 1 == 0)
+                            RejuvenationEffect(player, 1);
+                        if (player.buffTime[buffIndex] % 3 == 0)
+                            RejuvenationEffect(player, 2);
                         break;
-                    case 7:
-                        RejuvenationEffect(player, 120);
+                    case 7://60*2
+                        if (player.buffTime[buffIndex] % 1 == 0)
+                            RejuvenationEffect(player, 2);
                         break;
                 }
-                Dust dust = Dust.NewDustDirect(player.position, player.width, player.height, ModContent.DustType<RBDust>());
-                float t = Main.GameUpdateCount * 0.05f;
-                dust.scale *= 1.5f;
-                dust.position = player.Center + new Vector2((float)Math.Cos(t), (float)Math.Sin(t)) * 100;
-                dust.velocity *= 0;
                 base.Update(player, ref buffIndex);
+            }
+            public override bool RightClick(int buffIndex)
+            {
+                foreach (Projectile proj in Main.projectile)
+                {
+                    if (proj.type == ModContent.ProjectileType<RBsphere>() && proj.ai[0] == ply)
+                        proj.Kill();
+                }
+                return true;
             }
         }
         /// <summary>
@@ -441,8 +511,25 @@ namespace MysteriousKnives.Buffs
                 Main.buffNoSave[Type] = false;
                 Segment.PlayerSegment = 180;
             }
+            public bool i = true;
+            public int ply;
             public override void Update(Player player, ref int buffIndex)
             {
+                if (i) Projectile.NewProjectileDirect(player.GetSource_Buff(buffIndex), player.position, new Vector2(0, 0),
+                         ModContent.ProjectileType<STsphere>(), 0, 0, player.whoAmI, player.whoAmI);
+                i = false;
+                if (player.buffTime[buffIndex] == 0)
+                {
+                    foreach (Projectile proj in Main.projectile)
+                    {
+                        if (proj.type == ModContent.ProjectileType<STsphere>() && proj.ai[0] == player.whoAmI)
+                        {
+                            proj.Kill();
+                            i = true;
+                            ply = player.whoAmI;
+                        }
+                    }
+                } 
                 switch (Segment.GetPlayerBuffSegment())
                 {
                     case 0:
@@ -464,13 +551,16 @@ namespace MysteriousKnives.Buffs
                         StrengthEffect(player, 0.6f);
                         break;
                 }
-                Dust dust = Dust.NewDustDirect(player.position, player.width, player.height, ModContent.DustType<STDust>());
-                float t = Main.GameUpdateCount * 0.05f;
-                dust.scale *= 1.5f;
-                dust.position = player.Center + new Vector2((float)Math.Cos(t - Math.PI / 1.5f),
-                    (float)Math.Sin(t - Math.PI / 1.5f)) * 100;
-                dust.velocity *= 0;
                 base.Update(player, ref buffIndex);
+            }
+            public override bool RightClick(int buffIndex)
+            {
+                foreach (Projectile proj in Main.projectile)
+                {
+                    if (proj.type == ModContent.ProjectileType<STsphere>() && proj.ai[0] == ply)
+                        proj.Kill();
+                }
+                return true;
             }
         }
         /// <summary>
@@ -504,12 +594,14 @@ namespace MysteriousKnives.Buffs
                         npc.GetGlobalNPC<MKGlobalNPC>().SK3 = true;
                         break;
                 }
-                Dust dust = Dust.NewDustDirect(npc.position, npc.width, npc.height, ModContent.DustType<SKDust>());
-                float t = Main.GameUpdateCount * 0.05f;
-                dust.scale *= 1.5f;
-                dust.position = npc.Center + new Vector2((float)Math.Sin(t) / 10f, (float)Math.Cos(t) / 20f + 0.5f) * 100f;
-                dust.noGravity = false;
-                base.Update(npc, ref buffIndex);
+                if (npc.realLife == -1)
+                {
+                    Dust dust = Dust.NewDustDirect(npc.position, npc.width, npc.height, ModContent.DustType<SKDust>());
+                    float t = Main.GameUpdateCount * 0.05f;
+                    dust.scale *= 1.5f;
+                    dust.position = npc.Center + new Vector2((float)Math.Sin(t) / 10f, (float)Math.Cos(t) / 20f + 0.5f) * 100f;
+                    dust.noGravity = false;
+                }
             }
         }
         /// <summary>
@@ -532,7 +624,7 @@ namespace MysteriousKnives.Buffs
 
             public override void Update(NPC npc, ref int buffIndex)
             {
-                if (npc.buffTime[buffIndex] % 6 == 0)
+                if (npc.buffTime[buffIndex] % 6 == 0 && npc.CanBeChasedBy())
                     switch (Segment.GetNpcBuffSegment())
                     {
                         case 0:
@@ -557,7 +649,6 @@ namespace MysteriousKnives.Buffs
                         (float)(Math.Sin(t + Math.PI) / 5f)) * 100;
                     dust.velocity *= 0;
                 }
-                base.Update(npc, ref buffIndex);
             }
         }
     }
