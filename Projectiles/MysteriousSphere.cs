@@ -50,8 +50,6 @@ namespace MysteriousKnives.Projectiles
                 if (Projectile.frame > 118)
                     Projectile.frame = 0;
             }
-            Player player = Main.player[Projectile.owner];
-            Projectile.Center = player.Center + pos * 100;
             base.AI();
         }
         public override bool PreDraw(ref Color lightColor)
@@ -62,10 +60,9 @@ namespace MysteriousKnives.Projectiles
             spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.Additive, SamplerState.AnisotropicClamp,
                 DepthStencilState.None, RasterizerState.CullNone, null, Main.GameViewMatrix.TransformationMatrix);
             spriteBatch.Draw(texture: texture,
-                position: Projectile.position - Main.screenPosition,
+                position: Projectile.Center - Main.screenPosition,
                 sourceRectangle: new Rectangle(0, Projectile.frame * 30, 30, 30),
                 color: color,
-                //rotation: 0,
                 rotation: (float)Math.PI / 100f * Main.GameUpdateCount + r,
                 origin: new Vector2(15, 15),
                 scale: (float)Math.Sin(Main.GameUpdateCount * 0.1f) / 4 + 1.2f,
@@ -80,6 +77,10 @@ namespace MysteriousKnives.Projectiles
             spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.NonPremultiplied, SamplerState.AnisotropicClamp,
                 DepthStencilState.None, RasterizerState.CullNone, null, Main.GameViewMatrix.TransformationMatrix);
         }
+        public override Color? GetAlpha(Color lightColor)
+        {
+            return Color.White;
+        }
         public class RBsphere : MKSphere
         {
             public override void AI()
@@ -88,9 +89,11 @@ namespace MysteriousKnives.Projectiles
                 color = new(0.2f, 0.95f, 0.13f);
                 r = 0;
                 pos = new Vector2((float)Math.Cos(t), (float)Math.Sin(t));
-                Dust dust = Dust.NewDustDirect(Projectile.position, 0, 0, type);
-                dust.velocity *= 0;
-                Lighting.AddLight(Projectile.Center, 0.2f, 0.95f, 0.13f);
+                Player player = Main.player[Projectile.owner];
+                Projectile.velocity = player.Center + pos * 100 - Projectile.Center;
+                if (Main.rand.Next(6) >= 5)
+                    Dust.NewDust(Projectile.position, 60, 60, type);
+                Lighting.AddLight(Projectile.position, 0.2f, 0.95f, 0.13f);
                 base.AI();
             }
         }
@@ -102,10 +105,11 @@ namespace MysteriousKnives.Projectiles
                 color = new(1f, 0.95f, 0.75f);
                 r = (float)(-Math.PI / 1.5f);
                 pos = new Vector2((float)Math.Cos(t - Math.PI / 1.5f), (float)Math.Sin(t - Math.PI / 1.5f));
-                Dust dust = Dust.NewDustDirect(Projectile.position, 0, 0, type);
-                dust.velocity *= 0;
-                Lighting.AddLight(Projectile.Center, 1f, 0.95f, 0.75f);
-
+                Player player = Main.player[Projectile.owner];
+                Projectile.velocity = player.Center + pos * 100 - Projectile.Center;
+                if (Main.rand.Next(6) >= 5)
+                    Dust.NewDust(Projectile.position, 60, 60, type);
+                Lighting.AddLight(Projectile.position, 1f, 0.95f, 0.75f);
                 base.AI();
             }
         }
@@ -117,9 +121,11 @@ namespace MysteriousKnives.Projectiles
                 color = new(0.45f, 0.04f, 0.75f);
                 r = (float)(Math.PI / 1.5f);
                 pos = new Vector2((float)Math.Cos(t + Math.PI / 1.5f), (float)Math.Sin(t + Math.PI / 1.5f));
-                Dust dust = Dust.NewDustDirect(Projectile.position, 0, 0, type);
-                dust.velocity *= 0;
-                Lighting.AddLight(Projectile.Center, 0.45f, 0.04f, 0.75f);
+                Player player = Main.player[Projectile.owner];
+                Projectile.velocity = player.Center + pos * 100 - Projectile.Center;
+                if (Main.rand.Next(6) >= 5)
+                    Dust.NewDust(Projectile.position, 60, 60, type);
+                Lighting.AddLight(Projectile.position, 0.45f, 0.04f, 0.75f);
                 base.AI();
             }
         }

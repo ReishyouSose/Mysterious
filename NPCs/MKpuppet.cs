@@ -4,6 +4,8 @@ using Terraria;
 using Microsoft.Xna.Framework;
 using MysteriousKnives.Projectiles;
 using Terraria.GameContent.ItemDropRules;
+using Microsoft.Xna.Framework.Graphics;
+using System;
 
 namespace MysteriousKnives.NPCs
 {
@@ -19,7 +21,6 @@ namespace MysteriousKnives.NPCs
         {
             NPC.width = 34;
             NPC.height = 162 / 3;
-            NPC.damage = 100;
             NPC.lifeMax = 50000000;
             NPC.defense = 0;
             NPC.knockBackResist = 0f;
@@ -29,7 +30,7 @@ namespace MysteriousKnives.NPCs
             NPC.value = Item.buyPrice(0, 0, 0, 0);
             Main.npcFrameCount[NPC.type] = 3;
             NPC.noGravity = true;
-            NPC.noTileCollide = false;
+            NPC.noTileCollide = true;
             AIType = -3;//这边为了方便直接写了ID（绝对不是懒
             AnimationType = -3;
             NPC.rarity = -1;
@@ -38,27 +39,31 @@ namespace MysteriousKnives.NPCs
         public int i = 0;
         public override void FindFrame(int frameHeight)
         {
-            //if (NPC.velocity.X > 0)
             {
                 NPC.frameCounter++;
                 if (NPC.frameCounter >= 5)
                 {
                     NPC.frameCounter = 0;
                     i++;
-                    if (i > 2) i = 0;
+                    i %= 3;
                     NPC.frame.Y = frameHeight * i;
                 }
             }
         }
         public override void AI()
         {
-            NPC.velocity *= 0;
+            NPC.velocity = new Vector2((float)Math.Sin(Main.GameUpdateCount * 0.05f), 0);
+            if (NPC.velocity.X > 0) NPC.spriteDirection = -1;
+            if (NPC.velocity.X < 0) NPC.spriteDirection = 1;
             Lighting.AddLight(NPC.Center, 1f, 1f, 1f);
             foreach (NPC boss in Main.npc)
             if (boss.boss && boss.active)
-            foreach (NPC npc in Main.npc)
-            if (npc.type == ModContent.NPCType<MKpuppet>())
-                npc.life = 0;
+                {
+                    foreach (NPC npc in Main.npc)
+                        if (npc.type == ModContent.NPCType<MKpuppet>())
+                            npc.life = 0;
+                    break;
+                }
         }
     }
 }

@@ -10,6 +10,7 @@ using Terraria.Audio;
 using Microsoft.Xna.Framework.Graphics;
 using static System.Net.Mime.MediaTypeNames;
 using Terraria.DataStructures;
+using MysteriousKnives.IDs;
 
 namespace MysteriousKnives.Projectiles
 {
@@ -20,9 +21,8 @@ namespace MysteriousKnives.Projectiles
             if (Projectile.timeLeft < 597)//弹幕粒子效果
             {
                 Dust dust = Dust.NewDustDirect(Projectile.position, Projectile.width, Projectile.height, type);
-                dust.alpha = 0;
                 dust.noGravity = true;
-                dust.scale *= 0.5f;
+                dust.scale *= 0.7f;
                 dust.position = Projectile.Center;
             }
         }
@@ -107,7 +107,7 @@ namespace MysteriousKnives.Projectiles
             if (target.realLife != -1)
                 target = Main.npc[target.realLife];
             int i = 60;
-            switch (MKID)
+            switch (Projectile.ai[0])
             {
                 case 1: target.AddBuff(ModContent.BuffType<Crystallization>(), i); break;
                 case 2: target.AddBuff(ModContent.BuffType<Crystallization>(), i); break;
@@ -132,7 +132,7 @@ namespace MysteriousKnives.Projectiles
             int i = 180;
             if (target.rarity != 0 || target.boss)
             {
-                switch (MKID)
+                switch (Projectile.ai[0])
                 {
                     case 2: target.AddBuff(ModContent.BuffType<ConvergentBurst1>(), i); break;
                     case 3: target.AddBuff(ModContent.BuffType<ConvergentBurst2>(), i); break;
@@ -155,7 +155,7 @@ namespace MysteriousKnives.Projectiles
             if (target.realLife != -1)
                 target = Main.npc[target.realLife];
             int i = 180;
-            switch (MKID)
+            switch (Projectile.ai[0])
             {
                 case 1: target.AddBuff(ModContent.BuffType<WeirdVemon>(), i); break;
                 case 2: target.AddBuff(ModContent.BuffType<WeirdVemon>(), i*2); break;
@@ -178,7 +178,7 @@ namespace MysteriousKnives.Projectiles
             if (target.realLife != -1)
                 target = Main.npc[target.realLife];
             int i = 180;
-            switch (MKID)
+            switch (Projectile.ai[0])
             {
                 case 1: target.AddBuff(ModContent.BuffType<SunkerCancer>(), i); break;
                 case 2: target.AddBuff(ModContent.BuffType<SunkerCancer>(), i); break;
@@ -201,7 +201,7 @@ namespace MysteriousKnives.Projectiles
             if (target.realLife != -1)
                 target = Main.npc[target.realLife];
             int i = 180;
-            switch (MKID)
+            switch (Projectile.ai[0])
             {
                 case 2: target.AddBuff(ModContent.BuffType<IndescribableFear>(), i); break;
                 case 3: target.AddBuff(ModContent.BuffType<IndescribableFear>(), i * 2); break;
@@ -221,7 +221,7 @@ namespace MysteriousKnives.Projectiles
         public void ASbuffs(Player player)
         {
             int i = 180;
-            switch (MKID)
+            switch (Projectile.ai[0])
             {
                 case 3: player.AddBuff(ModContent.BuffType<AstralRay>(), i); break;
                 case 4: player.AddBuff(ModContent.BuffType<AstralRay>(), i * 2); break;
@@ -239,7 +239,7 @@ namespace MysteriousKnives.Projectiles
         public void RBbuffs(Player player)
         {
             int i = 180;
-            switch (MKID)
+            switch (Projectile.ai[0])
             {
                 case 1: player.AddBuff(ModContent.BuffType<RejuvenationBlessing>(), i); break;
                 case 2: player.AddBuff(ModContent.BuffType<RejuvenationBlessing>(), i * 2); break;
@@ -259,7 +259,7 @@ namespace MysteriousKnives.Projectiles
         public void STbuffs(Player player)
         {
             int i = 180;
-            switch (MKID)
+            switch (Projectile.ai[0])
             {
                 case 1: player.AddBuff(ModContent.BuffType<StrengthEX>(), i); break;
                 case 2: player.AddBuff(ModContent.BuffType<StrengthEX>(), i * 2); break;

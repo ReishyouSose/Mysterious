@@ -21,24 +21,6 @@ namespace MysteriousKnives.Buffs
     /// </summary>
     public abstract class MysteriousBuffs : ModBuff
     {
-        public BuffSegment Segment;//定义数据
-        public override void SetStaticDefaults()
-        {
-            Segment = new BuffSegment
-            {
-                Time = 0
-            };
-            base.SetStaticDefaults();
-        }//初始化
-        public override void Update(NPC npc, ref int buffIndex)
-        {
-            Segment.Time = npc.buffTime[buffIndex];
-        }
-        public override void Update(Player player, ref int buffIndex)
-        {
-            Segment.Time = player.buffTime[buffIndex];
-            base.Update(player, ref buffIndex);
-        }
         public static void VemonDamage(NPC npc, int damage)
         {
             npc.life -= damage;
@@ -98,30 +80,30 @@ namespace MysteriousKnives.Buffs
                 Description.SetDefault("星辉会瓦解一切");
                 Main.buffNoTimeDisplay[Type] = false;
                 Main.debuff[Type] = false;
-                Main.buffNoSave[Type] = false;
-                Segment.PlayerSegment = 180;
+                Main.buffNoSave[Type] = true;
             }
-            public bool i = true;
             public int ply;
             public override void Update(Player player, ref int buffIndex)
             {
-                if (i) Projectile.NewProjectile(Entity.GetSource_NaturalSpawn(), player.position, new Vector2(0, 0),
-                     ModContent.ProjectileType<ASsphere>(), 0, 0, player.whoAmI);
-                i = false;
+                Projectile proj = null;
+                foreach (Projectile sphere in Main.projectile)
+                    if (sphere.type == ModContent.ProjectileType<ASsphere>() && sphere.active && sphere.ai[0] == ply)
+                        proj = sphere;
+                if (proj == null)
+                    Projectile.NewProjectile(player.GetSource_Buff(buffIndex), player.position, new Vector2(0, 0),
+                        ModContent.ProjectileType<ASsphere>(), 0, 0, player.whoAmI);
                 if (player.buffTime[buffIndex] == 0)
                 {
-                    foreach (Projectile proj in Main.projectile)
+                    foreach (Projectile sphere in Main.projectile)
                     {
-                        if (proj.type == ModContent.ProjectileType<ASsphere>() && proj.ai[0] == player.whoAmI)
+                        if (sphere.type == ModContent.ProjectileType<ASsphere>() && sphere.ai[0] == player.whoAmI)
                         {
-                            proj.Kill();
-                            i = true;
+                            sphere.Kill();
                             ply = player.whoAmI;
-
                         }
                     }
                 }
-                switch (Segment.GetPlayerBuffSegment())
+                switch (player.buffTime[buffIndex] / 180)
                 {
                     case 0:
                         ArstalEffect(player, 20);
@@ -311,7 +293,6 @@ namespace MysteriousKnives.Buffs
                 Main.buffNoTimeDisplay[Type] = false;
                 Main.debuff[Type] = true;
                 Main.buffNoSave[Type] = false;
-                Segment.NPCSegment = 60;
             }
             public override void Update(NPC npc, ref int buffIndex)
             {
@@ -326,7 +307,7 @@ namespace MysteriousKnives.Buffs
             }
             public override bool ReApply(NPC npc, int time, int buffIndex)
             {
-                switch (Segment.GetNpcBuffSegment())
+                switch (npc.buffTime[buffIndex] / 60)
                 {
                     case 0:
                         CrystalDamage(npc, 50);
@@ -344,7 +325,7 @@ namespace MysteriousKnives.Buffs
                         CrystalDamage(npc, 1000);
                         break;
                 }
-                return base.ReApply(npc, time, buffIndex);
+                return true;
             }
         }
         /// <summary>
@@ -361,12 +342,11 @@ namespace MysteriousKnives.Buffs
                 Main.buffNoTimeDisplay[Type] = false;
                 Main.debuff[Type] = true;
                 Main.buffNoSave[Type] = false;
-                Segment.NPCSegment = 180;
             }
 
             public override void Update(NPC npc, ref int buffIndex)
             {
-                switch (Segment.GetNpcBuffSegment())
+                switch (npc.buffTime[buffIndex] / 180)
                 {
                     case 0:
                         npc.GetGlobalNPC<MKGlobalNPC>().AB1 = true;
@@ -413,31 +393,31 @@ namespace MysteriousKnives.Buffs
                 Description.SetDefault("你的一切伤痛都会迅速消失");
                 Main.buffNoTimeDisplay[Type] = false;
                 Main.debuff[Type] = false;
-                Main.buffNoSave[Type] = false;
-                Segment.PlayerSegment = 180;
+                Main.buffNoSave[Type] = true;
             }
-            public bool i = true;
             public int ply;
             public override void Update(Player player, ref int buffIndex)
             {
-                if (i) Projectile.NewProjectile(Entity.GetSource_NaturalSpawn(), player.position, new Vector2(0, 0),
-                     ModContent.ProjectileType<RBsphere>(), 0, 0, player.whoAmI);
-                i = false;
+                Projectile proj = null;
+                foreach (Projectile sphere in Main.projectile)
+                    if (sphere.type == ModContent.ProjectileType<RBsphere>() && sphere.active && sphere.ai[0] == ply)
+                        proj = sphere;
+                if (proj == null)
+                    Projectile.NewProjectile(player.GetSource_Buff(buffIndex), player.position, new Vector2(0, 0),
+                        ModContent.ProjectileType<RBsphere>(), 0, 0, player.whoAmI);
                 if (player.buffTime[buffIndex] == 0)
                 {
-                    foreach (Projectile proj in Main.projectile)
+                    foreach (Projectile sphere in Main.projectile)
                     {
-                        if (proj.type == ModContent.ProjectileType<RBsphere>() && proj.ai[0] == player.whoAmI)
+                        if (sphere.type == ModContent.ProjectileType<RBsphere>() && sphere.ai[0] == player.whoAmI)
                         {
                             proj.Kill();
-                            i = true;
                             ply = player.whoAmI;
                         }
-                            
                     }
                 }
                 if (player.statLife < player.statLifeMax)
-                switch (Segment.GetPlayerBuffSegment())
+                switch (player.buffTime[buffIndex] / 180)
                 {
                     case 0://10*1
                         if(player.buffTime[buffIndex] % 6 == 0)
@@ -508,29 +488,30 @@ namespace MysteriousKnives.Buffs
                 Description.SetDefault("你被强化了！快上！");
                 Main.buffNoTimeDisplay[Type] = false;
                 Main.debuff[Type] = false;
-                Main.buffNoSave[Type] = false;
-                Segment.PlayerSegment = 180;
+                Main.buffNoSave[Type] = true;
             }
-            public bool i = true;
             public int ply;
             public override void Update(Player player, ref int buffIndex)
             {
-                if (i) Projectile.NewProjectileDirect(player.GetSource_Buff(buffIndex), player.position, new Vector2(0, 0),
-                         ModContent.ProjectileType<STsphere>(), 0, 0, player.whoAmI, player.whoAmI);
-                i = false;
+                Projectile proj = null;
+                foreach (Projectile sphere in Main.projectile)
+                    if (sphere.type == ModContent.ProjectileType<STsphere>() && sphere.active && sphere.ai[0] == ply)
+                        proj = sphere;
+                if (proj == null)
+                    Projectile.NewProjectile(player.GetSource_Buff(buffIndex), player.position, new Vector2(0, 0),
+                        ModContent.ProjectileType<STsphere>(), 0, 0, player.whoAmI);
                 if (player.buffTime[buffIndex] == 0)
                 {
-                    foreach (Projectile proj in Main.projectile)
+                    foreach (Projectile sphere in Main.projectile)
                     {
-                        if (proj.type == ModContent.ProjectileType<STsphere>() && proj.ai[0] == player.whoAmI)
+                        if (sphere.type == ModContent.ProjectileType<STsphere>() && sphere.ai[0] == player.whoAmI)
                         {
-                            proj.Kill();
-                            i = true;
+                            sphere.Kill();
                             ply = player.whoAmI;
                         }
                     }
                 } 
-                switch (Segment.GetPlayerBuffSegment())
+                switch (player.buffTime[buffIndex] / 180)
                 {
                     case 0:
                         StrengthEffect(player, 0.1f);
@@ -576,13 +557,11 @@ namespace MysteriousKnives.Buffs
                 Main.buffNoTimeDisplay[Type] = false;
                 Main.debuff[Type] = true;
                 Main.buffNoSave[Type] = false;
-                Segment.NPCSegment = 180;
-                Segment.PlayerSegment = 180;
             }
 
             public override void Update(NPC npc, ref int buffIndex)
             {
-                switch (Segment.GetNpcBuffSegment())
+                switch (npc.buffTime[buffIndex] / 180)
                 {
                     case 0:
                         npc.GetGlobalNPC<MKGlobalNPC>().SK1 = true;
@@ -618,14 +597,11 @@ namespace MysteriousKnives.Buffs
                 Main.buffNoTimeDisplay[Type] = false;
                 Main.debuff[Type] = true;
                 Main.buffNoSave[Type] = false;
-                Segment.NPCSegment = 180;
-                Segment.PlayerSegment = 180;
             }
-
             public override void Update(NPC npc, ref int buffIndex)
             {
                 if (npc.buffTime[buffIndex] % 6 == 0 && npc.CanBeChasedBy())
-                    switch (Segment.GetNpcBuffSegment())
+                    switch (npc.buffTime[buffIndex] / 180)
                     {
                         case 0:
                             VemonDamage(npc, 2);

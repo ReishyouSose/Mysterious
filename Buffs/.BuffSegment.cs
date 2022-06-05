@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MysteriousKnives.Buffs
+/*namespace MysteriousKnives.Buffs
 {
     /// <summary>
     /// BUFF分段的计数器.
@@ -35,4 +35,4 @@ namespace MysteriousKnives.Buffs
             return Time / PlayerSegment;
         }
     }
-}
+}*/

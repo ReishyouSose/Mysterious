@@ -26,17 +26,17 @@ namespace MysteriousKnives.Dusts
 			if (dust.scale <= 0f) dust.active = false;
 			return base.Update(dust);
         }
+        public override Color? GetAlpha(Dust dust, Color lightColor)
+        {
+            return Color.White;
+        }
 
-		/// <summary>
-		/// 结晶粒子0.9f, 0.63f, 1f
-		/// </summary>
-		public class CSDust : MDust
+        /// <summary>
+        /// 结晶粒子0.9f, 0.63f, 1f
+        /// </summary>
+        public class CSDust : MDust
 		{
 			public override string Texture => "MysteriousKnives/Pictures/Dusts/CSDust";
-			public override void OnSpawn(Dust dust)
-            {
-                base.OnSpawn(dust);
-            }
             public override bool Update(Dust dust)
 			{
 				base.Update(dust);
@@ -50,10 +50,6 @@ namespace MysteriousKnives.Dusts
 		public class SKDust : MDust
 		{
 			public override string Texture => "MysteriousKnives/Pictures/Dusts/SKDust";
-			public override void OnSpawn(Dust dust)
-			{
-				base.OnSpawn(dust);
-			}
 			public override bool Update(Dust dust)
 			{
 				float i = 0.001f; i += i;
@@ -165,7 +161,11 @@ namespace MysteriousKnives.Dusts
 					Main.DiscoR / 255f, Main.DiscoG / 255f, Main.DiscoB / 255f);
 				return false;
 			}
-		}
+            public override Color? GetAlpha(Dust dust, Color lightColor)
+            {
+                return Main.DiscoColor;
+            }
+        }
 		/// <summary>
 		/// 空洞粒子
 		/// </summary>

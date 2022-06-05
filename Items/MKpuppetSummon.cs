@@ -58,6 +58,7 @@ namespace MysteriousKnives.Items
                     NPC puppet = NPC.NewNPCDirect(player.GetSource_ItemUse(Item), (int)Main.MouseWorld.X, (int)Main.MouseWorld.Y,
                         ModContent.NPCType<MKpuppet>());
                     puppet.ai[0] = player.whoAmI;
+                    //puppet.ai[1] = 114514;
                 }
             }
             return true;

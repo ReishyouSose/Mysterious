@@ -16,6 +16,8 @@ using static MysteriousKnives.Projectiles.MysteriousKnife;
 using Terraria.DataStructures;
 using Terraria.Utilities;
 using static MysteriousKnives.Items.MKprefix;
+using Microsoft.Xna.Framework;
+using System;
 
 namespace MysteriousKnives.Items
 {
@@ -30,13 +32,50 @@ namespace MysteriousKnives.Items
 			Item.autoReuse = true;
 			Item.noMelee = true;
 			Item.noUseGraphic = true;
-			Item.DamageType = DamageClass.Melee;
+			Item.DamageType = DamageClass.Generic;
 			Item.UseSound = SoundID.Item1;
 			Item.useStyle = ItemUseStyleID.Swing;
 			Item.shoot = ModContent.ProjectileType<MysteriousCore>();
 			Item.shootSpeed = 10f;
 			Item.UseSound = SoundID.Item113;
 			base.SetDefaults();
+		}
+		
+		public float GetEnhance(Player player, bool Damage, bool Crit, bool AttackSpeed, bool Melee = true,
+			bool Ranged = true, bool Magic = true, bool Summon = true)
+        {
+			float d = 0, c = 0, a = 0;
+			if (Damage)
+            {
+				if (Melee) d += player.GetDamage(DamageClass.Melee).Additive - 1;
+				if (Ranged) d += player.GetDamage(DamageClass.Ranged).Additive - 1;
+				if (Magic) d += player.GetDamage(DamageClass.Magic).Additive - 1;
+				if (Summon) d += player.GetDamage(DamageClass.Summon).Additive - 1;
+			}
+			if (Crit)
+            {
+				if (Melee) c += player.GetCritChance(DamageClass.Melee) / 100;
+				if (Ranged) c += player.GetCritChance(DamageClass.Ranged) / 100;
+				if (Magic) c += player.GetCritChance(DamageClass.Magic) / 100;
+				if (Summon) c += player.GetCritChance(DamageClass.Summon) / 100;
+			}
+			if (AttackSpeed)
+            {
+				if (Melee) a += player.GetAttackSpeed(DamageClass.Melee) - 1;
+				if (Ranged) a += player.GetAttackSpeed(DamageClass.Ranged) - 1;
+				if (Magic) a += player.GetAttackSpeed(DamageClass.Magic) - 1;
+				if (Summon) a += player.GetAttackSpeed(DamageClass.Summon) - 1;
+			}
+			return d + c + a;
+        }
+        public override void ModifyWeaponCrit(Player player, ref float crit)
+        {
+            crit += GetEnhance(player, false, true, false);
+        }
+        public override void ModifyWeaponDamage(Player player, ref StatModifier damage)
+        {
+			damage += GetEnhance(player, true, false, true);
+			if(Item.crit > 100) damage += Item.crit / 100 - 1;
 		}
         public class MK01 : MKnives
 		{
@@ -369,7 +408,7 @@ namespace MysteriousKnives.Items
 				Item.autoReuse = false;
 				Item.noMelee = true;
 				Item.noUseGraphic = true;
-				Item.DamageType = DamageClass.Melee;
+				Item.DamageType = DamageClass.Generic;
 				Item.useStyle = ItemUseStyleID.Shoot;
 				Item.damage = 300;
 				Item.knockBack = 20;
