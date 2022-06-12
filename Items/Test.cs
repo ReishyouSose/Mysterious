@@ -1,12 +1,6 @@
-﻿using Terraria.ID;
-using Terraria.ModLoader;
-using Terraria;
-using MysteriousKnives.Projectiles;
-using static MysteriousKnives.Projectiles.MKSphere;
-
-namespace MysteriousKnives.Items
+﻿namespace MysteriousKnives.Items
 {
-    public class Text : ModItem
+    public class Test : ModItem
     {
         public override string Texture => "MysteriousKnives/Pictures/Items/MK01";
         public override void SetStaticDefaults()

@@ -1,9 +1,4 @@
-﻿using Terraria.ID;
-using Terraria.ModLoader;
-using Terraria;
-using Microsoft.Xna.Framework;
-
-namespace MysteriousKnives.Items
+﻿namespace MysteriousKnives.Items
 {
     public class ABRare : ModRarity
     {

@@ -1,12 +1,3 @@
-using System;
-using Microsoft.Xna.Framework;
-using Terraria;
-using Terraria.ModLoader;
-using Terraria.ID;
-using static MysteriousKnives.Dusts.MDust;
-using Terraria.Audio;
-using Microsoft.Xna.Framework.Graphics;
-
 namespace MysteriousKnives.Projectiles
 {
     public abstract class MKSphere : ModProjectile

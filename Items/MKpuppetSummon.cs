@@ -1,16 +1,4 @@
-﻿using Microsoft.Xna.Framework;
-using MysteriousKnives.Buffs;
-using MysteriousKnives.NPCs;
-using MysteriousKnives.Projectiles;
-using System.Collections.Generic;
-using System.Linq;
-using Terraria;
-using Terraria.DataStructures;
-using Terraria.GameContent.Creative;
-using Terraria.ID;
-using Terraria.ModLoader;
-
-namespace MysteriousKnives.Items
+﻿namespace MysteriousKnives.Items
 {
 	public class MKpuppetSummon : ModItem
     {

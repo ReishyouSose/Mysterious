@@ -1,15 +1,3 @@
-using Terraria.ID;
-using Terraria.ModLoader;
-using Terraria;
-using ReLogic.Graphics;
-using System.Collections.Generic;
-using Microsoft.Xna.Framework;
-using Terraria.UI.Chat;
-using Terraria.Localization;
-using Terraria.GameInput;
-using Terraria.Audio;
-using Terraria.GameContent;
-
 namespace MysteriousKnives
 {
 	public class MysteriousKnives : Mod
@@ -22,7 +10,8 @@ namespace MysteriousKnives
 		{
 			On.Terraria.Main.GUIChatDrawInner -= Main_GUIChatDrawInner;
 		}
-		public static object TextDisplayCache => typeof(Main).GetField("_textDisplayCache",
+		public override uint ExtraPlayerBuffSlots => 999;
+        public static object TextDisplayCache => typeof(Main).GetField("_textDisplayCache",
 		System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance).GetValue(Main.instance);
 		public bool hover = false;
 		public bool MouseLeft = false;

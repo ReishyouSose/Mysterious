@@ -1,20 +1,4 @@
-﻿using Microsoft.Xna.Framework;
-using MysteriousKnives.NPCs;
-using MysteriousKnives.Projectiles;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Terraria;
-using Terraria.Audio;
-using Terraria.ID;
-using Terraria.ModLoader;
-using static MysteriousKnives.Dusts.MDust;
-using static MysteriousKnives.NPCs.MKGlobalNPC;
-using static MysteriousKnives.Projectiles.MKSphere;
-
-namespace MysteriousKnives.Buffs
+﻿namespace MysteriousKnives.Buffs
 {
     /// <summary>
     /// 诡秘Buffs

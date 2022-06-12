@@ -1,13 +1,4 @@
-﻿using Terraria.ID;
-using Terraria.ModLoader;
-using Terraria;
-using Microsoft.Xna.Framework;
-using MysteriousKnives.Projectiles;
-using Terraria.GameContent.ItemDropRules;
-using Microsoft.Xna.Framework.Graphics;
-using System;
-
-namespace MysteriousKnives.NPCs
+﻿namespace MysteriousKnives.NPCs
 {
     public class MKpuppet : ModNPC
     {
@@ -58,12 +49,16 @@ namespace MysteriousKnives.NPCs
             Lighting.AddLight(NPC.Center, 1f, 1f, 1f);
             foreach (NPC boss in Main.npc)
             if (boss.boss && boss.active)
-                {
-                    foreach (NPC npc in Main.npc)
-                        if (npc.type == ModContent.NPCType<MKpuppet>())
-                            npc.life = 0;
-                    break;
-                }
-        }
+            {
+                foreach (NPC npc in Main.npc)
+                    if (npc.type == ModContent.NPCType<MKpuppet>())
+                        npc.life = 0;
+                break;
+            }
+        }/*
+        public override void ModifyNPCLoot(NPCLoot npcLoot)
+        {
+            npcLoot.Add(ItemDropRule);
+        }*/
     }
 }

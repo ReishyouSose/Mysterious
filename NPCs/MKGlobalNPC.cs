@@ -1,12 +1,4 @@
-﻿using Terraria.ID;
-using Terraria.ModLoader;
-using Terraria;
-using static MysteriousKnives.Buffs.MysteriousBuffs;
-using System.Collections.Generic;
-using System;
-using System.Linq;
-
-namespace MysteriousKnives.NPCs
+﻿namespace MysteriousKnives.NPCs
 {
     public class MKGlobalNPC : GlobalNPC
     {

@@ -1,17 +1,3 @@
-using System;
-using Microsoft.Xna.Framework;
-using Terraria;
-using Terraria.ModLoader;
-using Terraria.ID;
-using static MysteriousKnives.Items.MKnives;
-using static MysteriousKnives.Buffs.MysteriousBuffs;
-using static MysteriousKnives.Dusts.MDust;
-using Terraria.Audio;
-using Microsoft.Xna.Framework.Graphics;
-using static System.Net.Mime.MediaTypeNames;
-using Terraria.DataStructures;
-using MysteriousKnives.IDs;
-
 namespace MysteriousKnives.Projectiles
 {
     public abstract class MysteriousKnife : ModProjectile

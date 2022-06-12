@@ -1,25 +1,4 @@
-﻿using MysteriousKnives.Projectiles;
-using Terraria.GameContent.Creative;
-using Terraria.ID;
-using Terraria.ModLoader;
-using Terraria;
-using static MysteriousKnives.Items.QM.诡毒之水;
-using static MysteriousKnives.Items.QM.结晶之水;
-using static MysteriousKnives.Items.QM.沉沦之水;
-using static MysteriousKnives.Items.QM.生命之水;
-using static MysteriousKnives.Items.QM.凝爆之水;
-using static MysteriousKnives.Items.QM.深渊之水;
-using static MysteriousKnives.Items.QM.力量之水;
-using static MysteriousKnives.Items.QM.星辉之水;
-using static MysteriousKnives.Buffs.MysteriousBuffs;
-using static MysteriousKnives.Projectiles.MysteriousKnife;
-using Terraria.DataStructures;
-using Terraria.Utilities;
-using static MysteriousKnives.Items.MKprefix;
-using Microsoft.Xna.Framework;
-using System;
-
-namespace MysteriousKnives.Items
+﻿namespace MysteriousKnives.Items
 {
 	public abstract class MKnives : ModItem
 	{
@@ -41,7 +20,7 @@ namespace MysteriousKnives.Items
 			base.SetDefaults();
 		}
 		
-		public float GetEnhance(Player player, bool Damage, bool Crit, bool AttackSpeed, bool Melee = true,
+		public static float GetEnhance(Player player, bool Damage, bool Crit, bool AttackSpeed, bool Melee = true,
 			bool Ranged = true, bool Magic = true, bool Summon = true)
         {
 			float d = 0, c = 0, a = 0;

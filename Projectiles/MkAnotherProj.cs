@@ -1,18 +1,3 @@
-using System;
-using Microsoft.Xna.Framework;
-using Terraria;
-using Terraria.ModLoader;
-using Terraria.ID;
-using static MysteriousKnives.Dusts.MDust;
-using static MysteriousKnives.Projectiles.MysteriousKnife;
-using Terraria.DataStructures;
-using Terraria.Audio;
-using System.Collections.Generic;
-using System.Linq;
-using static MysteriousKnives.Buffs.MysteriousBuffs;
-using static MysteriousKnives.NPCs.MKGlobalNPC;
-using Microsoft.Xna.Framework.Graphics;
-
 namespace MysteriousKnives.Projectiles
 {
     public class MysteriousCore : MysteriousKnife

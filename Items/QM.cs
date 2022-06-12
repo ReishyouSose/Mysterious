@@ -1,14 +1,4 @@
-﻿using Terraria.ID;
-using Terraria.ModLoader;
-using Terraria;
-using System;
-using Terraria.DataStructures;
-using Microsoft.Xna.Framework;
-using System.Collections.Generic;
-using MysteriousKnives.Buffs;
-using MysteriousKnives.Items;
-
-namespace MysteriousKnives.Items
+﻿namespace MysteriousKnives.Items
 {
 	public abstract class QM : ModItem
     {

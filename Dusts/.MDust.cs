@@ -1,11 +1,4 @@
-﻿using Terraria.ID;
-using Terraria.ModLoader;
-using Terraria;
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using System;
-
-namespace MysteriousKnives.Dusts
+﻿namespace MysteriousKnives.Dusts
 {
 	public abstract class MDust : ModDust
     {
