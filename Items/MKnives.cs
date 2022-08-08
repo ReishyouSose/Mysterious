@@ -1,6 +1,6 @@
 ﻿namespace MysteriousKnives.Items
 {
-	public abstract class MKnives : ModItem
+    public abstract class MKnives : ModItem
 	{
 		public override void SetDefaults()
 		{
@@ -11,7 +11,7 @@
 			Item.autoReuse = true;
 			Item.noMelee = true;
 			Item.noUseGraphic = true;
-			Item.DamageType = DamageClass.Generic;
+			Item.DamageType = ModContent.GetInstance<Mysterious>();
 			Item.UseSound = SoundID.Item1;
 			Item.useStyle = ItemUseStyleID.Swing;
 			Item.shoot = ModContent.ProjectileType<MysteriousCore>();
@@ -47,14 +47,10 @@
 			}
 			return d + c + a;
         }
-        public override void ModifyWeaponCrit(Player player, ref float crit)
-        {
-            crit += GetEnhance(player, false, true, false);
-        }
         public override void ModifyWeaponDamage(Player player, ref StatModifier damage)
         {
-			damage += GetEnhance(player, true, false, true);
-			if(Item.crit > 100) damage += Item.crit / 100 - 1;
+			//damage += GetEnhance(player, false, false, true);
+			if(Item.crit > 100) damage += Item.crit / 100f - 1;
 		}
         public class MK01 : MKnives
 		{
@@ -213,7 +209,7 @@
 			}
 			public override void SetDefaults()
 			{
-				Item.damage = 100;
+				Item.damage = 150;
 				Item.crit = 50;
 				Item.knockBack = 6;
 				Item.value = Item.sellPrice(1, 50, 0, 0);
@@ -248,7 +244,7 @@
 			}
 			public override void SetDefaults()
 			{
-				Item.damage = 125;
+				Item.damage = 500;
 				Item.crit = 60;
 				Item.knockBack = 6;
 				Item.value = Item.sellPrice(4, 0, 0, 0);
@@ -285,7 +281,7 @@
 			}
 			public override void SetDefaults()
 			{
-				Item.damage = 150;
+				Item.damage = 850;
 				Item.crit = 70;
 				Item.knockBack = 6;
 				Item.value = Item.sellPrice(10, 0, 0, 0);
@@ -319,7 +315,7 @@
 			}
 			public override void SetDefaults()
 			{
-				Item.damage = 200;
+				Item.damage = 1350;
 				Item.crit = 80;
 				Item.knockBack = 6;
 				Item.value = Item.sellPrice(30, 0, 0, 0);
@@ -351,7 +347,7 @@
 			}
 			public override void SetDefaults()
 			{
-				Item.damage = 250;
+				Item.damage = 2000;
 				Item.crit = 90;
 				Item.knockBack = 6;
 				Item.value = Item.sellPrice(80, 0, 0, 0);
@@ -382,33 +378,37 @@
 			}
 			public override void SetDefaults()
 			{
-				Item.width = 32;
-				Item.height = 32;
+				base.SetDefaults();
 				Item.autoReuse = false;
-				Item.noMelee = true;
-				Item.noUseGraphic = true;
-				Item.DamageType = DamageClass.Generic;
 				Item.useStyle = ItemUseStyleID.Shoot;
-				Item.damage = 300;
+				Item.damage = 3000;
 				Item.knockBack = 20;
 				Item.crit = 100;
-				Item.useTime = 15;
-				Item.useAnimation = 15;
+				Item.useTime = 2;
+				Item.useAnimation = 2;
 				Item.value = Item.sellPrice(150, 0, 0, 0);
 				Item.rare = ModContent.RarityType<Rare_Rainbow>();
 				Item.shoot = ModContent.ProjectileType<MKchannel>();
 				Item.shootSpeed = 10f;
 				Item.channel = true;
 			}
-            /*public override void OnCreate(ItemCreationContext context)
+            public override void ModifyWeaponDamage(Player player, ref StatModifier damage)
+            {
+				damage += GetEnhance(player, false, false, true);
+            }
+            public override void ModifyWeaponCrit(Player player, ref float crit)
+			{
+				crit += GetEnhance(player, false, true, false);
+			}
+			/*public override void OnCreate(ItemCreationContext context)
 			{
 				Item.Prefix(ModContent.PrefixType<MKprefix01>());
 			}*/
-            public override bool CanUseItem(Player player)
+			public override bool CanUseItem(Player player)
             {
 				NPC target = null;
 				foreach (NPC npc in Main.npc)
-				if (npc.CanBeChasedBy() && !npc.dontTakeDamage) 
+				if (npc.CanBeChasedBy(ignoreDontTakeDamage: true)) 
 					target = npc;
 				if (target != null) return true;
 				else return false;

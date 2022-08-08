@@ -20,35 +20,22 @@
 			Item.useAnimation = 4;
 			Item.value = Item.sellPrice(0, 1, 0, 0);
 			Item.rare = ItemRarityID.Green;
-			base.SetDefaults();
         }
-        public bool i = true;
         public override bool CanUseItem(Player player)
         {
             foreach (NPC npc in Main.npc)
             {
                 if (npc.boss && npc.active)
                     return false;
-            }
-            return true;
-        }
-        public override bool? UseItem(Player player)
-        {
-            foreach (NPC npc in Main.npc)
-            {
                 if (npc.type == ModContent.NPCType<MKpuppet>() && npc.active)
                 {
                     if (npc.ai[0] == player.whoAmI)
                         npc.life = 0;
-                }
-                else
-                {
-                    NPC puppet = NPC.NewNPCDirect(player.GetSource_ItemUse(Item), (int)Main.MouseWorld.X, (int)Main.MouseWorld.Y,
-                        ModContent.NPCType<MKpuppet>());
-                    puppet.ai[0] = player.whoAmI;
-                    //puppet.ai[1] = 114514;
+                    return false;
                 }
             }
+            NPC.NewNPCDirect(player.GetSource_ItemUse(Item), (int)Main.MouseWorld.X, (int)Main.MouseWorld.Y,
+                ModContent.NPCType<MKpuppet>(), 0, player.whoAmI);
             return true;
         }
     }

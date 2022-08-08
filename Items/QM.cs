@@ -1,6 +1,6 @@
 ﻿namespace MysteriousKnives.Items
 {
-	public abstract class QM : ModItem
+    public abstract class QM : ModItem
     {
 		public override void SetDefaults()
 		{
@@ -95,7 +95,7 @@
 						recipe.AddIngredient(ItemID.SpiderFang, 10);
 						recipe.AddIngredient(ItemID.Ichor, 10);
 						recipe.AddIngredient(CalamityMod.Find<ModItem>("MolluskHusk"), 10);
-						recipe.AddIngredient(CalamityMod.Find<ModItem>("BlightedLens"), 10);
+						recipe.AddIngredient(CalamityMod.Find<ModItem>("BlightedGel"), 10);
 						recipe.AddIngredient(CalamityMod.Find<ModItem>("CorrodedFossil"), 10);
 						recipe.AddTile(TileID.AlchemyTable);
 						recipe.ReplaceResult(this, 1);
@@ -403,7 +403,6 @@
 						Recipe recipe = CreateRecipe();
 						recipe.AddIngredient(ItemID.BottledWater, 10);
 						recipe.AddIngredient(ItemID.BeeWax, 10);
-						recipe.AddIngredient(CalamityMod.Find<ModItem>("PurifiedJam"), 1);
 						recipe.AddIngredient(CalamityMod.Find<ModItem>("PurifiedGel"), 10);
 						recipe.AddTile(TileID.AlchemyTable);
 						recipe.ReplaceResult(this, 1);
@@ -477,7 +476,7 @@
 						recipe.AddIngredient(ItemID.BottledWater, 10);
 						recipe.AddIngredient(ItemID.BeetleHusk, 10);
 						recipe.AddIngredient(CalamityMod.Find<ModItem>("BarofLife"), 10);
-						recipe.AddIngredient(CalamityMod.Find<ModItem>("ExodiunClusterOre"), 20);
+						recipe.AddIngredient(CalamityMod.Find<ModItem>("ExodiumCluster"), 20);
 						recipe.AddTile(TileID.AlchemyTable);
 						recipe.ReplaceResult(this, 1);
 						recipe.Register();
@@ -600,7 +599,7 @@
 						Recipe recipe = CreateRecipe();
 						recipe.AddIngredient(ItemID.BottledWater, 10);
 						recipe.AddIngredient(ItemID.SoulofLight, 10);
-						recipe.AddIngredient(CalamityMod.Find<ModItem>(" EssenceofSunlight"), 10);
+						recipe.AddIngredient(CalamityMod.Find<ModItem>("EssenceofSunlight"), 10);
 						recipe.AddTile(TileID.AlchemyTable);
 						recipe.ReplaceResult(this, 1);
 						recipe.Register();
@@ -1070,7 +1069,6 @@
 					{
 						Recipe recipe = CreateRecipe();
 						recipe.AddIngredient(ItemID.BottledWater, 10);
-						recipe.AddIngredient(CalamityMod.Find<ModItem>("HadarianMembrane"), 3);
 						recipe.AddIngredient(CalamityMod.Find<ModItem>("AstralJelly"), 10);
 						recipe.AddTile(TileID.AdamantiteForge);
 						recipe.ReplaceResult(this, 1);

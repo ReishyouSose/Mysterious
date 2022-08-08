@@ -44,12 +44,15 @@ global using static MysteriousKnives.Tiles._TileEntity.TileUtils;
 global using Terraria.ModLoader.IO;
 global using MysteriousKnives.UI.MKUIstate;
 global using MysteriousKnives.UI.MKUIelement;
+global using Microsoft.Xna.Framework.Graphics.PackedVector;
+global using System.IO;
+global using Terraria.Chat;
+global using MysteriousKnives.UI.MKUIPanel;
+global using System.Reflection;
+global using MysteriousKnives.MKSystem;
+global using static MysteriousKnives.MKSystem.MKGlobalItem;
 
-
-
-
-
-namespace MysteriousKnives
+namespace MysteriousKnives.MKSystem
 {
     internal class GlobalUsing
     {

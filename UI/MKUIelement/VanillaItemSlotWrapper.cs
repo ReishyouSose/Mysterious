@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace MysteriousKnives.UI.MKUIelement
+﻿namespace MysteriousKnives.UI.MKUIelement
 {
-	internal class VanillaItemSlotWrapper : UIElement
+	public class VanillaItemSlotWrapper : UIElement
 	{
-		internal Item Item;
+		internal Item item;
 		private readonly int _context;
 		private readonly float _scale;
 		internal Func<Item, bool> ValidItemFunc;
@@ -17,9 +11,8 @@ namespace MysteriousKnives.UI.MKUIelement
 		{
 			_context = context;
 			_scale = scale;
-			Item = new Item();
-			Item.SetDefaults(0);
-
+			item = new();
+			item.SetDefaults(0);
 			Width.Set(TextureAssets.InventoryBack9.Width() * scale, 0f);
 			Height.Set(TextureAssets.InventoryBack9.Height() * scale, 0f);
 		}
@@ -28,23 +21,23 @@ namespace MysteriousKnives.UI.MKUIelement
 			float oldScale = Main.inventoryScale;
 			Main.inventoryScale = _scale;
 			Rectangle rectangle = GetDimensions().ToRectangle();
-
 			if (ContainsPoint(Main.MouseScreen) && !PlayerInput.IgnoreMouseInterface)
 			{
 				Main.LocalPlayer.mouseInterface = true;
 				if (ValidItemFunc == null || ValidItemFunc(Main.mouseItem))
 				{
 					// Handle handles all the click and hover actions based on the context.
-					ItemSlot.Handle(ref Item, _context);
+					//if(item.buffType != 0)
+					ItemSlot.Handle(ref item, _context);
 				}
 			}
-			ItemSlot.Draw(spriteBatch, ref Item, _context, rectangle.TopLeft());
+			ItemSlot.Draw(spriteBatch, ref item, _context, rectangle.TopLeft());
 			Main.inventoryScale = oldScale;
 		}
         public override void Update(GameTime gameTime)
         {
-			UpdateGiveBuff(Item);
             base.Update(gameTime);
+			//UpdateGiveBuff(Item);
         }
 		public static void DrawName(Vector2 position, Item item)
         {
@@ -52,20 +45,21 @@ namespace MysteriousKnives.UI.MKUIelement
 			ChatManager.DrawColorCodedString(spriteBatch, FontAssets.MouseText.Value, item.Name, position, Color.White,
 				0f, new Vector2(0, 0), new Vector2(1f));
 
-        }
-        public static void UpdateGiveBuff(Item item)
+        }/*
+        public void UpdateGiveBuff(Item item)
         {
 			Player player = Main.LocalPlayer;
 			if (item.buffType != -1 && Main.debuff[item.buffType] == false)
-            {
+			{
 				player.AddBuff(item.buffType, 2);
-            }
+			}*/
+			/*
 			else
             {
 				Rectangle rec = player.getRect();
 				item.TurnToAir();
 				Item.NewItem(item.GetSource_Loot(), rec, item.type, item.stack);
             }
-        }
+        }*/
     }
 }

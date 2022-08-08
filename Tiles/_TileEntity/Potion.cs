@@ -2,12 +2,21 @@
 {
     public class Potion : ModTileEntity
 	{
+		public Item[] items = new Item[10];
+		public Potion()
+        {
+			for (int i = 0; i < 10; i++)
+            {
+				items[i] = new Item();
+            }
+        }
 		public override bool IsTileValidForEntity(int x, int y)
 		{
-			throw new NotImplementedException();
+			Tile tile = Main.tile[x, y];
+			return tile.HasTile && tile.TileType == MKTileID.PotionStation && tile.TileFrameX == 0 && tile.TileFrameY == 0;
 		}
 		public override int Hook_AfterPlacement(int i, int j, int type, int style, int direction, int alternate)
-		{
+		{ 
 			if (Main.netMode == NetmodeID.MultiplayerClient)
 			{
 				//Sync the entire multitile's area.  Modify "width" and "height" to the size of your multitile in tiles

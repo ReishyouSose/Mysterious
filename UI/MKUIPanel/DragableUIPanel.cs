@@ -1,6 +1,8 @@
-﻿namespace MysteriousKnives.UI.MKUIPanel
+﻿using ReLogic.Content;
+
+namespace MysteriousKnives.UI.MKUIPanel
 {
-	internal class DragableUIPanel : UIPanel
+	public class DragableUIPanel : UIPanel
 	{
 		// Stores the offset from the top left of the UIPanel while dragging.
 		private Vector2 offset;
@@ -65,4 +67,5 @@
 			}
 		}
 	}
+
 }

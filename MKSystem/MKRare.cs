@@ -1,4 +1,4 @@
-﻿namespace MysteriousKnives.Items
+﻿namespace MysteriousKnives.MKSystem
 {
     public class ABRare : ModRarity
     {

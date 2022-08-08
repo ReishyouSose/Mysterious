@@ -12,32 +12,13 @@ namespace MysteriousKnives.Projectiles
                 dust.position = Projectile.Center;
             }
         }
-        public int MKID;
-        /*if (player.inventory[player.selectedItem].type == ModContent.ItemType<MK01>())*/
-        public override void OnSpawn(IEntitySource source)
-        {
-            if (source is EntitySource_ItemUse_WithAmmo use)
-            {
-                Item item = use.Item;
-                if (item.type == ModContent.ItemType<MK01>()) MKID = 1;
-                else if (item.type == ModContent.ItemType<MK02>()) MKID = 2;
-                else if (item.type == ModContent.ItemType<MK03>()) MKID = 3;
-                else if (item.type == ModContent.ItemType<MK04>()) MKID = 4;
-                else if (item.type == ModContent.ItemType<MK05>()) MKID = 5;
-                else if (item.type == ModContent.ItemType<MK06>()) MKID = 6;
-                else if (item.type == ModContent.ItemType<MK07>()) MKID = 7;
-                else if (item.type == ModContent.ItemType<MK08>()) MKID = 8;
-                else if (item.type == ModContent.ItemType<MK09>()) MKID = 9;
-                else if (item.type == ModContent.ItemType<MK10>()) MKID = 10;
-            }
-        }
         public override void SetDefaults()
         {
             Projectile.width = 14;//宽
-            Projectile.height = 30;//高
+            Projectile.height = 14;//高
             Projectile.scale = 1f;//体积倍率
             Projectile.timeLeft = 600;//存在时间60 = 1秒
-            Projectile.DamageType = DamageClass.Generic;// 伤害类型
+            Projectile.DamageType = ModContent.GetInstance<Mysterious>();// 伤害类型
             Projectile.friendly = true;// 攻击敌方？
             Projectile.hostile = false;// 攻击友方？
             Projectile.ignoreWater = true;//忽视水？
@@ -50,36 +31,35 @@ namespace MysteriousKnives.Projectiles
         }
         public override void AI()
         {
-            Projectile.extraUpdates = 0;
-            if (Projectile.timeLeft > 570) Projectile.friendly = false;
-            else Projectile.friendly = true;
+            if (Projectile.timeLeft %3 == 0 && Projectile.timeLeft >= 590) Projectile.velocity *= 0.9f;
             //弹幕发射角度（朝向弹幕[proj]速度[v]的方向[tor]）
             Projectile.rotation = MathHelper.Pi / 2 + Projectile.velocity.ToRotation();
-            if (Projectile.timeLeft %3 == 0 && Projectile.timeLeft >= 590) Projectile.velocity *= 0.9f;
-            
-            //追踪
+            if (Projectile.timeLeft > 570) Projectile.friendly = false;
+            else 
             {
+                Projectile.friendly = true;
+                //追踪
+                float distanceMax = 5000f;
                 NPC target = null;
-                float distanceMax = 1000f;
                 foreach (NPC npc in Main.npc)
                 {
-                    if (npc.CanBeChasedBy() && !npc.dontTakeDamage)
+                    if (npc.CanBeChasedBy(default, true))
                     {
-                        float currentDistance = Vector2.Distance(npc.Center, Projectile.Center);
-                        if (currentDistance < distanceMax)
+                        float targetD = Vector2.Distance(npc.Center, Projectile.Center);
+                        if (targetD <= distanceMax)
                         {
-                            distanceMax = currentDistance;
+                            distanceMax = targetD;
                             target = npc;
                         }
                     }
                 }
                 if (target != null)
                 {
-                    Vector2 deflection = Vector2.Normalize(target.Center - Projectile.Center) * 30f;
+                    Vector2 deflection = Vector2.Normalize(target.Center - Projectile.Center) * (10f + 5 * Projectile.ai[0]);
                     Projectile.velocity = (Projectile.velocity * 30f + deflection) / 31f;
+                    if(Projectile.timeLeft > 569) Projectile.timeLeft++;
                 }
             }
-
             if (Projectile.timeLeft < 60 && Projectile.alpha < 255) Projectile.alpha += 255 / 60;
             else if (Projectile.alpha > 255) Projectile.alpha = 255;
             base.AI();
@@ -348,12 +328,8 @@ namespace MysteriousKnives.Projectiles
             public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)//弹幕命中时
             {
                 Player player = Main.player[Projectile.owner];
-                if (player.statLife < player.statLifeMax2)
-                {
-                    int i = (player.statLifeMax2 - player.statLife) / 20;
-                    player.statLife += i;
-                    player.HealEffect(i);
-                }
+                Projectile.NewProjectile(Projectile.GetSource_OnHit(target), target.Center, new Vector2(0),MKProjID.RB_Ray,
+                    0, 0, player.whoAmI);
                 RBbuffs(player);
             }
         }

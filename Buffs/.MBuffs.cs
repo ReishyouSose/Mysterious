@@ -10,15 +10,16 @@
             npc.life -= damage;
             if(npc.realLife != -1)
                 Main.npc[npc.realLife].life -= damage;
-            NPCnormalDead(npc);
+            NPCnormalDead(npc, damage);
             if(npc.realLife == -1)
             CombatText.NewText(new Rectangle((int)npc.position.X, (int)npc.Center.Y - Main.rand.Next(10, 30), 
                 npc.width, npc.height), new Color(180, 230, 50), damage, false, true);
         }
         public static void CrystalDamage(NPC npc, int damage)
         {
+            //SoundEngine.PlaySound(SoundID.Item27);
             npc.life -= damage;
-            NPCnormalDead(npc);
+            NPCnormalDead(npc, damage);
             CombatText.NewText(new Rectangle((int)npc.position.X, (int)npc.Center.Y - Main.rand.Next(10, 30), 
                 npc.width, npc.height), new Color(230, 161, 255), damage, false, true);
         }
@@ -41,7 +42,7 @@
             npc.life -= damage;
             CombatText.NewText(new Rectangle((int)npc.position.X, (int)npc.Center.Y - Main.rand.Next(10, 30), 
                 npc.width, npc.height), new Color(255, 100, 56), damage, false, false);
-            NPCnormalDead(npc);
+            NPCnormalDead(npc, damage);
             for (int i = 0; i < 200; i++)
             {
                 Dust dust = Dust.NewDustDirect(npc.position, npc.width, npc.height, ModContent.DustType<CBDust>());
@@ -72,7 +73,10 @@
                 Projectile proj = null;
                 foreach (Projectile sphere in Main.projectile)
                     if (sphere.type == ModContent.ProjectileType<ASsphere>() && sphere.active && sphere.ai[0] == ply)
+                    {
                         proj = sphere;
+                        break;
+                    }
                 if (proj == null)
                     Projectile.NewProjectile(player.GetSource_Buff(buffIndex), player.position, new Vector2(0, 0),
                         ModContent.ProjectileType<ASsphere>(), 0, 0, player.whoAmI);
@@ -133,8 +137,7 @@
             public float multiple, ament;
             public override void Update(NPC npc, ref int buffIndex)
             {
-                if (!npc.CanBeChasedBy())
-                    npc.DelBuff(buffIndex);
+                if (!npc.CanBeChasedBy()) npc.DelBuff(buffIndex);
                 if (npc.buffTime[buffIndex] > 0) count++;
                 else count = 0;
                 x = Math.Max(x, npc.buffTime[buffIndex]);
@@ -278,8 +281,14 @@
                 Main.debuff[Type] = true;
                 Main.buffNoSave[Type] = false;
             }
+            public int delay = 180;
             public override void Update(NPC npc, ref int buffIndex)
             {
+                if (delay > 0)
+                {
+                    delay--;
+                    npc.buffTime[buffIndex]++;
+                }
                 if (npc.realLife == -1)
                 {
                     Dust dust = Dust.NewDustDirect(npc.position, npc.width, npc.height, ModContent.DustType<CSDust>());
@@ -291,6 +300,7 @@
             }
             public override bool ReApply(NPC npc, int time, int buffIndex)
             {
+                delay = 180;
                 switch (npc.buffTime[buffIndex] / 60)
                 {
                     case 0:
@@ -385,7 +395,10 @@
                 Projectile proj = null;
                 foreach (Projectile sphere in Main.projectile)
                     if (sphere.type == ModContent.ProjectileType<RBsphere>() && sphere.active && sphere.ai[0] == ply)
+                    {
                         proj = sphere;
+                        break;
+                    }
                 if (proj == null)
                     Projectile.NewProjectile(player.GetSource_Buff(buffIndex), player.position, new Vector2(0, 0),
                         ModContent.ProjectileType<RBsphere>(), 0, 0, player.whoAmI);
@@ -400,7 +413,6 @@
                         }
                     }
                 }
-                if (player.statLife < player.statLifeMax)
                 switch (player.buffTime[buffIndex] / 180)
                 {
                     case 0://10*1
@@ -448,7 +460,6 @@
                             RejuvenationEffect(player, 2);
                         break;
                 }
-                base.Update(player, ref buffIndex);
             }
             public override bool RightClick(int buffIndex)
             {
@@ -480,7 +491,10 @@
                 Projectile proj = null;
                 foreach (Projectile sphere in Main.projectile)
                     if (sphere.type == ModContent.ProjectileType<STsphere>() && sphere.active && sphere.ai[0] == ply)
+                    {
                         proj = sphere;
+                        break;
+                    }
                 if (proj == null)
                     Projectile.NewProjectile(player.GetSource_Buff(buffIndex), player.position, new Vector2(0, 0),
                         ModContent.ProjectileType<STsphere>(), 0, 0, player.whoAmI);

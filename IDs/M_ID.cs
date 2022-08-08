@@ -12,8 +12,8 @@
         public static int MK08 = ModContent.ItemType<MK08>();
         public static int MK09 = ModContent.ItemType<MK09>();
         public static int MK10 = ModContent.ItemType<MK10>();
-        public static int Test = ModContent.ItemType<Test>();
         public static int Station = ModContent.ItemType<MKPotionStation_Item>();
+        public static int MKOrigin = ModContent.ItemType<MKOrigin>();
     }
     internal static class MKProjID
     {
@@ -25,6 +25,10 @@
         public static int STKnife = ModContent.ProjectileType<STKnife>();
         public static int SKKnife = ModContent.ProjectileType<SKKnife>();
         public static int WVKnife = ModContent.ProjectileType<WVKnife>();
+        public static int Core = ModContent.ProjectileType<MysteriousCore>();
+        public static int RB_Ray = ModContent.ProjectileType<RB_Ray>();
+        public static int Rainbow_Halberd = ModContent.ProjectileType<Rainbow_Halberd>();
+        public static int Rainbow_Streat = ModContent.ProjectileType<Rainbow_Streat>();
     }
     internal static class MKDustID
     {

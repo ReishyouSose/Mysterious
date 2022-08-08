@@ -13,7 +13,6 @@
         public bool AB5;
         public bool AB6;
         public bool AB7;
-
         public override void ResetEffects(NPC npc)
         {
             SK1 = false;
@@ -26,20 +25,20 @@
             AB5 = false;
             AB6 = false;
             AB7 = false;
-            npc.buffImmune[ModContent.BuffType<IndescribableFear>()] = false;
-            npc.buffImmune[ModContent.BuffType<ConvergentBurst>()] = false;
-            npc.buffImmune[ModContent.BuffType<Crystallization>()] = false;
-            npc.buffImmune[ModContent.BuffType<SunkerCancer>()] = false;
-            npc.buffImmune[ModContent.BuffType<WeirdVemon>()] = false;
+            npc.buffImmune[ModContent.BuffType<IndescribableFear>()] = true;
+            npc.buffImmune[ModContent.BuffType<ConvergentBurst>()] = true;
+            npc.buffImmune[ModContent.BuffType<Crystallization>()] = true;
+            npc.buffImmune[ModContent.BuffType<SunkerCancer>()] = true;
+            npc.buffImmune[ModContent.BuffType<WeirdVemon>()] = true;
         }
-        public static void NPCnormalDead(NPC npc)
+        public static void NPCnormalDead(NPC npc, int damage)
         {
             if (npc.realLife != -1)
                 npc = Main.npc[npc.realLife];
-            if (npc.life <= 0)
+            if (npc.life <= damage)
             {
                 npc.life = 1;
-                npc.StrikeNPC(1, 0, 0, true);
+                npc.StrikeNPC(damage + 1, 0, 0);
             }
         }
         public override void ModifyHitPlayer(NPC npc, Player target, ref int damage, ref bool crit)

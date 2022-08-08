@@ -23,7 +23,7 @@ namespace MysteriousKnives.Tiles
 			Main.tileShine2[Type] = true;
 			Main.tileShine[Type] = 1200;
 			Main.tileNoAttach[Type] = true;
-			Main.tileOreFinderPriority[Type] = 500;
+			//Main.tileOreFinderPriority[Type] = 500;
 			//TileID.Sets.BasicChest[Type] = true;
 			//TileID.Sets.DisableSmartCursor[Type] = true;
 
@@ -53,10 +53,6 @@ namespace MysteriousKnives.Tiles
 				| AnchorType.SolidSide, TileObjectData.newTile.Width, 0);
 			TileObjectData.addTile(Type);
 		}
-        public override bool TileFrame(int i, int j, ref bool resetFrame, ref bool noBreak)
-        {
-            return true;
-        }
         public override ushort GetMapOption(int i, int j) => (ushort)(Main.tile[i, j].TileFrameX / 54);
 		public override bool HasSmartInteract(int i, int j, SmartInteractScanSettings settings) => true;
 		
@@ -70,7 +66,7 @@ namespace MysteriousKnives.Tiles
 			Point16 origin = GetTileOrigin(i, j);
 			ModContent.GetInstance<Potion>().Kill(origin.X, origin.Y);
 			Item.NewItem(new EntitySource_TileBreak(i, j), i * 16, j * 16, 54, 54, ChestDrop);
-			//Chest.DestroyChest(i, j);
+			Chest.DestroyChest(i, j);
 		}
 
 		public override bool RightClick(int i, int j)
@@ -97,6 +93,19 @@ namespace MysteriousKnives.Tiles
 			{
 				NetMessage.SendData(MessageID.SyncPlayerChest, -1, -1, NetworkText.FromLiteral(Main.chest[player.chest].name), player.chest, 1f);
 				player.editedChestName = false;
+			}
+
+			if (player.talkNPC > -1)
+			{
+				//player.talkNPC = -1;
+				Main.npcChatCornerItem = 0;
+				Main.npcChatText = string.Empty;
+			}
+
+
+			if (TryGetTileEntityAs(i, j, out TileEntity entity))
+			{
+				//Do things to your entity here
 			}
 			//右键这个物块打开UI
 			MKPotionStationUI.enable = !MKPotionStationUI.enable;

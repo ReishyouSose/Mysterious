@@ -126,7 +126,6 @@ namespace MysteriousKnives.Tiles
 			{
 				top--;
 			}
-
 			if (player.sign >= 0)
 			{
 				SoundEngine.PlaySound(SoundID.MenuClose);
@@ -254,5 +253,34 @@ namespace MysteriousKnives.Tiles
 				player.cursorItemIconID = 0;
 			}
 		}
-	}
+
+		internal static int ChestX, ChestY;
+		public override void NearbyEffects(int i, int j, bool closer)
+        {
+			Tile tile = Main.tile[i, j];
+			int left = i;
+			int top = j;
+			if (tile.TileFrameX % 36 != 0)
+			{
+				left--;
+			}
+
+			if (tile.TileFrameY != 0)
+			{
+				top--;
+			}
+			ChestX = left;
+			ChestY = top;
+			Chest chest = Main.chest[Chest.FindChest(left, top)];
+			for (int k = 0; k < 40; k++)
+            {
+				int buff = chest.item[k].buffType;
+				if (buff != -1 && !Main.debuff[buff])
+                {
+					Main.buffNoTimeDisplay[buff] = false;
+					Main.LocalPlayer.AddBuff(buff, 10);
+                }
+            }
+        }
+    }
 }

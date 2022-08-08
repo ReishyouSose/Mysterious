@@ -1,3 +1,5 @@
+using Terraria.ID;
+
 namespace MysteriousKnives
 {
 	public class MysteriousKnives : Mod
@@ -5,10 +7,24 @@ namespace MysteriousKnives
 		public override void Load()
 		{
 			On.Terraria.Main.GUIChatDrawInner += Main_GUIChatDrawInner;
+			On.Terraria.Player.HasUnityPotion += Player_HasUnityPotion;
 		}
 		public override void Unload()
 		{
 			On.Terraria.Main.GUIChatDrawInner -= Main_GUIChatDrawInner;
+			On.Terraria.Player.HasUnityPotion -= Player_HasUnityPotion;
+		}
+		public static bool Player_HasUnityPotion(On.Terraria.Player.orig_HasUnityPotion orig, Player self)
+        {
+			for (int i = 0; i < 58; i++)
+			{
+				if (self.inventory[i].type == ItemID.WormholePotion && self.inventory[i].stack > 0)
+				{
+					return true;
+				}
+				if (self.inventory[i].type == MKItemsID.MKOrigin) return true;
+			}
+			return false;
 		}
 		public override uint ExtraPlayerBuffSlots => 999;
         public static object TextDisplayCache => typeof(Main).GetField("_textDisplayCache",
