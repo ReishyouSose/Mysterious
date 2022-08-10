@@ -5,10 +5,11 @@ namespace MysteriousKnives.UI.MKUIstate
     //初始化UI的，还有绘制什么的
     public class MKModSystem : ModSystem
     {
-        internal UserInterface MKInterface1, MKInterface2;
+        internal UserInterface MKInterface1, MKInterface2, MKInterface3;
         internal MKPotionStationUI MKpsUI;
         internal PotionButton potionButton;
         internal PlayerDatePanel datePanel;
+        internal KnifeVel knifeVel;
         public override void Load()
         {
             if (!Main.dedServ)
@@ -17,13 +18,16 @@ namespace MysteriousKnives.UI.MKUIstate
                 MKpsUI = new MKPotionStationUI();
                 potionButton = new PotionButton();
                 datePanel = new PlayerDatePanel();
+                knifeVel = new KnifeVel();
                 //初始化
                 MKpsUI.Activate();
                 potionButton.Activate();
                 datePanel.Activate();
+                knifeVel.Activate();
 
-                MKInterface1 = new UserInterface();
-                MKInterface2 = new UserInterface();
+                MKInterface1 = new();
+                MKInterface2 = new();
+                MKInterface3 = new();
             }
         }
         public override void Unload()
@@ -32,6 +36,7 @@ namespace MysteriousKnives.UI.MKUIstate
             MKpsUI = null;
             potionButton = null;
             datePanel = null;
+            knifeVel = null;
         }
         public GameTime gametime;
         public override void UpdateUI(GameTime gameTime)
@@ -39,6 +44,16 @@ namespace MysteriousKnives.UI.MKUIstate
             gametime = gameTime;
             MKInterface1?.Update(gameTime);
             MKInterface2?.Update(gameTime);
+            MKInterface3?.Update(gameTime);
+            /*if (Main.LocalPlayer.controlUseTile)
+            {
+                KnifeVel.enable = !KnifeVel.enable;
+            }*/
+            if (KnifeVel.enable)
+            {
+                MKInterface3.SetState(knifeVel);
+            }
+            else MKInterface3.SetState(null);
             if (Main.playerInventory == true)
             {
                 PotionButton.enable = true;
@@ -74,6 +89,7 @@ namespace MysteriousKnives.UI.MKUIstate
                             //绘制UI（运行exampleUI的Draw方法）
                             MKInterface2.Draw(Main.spriteBatch, gametime);
                         }
+                        MKInterface3.Draw(Main.spriteBatch, gametime);
                         return true;
                     },
                 //绘制层的类型，可以被设置缩放啥的

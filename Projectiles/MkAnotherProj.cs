@@ -1,5 +1,3 @@
-using Microsoft.Xna.Framework.Graphics;
-
 namespace MysteriousKnives.Projectiles
 {
     public class MysteriousCore : MysteriousKnife
@@ -29,7 +27,6 @@ namespace MysteriousKnives.Projectiles
             //AIType = ProjectileID.RainbowCrystal;
             Main.projFrames[Projectile.type] = 118;//动画被分成几份
         }
-        public int d;
         public override void AI()
         {
             Projectile.frameCounter++;
@@ -74,7 +71,7 @@ namespace MysteriousKnives.Projectiles
             SoundEngine.PlaySound(SoundID.Item14);
             for (int i = 0; i < 100; i++)
             {
-                Dust dust = Dust.NewDustDirect(Projectile.position - new Vector2(15, 15), 
+                Dust dust = Dust.NewDustDirect(Projectile.position - new Vector2(15, 15),
                     30, 30, ModContent.DustType<RainbowDust>());
                 dust.scale *= 1.5f;
                 dust.velocity *= 50;
@@ -136,18 +133,18 @@ namespace MysteriousKnives.Projectiles
             else return ModContent.ProjectileType<ASKnife>();
         }
         public int l;
-        public void  RandomShoot(Player player, int cn, int rn, int lv)
+        public void RandomShoot(Player player, int cn, int rn, int lv)
         {
             if (Main.rand.NextBool(10)) l = 2;
             else l = 1;
             for (int j = 0; j < l; j++)
-            for (int i = 0; i <= cn + Main.rand.Next(rn); i++)
-            {
-                Projectile proj =  Projectile.NewProjectileDirect(Projectile.GetSource_Death(), Projectile.Center,
-                    (Main.rand.Next(360) * MathHelper.Pi / 180f).ToRotationVector2() * 20f,
-                    Random(lv), Projectile.damage, Projectile.knockBack, player.whoAmI, MKID);
-                proj.CritChance = Projectile.CritChance;
-            }
+                for (int i = 0; i < cn + Main.rand.Next(0, rn); i++)
+                {
+                    Projectile proj = Projectile.NewProjectileDirect(Projectile.GetSource_Death(), Projectile.Center,
+                        (Main.rand.Next(360) * MathHelper.Pi / 180f).ToRotationVector2() * 20f,
+                        Random(lv), Projectile.damage, Projectile.knockBack, player.whoAmI, MKID);
+                    proj.CritChance = Projectile.CritChance;
+                }
         }
     }
     public class MKboom : ModProjectile
@@ -215,7 +212,7 @@ namespace MysteriousKnives.Projectiles
                 }
             }
             target = npclist.MinBy(t => t.distance).npcwho;
-            if(target.realLife != -1) target = Main.npc[target.realLife];
+            if (target.realLife != -1) target = Main.npc[target.realLife];
             drawpos = target.Center;
 
             if (!player.channel) Projectile.Kill();
@@ -248,9 +245,9 @@ namespace MysteriousKnives.Projectiles
                     float rand = Main.rand.NextFloat(MathHelper.TwoPi);
                     Vector2 pos = target.Center + new Vector2((float)Math.Cos(rand), (float)Math.Sin(rand)) * 1500;
                     Projectile proj = Projectile.NewProjectileDirect(Projectile.GetSource_FromAI(), pos,
-                        Vector2.Normalize(target.Center - pos) * 10f, MKProjID.Rainbow_Streat,
+                        Vector2.Normalize(target.Center - pos) * 10f, MKProjID.Rainbow_Halberd,
                         (int)root, 0, player.whoAmI);
-                    //proj.extraUpdates += Main.rand.Next(-3, 3);
+                    proj.extraUpdates += Main.rand.Next(-3, 3);
                 }
 
                 switch (Main.rand.Next(8))
@@ -260,7 +257,8 @@ namespace MysteriousKnives.Projectiles
                         if (target.rarity != 0 || target.boss)
                         {
                             target.AddBuff(ModContent.BuffType<ConvergentBurst6>(), 180);
-                        } break;
+                        }
+                        break;
                     case 2: target.AddBuff(ModContent.BuffType<IndescribableFear>(), 7 * 180); break;
                     case 3: target.AddBuff(ModContent.BuffType<SunkerCancer>(), 720); break;
                     case 4: target.AddBuff(ModContent.BuffType<WeirdVemon>(), 720); break;
@@ -269,7 +267,8 @@ namespace MysteriousKnives.Projectiles
                         {
                             Projectile.NewProjectile(Projectile.GetSource_FromAI(), target.Center, new Vector2(0, 0),
                                 ModContent.ProjectileType<RB_Ray>(), 0, 0, player.whoAmI);
-                        } break;
+                        }
+                        break;
                 }
                 /*
                 float t = Main.GameUpdateCount * 0.1f;
@@ -296,11 +295,11 @@ namespace MysteriousKnives.Projectiles
 
             int f = 20, t = 3;
             if (Projectile.frameCounter == 0 || Projectile.frameCounter == f * t) down = !down;
-            if(!down) Projectile.frameCounter++;
+            if (!down) Projectile.frameCounter++;
             else Projectile.frameCounter--;
             Projectile.frame = Projectile.frameCounter / t;
             Projectile.frame %= f;
-            
+
             int x = Projectile.frame;
             int y = Projectile.frame / 5;
             x %= 6;
@@ -313,9 +312,9 @@ namespace MysteriousKnives.Projectiles
                 position: drawpos - Main.screenPosition,
                 sourceRectangle: new Rectangle(x * 144, y * 144, 144, 144),
                 color: Main.DiscoColor,
-                rotation: (float)(Math.Cos(MathHelper.Lerp(1, 10, Main.GameUpdateCount*0.1f))),
+                rotation: (float)(Math.Cos(MathHelper.Lerp(1, 10, Main.GameUpdateCount * 0.1f))),
                 origin: new Vector2(72, 72),
-                scale: Projectile.ai[0] < 10 ?  1.5f * Projectile.ai[0] / 10
+                scale: Projectile.ai[0] < 10 ? 1.5f * Projectile.ai[0] / 10
                     : (float)Math.Sin(Main.GameUpdateCount * 0.2f) * 0.15f + 1.5f,
                 effects: 0,
                 layerDepth: 0);
@@ -406,12 +405,12 @@ namespace MysteriousKnives.Projectiles
                 {
                     Vector2 value4 = Projectile.rotation.ToRotationVector2() * -120f * i;
                     spb.Draw(texture, pos + value4, null, color * (1f - i), Projectile.rotation, origin2, 1, 0, 0f);
-                    spb.Draw(texture, pos + value4, null, Color.White * 0.15f * (1f - i), 
+                    spb.Draw(texture, pos + value4, null, Color.White * 0.15f * (1f - i),
                         Projectile.rotation, origin2, 0.85f, 0, 0f);
                 }
                 for (float i = 0f; i < 1f; i += 0.25f)
                 {
-                    Vector2 value5 = (i * ((float)Math.PI * 2f) + 
+                    Vector2 value5 = (i * ((float)Math.PI * 2f) +
                         Projectile.rotation).ToRotationVector2() * 2f;
                     spb.Draw(texture, pos + value5, null, color, Projectile.rotation, origin2, 1, 0, 0f);
                 }
@@ -474,6 +473,7 @@ namespace MysteriousKnives.Projectiles
         {
             DisplayName.SetDefault("七彩矢");
             Main.projFrames[Projectile.type] = 1;//动画被分成几份
+            ProjectileID.Sets.TrailCacheLength[Type] = 30;
         }
         public override void SetDefaults()
         {
@@ -494,14 +494,14 @@ namespace MysteriousKnives.Projectiles
         {
             switch (Main.rand.Next(8))
             {
-                case 0: color = new(0.9f, 0.63f, 1f); d = MKDustID.CSDust; break;
-                case 1: color = new(0.33f, 0.33f, 0.33f); d = MKDustID.ABDust; break;
-                case 2: color = new(0.45f, 0.04f, 0.75f); d = MKDustID.ASDust; break;
-                case 3: color = new(1f, 0.39f, 0.22f); d = MKDustID.CBDust; break;
-                case 4: color = new(0.2f, 0.95f, 0.13f); d = MKDustID.RBDust; break;
-                case 5: color = new(0.29f, 0.37f, 0.88f); d = MKDustID.SKDust; break;
-                case 6: color = new(1f, 0.9f, 0.27f); d = MKDustID.STDust; break;
-                case 7: color = new(0.55f, 0.7f, 0.13f); d = MKDustID.WVDust; break;
+                case 0: color = new(0.9f, 0.63f, 1f, 0); d = MKDustID.CSDust; break;
+                case 1: color = new(0.33f, 0.33f, 0.33f, 0); d = MKDustID.ABDust; break;
+                case 2: color = new(0.45f, 0.04f, 0.75f, 0); d = MKDustID.ASDust; break;
+                case 3: color = new(1f, 0.39f, 0.22f, 0); d = MKDustID.CBDust; break;
+                case 4: color = new(0.2f, 0.95f, 0.13f, 0); d = MKDustID.RBDust; break;
+                case 5: color = new(0.29f, 0.37f, 0.88f, 0); d = MKDustID.SKDust; break;
+                case 6: color = new(1f, 0.9f, 0.27f, 0); d = MKDustID.STDust; break;
+                case 7: color = new(0.55f, 0.7f, 0.13f, 0); d = MKDustID.WVDust; break;
             }
         }
         public override void AI()
@@ -511,7 +511,7 @@ namespace MysteriousKnives.Projectiles
             NPC target = null;
             foreach (NPC npc in Main.npc)
             {
-                if (npc.CanBeChasedBy(default, true))
+                if (npc.CanBeChasedBy())
                 {
                     float targetD = Vector2.Distance(npc.Center, Projectile.Center);
                     if (targetD <= distanceMax)
@@ -527,6 +527,14 @@ namespace MysteriousKnives.Projectiles
                 Projectile.velocity = (Projectile.velocity * 30f + deflection) / 31f;
                 if (Projectile.timeLeft > 569) Projectile.timeLeft++;
             }
+
+            for (int i = Projectile.oldPos.Length - 1; i > 0; i--)
+            {
+                Projectile.oldPos[i] = Projectile.oldPos[i - 1];
+                Projectile.oldRot[i] = Projectile.oldRot[i - 1];
+            }
+            Projectile.oldPos[0] = Projectile.Center;
+            Projectile.oldRot[0] = Projectile.rotation;
         }
         public override bool PreDraw(ref Color lightColor)
         {
@@ -538,10 +546,16 @@ namespace MysteriousKnives.Projectiles
             Vector2 pos = Projectile.Center - Main.screenPosition + new Vector2(0f, Projectile.gfxOffY);
             float lerp = ((float)Math.Cos(Main.GameUpdateCount / 2) * 0.2f + 1) * 0.8f;
             Vector2 scale = new Vector2(0.5f, 5f) * lerp;
-            sb.Draw(texture, pos, null, drawcolor, Projectile.rotation, origin, Projectile.scale * 0.9f, 0, 0);
+            for (int i = 0; i < Projectile.oldPos.Length; i++)
+            {
+                sb.Draw(texture, Projectile.oldPos[i] - Main.screenPosition, null, color * ((30 - i) / 30f),
+                    Projectile.rotation, origin, Projectile.scale * 0.9f * (30 - i) / 30f, 0, 0);
+            }
+            sb.Draw(texture, pos, null, new Color(255, 255, 255, 0), Projectile.rotation, origin, Projectile.scale * 0.9f, 0, 0);
+            sb.Draw(texture, pos, null, new Color(255, 255, 255, 0), Projectile.rotation, origin, Projectile.scale * 0.9f, 0, 0);
             sb.Draw(texture, pos, null, drawcolor * lerp, (float)Math.PI / 2f, origin, scale * 0.8f, 0, 0);
-            sb.Draw(texture, pos, null, drawcolor * lerp * 0.5f, 0f, origin, scale * 0.6f, 0, 0);
+            sb.Draw(texture, pos, null, drawcolor * lerp * 0.75f, 0f, origin, scale * 0.6f, 0, 0);
             return false;
         }
     }
-} 
+}

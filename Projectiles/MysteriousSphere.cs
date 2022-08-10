@@ -93,7 +93,7 @@ namespace MysteriousKnives.Projectiles
             public override void AI()
             {
                 type = ModContent.DustType<STDust>();
-                color = new(1f, 0.95f, 0.75f);
+                color = new(1f, 0.9f, 0.29f);
                 r = (float)(-Math.PI / 1.5f);
                 pos = new Vector2((float)Math.Cos(t - Math.PI / 1.5f), (float)Math.Sin(t - Math.PI / 1.5f));
                 Player player = Main.player[Projectile.owner];

@@ -25,11 +25,11 @@
             AB5 = false;
             AB6 = false;
             AB7 = false;
-            npc.buffImmune[ModContent.BuffType<IndescribableFear>()] = true;
-            npc.buffImmune[ModContent.BuffType<ConvergentBurst>()] = true;
-            npc.buffImmune[ModContent.BuffType<Crystallization>()] = true;
-            npc.buffImmune[ModContent.BuffType<SunkerCancer>()] = true;
-            npc.buffImmune[ModContent.BuffType<WeirdVemon>()] = true;
+            npc.buffImmune[ModContent.BuffType<IndescribableFear>()] = false;
+            npc.buffImmune[ModContent.BuffType<ConvergentBurst>()] = false;
+            npc.buffImmune[ModContent.BuffType<Crystallization>()] = false;
+            npc.buffImmune[ModContent.BuffType<SunkerCancer>()] = false;
+            npc.buffImmune[ModContent.BuffType<WeirdVemon>()] = false;
         }
         public static void NPCnormalDead(NPC npc, int damage)
         {

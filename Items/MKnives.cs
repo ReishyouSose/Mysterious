@@ -408,7 +408,7 @@
             {
 				NPC target = null;
 				foreach (NPC npc in Main.npc)
-				if (npc.CanBeChasedBy(ignoreDontTakeDamage: true)) 
+				if (npc.CanBeChasedBy()) 
 					target = npc;
 				if (target != null) return true;
 				else return false;

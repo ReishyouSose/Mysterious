@@ -66,14 +66,28 @@
             }
             tag["itemtype"] = itemlist.Select(t => t.type).ToList();
             tag["itemstack"] = itemlist.Select(t => t.stack).ToList();
-            /*tag["bufftype"] = bufflist.Select(t => t.bufftype).ToList();
-            tag["buffname"] = bufflist.Select(t => t.buffname).ToList();*/
+            var list = new List<(int type, int stack)>();
+            foreach (VanillaItemSlotWrapper slot in KnifeVel.slots)
+            {
+                list.Add((slot.item.type, slot.item.stack));
+            }
+            tag["type"] = list.Select(t => t.type).ToList();
+            tag["stack"] = list.Select(t => t.stack).ToList();
         }
         public override void LoadData(TagCompound tag)
         {
             var itemtype = tag.Get<List<int>>("itemtype");
             var itemstack = tag.Get<List<int>>("itemstack");
             List<(int type, int stack)> itemlist = itemtype.Zip(itemstack, (k, v) => (type: k, stack: v)).ToList();
+            var type = tag.Get<List<int>>("type");
+            var stack = tag.Get<List<int>>("stack");
+            List<(int type, int stack)> list = type.Zip(stack, (k, v) => (type: k, stack: v)).ToList();
+            for (int i = 0; i < list.Count; i++)
+            {
+                KnifeVel.slots[i].item.SetDefaults(list[i].type);
+                KnifeVel.slots[i].item.stack = list[i].stack;
+            }
+
             for (int i = 0; i < itemlist.Count; i++)
             {
                 MKPotionStationUI.slots[i].item.SetDefaults(itemlist[i].type);

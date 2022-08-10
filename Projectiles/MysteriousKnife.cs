@@ -4,66 +4,218 @@ namespace MysteriousKnives.Projectiles
     {
         public void LessDust(int type)
         {
-            if (Projectile.timeLeft < 597)//弹幕粒子效果
+            /*if (Projectile.timeLeft < 597)//弹幕粒子效果
             {
                 Dust dust = Dust.NewDustDirect(Projectile.position, Projectile.width, Projectile.height, type);
                 dust.noGravity = true;
                 dust.scale *= 0.7f;
                 dust.position = Projectile.Center;
-            }
+            }*/
         }
         public override void SetDefaults()
         {
-            Projectile.width = 14;//宽
-            Projectile.height = 14;//高
-            Projectile.scale = 1f;//体积倍率
-            Projectile.timeLeft = 600;//存在时间60 = 1秒
+            Projectile.width = 16;//宽
+            Projectile.height = 16;//高
+            Projectile.scale = 0.8f;//体积倍率
             Projectile.DamageType = ModContent.GetInstance<Mysterious>();// 伤害类型
             Projectile.friendly = true;// 攻击敌方？
             Projectile.hostile = false;// 攻击友方？
             Projectile.ignoreWater = true;//忽视水？
             Projectile.tileCollide = false;//不穿墙？
-            Projectile.penetrate = 1;//穿透数量 -1无限
+            Projectile.penetrate = -1;//穿透数量 -1无限
+            Projectile.usesLocalNPCImmunity = true;
+            Projectile.localNPCHitCooldown = 10;
             Projectile.aiStyle = -1;//附带原版弹幕AI ID
-            Projectile.alpha = 0;
+            Projectile.alpha = 255;
+            Projectile.extraUpdates = 2;
+            Projectile.timeLeft = 600 * (1 + Projectile.extraUpdates);//存在时间60 = 1秒
             Main.projFrames[Projectile.type] = 1;//动画被分成几份
+            ProjectileID.Sets.TrailCacheLength[Type] = 20 * (1 + Projectile.extraUpdates);
             base.SetDefaults();
         }
+        public int Exup
+        {
+            get { return 1 + Projectile.extraUpdates; }
+            set
+            {
+                if (value < 1) value = 1;
+                Projectile.extraUpdates = value - 1;
+            }
+        }
+        public enum Projmode
+        {
+            spawn,
+            attack,
+            disappear
+        }
+        public Projmode State
+        {
+            get { return (Projmode)(int)Projectile.ai[1]; }
+            set { Projectile.ai[1] = (int)value; }
+        }
+        public void SwitchTo(Projmode state)
+        {
+            State = state;
+        }
+        public float alpha = 255;
         public override void AI()
         {
-            if (Projectile.timeLeft %3 == 0 && Projectile.timeLeft >= 590) Projectile.velocity *= 0.9f;
-            //弹幕发射角度（朝向弹幕[proj]速度[v]的方向[tor]）
-            Projectile.rotation = MathHelper.Pi / 2 + Projectile.velocity.ToRotation();
-            if (Projectile.timeLeft > 570) Projectile.friendly = false;
-            else 
+            switch (State)
             {
-                Projectile.friendly = true;
-                //追踪
-                float distanceMax = 5000f;
-                NPC target = null;
-                foreach (NPC npc in Main.npc)
-                {
-                    if (npc.CanBeChasedBy(default, true))
+                case Projmode.spawn:
+                    Projectile.friendly = false;
+                    if (Projectile.localAI[0] == 0)
                     {
-                        float targetD = Vector2.Distance(npc.Center, Projectile.Center);
-                        if (targetD <= distanceMax)
+                        Projectile.velocity /= Exup;
+                        Projectile.localAI[0]++;
+                    }
+                    if (alpha > 0)
+                    {
+                        alpha -= 255f / (25 * Exup);
+                        Projectile.alpha = (int)alpha;
+                        if (Projectile.alpha < 0)
                         {
-                            distanceMax = targetD;
-                            target = npc;
+                            Projectile.alpha = 0;
                         }
                     }
-                }
-                if (target != null)
-                {
-                    Vector2 deflection = Vector2.Normalize(target.Center - Projectile.Center) * (10f + 5 * Projectile.ai[0]);
-                    Projectile.velocity = (Projectile.velocity * 30f + deflection) / 31f;
-                    if(Projectile.timeLeft > 569) Projectile.timeLeft++;
-                }
+                    if (Projectile.timeLeft % Exup == 0)
+                    {
+                        Projectile.velocity *= 0.97f;
+                        Projectile.scale += 0.0067f;
+                        if (Projectile.scale > 1f)
+                        {
+                            Projectile.scale = 1f;
+                        }
+                    }
+                    if (Projectile.timeLeft < 570 * Exup)
+                    {
+                        SwitchTo(Projmode.attack);
+                    }
+                    break;
+                case Projmode.attack:
+                    Projectile.friendly = true;
+                    float distanceMax = 5000f;
+                    NPC target = null;
+                    foreach (NPC npc in Main.npc)
+                    {
+                        if (npc.CanBeChasedBy())
+                        {
+                            float targetD = Vector2.Distance(npc.Center, Projectile.Center);
+                            if (targetD <= distanceMax)
+                            {
+                                distanceMax = targetD;
+                                target = npc;
+                            }
+                        }
+                    }
+                    if (target != null)
+                    {
+                        Vector2 tarVel = Vector2.Normalize(target.Center - Projectile.Center)
+                            * (10f + 5f * Projectile.ai[0]) / Exup;
+                        Projectile.velocity = (Projectile.velocity * 30 * Exup + tarVel) / (30 * Exup + 1);
+                        Projectile.timeLeft++;
+                    }
+                    if (Projectile.timeLeft <= 60 * Exup)
+                    {
+                        SwitchTo(Projmode.disappear);
+                    }
+                    break;
+                case Projmode.disappear:
+                    Projectile.friendly = false;
+                    if (alpha < 255)
+                    {
+                        alpha += 255f / (50 * Exup);
+                        Projectile.alpha = (int)alpha;
+                        if (Projectile.alpha > 255)
+                        {
+                            Projectile.alpha = 255;
+                        }
+                    }
+                    if (Projectile.timeLeft % Exup == 0)
+                    {
+                        Projectile.velocity *= 0.9f;
+                        if (Projectile.scale > 0.0167f)
+                        {
+                            Projectile.scale -= 0.0167f;
+                        }
+                    }
+                    break;
             }
-            if (Projectile.timeLeft < 60 && Projectile.alpha < 255) Projectile.alpha += 255 / 60;
-            else if (Projectile.alpha > 255) Projectile.alpha = 255;
+            Projectile.rotation = MathHelper.Pi / 2 + Projectile.velocity.ToRotation();
+            for (int i = Projectile.oldPos.Length - 1; i > 0; i--)
+            {
+                Projectile.oldPos[i] = Projectile.oldPos[i - 1];
+                Projectile.oldRot[i] = Projectile.oldRot[i - 1];
+            }
+            Projectile.oldPos[0] = Projectile.Center;
+            Projectile.oldRot[0] = Projectile.rotation;
             base.AI();
-        }//发射角 追踪 淡出
+        }
+        public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
+        {
+            Projectile.timeLeft = 60 * Exup;
+            base.OnHitNPC(target, damage, knockback, crit);
+        }
+        public Color color;
+        public int d;
+        public override void OnSpawn(IEntitySource source)
+        {
+            if (Type == MKProjID.ABKnife)
+            {
+                color = new(0, 0, 0, 255); d = MKDustID.ABDust;
+            }
+            else if (Type == MKProjID.ASKnife)
+            {
+                color = new(135, 0, 255, 0); d = MKDustID.ASDust;
+            }
+            else if (Type == MKProjID.CBKnife)
+            {
+                color = new(255, 100, 0, 0); d = MKDustID.CBDust;
+            }
+            else if (Type == MKProjID.CSKnife)
+            {
+                color = new(255, 120, 220, 0); d = MKDustID.CSDust;
+            }
+            else if (Type == MKProjID.SKKnife)
+            {
+                color = new(0, 155, 255, 0); d = MKDustID.SKDust;
+            }
+            else if (Type == MKProjID.STKnife)
+            {
+                color = new(255, 255, 0, 0); d = MKDustID.STDust;
+            }
+            else if (Type == MKProjID.WVKnife)
+            {
+                color = new(225, 255, 0, 255); d = MKDustID.WVDust;
+            }
+            else if (Type == MKProjID.RBKnife)
+            {
+                color = new(0, 255, 100, 0); d = MKDustID.RBDust;
+            }
+            base.OnSpawn(source);
+        }
+        public override bool PreDraw(ref Color lightColor)
+        {
+            SpriteBatch sb = Main.spriteBatch;
+            Texture2D tex = ModContent.Request<Texture2D>("MysteriousKnives/Pictures/Projectiles/Another/Projectile_873，长枪是919").Value;
+            Vector2 origin = tex.Size() / 2f;
+            Color drawcolor = color * ((255 - Projectile.alpha) / 510f + 0.5f);
+            Vector2 pos = Projectile.Center - Main.screenPosition + new Vector2(0f, Projectile.gfxOffY);
+            float lerp = ((float)Math.Cos(Main.GameUpdateCount / 1.5f) * 0.2f + 1) * 0.8f;
+            Vector2 scale = new Vector2(0.5f, 5f) * lerp * 0.8f * ((255 - Projectile.alpha) / 255f) * Projectile.scale;
+            float length = Projectile.oldPos.Length;
+            for (int i = 0; i < length; i++)
+            {
+                float dawl = (length - i) / length;
+                sb.Draw(tex, Projectile.oldPos[i] - Main.screenPosition, null, drawcolor * dawl,
+                    Projectile.oldRot[i], origin, Projectile.scale * dawl * 0.8f, 0, 0);
+            }
+            sb.Draw(tex, pos, null, drawcolor * lerp, (float)Math.PI / 2f, origin, scale, 0, 0);
+            sb.Draw(tex, pos, null, drawcolor * lerp * 0.75f, 0f, origin, scale * 0.75f, 0, 0);
+            sb.Draw(tex, pos, null, new Color(1, 1, 1, 0f) * ((255 - Projectile.alpha) / 255f),
+                Projectile.rotation, origin, Projectile.scale * 0.8f, 0, 0);
+            return false;
+        }
         /// <summary>
         /// 施加结晶
         /// </summary>
@@ -124,15 +276,15 @@ namespace MysteriousKnives.Projectiles
             switch (Projectile.ai[0])
             {
                 case 1: target.AddBuff(ModContent.BuffType<WeirdVemon>(), i); break;
-                case 2: target.AddBuff(ModContent.BuffType<WeirdVemon>(), i*2); break;
-                case 3: target.AddBuff(ModContent.BuffType<WeirdVemon>(), i*3); break;
-                case 4: target.AddBuff(ModContent.BuffType<WeirdVemon>(), i*3); break;
-                case 5: target.AddBuff(ModContent.BuffType<WeirdVemon>(), i*4); break;
-                case 6: target.AddBuff(ModContent.BuffType<WeirdVemon>(), i*4); break;
-                case 7: target.AddBuff(ModContent.BuffType<WeirdVemon>(), i*4); break;
-                case 8: target.AddBuff(ModContent.BuffType<WeirdVemon>(), i*4); break;
-                case 9: target.AddBuff(ModContent.BuffType<WeirdVemon>(), i*4); break;
-                case 10: target.AddBuff(ModContent.BuffType<WeirdVemon>(), i*4); break;
+                case 2: target.AddBuff(ModContent.BuffType<WeirdVemon>(), i * 2); break;
+                case 3: target.AddBuff(ModContent.BuffType<WeirdVemon>(), i * 3); break;
+                case 4: target.AddBuff(ModContent.BuffType<WeirdVemon>(), i * 3); break;
+                case 5: target.AddBuff(ModContent.BuffType<WeirdVemon>(), i * 4); break;
+                case 6: target.AddBuff(ModContent.BuffType<WeirdVemon>(), i * 4); break;
+                case 7: target.AddBuff(ModContent.BuffType<WeirdVemon>(), i * 4); break;
+                case 8: target.AddBuff(ModContent.BuffType<WeirdVemon>(), i * 4); break;
+                case 9: target.AddBuff(ModContent.BuffType<WeirdVemon>(), i * 4); break;
+                case 10: target.AddBuff(ModContent.BuffType<WeirdVemon>(), i * 4); break;
             }
         }
         /// <summary>
@@ -254,6 +406,7 @@ namespace MysteriousKnives.Projectiles
             }
             public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)//弹幕命中时
             {
+                base.OnHitNPC(target, damage, knockback, crit);
                 ABbuffs(target);
             }
         }
@@ -272,6 +425,7 @@ namespace MysteriousKnives.Projectiles
             }
             public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)//弹幕命中时
             {
+                base.OnHitNPC(target, damage, knockback, crit);
                 Player player = Main.player[Projectile.owner];
                 ASbuffs(player);
             }
@@ -291,6 +445,7 @@ namespace MysteriousKnives.Projectiles
             }
             public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)//弹幕命中时
             {
+                base.OnHitNPC(target, damage, knockback, crit);
                 CBbuffs(target);
             }
         }
@@ -309,6 +464,7 @@ namespace MysteriousKnives.Projectiles
             }
             public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)//弹幕命中时
             {
+                base.OnHitNPC(target, damage, knockback, crit);
                 CSbuffs(target);
             }
         }
@@ -327,8 +483,9 @@ namespace MysteriousKnives.Projectiles
             }
             public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)//弹幕命中时
             {
+                base.OnHitNPC(target, damage, knockback, crit);
                 Player player = Main.player[Projectile.owner];
-                Projectile.NewProjectile(Projectile.GetSource_OnHit(target), target.Center, new Vector2(0),MKProjID.RB_Ray,
+                Projectile.NewProjectile(Projectile.GetSource_OnHit(target), target.Center, new Vector2(0), MKProjID.RB_Ray,
                     0, 0, player.whoAmI);
                 RBbuffs(player);
             }
@@ -348,6 +505,7 @@ namespace MysteriousKnives.Projectiles
             }
             public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)//弹幕命中时
             {
+                base.OnHitNPC(target, damage, knockback, crit);
                 SKbuffs(target);
             }
         }
@@ -366,6 +524,7 @@ namespace MysteriousKnives.Projectiles
             }
             public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)//弹幕命中时
             {
+                base.OnHitNPC(target, damage, knockback, crit);
                 Player player = Main.player[Projectile.owner];
                 STbuffs(player);
             }
@@ -385,6 +544,7 @@ namespace MysteriousKnives.Projectiles
             }
             public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)//弹幕命中时
             {
+                base.OnHitNPC(target, damage, knockback, crit);
                 WVbuffs(target);
             }
         }
