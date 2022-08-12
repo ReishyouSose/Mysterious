@@ -72,6 +72,6 @@
     }
     public class Rare_Rainbow : ModRarity
     {
-        public override Color RarityColor => Main.DiscoColor;
+        public override Color RarityColor => new(Main.DiscoR, Main.DiscoG, Main.DiscoB, 0);
     }
 }

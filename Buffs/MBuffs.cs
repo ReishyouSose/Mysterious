@@ -5,23 +5,16 @@
     /// </summary>
     public abstract class MysteriousBuffs : ModBuff
     {
-        public static void VemonDamage(NPC npc, int damage)
+        public static void VemonDamage(NPC target, int damage)
         {
-            npc.life -= damage;
-            if(npc.realLife != -1)
-                Main.npc[npc.realLife].life -= damage;
-            NPCnormalDead(npc, damage);
-            if(npc.realLife == -1)
-            CombatText.NewText(new Rectangle((int)npc.position.X, (int)npc.Center.Y - Main.rand.Next(10, 30), 
-                npc.width, npc.height), new Color(180, 230, 50), damage, false, true);
+            if(target.realLife != -1) RealTarget(target).life -= damage;
+            NoSoundStrike(target, damage, new(180, 230, 50));
         }
-        public static void CrystalDamage(NPC npc, int damage)
+        public static void CrystalDamage(NPC target, int damage)
         {
             //SoundEngine.PlaySound(SoundID.Item27);
-            npc.life -= damage;
-            NPCnormalDead(npc, damage);
-            CombatText.NewText(new Rectangle((int)npc.position.X, (int)npc.Center.Y - Main.rand.Next(10, 30), 
-                npc.width, npc.height), new Color(230, 161, 255), damage, false, true);
+            target.life -= damage;
+            NoSoundStrike(target, damage, new(230, 161, 255) { A = 0 });
         }
         public static void RejuvenationEffect(Player player, int regen)
         {
@@ -35,17 +28,14 @@
         {
             player.GetArmorPenetration<GenericDamageClass>() += boost;
         }
-        public static void ConBurst(NPC npc, float amend, float multiple, float baseamount)
+        public static void ConBurst(NPC target, float amend, float multiple, float baseamount)
         {
             multiple = Math.Min(multiple, 20f * amend);
             int damage = (int)(baseamount * multiple / amend);
-            npc.life -= damage;
-            CombatText.NewText(new Rectangle((int)npc.position.X, (int)npc.Center.Y - Main.rand.Next(10, 30), 
-                npc.width, npc.height), new Color(255, 100, 56), damage, false, false);
-            NPCnormalDead(npc, damage);
+            NoSoundStrike(target, damage, new(255, 100, 56) { A = 0 });
             for (int i = 0; i < 200; i++)
             {
-                Dust dust = Dust.NewDustDirect(npc.position, npc.width, npc.height, ModContent.DustType<CBDust>());
+                Dust dust = Dust.NewDustDirect(target.position, target.width, target.height, ModContent.DustType<CBDust>());
                 dust.scale *= 3f;
                 dust.velocity *= 300;
                 dust.noGravity = false;

@@ -31,7 +31,6 @@ global using Terraria.Localization;
 global using Terraria.GameInput;
 global using Terraria.GameContent;
 global using MysteriousKnives.Items;
-global using static MysteriousKnives.Projectiles.MysteriousKnife;
 global using MysteriousKnives.IDs;
 global using Terraria.ObjectData;
 global using Terraria.Enums;
@@ -50,7 +49,9 @@ global using Terraria.Chat;
 global using MysteriousKnives.UI.MKUIPanel;
 global using System.Reflection;
 global using MysteriousKnives.MKSystem;
-global using static MysteriousKnives.MKSystem.MKGlobalItem;
+global using static MysteriousKnives.MKSystem.MKHelper;
+global using ReLogic.Content;
+global using TemplateMod2.Utils;
 
 namespace MysteriousKnives.MKSystem
 {

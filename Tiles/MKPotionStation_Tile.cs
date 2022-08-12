@@ -29,7 +29,7 @@ namespace MysteriousKnives.Tiles
 
 			DustType = MKDustID.RainbowDust;
 			AdjTiles = new int[] { TileID.Containers };
-			ChestDrop = MKItemsID.Station;
+			ChestDrop = MKItemID.Station;
 
 			//给物块命名
 			ContainerName.SetDefault("诡秘灌注站");
@@ -118,7 +118,7 @@ namespace MysteriousKnives.Tiles
 			Player player = Main.LocalPlayer;
 			player.noThrow = 2;
 			player.cursorItemIconEnabled = true;
-			player.cursorItemIconID = MKItemsID.Station;
+			player.cursorItemIconID = MKItemID.Station;
 		}
         public override void NearbyEffects(int i, int j, bool closer)
         {

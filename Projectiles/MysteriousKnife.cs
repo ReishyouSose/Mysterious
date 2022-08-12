@@ -1,16 +1,12 @@
 namespace MysteriousKnives.Projectiles
 {
-    public abstract class MysteriousKnife : ModProjectile
+    public class MysteriousKnife : ModProjectile
     {
-        public void LessDust(int type)
+        public override string Texture => "MysteriousKnives/Pictures/Projectiles/Another/Projectile_873，长枪是919";
+        public override void SetStaticDefaults()
         {
-            /*if (Projectile.timeLeft < 597)//弹幕粒子效果
-            {
-                Dust dust = Dust.NewDustDirect(Projectile.position, Projectile.width, Projectile.height, type);
-                dust.noGravity = true;
-                dust.scale *= 0.7f;
-                dust.position = Projectile.Center;
-            }*/
+            DisplayName.SetDefault("诡秘飞刀");
+            Main.projFrames[Projectile.type] = 8;
         }
         public override void SetDefaults()
         {
@@ -25,13 +21,10 @@ namespace MysteriousKnives.Projectiles
             Projectile.penetrate = -1;//穿透数量 -1无限
             Projectile.usesLocalNPCImmunity = true;
             Projectile.localNPCHitCooldown = 10;
-            Projectile.aiStyle = -1;//附带原版弹幕AI ID
             Projectile.alpha = 255;
             Projectile.extraUpdates = 2;
             Projectile.timeLeft = 600 * (1 + Projectile.extraUpdates);//存在时间60 = 1秒
-            Main.projFrames[Projectile.type] = 1;//动画被分成几份
             ProjectileID.Sets.TrailCacheLength[Type] = 20 * (1 + Projectile.extraUpdates);
-            base.SetDefaults();
         }
         public int Exup
         {
@@ -50,29 +43,61 @@ namespace MysteriousKnives.Projectiles
         }
         public Projmode State
         {
-            get { return (Projmode)(int)Projectile.ai[1]; }
-            set { Projectile.ai[1] = (int)value; }
+            get { return (Projmode)Projectile.frameCounter; }
+            set { Projectile.frameCounter = (int)value; }
         }
-        public void SwitchTo(Projmode state)
+        public enum Projtype
         {
-            State = state;
+            RB, WV, SK, CS, AB, CB, ST, AS
         }
-        public float alpha = 255;
+        public Projtype ProjType
+        {
+            get { return (Projtype)Projectile.frame; }
+            set { Projectile.frame = (int)value; }
+        }
+        public static Color GetColor(int projType)
+        {
+            Color color = projType switch
+            {
+                0 => new(0, 255, 100, 0),//RB
+                1 => new(225, 255, 0, 255),//WV
+                2 => new(0, 155, 255, 0),//SK
+                3 => new(255, 120, 220, 0),//CS
+                4 => new(0, 0, 0, 255),//AB
+                5 => new(255, 100, 0, 0),//CB
+                6 => new(255, 255, 0, 0),//ST
+                7 => new(135, 0, 255, 0),//AS
+                _ => Color.White,
+            };
+            return color;
+        }
+        public float Alpha
+        {
+            get { return Projectile.ai[1]; }
+            set { Projectile.ai[1] = value; }
+        }
+        public override void OnSpawn(IEntitySource source)
+        {
+            Projectile.ai[1] = 255;
+            Projectile.velocity /= Exup;
+            ProjType = Projectile.ai[0] switch
+            {
+                1 => (Projtype)Main.rand.Next(4),
+                2 => (Projtype)Main.rand.Next(7),
+                _ => (Projtype)Main.rand.Next(8),
+            };
+            base.OnSpawn(source);
+        }
         public override void AI()
         {
             switch (State)
             {
                 case Projmode.spawn:
                     Projectile.friendly = false;
-                    if (Projectile.localAI[0] == 0)
+                    if (Alpha > 0)
                     {
-                        Projectile.velocity /= Exup;
-                        Projectile.localAI[0]++;
-                    }
-                    if (alpha > 0)
-                    {
-                        alpha -= 255f / (25 * Exup);
-                        Projectile.alpha = (int)alpha;
+                        Alpha -= 255f / (25 * Exup);
+                        Projectile.alpha = (int)Alpha;
                         if (Projectile.alpha < 0)
                         {
                             Projectile.alpha = 0;
@@ -89,25 +114,12 @@ namespace MysteriousKnives.Projectiles
                     }
                     if (Projectile.timeLeft < 570 * Exup)
                     {
-                        SwitchTo(Projmode.attack);
+                        State = Projmode.attack;
                     }
                     break;
                 case Projmode.attack:
                     Projectile.friendly = true;
-                    float distanceMax = 5000f;
-                    NPC target = null;
-                    foreach (NPC npc in Main.npc)
-                    {
-                        if (npc.CanBeChasedBy())
-                        {
-                            float targetD = Vector2.Distance(npc.Center, Projectile.Center);
-                            if (targetD <= distanceMax)
-                            {
-                                distanceMax = targetD;
-                                target = npc;
-                            }
-                        }
-                    }
+                    NPC target = ChooseTarget(Projectile, MaxDis: 5000);
                     if (target != null)
                     {
                         Vector2 tarVel = Vector2.Normalize(target.Center - Projectile.Center)
@@ -117,15 +129,15 @@ namespace MysteriousKnives.Projectiles
                     }
                     if (Projectile.timeLeft <= 60 * Exup)
                     {
-                        SwitchTo(Projmode.disappear);
+                        State = Projmode.disappear;
                     }
                     break;
                 case Projmode.disappear:
                     Projectile.friendly = false;
-                    if (alpha < 255)
+                    if (Alpha < 255)
                     {
-                        alpha += 255f / (50 * Exup);
-                        Projectile.alpha = (int)alpha;
+                        Alpha += 255f / (50 * Exup);
+                        Projectile.alpha = (int)Alpha;
                         if (Projectile.alpha > 255)
                         {
                             Projectile.alpha = 255;
@@ -149,60 +161,40 @@ namespace MysteriousKnives.Projectiles
             }
             Projectile.oldPos[0] = Projectile.Center;
             Projectile.oldRot[0] = Projectile.rotation;
+            Lighting.AddLight(Projectile.Center, ProjType != Projtype.AB ?
+                GetColor((int)ProjType).ToVector3() : new(0.66f, 0.66f, 0.66f));//RGB
             base.AI();
         }
         public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
         {
             Projectile.timeLeft = 60 * Exup;
+            Player player = Main.player[Projectile.owner];
+            switch (ProjType)
+            {
+                case Projtype.RB:
+                    Projectile.NewProjectile(Projectile.GetSource_OnHit(target), target.Center,
+                        new Vector2(0), MKProjID.RB_Ray, 0, 0, player.whoAmI);
+                    RBbuffs(player); break;
+                case Projtype.WV: WVbuffs(target); break;
+                case Projtype.SK: SKbuffs(target); break;
+                case Projtype.CS: CSbuffs(target); break;
+                case Projtype.AB: ABbuffs(target); break;
+                case Projtype.CB: CBbuffs(target); break;
+                case Projtype.ST: STbuffs(player); break;
+                case Projtype.AS: ASbuffs(player); break;
+            }
             base.OnHitNPC(target, damage, knockback, crit);
-        }
-        public Color color;
-        public int d;
-        public override void OnSpawn(IEntitySource source)
-        {
-            if (Type == MKProjID.ABKnife)
-            {
-                color = new(0, 0, 0, 255); d = MKDustID.ABDust;
-            }
-            else if (Type == MKProjID.ASKnife)
-            {
-                color = new(135, 0, 255, 0); d = MKDustID.ASDust;
-            }
-            else if (Type == MKProjID.CBKnife)
-            {
-                color = new(255, 100, 0, 0); d = MKDustID.CBDust;
-            }
-            else if (Type == MKProjID.CSKnife)
-            {
-                color = new(255, 120, 220, 0); d = MKDustID.CSDust;
-            }
-            else if (Type == MKProjID.SKKnife)
-            {
-                color = new(0, 155, 255, 0); d = MKDustID.SKDust;
-            }
-            else if (Type == MKProjID.STKnife)
-            {
-                color = new(255, 255, 0, 0); d = MKDustID.STDust;
-            }
-            else if (Type == MKProjID.WVKnife)
-            {
-                color = new(225, 255, 0, 255); d = MKDustID.WVDust;
-            }
-            else if (Type == MKProjID.RBKnife)
-            {
-                color = new(0, 255, 100, 0); d = MKDustID.RBDust;
-            }
-            base.OnSpawn(source);
         }
         public override bool PreDraw(ref Color lightColor)
         {
             SpriteBatch sb = Main.spriteBatch;
-            Texture2D tex = ModContent.Request<Texture2D>("MysteriousKnives/Pictures/Projectiles/Another/Projectile_873，长枪是919").Value;
+            Texture2D tex = TextureAssets.Projectile[Type].Value;
+            Texture2D tex2 = ModContent.Request<Texture2D>("MysteriousKnives/Pictures/Projectiles/Another/Extra_98").Value;
             Vector2 origin = tex.Size() / 2f;
-            Color drawcolor = color * ((255 - Projectile.alpha) / 510f + 0.5f);
+            Color drawcolor = GetColor((int)ProjType) * ((255 - Projectile.alpha) / 510f + 0.5f);
             Vector2 pos = Projectile.Center - Main.screenPosition + new Vector2(0f, Projectile.gfxOffY);
             float lerp = ((float)Math.Cos(Main.GameUpdateCount / 1.5f) * 0.2f + 1) * 0.8f;
-            Vector2 scale = new Vector2(0.5f, 5f) * lerp * 0.8f * ((255 - Projectile.alpha) / 255f) * Projectile.scale;
+            Vector2 scale = new Vector2(0.5f, 5f) * lerp * 0.8f * ((255 - Projectile.alpha) / 255f) * (Projectile.scale / 2 + 0.5f);
             float length = Projectile.oldPos.Length;
             for (int i = 0; i < length; i++)
             {
@@ -216,10 +208,34 @@ namespace MysteriousKnives.Projectiles
                 Projectile.rotation, origin, Projectile.scale * 0.8f, 0, 0);
             return false;
         }
-        /// <summary>
-        /// 施加结晶
-        /// </summary>
-        /// <param name="target"></param>
+        public static Vector2[] Smooth(Vector2[] vecs, int extraLength)//平滑处理，增加标记的坐标点
+        {
+            int l = vecs.Length;
+            extraLength += l;
+
+            Vector2[] scVecs = new Vector2[extraLength];
+            for (int n = 0; n < extraLength; n++)
+            {
+                float t = n / (float)extraLength;
+                float k = (l - 1) * t;
+                int i = (int)k;
+                float vk = k % 1;
+                if (i == 0)
+                {
+                    scVecs[n] = Vector2.CatmullRom(2 * vecs[0] - vecs[1], vecs[0], vecs[1], vecs[2], vk);
+                }
+                else if (i == l - 2)
+                {
+                    scVecs[n] = Vector2.CatmullRom(vecs[l - 3], vecs[l - 2], vecs[l - 1], 2 * vecs[l - 1] - vecs[l - 2], vk);
+                }
+                else
+                {
+                    scVecs[n] = Vector2.CatmullRom(vecs[i - 1], vecs[i], vecs[i + 1], vecs[i + 2], vk);
+                }
+            }
+            return scVecs;
+        }
+
         public void CSbuffs(NPC target)
         {
             if (target.realLife != -1)
@@ -239,10 +255,6 @@ namespace MysteriousKnives.Projectiles
                 case 10: target.AddBuff(ModContent.BuffType<Crystallization>(), i * 5); break;
             }
         }
-        /// <summary>
-        /// 施加凝爆
-        /// </summary>
-        /// <param name="target"></param>
         public void CBbuffs(NPC target)
         {
             if (target.realLife != -1)
@@ -264,10 +276,6 @@ namespace MysteriousKnives.Projectiles
                 }
             }
         }
-        /// <summary>
-        /// 施加诡毒
-        /// </summary>
-        /// <param name="target"></param>
         public void WVbuffs(NPC target)
         {
             if (target.realLife != -1)
@@ -287,10 +295,6 @@ namespace MysteriousKnives.Projectiles
                 case 10: target.AddBuff(ModContent.BuffType<WeirdVemon>(), i * 4); break;
             }
         }
-        /// <summary>
-        /// 施加沉沦
-        /// </summary>
-        /// <param name="target"></param>
         public void SKbuffs(NPC target)
         {
             if (target.realLife != -1)
@@ -310,10 +314,6 @@ namespace MysteriousKnives.Projectiles
                 case 10: target.AddBuff(ModContent.BuffType<SunkerCancer>(), i * 3); break;
             }
         }
-        /// <summary>
-        /// 施加深渊
-        /// </summary>
-        /// <param name="target"></param>
         public void ABbuffs(NPC target)
         {
             if (target.realLife != -1)
@@ -332,10 +332,6 @@ namespace MysteriousKnives.Projectiles
                 case 10: target.AddBuff(ModContent.BuffType<IndescribableFear>(), i * 7); break;
             }
         }
-        /// <summary>
-        /// 施加星辉
-        /// </summary>
-        /// <param name="target"></param>
         public void ASbuffs(Player player)
         {
             int i = 180;
@@ -351,9 +347,6 @@ namespace MysteriousKnives.Projectiles
                 case 10: player.AddBuff(ModContent.BuffType<AstralRay>(), i * 4); break;
             }
         }
-        /// <summary>
-        /// 施加回春
-        /// </summary>
         public void RBbuffs(Player player)
         {
             int i = 180;
@@ -371,9 +364,6 @@ namespace MysteriousKnives.Projectiles
                 case 10: player.AddBuff(ModContent.BuffType<RejuvenationBlessing>(), i * 7); break;
             }
         }
-        /// <summary>
-        /// 施加筋力
-        /// </summary>
         public void STbuffs(Player player)
         {
             int i = 180;
@@ -389,163 +379,6 @@ namespace MysteriousKnives.Projectiles
                 case 8: player.AddBuff(ModContent.BuffType<StrengthEX>(), i * 7); break;
                 case 9: player.AddBuff(ModContent.BuffType<StrengthEX>(), i * 7); break;
                 case 10: player.AddBuff(ModContent.BuffType<StrengthEX>(), i * 7); break;
-            }
-        }
-        public class ABKnife : MysteriousKnife
-        {
-            public override string Texture => "MysteriousKnives/Pictures/Projectiles/Knife/ABKnife";
-            public override void SetStaticDefaults()
-            {
-                DisplayName.SetDefault("深渊飞刀");
-            }
-            public override void AI()
-            {
-                base.AI();
-                Lighting.AddLight(Projectile.Center, 0.33f, 0.33f, 0.33f);//RGB
-                LessDust(ModContent.DustType<ABDust>());
-            }
-            public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)//弹幕命中时
-            {
-                base.OnHitNPC(target, damage, knockback, crit);
-                ABbuffs(target);
-            }
-        }
-        public class ASKnife : MysteriousKnife
-        {
-            public override string Texture => "MysteriousKnives/Pictures/Projectiles/Knife/ASKnife";
-            public override void SetStaticDefaults()
-            {
-                DisplayName.SetDefault("星辉飞刀");
-            }
-            public override void AI()
-            {
-                base.AI();
-                Lighting.AddLight(Projectile.Center, 0.45f, 0.04f, 0.75f);//RGB
-                LessDust(ModContent.DustType<ASDust>());
-            }
-            public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)//弹幕命中时
-            {
-                base.OnHitNPC(target, damage, knockback, crit);
-                Player player = Main.player[Projectile.owner];
-                ASbuffs(player);
-            }
-        }
-        public class CBKnife : MysteriousKnife
-        {
-            public override string Texture => "MysteriousKnives/Pictures/Projectiles/Knife/CBKnife";
-            public override void SetStaticDefaults()
-            {
-                DisplayName.SetDefault("凝爆飞刀");
-            }
-            public override void AI()
-            {
-                base.AI();
-                Lighting.AddLight(Projectile.Center, 1f, 0.39f, 0.22f);
-                LessDust(ModContent.DustType<CBDust>());
-            }
-            public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)//弹幕命中时
-            {
-                base.OnHitNPC(target, damage, knockback, crit);
-                CBbuffs(target);
-            }
-        }
-        public class CSKnife : MysteriousKnife
-        {
-            public override string Texture => "MysteriousKnives/Pictures/Projectiles/Knife/CSKnife";
-            public override void SetStaticDefaults()
-            {
-                DisplayName.SetDefault("结晶飞刀");
-            }
-            public override void AI()
-            {
-                base.AI();
-                Lighting.AddLight(Projectile.Center, 0.9f, 0.63f, 1f);//RGB
-                LessDust(ModContent.DustType<CSDust>());
-            }
-            public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)//弹幕命中时
-            {
-                base.OnHitNPC(target, damage, knockback, crit);
-                CSbuffs(target);
-            }
-        }
-        public class RBKnife : MysteriousKnife
-        {
-            public override string Texture => "MysteriousKnives/Pictures/Projectiles/Knife/RBKnife";
-            public override void SetStaticDefaults()
-            {
-                DisplayName.SetDefault("回春飞刀");
-            }
-            public override void AI()
-            {
-                base.AI();
-                Lighting.AddLight(Projectile.Center, 0.2f, 0.95f, 0.13f);//RGB
-                LessDust(ModContent.DustType<RBDust>());
-            }
-            public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)//弹幕命中时
-            {
-                base.OnHitNPC(target, damage, knockback, crit);
-                Player player = Main.player[Projectile.owner];
-                Projectile.NewProjectile(Projectile.GetSource_OnHit(target), target.Center, new Vector2(0), MKProjID.RB_Ray,
-                    0, 0, player.whoAmI);
-                RBbuffs(player);
-            }
-        }
-        public class SKKnife : MysteriousKnife
-        {
-            public override string Texture => "MysteriousKnives/Pictures/Projectiles/Knife/SKKnife";
-            public override void SetStaticDefaults()
-            {
-                DisplayName.SetDefault("沉沦飞刀");
-            }
-            public override void AI()
-            {
-                base.AI();
-                Lighting.AddLight(Projectile.Center, 0.29f, 0.37f, 0.88f);//RGB
-                LessDust(ModContent.DustType<SKDust>());
-            }
-            public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)//弹幕命中时
-            {
-                base.OnHitNPC(target, damage, knockback, crit);
-                SKbuffs(target);
-            }
-        }
-        public class STKnife : MysteriousKnife
-        {
-            public override string Texture => "MysteriousKnives/Pictures/Projectiles/Knife/STKnife";
-            public override void SetStaticDefaults()
-            {
-                DisplayName.SetDefault("力量飞刀");
-            }
-            public override void AI()
-            {
-                base.AI();
-                Lighting.AddLight(Projectile.Center, 1f, 0.95f, 0.7f);//RGB
-                LessDust(ModContent.DustType<STDust>());
-            }
-            public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)//弹幕命中时
-            {
-                base.OnHitNPC(target, damage, knockback, crit);
-                Player player = Main.player[Projectile.owner];
-                STbuffs(player);
-            }
-        }
-        public class WVKnife : MysteriousKnife
-        {
-            public override string Texture => "MysteriousKnives/Pictures/Projectiles/Knife/WVKnife";
-            public override void SetStaticDefaults()
-            {
-                DisplayName.SetDefault("诡毒飞刀");
-            }
-            public override void AI()
-            {
-                base.AI();
-                Lighting.AddLight(Projectile.Center, 0.55f, 0.7f, 0.13f);//RGB
-                LessDust(ModContent.DustType<WVDust>());
-            }
-            public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)//弹幕命中时
-            {
-                base.OnHitNPC(target, damage, knockback, crit);
-                WVbuffs(target);
             }
         }
     }

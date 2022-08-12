@@ -26,7 +26,7 @@ namespace MysteriousKnives.Tiles
 
 			DustType = MKDustID.RainbowDust;
 			AdjTiles = new int[] { TileID.Containers };
-			ChestDrop = MKItemsID.Station;
+			ChestDrop = MKItemID.Station;
 
 			// Names
 			ContainerName.SetDefault("诡秘药箱");
@@ -229,7 +229,7 @@ namespace MysteriousKnives.Tiles
 				player.cursorItemIconText = Main.chest[chest].name.Length > 0 ? Main.chest[chest].name : "诡秘药箱";
 				if (player.cursorItemIconText == "诡秘药箱")
 				{
-					player.cursorItemIconID = MKItemsID.Station;
+					player.cursorItemIconID = MKItemID.Station;
 					if (Main.tile[left, top].TileFrameX / 36 == 1)
 					{
 						player.cursorItemIconID = ModContent.ItemType<ExampleChestKey>();

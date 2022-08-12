@@ -1,4 +1,4 @@
-using Terraria.ID;
+
 
 namespace MysteriousKnives
 {
@@ -22,7 +22,7 @@ namespace MysteriousKnives
 				{
 					return true;
 				}
-				if (self.inventory[i].type == MKItemsID.MKOrigin) return true;
+				if (self.inventory[i].type == MKItemID.MKOrigin) return true;
 			}
 			return false;
 		}

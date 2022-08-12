@@ -26,20 +26,14 @@
             AB6 = false;
             AB7 = false;
             npc.buffImmune[ModContent.BuffType<IndescribableFear>()] = false;
-            npc.buffImmune[ModContent.BuffType<ConvergentBurst>()] = false;
+            if (npc.rarity != 0 || npc.boss)
+            {
+                npc.buffImmune[ModContent.BuffType<ConvergentBurst>()] = false;
+            }
+            else npc.buffImmune[ModContent.BuffType<ConvergentBurst>()] = true;
             npc.buffImmune[ModContent.BuffType<Crystallization>()] = false;
             npc.buffImmune[ModContent.BuffType<SunkerCancer>()] = false;
             npc.buffImmune[ModContent.BuffType<WeirdVemon>()] = false;
-        }
-        public static void NPCnormalDead(NPC npc, int damage)
-        {
-            if (npc.realLife != -1)
-                npc = Main.npc[npc.realLife];
-            if (npc.life <= damage)
-            {
-                npc.life = 1;
-                npc.StrikeNPC(damage + 1, 0, 0);
-            }
         }
         public override void ModifyHitPlayer(NPC npc, Player target, ref int damage, ref bool crit)
         {

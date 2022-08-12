@@ -32,7 +32,7 @@ namespace MysteriousKnives.Projectiles
         public override void AI()
         {
             t = Main.GameUpdateCount * 0.025f;
-            Projectile.timeLeft = 2; 
+            Projectile.timeLeft = 2;
             Projectile.frameCounter++;
             if (Projectile.frameCounter % 2 == 0)
             {
@@ -47,9 +47,7 @@ namespace MysteriousKnives.Projectiles
         {
             SpriteBatch spriteBatch = Main.spriteBatch;
             Texture2D texture = ModContent.Request<Texture2D>("MysteriousKnives/Pictures/Projectiles/Sphere/RBsphere_1").Value;
-            spriteBatch.End();
-            spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.Additive, SamplerState.AnisotropicClamp,
-                DepthStencilState.None, RasterizerState.CullNone, null, Main.GameViewMatrix.TransformationMatrix);
+            ChangeSpb(BlendState.Additive);
             spriteBatch.Draw(texture: texture,
                 position: Projectile.Center - Main.screenPosition,
                 sourceRectangle: new Rectangle(0, Projectile.frame * 30, 30, 30),
@@ -58,15 +56,9 @@ namespace MysteriousKnives.Projectiles
                 origin: new Vector2(15, 15),
                 scale: (float)Math.Sin(Main.GameUpdateCount * 0.1f) / 4 + 1.2f,
                 effects: SpriteEffects.None,
-                layerDepth: 0); ;
+                layerDepth: 0);
+            ChangeSpb(BlendState.AlphaBlend);
             return false;
-        }
-        public override void PostDraw(Color lightColor)
-        {
-            SpriteBatch spriteBatch = Main.spriteBatch;
-            spriteBatch.End();
-            spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, SamplerState.AnisotropicClamp,
-                DepthStencilState.None, RasterizerState.CullNone, null, Main.GameViewMatrix.TransformationMatrix);
         }
         public override Color? GetAlpha(Color lightColor)
         {

@@ -15,7 +15,7 @@
             {
                 return new[]
                 {
-                    new Item(MKItemsID.MKOrigin)
+                    new Item(MKItemID.MKOrigin)
                 };
             }
         }
@@ -35,7 +35,7 @@
         }
         public override bool PreItemCheck()
         {
-            if (Player.inventory[Player.selectedItem].type == MKItemsID.MKOrigin && Player.itemAnimation > 0)
+            if (Player.inventory[Player.selectedItem].type == MKItemID.MKOrigin && Player.itemAnimation > 0)
             {
                 if (Player.ItemTimeIsZero)
                 {

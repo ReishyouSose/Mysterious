@@ -1,6 +1,6 @@
 ﻿namespace MysteriousKnives.IDs
 {
-    internal static class MKItemsID
+    internal static class MKItemID
     {
         public static int MK01 = ModContent.ItemType<MK01>();
         public static int MK02 = ModContent.ItemType<MK02>();
@@ -17,22 +17,15 @@
     }
     internal static class MKProjID
     {
-        public static int ASKnife = ModContent.ProjectileType<ASKnife>();
-        public static int CSKnife = ModContent.ProjectileType<CSKnife>();
-        public static int ABKnife = ModContent.ProjectileType<ABKnife>();
-        public static int CBKnife = ModContent.ProjectileType<CBKnife>();
-        public static int RBKnife = ModContent.ProjectileType<RBKnife>();
-        public static int STKnife = ModContent.ProjectileType<STKnife>();
-        public static int SKKnife = ModContent.ProjectileType<SKKnife>();
-        public static int WVKnife = ModContent.ProjectileType<WVKnife>();
+        public static int MKnives = ModContent.ProjectileType<MysteriousKnife>();
         public static int Core = ModContent.ProjectileType<MysteriousCore>();
+        public static int Channel = ModContent.ProjectileType<MKchannel>();
         public static int RB_Ray = ModContent.ProjectileType<RB_Ray>();
         public static int Rainbow_Halberd = ModContent.ProjectileType<Rainbow_Halberd>();
         public static int Rainbow_Streat = ModContent.ProjectileType<Rainbow_Streat>();
     }
     internal static class MKDustID
     {
-
         public static int ASDust = ModContent.DustType<ASDust>();
         public static int CSDust = ModContent.DustType<CSDust>();
         public static int ABDust = ModContent.DustType<ABDust>();
@@ -46,14 +39,14 @@
     }
     internal static class MKBuffID
     {
-        public static int ConvergentBurst = ModContent.BuffType<ConvergentBurst>();
-        public static int WeirdVemon = ModContent.BuffType<WeirdVemon>();
-        public static int SunkerCancer = ModContent.BuffType<SunkerCancer>();
-        public static int Crystallization = ModContent.BuffType<Crystallization>();
-        public static int StrengthEX = ModContent.BuffType<StrengthEX>();
-        public static int AstralRay = ModContent.BuffType<AstralRay>();
-        public static int IndescribableFear = ModContent.BuffType<IndescribableFear>();
-        public static int RejuvenationBlessing = ModContent.BuffType<RejuvenationBlessing>();
+        public static int CB = ModContent.BuffType<ConvergentBurst>();
+        public static int WV = ModContent.BuffType<WeirdVemon>();
+        public static int SK = ModContent.BuffType<SunkerCancer>();
+        public static int CS = ModContent.BuffType<Crystallization>();
+        public static int ST = ModContent.BuffType<StrengthEX>();
+        public static int AS = ModContent.BuffType<AstralRay>();
+        public static int AB = ModContent.BuffType<IndescribableFear>();
+        public static int RB = ModContent.BuffType<RejuvenationBlessing>();
     }
     internal static class MKTileID
     {

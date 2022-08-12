@@ -34,8 +34,11 @@
                     return false;
                 }
             }
-            NPC.NewNPCDirect(player.GetSource_ItemUse(Item), (int)Main.MouseWorld.X, (int)Main.MouseWorld.Y,
-                ModContent.NPCType<MKpuppet>(), 0, player.whoAmI);
+            if (Main.netMode == NetmodeID.SinglePlayer)
+            {
+                NPC.NewNPCDirect(player.GetSource_ItemUse(Item), (int)Main.MouseWorld.X, (int)Main.MouseWorld.Y,
+                    ModContent.NPCType<MKpuppet>(), 0, player.whoAmI);
+            }
             return true;
         }
     }
