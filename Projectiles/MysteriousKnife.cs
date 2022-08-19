@@ -10,9 +10,9 @@ namespace MysteriousKnives.Projectiles
         }
         public override void SetDefaults()
         {
-            Projectile.width = 16;//宽
-            Projectile.height = 16;//高
-            Projectile.scale = 0.8f;//体积倍率
+            Projectile.width = 32;//宽
+            Projectile.height = 32;//高
+            Projectile.scale = 0.5f;//体积倍率
             Projectile.DamageType = ModContent.GetInstance<Mysterious>();// 伤害类型
             Projectile.friendly = true;// 攻击敌方？
             Projectile.hostile = false;// 攻击友方？
@@ -22,9 +22,9 @@ namespace MysteriousKnives.Projectiles
             Projectile.usesLocalNPCImmunity = true;
             Projectile.localNPCHitCooldown = 10;
             Projectile.alpha = 255;
-            Projectile.extraUpdates = 2;
+            Projectile.extraUpdates = 4;
             Projectile.timeLeft = 600 * (1 + Projectile.extraUpdates);//存在时间60 = 1秒
-            ProjectileID.Sets.TrailCacheLength[Type] = 20 * (1 + Projectile.extraUpdates);
+            ProjectileID.Sets.TrailCacheLength[Type] = 15 * (1 + Projectile.extraUpdates);
         }
         public int Exup
         {
@@ -65,7 +65,7 @@ namespace MysteriousKnives.Projectiles
                 3 => new(255, 120, 220, 0),//CS
                 4 => new(0, 0, 0, 255),//AB
                 5 => new(255, 100, 0, 0),//CB
-                6 => new(255, 255, 0, 0),//ST
+                6 => new(255, 253, 50, 50),//ST
                 7 => new(135, 0, 255, 0),//AS
                 _ => Color.White,
             };
@@ -122,10 +122,16 @@ namespace MysteriousKnives.Projectiles
                     NPC target = ChooseTarget(Projectile, MaxDis: 5000);
                     if (target != null)
                     {
-                        Vector2 tarVel = Vector2.Normalize(target.Center - Projectile.Center)
-                            * (10f + 5f * Projectile.ai[0]) / Exup;
-                        Projectile.velocity = (Projectile.velocity * 30 * Exup + tarVel) / (30 * Exup + 1);
-                        Projectile.timeLeft++;
+                        if (Projectile.localAI[0] < 20)
+                        {
+                            Projectile.localAI[0]++;
+                        }
+                        float lerp = Projectile.localAI[0] / 20 * (10 + 5 * Projectile.ai[0]);
+                        Projectile.velocity = ChaseVel(Projectile, target, lerp);
+                    }
+                    else
+                    {
+                        Projectile.localAI[0] = 0;
                     }
                     if (Projectile.timeLeft <= 60 * Exup)
                     {
@@ -189,7 +195,6 @@ namespace MysteriousKnives.Projectiles
         {
             SpriteBatch sb = Main.spriteBatch;
             Texture2D tex = TextureAssets.Projectile[Type].Value;
-            Texture2D tex2 = ModContent.Request<Texture2D>("MysteriousKnives/Pictures/Projectiles/Another/Extra_98").Value;
             Vector2 origin = tex.Size() / 2f;
             Color drawcolor = GetColor((int)ProjType) * ((255 - Projectile.alpha) / 510f + 0.5f);
             Vector2 pos = Projectile.Center - Main.screenPosition + new Vector2(0f, Projectile.gfxOffY);
@@ -199,14 +204,27 @@ namespace MysteriousKnives.Projectiles
             for (int i = 0; i < length; i++)
             {
                 float dawl = (length - i) / length;
+                Vector2 tral = new(1f);
                 sb.Draw(tex, Projectile.oldPos[i] - Main.screenPosition, null, drawcolor * dawl,
-                    Projectile.oldRot[i], origin, Projectile.scale * dawl * 0.8f, 0, 0);
+                    Projectile.oldRot[i], origin, Projectile.scale * tral * 0.8f, 0, 0);
             }
             sb.Draw(tex, pos, null, drawcolor * lerp, (float)Math.PI / 2f, origin, scale, 0, 0);
             sb.Draw(tex, pos, null, drawcolor * lerp * 0.75f, 0f, origin, scale * 0.75f, 0, 0);
             sb.Draw(tex, pos, null, new Color(1, 1, 1, 0f) * ((255 - Projectile.alpha) / 255f),
-                Projectile.rotation, origin, Projectile.scale * 0.8f, 0, 0);
+                Projectile.rotation, origin, Projectile.scale * 1.2f, 0, 0);
             return false;
+        }
+        public override void SendExtraAI(BinaryWriter writer)
+        {
+            base.SendExtraAI(writer);
+            writer.Write(Projectile.frame);
+            writer.Write(Projectile.localAI[0]);
+        }
+        public override void ReceiveExtraAI(BinaryReader reader)
+        {
+            base.ReceiveExtraAI(reader);
+            Projectile.frame = reader.ReadInt32();
+            Projectile.localAI[0] = reader.ReadSingle();
         }
         public static Vector2[] Smooth(Vector2[] vecs, int extraLength)//平滑处理，增加标记的坐标点
         {
@@ -235,7 +253,6 @@ namespace MysteriousKnives.Projectiles
             }
             return scVecs;
         }
-
         public void CSbuffs(NPC target)
         {
             if (target.realLife != -1)

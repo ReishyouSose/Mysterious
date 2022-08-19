@@ -91,5 +91,17 @@ namespace MysteriousKnives.Projectiles
             spb.Draw(texture, pos, null, color3, Projectile.rotation, origin2, 1, 0, 0f);
             return false;
         }
+        public override void SendExtraAI(BinaryWriter writer)
+        {
+            base.SendExtraAI(writer);
+            writer.WriteRGB(color);
+            writer.Write(d);
+        }
+        public override void ReceiveExtraAI(BinaryReader reader)
+        {
+            base.ReceiveExtraAI(reader);
+            color= reader.ReadRGB();
+            d = reader.ReadInt32();
+        }
     }
 }

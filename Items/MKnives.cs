@@ -389,7 +389,7 @@
                 Item.value = Item.sellPrice(150, 0, 0, 0);
                 Item.rare = ModContent.RarityType<Rare_Rainbow>();
                 Item.shoot = MKProjID.Channel;
-                Item.shootSpeed = 10f;
+                Item.shootSpeed = 1f;
                 Item.channel = true;
             }
             public override void ModifyWeaponDamage(Player player, ref StatModifier damage)
@@ -404,7 +404,7 @@
 			{
 				Item.Prefix(ModContent.PrefixType<MKprefix01>());
 			}*/
-            public override bool CanUseItem(Player player)
+            /*public override bool CanUseItem(Player player)
             {
                 NPC target = null;
                 foreach (NPC npc in Main.npc)
@@ -415,7 +415,7 @@
                     }
                 }
                 return target != null;
-            }
+            }*/
             public override void HoldItem(Player player)
             {
                 player.AddBuff(ModContent.BuffType<RejuvenationBlessing>(), 8 * 180);

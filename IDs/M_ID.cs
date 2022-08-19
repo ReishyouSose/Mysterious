@@ -23,6 +23,10 @@
         public static int RB_Ray = ModContent.ProjectileType<RB_Ray>();
         public static int Rainbow_Halberd = ModContent.ProjectileType<Rainbow_Halberd>();
         public static int Rainbow_Streat = ModContent.ProjectileType<Rainbow_Streat>();
+        public static int Sphere_AS = ModContent.ProjectileType<ASsphere>();
+        public static int Sphere_ST = ModContent.ProjectileType<STsphere>();
+        public static int Sphere_RB = ModContent.ProjectileType<RBsphere>();
+
     }
     internal static class MKDustID
     {

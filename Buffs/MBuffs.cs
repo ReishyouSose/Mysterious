@@ -7,14 +7,14 @@
     {
         public static void VemonDamage(NPC target, int damage)
         {
-            if(target.realLife != -1) RealTarget(target).life -= damage;
-            NoSoundStrike(target, damage, new(180, 230, 50));
+            if (target.realLife != -1) RealTarget(target).life -= damage;
+            NoSoundStrike(target, damage, new(180, 230, 50), false, true);
         }
         public static void CrystalDamage(NPC target, int damage)
         {
             //SoundEngine.PlaySound(SoundID.Item27);
             target.life -= damage;
-            NoSoundStrike(target, damage, new(230, 161, 255) { A = 0 });
+            NoSoundStrike(target, damage, new(230, 161, 255) { A = 0 }, false, true);
         }
         public static void RejuvenationEffect(Player player, int regen)
         {
@@ -57,30 +57,8 @@
                 Main.debuff[Type] = false;
                 Main.buffNoSave[Type] = true;
             }
-            public int ply;
             public override void Update(Player player, ref int buffIndex)
             {
-                Projectile proj = null;
-                foreach (Projectile sphere in Main.projectile)
-                    if (sphere.type == ModContent.ProjectileType<ASsphere>() && sphere.active && sphere.ai[0] == ply)
-                    {
-                        proj = sphere;
-                        break;
-                    }
-                if (proj == null)
-                    Projectile.NewProjectile(player.GetSource_Buff(buffIndex), player.position, new Vector2(0, 0),
-                        ModContent.ProjectileType<ASsphere>(), 0, 0, player.whoAmI);
-                if (player.buffTime[buffIndex] == 0)
-                {
-                    foreach (Projectile sphere in Main.projectile)
-                    {
-                        if (sphere.type == ModContent.ProjectileType<ASsphere>() && sphere.ai[0] == player.whoAmI)
-                        {
-                            sphere.Kill();
-                            ply = player.whoAmI;
-                        }
-                    }
-                }
                 switch (player.buffTime[buffIndex] / 180)
                 {
                     case 0:
@@ -97,15 +75,6 @@
                         break;
                 }
                 base.Update(player, ref buffIndex);
-            }
-            public override bool RightClick(int buffIndex)
-            {
-                foreach (Projectile proj in Main.projectile)
-                {
-                    if (proj.type == ModContent.ProjectileType<ASsphere>() && proj.ai[0] == ply)
-                        proj.Kill();
-                }
-                return true;
             }
         }
         /// <summary>
@@ -138,11 +107,11 @@
                     {
                         Dust dust = Dust.NewDustDirect(npc.position, npc.width, npc.height, ModContent.DustType<CBDust>());
                         dust.position = npc.Center + new Vector2((float)Math.Cos(t + Math.PI / 6 * i) * (int)Math.Pow(-1, i),
-                            (float)(Math.Sin(t + Math.PI / 6 * i)))* 200 * (float)Math.Sin(Math.PI * (1.5 + 0.5 / 270 * count));
+                            (float)(Math.Sin(t + Math.PI / 6 * i))) * 200 * (float)Math.Sin(Math.PI * (1.5 + 0.5 / 270 * count));
                         dust.velocity *= 0;
                     }
                 if (270 <= count)
-                    for(float i = 0; i < multiple; i += 1 * ament)
+                    for (float i = 0; i < multiple; i += 1 * ament)
                     {
                         Dust dust = Dust.NewDustDirect(npc.position, npc.width, npc.height, ModContent.DustType<CBDust>());
                         dust.position = npc.Center + new Vector2(
@@ -379,44 +348,22 @@
                 Main.debuff[Type] = false;
                 Main.buffNoSave[Type] = true;
             }
-            public int ply;
             public override void Update(Player player, ref int buffIndex)
             {
-                Projectile proj = null;
-                foreach (Projectile sphere in Main.projectile)
-                    if (sphere.type == ModContent.ProjectileType<RBsphere>() && sphere.active && sphere.ai[0] == ply)
-                    {
-                        proj = sphere;
-                        break;
-                    }
-                if (proj == null)
-                    Projectile.NewProjectile(player.GetSource_Buff(buffIndex), player.position, new Vector2(0, 0),
-                        ModContent.ProjectileType<RBsphere>(), 0, 0, player.whoAmI);
-                if (player.buffTime[buffIndex] == 0)
-                {
-                    foreach (Projectile sphere in Main.projectile)
-                    {
-                        if (sphere.type == ModContent.ProjectileType<RBsphere>() && sphere.ai[0] == player.whoAmI)
-                        {
-                            proj.Kill();
-                            ply = player.whoAmI;
-                        }
-                    }
-                }
                 switch (player.buffTime[buffIndex] / 180)
                 {
                     case 0://10*1
-                        if(player.buffTime[buffIndex] % 6 == 0)
+                        if (player.buffTime[buffIndex] % 6 == 0)
                             RejuvenationEffect(player, 1);
                         break;
                     case 1://20*1+5*1
-                        if(player.buffTime[buffIndex] % 3 == 0)
+                        if (player.buffTime[buffIndex] % 3 == 0)
                             RejuvenationEffect(player, 1);
-                        if(player.buffTime[buffIndex] % 12 == 0)
+                        if (player.buffTime[buffIndex] % 12 == 0)
                             RejuvenationEffect(player, 1);
                         break;
                     case 2://20*2
-                        if(player.buffTime[buffIndex] % 3 == 0)
+                        if (player.buffTime[buffIndex] % 3 == 0)
                             RejuvenationEffect(player, 2);
                         break;
                     case 3://20*2+15*1
@@ -451,15 +398,6 @@
                         break;
                 }
             }
-            public override bool RightClick(int buffIndex)
-            {
-                foreach (Projectile proj in Main.projectile)
-                {
-                    if (proj.type == ModContent.ProjectileType<RBsphere>() && proj.ai[0] == ply)
-                        proj.Kill();
-                }
-                return true;
-            }
         }
         /// <summary>
         /// 筋力EX
@@ -475,30 +413,8 @@
                 Main.debuff[Type] = false;
                 Main.buffNoSave[Type] = true;
             }
-            public int ply;
             public override void Update(Player player, ref int buffIndex)
             {
-                Projectile proj = null;
-                foreach (Projectile sphere in Main.projectile)
-                    if (sphere.type == ModContent.ProjectileType<STsphere>() && sphere.active && sphere.ai[0] == ply)
-                    {
-                        proj = sphere;
-                        break;
-                    }
-                if (proj == null)
-                    Projectile.NewProjectile(player.GetSource_Buff(buffIndex), player.position, new Vector2(0, 0),
-                        ModContent.ProjectileType<STsphere>(), 0, 0, player.whoAmI);
-                if (player.buffTime[buffIndex] == 0)
-                {
-                    foreach (Projectile sphere in Main.projectile)
-                    {
-                        if (sphere.type == ModContent.ProjectileType<STsphere>() && sphere.ai[0] == player.whoAmI)
-                        {
-                            sphere.Kill();
-                            ply = player.whoAmI;
-                        }
-                    }
-                } 
                 switch (player.buffTime[buffIndex] / 180)
                 {
                     case 0:
@@ -521,15 +437,6 @@
                         break;
                 }
                 base.Update(player, ref buffIndex);
-            }
-            public override bool RightClick(int buffIndex)
-            {
-                foreach (Projectile proj in Main.projectile)
-                {
-                    if (proj.type == ModContent.ProjectileType<STsphere>() && proj.ai[0] == ply)
-                        proj.Kill();
-                }
-                return true;
             }
         }
         /// <summary>
@@ -612,6 +519,38 @@
                     dust.position = npc.Center + new Vector2((float)(-Math.Cos(t + Math.PI) / 2f),
                         (float)(Math.Sin(t + Math.PI) / 5f)) * 100;
                     dust.velocity *= 0;
+                }
+            }
+        }
+    }
+    public class MKBuffPlayer : ModPlayer
+    {
+        public override void PostUpdateBuffs()
+        {
+            base.PostUpdateBuffs();
+            SpawnSphere(MKBuffID.AS, MKProjID.Sphere_AS);
+            SpawnSphere(MKBuffID.RB, MKProjID.Sphere_RB);
+            SpawnSphere(MKBuffID.ST, MKProjID.Sphere_ST);
+        }
+        public void SpawnSphere(int bufftype, int projtype)
+        {
+            if (Player.HasBuff(bufftype))
+            {
+                if (Player.ownedProjectileCounts[projtype] <= 0)
+                {
+                    Projectile.NewProjectile(Player.GetSource_Buff(Player.FindBuffIndex(bufftype)),
+                        Player.position, Vector2.Zero, projtype, 0, 0, Player.whoAmI);
+                }
+
+            }
+            else
+            {
+                foreach (Projectile sphere in Main.projectile)
+                {
+                    if (sphere.type == projtype && sphere.owner == Player.whoAmI)
+                    {
+                        sphere.Kill();
+                    }
                 }
             }
         }

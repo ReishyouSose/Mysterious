@@ -1,3 +1,5 @@
+using static MysteriousKnives.Projectiles.MysteriousKnife;
+
 namespace MysteriousKnives.Projectiles
 {
     public class MysteriousCore : ModProjectile
@@ -14,7 +16,7 @@ namespace MysteriousKnives.Projectiles
             //原宽高15
             Projectile.width = 30;//宽
             Projectile.height = 30;//高
-            Projectile.scale = 0.75f;//体积倍率
+            Projectile.scale = 0.5f;//体积倍率
             Projectile.timeLeft = 180;//存在时间60 = 1秒
             Projectile.DamageType = ModContent.GetInstance<Mysterious>();// 伤害类型
             Projectile.friendly = true;// 攻击敌方？
@@ -98,8 +100,12 @@ namespace MysteriousKnives.Projectiles
         public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
         {
             Player player = Main.player[Projectile.owner];
+            RandomShoot(player, Projectile.frame, (int)Projectile.ai[1]);
+        }
+        public override void Kill(int timeLeft)
+        {
             Projectile proj = Projectile.NewProjectileDirect(Projectile.GetSource_Death(), Projectile.Center, Projectile.velocity,
-                ModContent.ProjectileType<MKboom>(), Projectile.damage, 20, player.whoAmI);
+                ModContent.ProjectileType<MKboom>(), Projectile.damage, 20, Projectile.owner);
             proj.CritChance = Projectile.CritChance;
             SoundEngine.PlaySound(SoundID.Item14);
             for (int i = 0; i < 100; i++)
@@ -111,7 +117,6 @@ namespace MysteriousKnives.Projectiles
                 dust.noGravity = false;
 
             }
-            RandomShoot(player, (int)Projectile.frame, (int)Projectile.ai[1]);
         }
         public override Color? GetAlpha(Color lightColor)
         {

@@ -21,7 +21,10 @@
                     {
                         list.Add((npc, Vector2.Distance(npc.Center, Main.MouseWorld)));
                     }
-                    target = list.MinBy(t => t.dis).npc;
+                    if (list.Count > 0)
+                    {
+                        target = list.MinBy(t => t.dis).npc;
+                    }
                 }
                 else
                 {
@@ -39,11 +42,11 @@
             }
             return target;
         }
-        public static NPC RealTarget(NPC npc)
+        public static NPC RealTarget(NPC target)
         {
-            return npc.realLife != -1 ? Main.npc[npc.realLife] : npc;
+            return target.realLife != -1 ? Main.npc[target.realLife] : target;
         }
-        public static void NoSoundStrike(NPC target, int damage, Color color)
+        public static void NoSoundStrike(NPC target, int damage, Color color, bool largeText = true, bool dot = false)
         {
             if (target.life > damage)
             {
@@ -52,7 +55,7 @@
                 {
                     CombatText.NewText(new Rectangle((int)target.position.X + Main.rand.Next(-32, 32),
                     (int)target.Center.Y - Main.rand.Next(16, 32), target.width, target.height),
-                    color, damage, true);
+                    color, damage, largeText, dot);
                 }
             }
             else target.StrikeNPC(damage + 1, 0, 0);
@@ -60,6 +63,14 @@
         public static Item PlySelect(Player player)
         {
             return player.inventory[player.selectedItem];
+        }
+        public static Vector2 ChaseVel(Projectile proj, NPC target, float M)
+        {
+            Vector2 tarVel = Vector2.Normalize(target.Center - proj.Center) * M;
+            float dis = Vector2.Distance(target.Center, proj.Center);
+            float lerp = dis < 1000 ? dis / 1000 * 20 + 10 : 30;
+            return (proj.velocity * lerp * (proj.MaxUpdates) + tarVel / proj.MaxUpdates)
+                / (lerp * proj.MaxUpdates + 1);
         }
     }
 }
