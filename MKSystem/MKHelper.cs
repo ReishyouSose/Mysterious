@@ -72,5 +72,17 @@
             return (proj.velocity * lerp * (proj.MaxUpdates) + tarVel / proj.MaxUpdates)
                 / (lerp * proj.MaxUpdates + 1);
         }
+        public static float Sin(double t)
+        {
+            return (float)Math.Sin(t);
+        }
+        public static float Cos(double t)
+        {
+            return (float)Math.Cos(t);
+        }
+        public static float ManyPI(float precent)
+        {
+            return (float)(Math.PI * precent);
+        }
     }
 }

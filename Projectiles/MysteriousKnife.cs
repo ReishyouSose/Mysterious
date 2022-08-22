@@ -196,7 +196,7 @@ namespace MysteriousKnives.Projectiles
             SpriteBatch sb = Main.spriteBatch;
             Texture2D tex = TextureAssets.Projectile[Type].Value;
             Vector2 origin = tex.Size() / 2f;
-            Color drawcolor = GetColor((int)ProjType) * ((255 - Projectile.alpha) / 510f + 0.5f);
+            Color drawcolor = GetColor((int)ProjType) * ((255 - Projectile.alpha) / 510f + 0.025f * Projectile.ai[0]);
             Vector2 pos = Projectile.Center - Main.screenPosition + new Vector2(0f, Projectile.gfxOffY);
             float lerp = ((float)Math.Cos(Main.GameUpdateCount / 1.5f) * 0.2f + 1) * 0.8f;
             Vector2 scale = new Vector2(0.5f, 5f) * lerp * 0.8f * ((255 - Projectile.alpha) / 255f) * (Projectile.scale / 2 + 0.5f);
