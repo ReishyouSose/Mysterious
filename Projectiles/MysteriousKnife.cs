@@ -206,12 +206,12 @@ namespace MysteriousKnives.Projectiles
                 float dawl = (length - i) / length;
                 Vector2 tral = new(1f);
                 sb.Draw(tex, Projectile.oldPos[i] - Main.screenPosition, null, drawcolor * dawl,
-                    Projectile.oldRot[i], origin, Projectile.scale * tral * 0.8f, 0, 0);
+                    Projectile.oldRot[i], origin, Projectile.scale * tral * 0.6f, 0, 0);
             }
             sb.Draw(tex, pos, null, drawcolor * lerp, (float)Math.PI / 2f, origin, scale, 0, 0);
             sb.Draw(tex, pos, null, drawcolor * lerp * 0.75f, 0f, origin, scale * 0.75f, 0, 0);
-            sb.Draw(tex, pos, null, new Color(1, 1, 1, 0f) * ((255 - Projectile.alpha) / 255f),
-                Projectile.rotation, origin, Projectile.scale * 1.2f, 0, 0);
+            sb.Draw(tex, pos, null, new Color(1, 1, 1, 0.5f) * ((255 - Projectile.alpha) / 255f),
+                Projectile.rotation, origin, Projectile.scale, 0, 0);
             return false;
         }
         public override void SendExtraAI(BinaryWriter writer)

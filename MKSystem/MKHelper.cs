@@ -84,5 +84,9 @@
         {
             return (float)(Math.PI * precent);
         }
+        public static Asset<Texture2D> GetT2D(string fullName)
+        {
+            return ModContent.Request<Texture2D>(fullName, AssetRequestMode.ImmediateLoad);
+        }
     }
 }
