@@ -58,7 +58,11 @@
                     color, damage, largeText, dot);
                 }
             }
-            else target.StrikeNPC(damage + 1, 0, 0);
+            else
+            {
+                target.life = 1;
+                target.StrikeNPC(damage, 0, 0);
+            }
         }
         public static Item PlySelect(Player player)
         {
@@ -80,13 +84,42 @@
         {
             return (float)Math.Cos(t);
         }
+        /// <summary>
+        /// 注意是一个PI
+        /// </summary>
+        /// <param name="precent"></param>
+        /// <returns></returns>
         public static float ManyPI(float precent)
         {
             return (float)(Math.PI * precent);
         }
         public static Asset<Texture2D> GetT2D(string fullName)
         {
-            return ModContent.Request<Texture2D>(fullName, AssetRequestMode.ImmediateLoad);
+            return ModContent.Request<Texture2D>($"MysteriousKnives/Pictures/{fullName}", AssetRequestMode.ImmediateLoad);
+        }
+        /// <summary>
+        /// 左闭右开
+        /// </summary>
+        /// <param name="value"></param>
+        /// <param name="min"></param>
+        /// <param name="max"></param>
+        /// <returns></returns>
+        public static bool Between(double value, double min, double max)
+        {
+            if (min > max)
+            {
+                throw new ArgumentException("min must be <= max");
+            }
+            return value >= min && value <= max;
+        }
+        /// <summary>
+        /// Mod Item Type
+        /// </summary>
+        /// <param name="name"></param>
+        /// <returns></returns>
+        public static int MIT(Mod mod, string name)
+        {
+            return mod.Find<ModItem>(name).Type;
         }
     }
 }

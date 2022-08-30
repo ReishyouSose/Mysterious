@@ -32,9 +32,13 @@
             gametime = gameTime;
             UI1?.Update(gameTime);
             UI2?.Update(gameTime);
-            SkillButton.enable = Main.playerInventory;
-            UI1.SetState(SkillButton.enable ? button : null);
-            UI2.SetState(Main.playerInventory ? (SkillTree.enable ? tree : null) : null);
+            if (ModLoader.TryGetMod("CalamityMod", out Mod mod))
+            {
+                SkillButton.enable = Main.playerInventory;
+                UI1.SetState(SkillButton.enable ? button : null);
+                UI2.SetState(Main.playerInventory ? (SkillTree.enable ? tree : null) : null);
+                if (Main.playerInventory && Main.LocalPlayer.controlInv) SkillTree.enable = false;
+            }
         }
         public override void ModifyInterfaceLayers(List<GameInterfaceLayer> layers)
         {

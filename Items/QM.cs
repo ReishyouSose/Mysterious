@@ -320,7 +320,7 @@
 					{
 						Recipe recipe = CreateRecipe();
 						recipe.AddIngredient(ItemID.BottledWater, 10);
-						recipe.AddIngredient(CalamityMod.Find<ModItem>("ScarredAngelfish"), 1);
+						//recipe.AddIngredient(CalamityMod.Find<ModItem>("ScarredAngelfish"), 1);
 						recipe.AddTile(TileID.Bottles);
 						recipe.ReplaceResult(this, 1);
 						recipe.Register();

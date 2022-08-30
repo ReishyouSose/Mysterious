@@ -31,9 +31,23 @@ namespace MysteriousKnives.Projectiles
         }
         public override void OnSpawn(IEntitySource source)
         {
-            if (source is EntitySource_ItemUse_WithAmmo use)
+            if (source is EntitySource_ItemUse use1)
             {
-                Item item = use.Item;
+                Item item = use1.Item;
+                if (item.type == MKItemID.MK01) Projectile.frame = 1;
+                if (item.type == MKItemID.MK02) Projectile.frame = 2;
+                if (item.type == MKItemID.MK03) Projectile.frame = 3;
+                if (item.type == MKItemID.MK04) Projectile.frame = 4;
+                if (item.type == MKItemID.MK05) Projectile.frame = 5;
+                if (item.type == MKItemID.MK06) Projectile.frame = 6;
+                if (item.type == MKItemID.MK07) Projectile.frame = 7;
+                if (item.type == MKItemID.MK08) Projectile.frame = 8;
+                if (item.type == MKItemID.MK09) Projectile.frame = 9;
+                if (item.type == MKItemID.MK10) Projectile.frame = 10;
+            }
+            else if (source is EntitySource_ItemUse_WithAmmo use2)
+            {
+                Item item = use2.Item;
                 if (item.type == MKItemID.MK01) Projectile.frame = 1;
                 if (item.type == MKItemID.MK02) Projectile.frame = 2;
                 if (item.type == MKItemID.MK03) Projectile.frame = 3;
