@@ -97,15 +97,15 @@ namespace MysteriousKnives.Projectiles
                     int step = 36;
                     int width = 20;
                     float unit = 1f / step;
-                    bars.Clear();
+                    bars = new();
                     for (int i = 1; i < step; i++)
                     {
-                        Vector2 pos = Circle(ManyPI(1 / 36f) * (i + t), 10f * dis);
-                        Vector2 oldpos = Circle(ManyPI(1 / 36f) * (i - 1 + t), 10f * dis);
+                        Vector2 pos = Circle(ManyPI(1 / 36f) * (i + t), 10f * dis) + target.Center;
+                        Vector2 oldpos = Circle(ManyPI(1 / 36f) * (i - 1 + t), 10f * dis) + target.Center;
                         Vector2 normal = pos - oldpos;
                         normal = Vector2.Normalize(new Vector2(normal.Y, normal.X));
                         float alpha = MathHelper.Lerp(1f, 0.05f, i * unit);
-                        for (int j = -1; j < 2; j++)
+                        for (int j = -1; j < 2; j += 2)
                         {
                             Vector2 point = pos + i * normal * width;
                             bars.Add(new VertexData(point, Color.White, new Vector3((1f / step), i == -1 ? 1 : 0, alpha)));
@@ -116,7 +116,7 @@ namespace MysteriousKnives.Projectiles
         }
         public struct VertexData : IVertexType
         {
-            public VertexDeclaration data = new(new VertexElement[3]
+            public static VertexDeclaration data = new(new VertexElement[3]
             {
                 new VertexElement(0, VertexElementFormat.Vector2, VertexElementUsage.Position, 0),
                 new VertexElement(8, VertexElementFormat.Color, VertexElementUsage.Color, 0),
@@ -169,24 +169,52 @@ namespace MysteriousKnives.Projectiles
                     effects: 0,
                     layerDepth: 0);
             }
-            ChangeSpb(BlendState.AlphaBlend);*/}
+            ChangeSpb(BlendState.AlphaBlend);*/
+            }
             List<VertexData> triangle = new();
-            if (bars.Count > 2)
+            if (bars != null && bars.Count > 2)
             {
                 for (int i = 0; i < bars.Count - 2; i += 2)
                 {
                     triangle.Add(bars[i]);
-                    triangle.Add(bars[i+1]);
-                    triangle.Add(bars[i+3]);
+                    triangle.Add(bars[i + 1]);
+                    triangle.Add(bars[i + 3]);
                     triangle.Add(bars[i]);
-                    triangle.Add(bars[i+2]);
-                    triangle.Add(bars[i+3]);
+                    triangle.Add(bars[i + 2]);
+                    triangle.Add(bars[i + 3]);
                 }
             }
-            var sb = Main.spriteBatch;
-            sb.End();
-            sb.Begin(SpriteSortMode.Immediate, BlendState.Additive, SamplerState.PointWrap, DepthStencilState.Default, RasterizerState.CullNone);
-            RasterizerState originalState = Main.graphics.GraphicsDevice.RasterizerState;
+            if (triangle.Count > 3)
+            {
+                var sb = Main.spriteBatch;
+                sb.End();
+                sb.Begin(SpriteSortMode.Immediate, BlendState.Additive, SamplerState.PointWrap,
+                    DepthStencilState.Default, RasterizerState.CullNone);
+
+                var projection = Matrix.CreateOrthographicOffCenter(0, Main.screenWidth, Main.screenHeight, 0, 0, 1);
+                var model = Matrix.CreateTranslation(new Vector3(-Main.screenPosition.X, -Main.screenPosition.Y, 0));
+
+                Effect effect = ModContent.Request<Effect>("MysteriousKnives/Effects/Content/Trail", AssetRequestMode.ImmediateLoad).Value;
+                Texture2D MainColor = ModContent.Request<Texture2D>("MysteriousKnives/Pictures/Projectiles/Another/heatmap", AssetRequestMode.ImmediateLoad).Value;
+                Texture2D MainShape = ModContent.Request<Texture2D>("MysteriousKnives/Pictures/Projectiles/Another/Extra_197", AssetRequestMode.ImmediateLoad).Value;
+                Texture2D MaskColor = ModContent.Request<Texture2D>("MysteriousKnives/Pictures/Projectiles/Another/Extra_189", AssetRequestMode.ImmediateLoad).Value;
+                effect.Parameters["uTransform"].SetValue(model * projection);
+                effect.Parameters["uTime"].SetValue(-(float)Main.GameUpdateCount * 0.03f);
+                Main.graphics.GraphicsDevice.Textures[0] = MainColor;
+                Main.graphics.GraphicsDevice.Textures[1] = MainShape;
+                Main.graphics.GraphicsDevice.Textures[2] = MaskColor;
+                Main.graphics.GraphicsDevice.SamplerStates[0] = SamplerState.PointWrap;
+                Main.graphics.GraphicsDevice.SamplerStates[1] = SamplerState.PointWrap;
+                Main.graphics.GraphicsDevice.SamplerStates[2] = SamplerState.PointWrap;
+
+                effect.CurrentTechnique.Passes["ColorBar"].Apply();
+
+                Main.graphics.GraphicsDevice.DrawUserPrimitives(PrimitiveType.TriangleList, triangle.ToArray(), 0, triangle.Count / 3);
+
+                sb.End();
+                sb.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend, SamplerState.PointWrap, DepthStencilState.Default, RasterizerState.CullNone);
+
+            }
             return false;
         }
         public override void SendExtraAI(BinaryWriter writer)
