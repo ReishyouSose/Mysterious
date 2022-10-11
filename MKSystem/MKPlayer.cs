@@ -111,7 +111,7 @@
                 case 8: item = new Item(MKItemID.MK08).Clone(); break;
                 case 9: item = new Item(MKItemID.MK09).Clone(); break;
             }
-            if (Player.ItemAnimationActive && shoot)
+            if (Player.ItemAnimationActive && shoot && _level > 0 && ModLoader.TryGetMod("CalamityMod", out Mod mod))
             {
                 Projectile proj = Projectile.NewProjectileDirect(Entity.GetSource_ItemUse(item), Player.Center,
                    Vector2.One.RotatedBy(ManyPI(1 / 180f) * Main.rand.Next(0, 360)), MKProjID.Core,

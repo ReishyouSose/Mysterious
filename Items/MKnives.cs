@@ -17,6 +17,7 @@
             Item.shoot = ModContent.ProjectileType<MysteriousCore>();
             Item.shootSpeed = 10f;
             Item.UseSound = SoundID.Item113;
+            SacrificeTotal = 1;
             base.SetDefaults();
         }
 
@@ -381,7 +382,7 @@
                 base.SetDefaults();
                 Item.autoReuse = false;
                 Item.useStyle = ItemUseStyleID.Shoot;
-                Item.damage = 3000;
+                Item.damage = 100;//3000
                 Item.knockBack = 20;
                 Item.crit = 100;
                 Item.useTime = 2;

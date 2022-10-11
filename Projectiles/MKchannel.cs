@@ -41,6 +41,7 @@ namespace MysteriousKnives.Projectiles
                 {
                     player.direction = target.position.X > player.position.X ? 1 : -1;
                     drawpos = target.Center;
+                    // 帧伤
                     int space = 1;
                     if (Main.GameUpdateCount % space == 0)
                     {
@@ -49,15 +50,15 @@ namespace MysteriousKnives.Projectiles
                         NoSoundStrike(target, damage, new(Main.DiscoColor.ToVector3()) { A = 0 });
                         player.addDPS(damage);
                     }
-
-                    int space2 = 3;
-                    if (Main.GameUpdateCount % space2 == 0)
+                    // 3帧一剑
+                    space = 3;
+                    if (Main.GameUpdateCount % space == 0)
                     {
                         float rand = Main.rand.NextFloat(MathHelper.TwoPi);
                         Vector2 pos = target.Center + new Vector2((float)Math.Cos(rand), (float)Math.Sin(rand)) * 1500;
                         Projectile proj = Projectile.NewProjectileDirect(Projectile.GetSource_FromAI(), pos,
                             Vector2.Normalize(target.Center - pos) * 10f, MKProjID.Rainbow_Halberd,
-                            (int)root * space2, 0, player.whoAmI);
+                            (int)root * space, 0, player.whoAmI);
                         proj.extraUpdates += Main.rand.Next(-3, 3);
                     }
 
@@ -93,13 +94,53 @@ namespace MysteriousKnives.Projectiles
                             (float)Math.Sin(Math.PI / 36 * (i + t))) * 10f * dis + target.Center;
                         dust.velocity *= 0;
                     }
+                    int step = 36;
+                    int width = 20;
+                    float unit = 1f / step;
+                    bars.Clear();
+                    for (int i = 1; i < step; i++)
+                    {
+                        Vector2 pos = Circle(ManyPI(1 / 36f) * (i + t), 10f * dis);
+                        Vector2 oldpos = Circle(ManyPI(1 / 36f) * (i - 1 + t), 10f * dis);
+                        Vector2 normal = pos - oldpos;
+                        normal = Vector2.Normalize(new Vector2(normal.Y, normal.X));
+                        float alpha = MathHelper.Lerp(1f, 0.05f, i * unit);
+                        for (int j = -1; j < 2; j++)
+                        {
+                            Vector2 point = pos + i * normal * width;
+                            bars.Add(new VertexData(point, Color.White, new Vector3((1f / step), i == -1 ? 1 : 0, alpha)));
+                        }
+                    }
                 }
             }
         }
+        public struct VertexData : IVertexType
+        {
+            public VertexDeclaration data = new(new VertexElement[3]
+            {
+                new VertexElement(0, VertexElementFormat.Vector2, VertexElementUsage.Position, 0),
+                new VertexElement(8, VertexElementFormat.Color, VertexElementUsage.Color, 0),
+                new VertexElement(12, VertexElementFormat.Vector3, VertexElementUsage.TextureCoordinate, 0)
+            });
+            public Vector2 Position;
+            public Color Color;
+            public Vector3 TexCoord;
+
+            public VertexData(Vector2 position, Color color, Vector3 texCoord)
+            {
+                this.Position = position;
+                this.Color = color;
+                this.TexCoord = texCoord;
+            }
+
+            public VertexDeclaration VertexDeclaration => data;
+        }
+        public List<VertexData> bars;
         public Vector2 drawpos;
         public bool down = true;
         public override bool PreDraw(ref Color lightColor)
-        {/*
+        {
+            { /*
             if (Projectile.ai[0] < 10) Projectile.ai[0]++;
 
             int f = 20, t = 3;
@@ -128,7 +169,24 @@ namespace MysteriousKnives.Projectiles
                     effects: 0,
                     layerDepth: 0);
             }
-            ChangeSpb(BlendState.AlphaBlend);*/
+            ChangeSpb(BlendState.AlphaBlend);*/}
+            List<VertexData> triangle = new();
+            if (bars.Count > 2)
+            {
+                for (int i = 0; i < bars.Count - 2; i += 2)
+                {
+                    triangle.Add(bars[i]);
+                    triangle.Add(bars[i+1]);
+                    triangle.Add(bars[i+3]);
+                    triangle.Add(bars[i]);
+                    triangle.Add(bars[i+2]);
+                    triangle.Add(bars[i+3]);
+                }
+            }
+            var sb = Main.spriteBatch;
+            sb.End();
+            sb.Begin(SpriteSortMode.Immediate, BlendState.Additive, SamplerState.PointWrap, DepthStencilState.Default, RasterizerState.CullNone);
+            RasterizerState originalState = Main.graphics.GraphicsDevice.RasterizerState;
             return false;
         }
         public override void SendExtraAI(BinaryWriter writer)

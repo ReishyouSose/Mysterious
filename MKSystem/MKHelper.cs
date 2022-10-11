@@ -93,6 +93,10 @@
         {
             return (float)(Math.PI * precent);
         }
+        public static Vector2 Circle(double value, double r)
+        {
+            return new Vector2(Cos(value), Sin(value)) * (float)r;
+        }
         public static Asset<Texture2D> GetT2D(string fullName)
         {
             return ModContent.Request<Texture2D>($"MysteriousKnives/Pictures/{fullName}", AssetRequestMode.ImmediateLoad);
