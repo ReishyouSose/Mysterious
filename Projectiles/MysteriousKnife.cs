@@ -1,3 +1,5 @@
+using static MysteriousKnives.Projectiles.MKchannel;
+
 namespace MysteriousKnives.Projectiles
 {
     public class MysteriousKnife : ModProjectile
@@ -90,6 +92,7 @@ namespace MysteriousKnives.Projectiles
         }
         public override void AI()
         {
+            MysteriousKnives.draw2 = true;
             switch (State)
             {
                 case Projmode.spawn:
@@ -194,6 +197,9 @@ namespace MysteriousKnives.Projectiles
         public override bool PreDraw(ref Color lightColor)
         {
             SpriteBatch sb = Main.spriteBatch;
+            sb.End();
+            sb.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend, SamplerState.AnisotropicClamp, DepthStencilState.None,
+                RasterizerState.CullNone, null, Main.GameViewMatrix.TransformationMatrix);
             Texture2D tex = TextureAssets.Projectile[Type].Value;
             Vector2 origin = tex.Size() / 2f;
             Color drawcolor = GetColor((int)ProjType) * ((255 - Projectile.alpha) / 510f + 0.025f * Projectile.ai[0]);
@@ -201,6 +207,12 @@ namespace MysteriousKnives.Projectiles
             float lerp = ((float)Math.Cos(Main.GameUpdateCount / 1.5f) * 0.2f + 1) * 0.8f;
             Vector2 scale = new Vector2(0.5f, 5f) * lerp * 0.8f * ((255 - Projectile.alpha) / 255f) * (Projectile.scale / 2 + 0.5f);
             float length = Projectile.oldPos.Length;
+
+            /*Effect eff = ModContent.Request<Effect>("MysteriousKnives/Effects/Content/放大镜", AssetRequestMode.ImmediateLoad).Value;
+            eff.CurrentTechnique.Passes[0].Apply();
+            eff.Parameters["fix"].SetValue(new Vector2(Main.screenWidth / (float)Main.screenHeight, 1));
+            eff.Parameters["pos"].SetValue(WorldPosToCoords(Projectile.Center));*/
+
             for (int i = 0; i < length; i++)
             {
                 float dawl = (length - i) / length;
@@ -212,7 +224,77 @@ namespace MysteriousKnives.Projectiles
             sb.Draw(tex, pos, null, drawcolor * lerp * 0.75f, 0f, origin, scale * 0.75f, 0, 0);
             sb.Draw(tex, pos, null, new Color(1, 1, 1, 0.5f) * ((255 - Projectile.alpha) / 255f),
                 Projectile.rotation, origin, Projectile.scale, 0, 0);
+            ChangeSpb(BlendState.AlphaBlend);
+            //Main.graphics.GraphicsDevice.SetRenderTarget(Main.screenTargetSwap);
             return false;
+        }
+        public void DrawSelf(SpriteBatch sb)
+        {
+            List<VertexData> bars = new();
+            for (int i = 1; i < Projectile.oldPos.Length; i++)
+            {
+                Vector2[] data = CalculateVertex(Projectile.oldPos[i], Projectile.oldPos[i - 1], 30);
+                var factor = i / (float)Projectile.oldPos.Length;
+                var color = Color.Lerp(Color.White, Color.Red, factor);
+                var alpha = /*MathHelper.Lerp(1f, 0.05f, factor)*/1;
+                bars.Add(new VertexData(data[0], color, new Vector3((float)Math.Sqrt(factor), 1, alpha)));
+                bars.Add(new VertexData(data[1], color, new Vector3((float)Math.Sqrt(factor), 1, alpha)));
+            }
+            List<VertexData> triangleList = new();
+
+            if (bars.Count > 2)
+            {
+
+                // 按照顺序连接三角形
+                triangleList.Add(bars[0]);
+                var vertex = new VertexData((bars[0].Position + bars[1].Position) * 0.5f + Vector2.Normalize(Projectile.velocity) * 30, Color.White,
+                    new Vector3(0, 0.5f, 1));
+                triangleList.Add(bars[1]);
+                triangleList.Add(vertex);
+                for (int i = 0; i < bars.Count - 2; i += 2)
+                {
+                    triangleList.Add(bars[i]);
+                    triangleList.Add(bars[i + 2]);
+                    triangleList.Add(bars[i + 1]);
+
+                    triangleList.Add(bars[i + 1]);
+                    triangleList.Add(bars[i + 2]);
+                    triangleList.Add(bars[i + 3]);
+                }
+
+
+                sb.End();
+                sb.Begin(SpriteSortMode.Immediate, BlendState.Additive, SamplerState.PointWrap, DepthStencilState.Default, RasterizerState.CullNone);
+
+                // 干掉注释掉就可以只显示三角形栅格
+                //RasterizerState rasterizerState = new RasterizerState();
+                //rasterizerState.CullMode = CullMode.None;
+                //rasterizerState.FillMode = FillMode.WireFrame;
+                //Main.graphics.GraphicsDevice.RasterizerState = rasterizerState;
+
+                var projection = Matrix.CreateOrthographicOffCenter(0, Main.screenWidth, Main.screenHeight, 0, 0, 1);
+                var model = Matrix.CreateTranslation(new Vector3(-Main.screenPosition.X, -Main.screenPosition.Y, 0));
+
+                // 把变换和所需信息丢给shader
+                Effect DefaultEffect = ModContent.Request<Effect>("MysteriousKnives/Effects/Content/Trail", AssetRequestMode.ImmediateLoad).Value;
+                Texture2D MainColor = ModContent.Request<Texture2D>("MysteriousKnives/Pictures/Projectiles/Another/heatmap").Value;
+                Texture2D MainShape = ModContent.Request<Texture2D>("MysteriousKnives/Pictures/Projectiles/Another/Extra_197").Value;
+                Texture2D MaskColor = ModContent.Request<Texture2D>("MysteriousKnives/Pictures/Projectiles/Another/Extra_189").Value;
+                DefaultEffect.Parameters["uTransform"].SetValue(model * projection);
+                DefaultEffect.Parameters["uTime"].SetValue(-(float)Main.time * 0.03f);
+                Main.graphics.GraphicsDevice.Textures[0] = MainColor;
+                Main.graphics.GraphicsDevice.Textures[1] = MainShape;
+                Main.graphics.GraphicsDevice.Textures[2] = MaskColor;
+                Main.graphics.GraphicsDevice.SamplerStates[0] = SamplerState.PointWrap;
+                Main.graphics.GraphicsDevice.SamplerStates[1] = SamplerState.PointWrap;
+                Main.graphics.GraphicsDevice.SamplerStates[2] = SamplerState.PointWrap;
+
+                DefaultEffect.CurrentTechnique.Passes[0].Apply();
+
+
+                Main.graphics.GraphicsDevice.DrawUserPrimitives(PrimitiveType.TriangleList, triangleList.ToArray(), 0, triangleList.Count / 3);
+
+            }
         }
         public override void SendExtraAI(BinaryWriter writer)
         {

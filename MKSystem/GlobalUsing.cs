@@ -52,6 +52,10 @@ global using MysteriousKnives.MKSystem;
 global using static MysteriousKnives.MKSystem.MKHelper;
 global using ReLogic.Content;
 global using TemplateMod2.Utils;
+global using Terraria.Graphics.Shaders;
+global using MysteriousKnives.Effects.ShaderSystem;
+global using Terraria.Graphics.Effects;
+
 
 namespace MysteriousKnives.MKSystem
 {

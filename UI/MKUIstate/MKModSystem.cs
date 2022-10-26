@@ -29,6 +29,8 @@
         public GameTime gametime;
         public override void UpdateUI(GameTime gameTime)
         {
+            MysteriousKnives.draw = false;
+            MysteriousKnives.draw2 = false;
             gametime = gameTime;
             UI1?.Update(gameTime);
             UI2?.Update(gameTime);
@@ -58,6 +60,21 @@
                 InterfaceScaleType.UI));
             }
         }
+        public override void PreUpdateEntities()
+        {
+            base.PreUpdateEntities();
+            if (!Filters.Scene["MKScreenShader"].IsActive())
+            {
+                // 开启滤镜
+                Filters.Scene.Activate("MKScreenShader");
+            }/*
+            else
+            {
+                Filters.Scene.Deactivate("MKScreenShader");
+            }*/
+            //Filters.Scene.Deactivate("MKScreenShader");
+        }
+
     }
 
 }

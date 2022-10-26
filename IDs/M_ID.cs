@@ -26,9 +26,9 @@
         public static int Sphere_AS = ModContent.ProjectileType<ASsphere>();
         public static int Sphere_ST = ModContent.ProjectileType<STsphere>();
         public static int Sphere_RB = ModContent.ProjectileType<RBsphere>();
-
+        public static int SpaceWrap = ModContent.ProjectileType<SpaceWarpProj>();
     }
-    internal static class MKDustID
+        internal static class MKDustID
     {
         public static int ASDust = ModContent.DustType<ASDust>();
         public static int CSDust = ModContent.DustType<CSDust>();
@@ -40,6 +40,7 @@
         public static int WVDust = ModContent.DustType<WVDust>();
         public static int RainbowDust = ModContent.DustType <RainbowDust>();
         public static int HalloweenDust = ModContent.DustType<HalloweenDust>();
+        public static int CosmicFlame = ModContent.DustType<HalloweenDust>();
     }
     internal static class MKBuffID
     {

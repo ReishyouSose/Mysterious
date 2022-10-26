@@ -1,0 +1,1279 @@
+Message at 2022/10/11 22:17:47: Importing Magnification.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/11 22:17:47: Processing Magnification.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Error at 2022/10/11 22:17:47: Errors compiling C:\Users\16571\Documents\My Games\Terraria\tModLoader\ModSources\XNB编译器\Magnification.fx:
+C:\Users\16571\Documents\My Games\Terraria\tModLoader\ModSources\XNB??????\Magnification.fx(21,29): error X3000: syntax error: unexpected token '?
+Message at 2022/10/11 22:32:03: Importing Magnification.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/11 22:32:03: Processing Magnification.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Error at 2022/10/11 22:32:04: Errors compiling C:\Users\16571\Documents\My Games\Terraria\tModLoader\ModSources\XNBcompiler\Magnification.fx:
+C:\Users\16571\Documents\My Games\Terraria\tModLoader\ModSources\XNBcompiler\Magnification.fx(21,29): error X3000: syntax error: unexpected token '?
+Message at 2022/10/11 22:34:25: Importing Magnification.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/11 22:34:25: Processing Magnification.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/11 22:34:25: Compiling Content\Magnification.xnb
+Message at 2022/10/12 20:12:43: Importing Magnification.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/12 20:12:43: Processing Magnification.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/12 20:12:43: Compiling Content\Magnification.xnb
+Message at 2022/10/12 20:12:43: Importing Trail.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/12 20:12:43: Processing Trail.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/12 20:12:43: Compiling Content\Trail.xnb
+Message at 2022/10/12 20:22:40: Importing Magnification.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/12 20:22:40: Processing Magnification.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/12 20:22:40: Compiling Content\Magnification.xnb
+Message at 2022/10/12 20:22:40: Importing Trail.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/12 20:22:40: Processing Trail.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/12 20:22:40: Compiling Content\Trail.xnb
+Message at 2022/10/12 20:27:09: Importing Magnification.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/12 20:27:09: Processing Magnification.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/12 20:27:09: Compiling Content\Magnification.xnb
+Message at 2022/10/12 20:27:09: Importing Trail.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/12 20:27:09: Processing Trail.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/12 20:27:09: Compiling Content\Trail.xnb
+Message at 2022/10/12 21:11:47: Importing Magnification.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/12 21:11:47: Processing Magnification.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/12 21:11:47: Compiling Content\Magnification.xnb
+Message at 2022/10/12 21:11:47: Importing Trail.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/12 21:11:47: Processing Trail.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/12 21:11:47: Compiling Content\Trail.xnb
+Message at 2022/10/12 21:22:42: Importing Magnification.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/12 21:22:42: Processing Magnification.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/12 21:22:42: Compiling Content\Magnification.xnb
+Message at 2022/10/12 21:22:42: Importing Trail.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/12 21:22:42: Processing Trail.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/12 21:22:42: Compiling Content\Trail.xnb
+Message at 2022/10/12 21:25:02: Importing Magnification.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/12 21:25:02: Processing Magnification.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/12 21:25:02: Compiling Content\Magnification.xnb
+Message at 2022/10/12 21:25:02: Importing Trail.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/12 21:25:02: Processing Trail.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/12 21:25:02: Compiling Content\Trail.xnb
+Message at 2022/10/12 21:33:45: Importing Magnification.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/12 21:33:45: Processing Magnification.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/12 21:33:45: Compiling Content\Magnification.xnb
+Message at 2022/10/12 21:33:45: Importing Trail.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/12 21:33:45: Processing Trail.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/12 21:33:45: Compiling Content\Trail.xnb
+Message at 2022/10/12 21:37:07: Importing Magnification.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/12 21:37:07: Processing Magnification.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/12 21:37:07: Compiling Content\Magnification.xnb
+Message at 2022/10/12 21:37:07: Importing Trail.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/12 21:37:07: Processing Trail.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/12 21:37:07: Compiling Content\Trail.xnb
+Message at 2022/10/14 23:02:01: Importing BigTentacle.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/14 23:02:01: Processing BigTentacle.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/14 23:02:01: Compiling Content\BigTentacle.xnb
+Message at 2022/10/14 23:02:01: Importing Bloom1.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/14 23:02:01: Processing Bloom1.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/14 23:02:01: Compiling Content\Bloom1.xnb
+Message at 2022/10/14 23:02:01: Importing Magnification.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/14 23:02:01: Processing Magnification.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/14 23:02:01: Compiling Content\Magnification.xnb
+Message at 2022/10/14 23:02:01: Importing Offset.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/14 23:02:01: Processing Offset.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/14 23:02:01: Compiling Content\Offset.xnb
+Message at 2022/10/14 23:02:01: Importing Trail.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/14 23:02:01: Processing Trail.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/14 23:02:01: Compiling Content\Trail.xnb
+Message at 2022/10/14 23:19:18: Importing BigTentacle.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/14 23:19:18: Processing BigTentacle.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/14 23:19:18: Compiling Content\BigTentacle.xnb
+Message at 2022/10/14 23:19:18: Importing Bloom1.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/14 23:19:18: Processing Bloom1.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/14 23:19:18: Compiling Content\Bloom1.xnb
+Message at 2022/10/14 23:19:18: Importing Magnification.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/14 23:19:18: Processing Magnification.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/14 23:19:18: Compiling Content\Magnification.xnb
+Message at 2022/10/14 23:19:18: Importing Offset.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/14 23:19:18: Processing Offset.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/14 23:19:18: Compiling Content\Offset.xnb
+Message at 2022/10/14 23:19:18: Importing Trail.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/14 23:19:18: Processing Trail.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/14 23:19:19: Compiling Content\Trail.xnb
+Message at 2022/10/16 12:03:50: Importing BigTentacle.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/16 12:03:50: Processing BigTentacle.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/16 12:03:50: Compiling Content\BigTentacle.xnb
+Message at 2022/10/16 12:03:50: Importing Bloom1.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/16 12:03:50: Processing Bloom1.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/16 12:03:50: Compiling Content\Bloom1.xnb
+Message at 2022/10/16 12:03:50: Importing Magnification.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/16 12:03:50: Processing Magnification.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/16 12:03:50: Compiling Content\Magnification.xnb
+Message at 2022/10/16 12:03:50: Importing Offset.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/16 12:03:50: Processing Offset.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/16 12:03:50: Compiling Content\Offset.xnb
+Message at 2022/10/16 12:03:50: Importing Trail.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/16 12:03:50: Processing Trail.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/16 12:03:50: Compiling Content\Trail.xnb
+Message at 2022/10/16 14:05:41: Importing BigTentacle.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/16 14:05:41: Processing BigTentacle.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/16 14:05:41: Compiling Content\BigTentacle.xnb
+Message at 2022/10/16 14:05:41: Importing Bloom1.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/16 14:05:41: Processing Bloom1.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/16 14:05:41: Compiling Content\Bloom1.xnb
+Message at 2022/10/16 14:05:41: Importing Magnification.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/16 14:05:41: Processing Magnification.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/16 14:05:41: Compiling Content\Magnification.xnb
+Message at 2022/10/16 14:05:41: Importing Offset.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/16 14:05:41: Processing Offset.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/16 14:05:41: Compiling Content\Offset.xnb
+Message at 2022/10/16 14:05:41: Importing SpaceWrap.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/16 14:05:41: Processing SpaceWrap.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/16 14:05:41: Compiling Content\SpaceWrap.xnb
+Message at 2022/10/16 14:05:41: Importing Trail.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/16 14:05:41: Processing Trail.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/16 14:05:41: Compiling Content\Trail.xnb
+Message at 2022/10/16 14:13:54: Importing BigTentacle.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/16 14:13:54: Processing BigTentacle.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/16 14:13:54: Compiling Content\BigTentacle.xnb
+Message at 2022/10/16 14:13:54: Importing Bloom1.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/16 14:13:54: Processing Bloom1.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/16 14:13:54: Compiling Content\Bloom1.xnb
+Message at 2022/10/16 14:13:54: Importing Magnification.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/16 14:13:54: Processing Magnification.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/16 14:13:54: Compiling Content\Magnification.xnb
+Message at 2022/10/16 14:13:54: Importing Offset.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/16 14:13:54: Processing Offset.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/16 14:13:54: Compiling Content\Offset.xnb
+Message at 2022/10/16 14:13:54: Importing SpaceWrap.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/16 14:13:54: Processing SpaceWrap.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/16 14:13:54: Compiling Content\SpaceWrap.xnb
+Message at 2022/10/16 14:13:54: Importing Trail.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/16 14:13:54: Processing Trail.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/16 14:13:54: Compiling Content\Trail.xnb
+Message at 2022/10/16 14:29:39: Importing BigTentacle.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/16 14:29:39: Processing BigTentacle.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/16 14:29:39: Compiling Content\BigTentacle.xnb
+Message at 2022/10/16 14:29:39: Importing Bloom1.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/16 14:29:39: Processing Bloom1.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/16 14:29:39: Compiling Content\Bloom1.xnb
+Message at 2022/10/16 14:29:39: Importing Magnification.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/16 14:29:39: Processing Magnification.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/16 14:29:39: Compiling Content\Magnification.xnb
+Message at 2022/10/16 14:29:39: Importing Offset.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/16 14:29:39: Processing Offset.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/16 14:29:39: Compiling Content\Offset.xnb
+Message at 2022/10/16 14:29:39: Importing SpaceWrap.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/16 14:29:39: Processing SpaceWrap.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/16 14:29:39: Compiling Content\SpaceWrap.xnb
+Message at 2022/10/16 14:29:39: Importing Trail.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/16 14:29:39: Processing Trail.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/16 14:29:39: Compiling Content\Trail.xnb
+Message at 2022/10/16 14:31:58: Importing BigTentacle.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/16 14:31:59: Processing BigTentacle.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/16 14:31:59: Compiling Content\BigTentacle.xnb
+Message at 2022/10/16 14:31:59: Importing Bloom1.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/16 14:31:59: Processing Bloom1.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/16 14:31:59: Compiling Content\Bloom1.xnb
+Message at 2022/10/16 14:31:59: Importing Magnification.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/16 14:31:59: Processing Magnification.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/16 14:31:59: Compiling Content\Magnification.xnb
+Message at 2022/10/16 14:31:59: Importing Offset.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/16 14:31:59: Processing Offset.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/16 14:31:59: Compiling Content\Offset.xnb
+Message at 2022/10/16 14:31:59: Importing SpaceWrap.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/16 14:31:59: Processing SpaceWrap.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/16 14:31:59: Compiling Content\SpaceWrap.xnb
+Message at 2022/10/16 14:31:59: Importing Trail.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/16 14:31:59: Processing Trail.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/16 14:31:59: Compiling Content\Trail.xnb
+Message at 2022/10/16 14:32:35: Importing BigTentacle.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/16 14:32:35: Processing BigTentacle.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/16 14:32:35: Compiling Content\BigTentacle.xnb
+Message at 2022/10/16 14:32:35: Importing Bloom1.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/16 14:32:35: Processing Bloom1.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/16 14:32:35: Compiling Content\Bloom1.xnb
+Message at 2022/10/16 14:32:35: Importing Magnification.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/16 14:32:35: Processing Magnification.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/16 14:32:35: Compiling Content\Magnification.xnb
+Message at 2022/10/16 14:32:35: Importing Offset.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/16 14:32:35: Processing Offset.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/16 14:32:35: Compiling Content\Offset.xnb
+Message at 2022/10/16 14:32:35: Importing SpaceWrap.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/16 14:32:35: Processing SpaceWrap.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/16 14:32:35: Compiling Content\SpaceWrap.xnb
+Message at 2022/10/16 14:32:35: Importing Trail.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/16 14:32:35: Processing Trail.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/16 14:32:35: Compiling Content\Trail.xnb
+Message at 2022/10/16 18:33:22: Importing BigTentacle.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/16 18:33:22: Processing BigTentacle.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/16 18:33:22: Compiling Content\BigTentacle.xnb
+Message at 2022/10/16 18:33:22: Importing Bloom1.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/16 18:33:22: Processing Bloom1.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/16 18:33:22: Compiling Content\Bloom1.xnb
+Message at 2022/10/16 18:33:22: Importing Magnification.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/16 18:33:22: Processing Magnification.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/16 18:33:22: Compiling Content\Magnification.xnb
+Message at 2022/10/16 18:33:22: Importing Offset.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/16 18:33:22: Processing Offset.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/16 18:33:22: Compiling Content\Offset.xnb
+Message at 2022/10/16 18:33:22: Importing SpaceWrap.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/16 18:33:22: Processing SpaceWrap.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/16 18:33:22: Compiling Content\SpaceWrap.xnb
+Message at 2022/10/16 18:33:22: Importing Trail.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/16 18:33:22: Processing Trail.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/16 18:33:22: Compiling Content\Trail.xnb
+Message at 2022/10/16 18:33:22: Importing 放大镜.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/16 18:33:22: Processing 放大镜.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/16 18:33:22: Compiling Content\放大镜.xnb
+Message at 2022/10/16 18:34:38: Importing BigTentacle.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/16 18:34:38: Processing BigTentacle.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/16 18:34:38: Compiling Content\BigTentacle.xnb
+Message at 2022/10/16 18:34:38: Importing Bloom1.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/16 18:34:38: Processing Bloom1.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/16 18:34:38: Compiling Content\Bloom1.xnb
+Message at 2022/10/16 18:34:38: Importing Magnification.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/16 18:34:38: Processing Magnification.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/16 18:34:38: Compiling Content\Magnification.xnb
+Message at 2022/10/16 18:34:38: Importing Offset.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/16 18:34:38: Processing Offset.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/16 18:34:38: Compiling Content\Offset.xnb
+Message at 2022/10/16 18:34:38: Importing SpaceWrap.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/16 18:34:38: Processing SpaceWrap.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/16 18:34:38: Compiling Content\SpaceWrap.xnb
+Message at 2022/10/16 18:34:38: Importing Trail.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/16 18:34:38: Processing Trail.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/16 18:34:38: Compiling Content\Trail.xnb
+Message at 2022/10/16 18:34:38: Importing 放大镜.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/16 18:34:38: Processing 放大镜.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/16 18:34:38: Compiling Content\放大镜.xnb
+Message at 2022/10/16 20:24:39: Importing BigTentacle.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/16 20:24:39: Processing BigTentacle.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/16 20:24:39: Compiling Content\BigTentacle.xnb
+Message at 2022/10/16 20:24:39: Importing Bloom1.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/16 20:24:39: Processing Bloom1.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/16 20:24:39: Compiling Content\Bloom1.xnb
+Message at 2022/10/16 20:24:39: Importing Magnification.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/16 20:24:39: Processing Magnification.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/16 20:24:39: Compiling Content\Magnification.xnb
+Message at 2022/10/16 20:24:39: Importing Offset.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/16 20:24:39: Processing Offset.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/16 20:24:39: Compiling Content\Offset.xnb
+Message at 2022/10/16 20:24:39: Importing SpaceWrap.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/16 20:24:39: Processing SpaceWrap.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/16 20:24:39: Compiling Content\SpaceWrap.xnb
+Message at 2022/10/16 20:24:39: Importing Trail.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/16 20:24:39: Processing Trail.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/16 20:24:39: Compiling Content\Trail.xnb
+Message at 2022/10/16 20:24:39: Importing 放大镜.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/16 20:24:39: Processing 放大镜.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/16 20:24:39: Compiling Content\放大镜.xnb
+Message at 2022/10/16 20:29:40: Importing BigTentacle.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/16 20:29:40: Processing BigTentacle.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/16 20:29:40: Compiling Content\BigTentacle.xnb
+Message at 2022/10/16 20:29:40: Importing Bloom1.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/16 20:29:40: Processing Bloom1.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/16 20:29:40: Compiling Content\Bloom1.xnb
+Message at 2022/10/16 20:29:40: Importing Magnification.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/16 20:29:40: Processing Magnification.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/16 20:29:40: Compiling Content\Magnification.xnb
+Message at 2022/10/16 20:29:40: Importing Offset.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/16 20:29:40: Processing Offset.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/16 20:29:40: Compiling Content\Offset.xnb
+Message at 2022/10/16 20:29:40: Importing SpaceWrap.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/16 20:29:40: Processing SpaceWrap.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/16 20:29:40: Compiling Content\SpaceWrap.xnb
+Message at 2022/10/16 20:29:40: Importing Trail.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/16 20:29:40: Processing Trail.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/16 20:29:40: Compiling Content\Trail.xnb
+Message at 2022/10/16 20:29:40: Importing 放大镜.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/16 20:29:40: Processing 放大镜.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/16 20:29:40: Compiling Content\放大镜.xnb
+Message at 2022/10/17 17:03:49: Importing BigTentacle.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/17 17:03:49: Processing BigTentacle.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/17 17:03:49: Compiling Content\BigTentacle.xnb
+Message at 2022/10/17 17:03:49: Importing Bloom1.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/17 17:03:49: Processing Bloom1.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/17 17:03:49: Compiling Content\Bloom1.xnb
+Message at 2022/10/17 17:03:49: Importing Magnification.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/17 17:03:49: Processing Magnification.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/17 17:03:49: Compiling Content\Magnification.xnb
+Message at 2022/10/17 17:03:49: Importing Offset.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/17 17:03:49: Processing Offset.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/17 17:03:49: Compiling Content\Offset.xnb
+Message at 2022/10/17 17:03:49: Importing SpaceWrap.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/17 17:03:49: Processing SpaceWrap.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/17 17:03:49: Compiling Content\SpaceWrap.xnb
+Message at 2022/10/17 17:03:49: Importing Trail.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/17 17:03:49: Processing Trail.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/17 17:03:49: Compiling Content\Trail.xnb
+Message at 2022/10/17 17:03:49: Importing 放大镜.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/17 17:03:49: Processing 放大镜.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/17 17:03:49: Compiling Content\放大镜.xnb
+Message at 2022/10/17 18:42:06: Importing BigTentacle.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/17 18:42:06: Processing BigTentacle.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/17 18:42:06: Compiling Content\BigTentacle.xnb
+Message at 2022/10/17 18:42:06: Importing Bloom1.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/17 18:42:06: Processing Bloom1.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/17 18:42:06: Compiling Content\Bloom1.xnb
+Message at 2022/10/17 18:42:06: Importing Magnification.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/17 18:42:06: Processing Magnification.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/17 18:42:06: Compiling Content\Magnification.xnb
+Message at 2022/10/17 18:42:06: Importing Offset.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/17 18:42:06: Processing Offset.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/17 18:42:06: Compiling Content\Offset.xnb
+Message at 2022/10/17 18:42:06: Importing SpaceWrap.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/17 18:42:06: Processing SpaceWrap.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/17 18:42:06: Compiling Content\SpaceWrap.xnb
+Message at 2022/10/17 18:42:06: Importing Trail.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/17 18:42:06: Processing Trail.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/17 18:42:06: Compiling Content\Trail.xnb
+Message at 2022/10/17 18:42:06: Importing 放大镜.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/17 18:42:06: Processing 放大镜.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/17 18:42:06: Compiling Content\放大镜.xnb
+Message at 2022/10/17 18:46:34: Importing BigTentacle.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/17 18:46:34: Processing BigTentacle.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/17 18:46:34: Compiling Content\BigTentacle.xnb
+Message at 2022/10/17 18:46:34: Importing Bloom1.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/17 18:46:34: Processing Bloom1.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/17 18:46:34: Compiling Content\Bloom1.xnb
+Message at 2022/10/17 18:46:34: Importing Magnification.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/17 18:46:34: Processing Magnification.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/17 18:46:34: Compiling Content\Magnification.xnb
+Message at 2022/10/17 18:46:34: Importing Offset.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/17 18:46:34: Processing Offset.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/17 18:46:34: Compiling Content\Offset.xnb
+Message at 2022/10/17 18:46:34: Importing SpaceWrap.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/17 18:46:34: Processing SpaceWrap.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/17 18:46:34: Compiling Content\SpaceWrap.xnb
+Message at 2022/10/17 18:46:34: Importing Trail.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/17 18:46:34: Processing Trail.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/17 18:46:34: Compiling Content\Trail.xnb
+Message at 2022/10/17 18:46:34: Importing 放大镜.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/17 18:46:34: Processing 放大镜.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/17 18:46:34: Compiling Content\放大镜.xnb
+Message at 2022/10/17 18:55:59: Importing BigTentacle.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/17 18:56:00: Processing BigTentacle.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/17 18:56:00: Compiling Content\BigTentacle.xnb
+Message at 2022/10/17 18:56:00: Importing Bloom1.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/17 18:56:00: Processing Bloom1.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/17 18:56:00: Compiling Content\Bloom1.xnb
+Message at 2022/10/17 18:56:00: Importing Magnification.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/17 18:56:00: Processing Magnification.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/17 18:56:00: Compiling Content\Magnification.xnb
+Message at 2022/10/17 18:56:00: Importing Offset.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/17 18:56:00: Processing Offset.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/17 18:56:00: Compiling Content\Offset.xnb
+Message at 2022/10/17 18:56:00: Importing SpaceWrap.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/17 18:56:00: Processing SpaceWrap.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/17 18:56:00: Compiling Content\SpaceWrap.xnb
+Message at 2022/10/17 18:56:00: Importing Trail.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/17 18:56:00: Processing Trail.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/17 18:56:00: Compiling Content\Trail.xnb
+Message at 2022/10/17 18:56:00: Importing 放大镜.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/17 18:56:00: Processing 放大镜.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/17 18:56:00: Compiling Content\放大镜.xnb
+Message at 2022/10/17 19:43:56: Importing BigTentacle.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/17 19:43:56: Processing BigTentacle.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/17 19:43:57: Compiling Content\BigTentacle.xnb
+Message at 2022/10/17 19:43:57: Importing Bloom1.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/17 19:43:57: Processing Bloom1.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/17 19:43:57: Compiling Content\Bloom1.xnb
+Message at 2022/10/17 19:43:57: Importing Magnification.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/17 19:43:57: Processing Magnification.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/17 19:43:57: Compiling Content\Magnification.xnb
+Message at 2022/10/17 19:43:57: Importing Offset.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/17 19:43:57: Processing Offset.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/17 19:43:57: Compiling Content\Offset.xnb
+Message at 2022/10/17 19:43:57: Importing SpaceWrap.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/17 19:43:57: Processing SpaceWrap.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/17 19:43:57: Compiling Content\SpaceWrap.xnb
+Message at 2022/10/17 19:43:57: Importing Trail.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/17 19:43:57: Processing Trail.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/17 19:43:57: Compiling Content\Trail.xnb
+Message at 2022/10/17 19:43:57: Importing 放大镜.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/17 19:43:57: Processing 放大镜.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Error at 2022/10/17 19:43:57: Errors compiling C:\Users\16571\Documents\My Games\Terraria\tModLoader\ModSources\MysteriousKnives\Effects\放大镜.fx:
+C:\Users\16571\Documents\My Games\Terraria\tModLoader\ModSources\MysteriousKnives\Effects\???.fx(29,20): error X3511: Unable to unroll loop, loop does not appear to terminate in a timely manner (164 iterations), use the [unroll(n)] attribute to force an exact higher number
+C:\Users\16571\Documents\My Games\Terraria\tModLoader\ModSources\MysteriousKnives\Effects\???.fx(43,23): ID3DXEffectCompiler::CompileEffect: There was an error compiling expression
+ID3DXEffectCompiler: Compilation failed
+Message at 2022/10/17 19:54:08: Importing BigTentacle.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/17 19:54:08: Processing BigTentacle.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/17 19:54:08: Compiling Content\BigTentacle.xnb
+Message at 2022/10/17 19:54:08: Importing Bloom1.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/17 19:54:08: Processing Bloom1.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/17 19:54:08: Compiling Content\Bloom1.xnb
+Message at 2022/10/17 19:54:08: Importing Magnification.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/17 19:54:08: Processing Magnification.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/17 19:54:08: Compiling Content\Magnification.xnb
+Message at 2022/10/17 19:54:08: Importing Offset.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/17 19:54:08: Processing Offset.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/17 19:54:08: Compiling Content\Offset.xnb
+Message at 2022/10/17 19:54:08: Importing SpaceWrap.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/17 19:54:08: Processing SpaceWrap.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/17 19:54:08: Compiling Content\SpaceWrap.xnb
+Message at 2022/10/17 19:54:08: Importing Trail.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/17 19:54:08: Processing Trail.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/17 19:54:08: Compiling Content\Trail.xnb
+Message at 2022/10/17 19:54:08: Importing 放大镜.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/17 19:54:08: Processing 放大镜.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Error at 2022/10/17 19:54:08: Errors compiling C:\Users\16571\Documents\My Games\Terraria\tModLoader\ModSources\MysteriousKnives\Effects\放大镜.fx:
+C:\Users\16571\Documents\My Games\Terraria\tModLoader\ModSources\MysteriousKnives\Effects\???.fx(31,20): error X3511: Unable to unroll loop, loop does not appear to terminate in a timely manner (157 iterations), use the [unroll(n)] attribute to force an exact higher number
+C:\Users\16571\Documents\My Games\Terraria\tModLoader\ModSources\MysteriousKnives\Effects\???.fx(45,23): ID3DXEffectCompiler::CompileEffect: There was an error compiling expression
+ID3DXEffectCompiler: Compilation failed
+Message at 2022/10/17 19:57:20: Importing BigTentacle.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/17 19:57:20: Processing BigTentacle.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/17 19:57:21: Compiling Content\BigTentacle.xnb
+Message at 2022/10/17 19:57:21: Importing Bloom1.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/17 19:57:21: Processing Bloom1.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/17 19:57:21: Compiling Content\Bloom1.xnb
+Message at 2022/10/17 19:57:21: Importing Magnification.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/17 19:57:21: Processing Magnification.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/17 19:57:21: Compiling Content\Magnification.xnb
+Message at 2022/10/17 19:57:21: Importing Offset.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/17 19:57:21: Processing Offset.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/17 19:57:21: Compiling Content\Offset.xnb
+Message at 2022/10/17 19:57:21: Importing SpaceWrap.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/17 19:57:21: Processing SpaceWrap.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/17 19:57:21: Compiling Content\SpaceWrap.xnb
+Message at 2022/10/17 19:57:21: Importing Trail.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/17 19:57:21: Processing Trail.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/17 19:57:21: Compiling Content\Trail.xnb
+Message at 2022/10/17 19:57:21: Importing 放大镜.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/17 19:57:21: Processing 放大镜.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Error at 2022/10/17 19:57:21: Errors compiling C:\Users\16571\Documents\My Games\Terraria\tModLoader\ModSources\MysteriousKnives\Effects\放大镜.fx:
+C:\Users\16571\Documents\My Games\Terraria\tModLoader\ModSources\MysteriousKnives\Effects\???.fx(29,13): error X4532: cannot map expression to pixel shader instruction set
+C:\Users\16571\Documents\My Games\Terraria\tModLoader\ModSources\MysteriousKnives\Effects\???.fx(38,23): ID3DXEffectCompiler::CompileEffect: There was an error compiling expression
+ID3DXEffectCompiler: Compilation failed
+Message at 2022/10/17 19:57:33: Importing BigTentacle.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/17 19:57:33: Processing BigTentacle.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/17 19:57:33: Compiling Content\BigTentacle.xnb
+Message at 2022/10/17 19:57:33: Importing Bloom1.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/17 19:57:33: Processing Bloom1.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/17 19:57:33: Compiling Content\Bloom1.xnb
+Message at 2022/10/17 19:57:33: Importing Magnification.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/17 19:57:33: Processing Magnification.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/17 19:57:33: Compiling Content\Magnification.xnb
+Message at 2022/10/17 19:57:33: Importing Offset.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/17 19:57:33: Processing Offset.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/17 19:57:33: Compiling Content\Offset.xnb
+Message at 2022/10/17 19:57:34: Importing SpaceWrap.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/17 19:57:34: Processing SpaceWrap.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/17 19:57:34: Compiling Content\SpaceWrap.xnb
+Message at 2022/10/17 19:57:34: Importing Trail.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/17 19:57:34: Processing Trail.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/17 19:57:34: Compiling Content\Trail.xnb
+Message at 2022/10/17 19:57:34: Importing 放大镜.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/17 19:57:34: Processing 放大镜.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Error at 2022/10/17 19:57:34: Errors compiling C:\Users\16571\Documents\My Games\Terraria\tModLoader\ModSources\MysteriousKnives\Effects\放大镜.fx:
+C:\Users\16571\Documents\My Games\Terraria\tModLoader\ModSources\MysteriousKnives\Effects\???.fx(28,13): error X4532: cannot map expression to pixel shader instruction set
+C:\Users\16571\Documents\My Games\Terraria\tModLoader\ModSources\MysteriousKnives\Effects\???.fx(36,23): ID3DXEffectCompiler::CompileEffect: There was an error compiling expression
+ID3DXEffectCompiler: Compilation failed
+Message at 2022/10/17 19:58:04: Importing BigTentacle.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/17 19:58:04: Processing BigTentacle.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/17 19:58:04: Compiling Content\BigTentacle.xnb
+Message at 2022/10/17 19:58:04: Importing Bloom1.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/17 19:58:04: Processing Bloom1.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/17 19:58:04: Compiling Content\Bloom1.xnb
+Message at 2022/10/17 19:58:04: Importing Magnification.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/17 19:58:04: Processing Magnification.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/17 19:58:04: Compiling Content\Magnification.xnb
+Message at 2022/10/17 19:58:04: Importing Offset.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/17 19:58:04: Processing Offset.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/17 19:58:04: Compiling Content\Offset.xnb
+Message at 2022/10/17 19:58:04: Importing SpaceWrap.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/17 19:58:04: Processing SpaceWrap.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/17 19:58:04: Compiling Content\SpaceWrap.xnb
+Message at 2022/10/17 19:58:04: Importing Trail.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/17 19:58:04: Processing Trail.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/17 19:58:04: Compiling Content\Trail.xnb
+Message at 2022/10/17 19:58:04: Importing 放大镜.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/17 19:58:04: Processing 放大镜.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Error at 2022/10/17 19:58:04: Errors compiling C:\Users\16571\Documents\My Games\Terraria\tModLoader\ModSources\MysteriousKnives\Effects\放大镜.fx:
+C:\Users\16571\Documents\My Games\Terraria\tModLoader\ModSources\MysteriousKnives\Effects\???.fx(29,19): error X4532: cannot map expression to pixel shader instruction set
+C:\Users\16571\Documents\My Games\Terraria\tModLoader\ModSources\MysteriousKnives\Effects\???.fx(39,23): ID3DXEffectCompiler::CompileEffect: There was an error compiling expression
+ID3DXEffectCompiler: Compilation failed
+Message at 2022/10/17 19:58:25: Importing BigTentacle.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/17 19:58:25: Processing BigTentacle.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/17 19:58:25: Compiling Content\BigTentacle.xnb
+Message at 2022/10/17 19:58:25: Importing Bloom1.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/17 19:58:25: Processing Bloom1.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/17 19:58:25: Compiling Content\Bloom1.xnb
+Message at 2022/10/17 19:58:25: Importing Magnification.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/17 19:58:25: Processing Magnification.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/17 19:58:25: Compiling Content\Magnification.xnb
+Message at 2022/10/17 19:58:25: Importing Offset.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/17 19:58:25: Processing Offset.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/17 19:58:25: Compiling Content\Offset.xnb
+Message at 2022/10/17 19:58:25: Importing SpaceWrap.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/17 19:58:25: Processing SpaceWrap.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/17 19:58:25: Compiling Content\SpaceWrap.xnb
+Message at 2022/10/17 19:58:25: Importing Trail.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/17 19:58:25: Processing Trail.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/17 19:58:25: Compiling Content\Trail.xnb
+Message at 2022/10/17 19:58:25: Importing 放大镜.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/17 19:58:25: Processing 放大镜.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Error at 2022/10/17 19:58:25: Errors compiling C:\Users\16571\Documents\My Games\Terraria\tModLoader\ModSources\MysteriousKnives\Effects\放大镜.fx:
+C:\Users\16571\Documents\My Games\Terraria\tModLoader\ModSources\MysteriousKnives\Effects\???.fx(29,19): error X4532: cannot map expression to pixel shader instruction set
+C:\Users\16571\Documents\My Games\Terraria\tModLoader\ModSources\MysteriousKnives\Effects\???.fx(39,23): ID3DXEffectCompiler::CompileEffect: There was an error compiling expression
+ID3DXEffectCompiler: Compilation failed
+Message at 2022/10/17 19:59:20: Importing BigTentacle.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/17 19:59:20: Processing BigTentacle.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/17 19:59:20: Compiling Content\BigTentacle.xnb
+Message at 2022/10/17 19:59:20: Importing Bloom1.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/17 19:59:20: Processing Bloom1.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/17 19:59:20: Compiling Content\Bloom1.xnb
+Message at 2022/10/17 19:59:20: Importing Magnification.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/17 19:59:20: Processing Magnification.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/17 19:59:20: Compiling Content\Magnification.xnb
+Message at 2022/10/17 19:59:20: Importing Offset.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/17 19:59:20: Processing Offset.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/17 19:59:20: Compiling Content\Offset.xnb
+Message at 2022/10/17 19:59:20: Importing SpaceWrap.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/17 19:59:20: Processing SpaceWrap.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/17 19:59:20: Compiling Content\SpaceWrap.xnb
+Message at 2022/10/17 19:59:20: Importing Trail.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/17 19:59:20: Processing Trail.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/17 19:59:20: Compiling Content\Trail.xnb
+Message at 2022/10/17 19:59:20: Importing 放大镜.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/17 19:59:20: Processing 放大镜.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/17 19:59:20: Compiling Content\放大镜.xnb
+Message at 2022/10/17 20:02:38: Importing BigTentacle.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/17 20:02:38: Processing BigTentacle.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/17 20:02:38: Compiling Content\BigTentacle.xnb
+Message at 2022/10/17 20:02:38: Importing Bloom1.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/17 20:02:38: Processing Bloom1.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/17 20:02:38: Compiling Content\Bloom1.xnb
+Message at 2022/10/17 20:02:38: Importing Magnification.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/17 20:02:38: Processing Magnification.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/17 20:02:38: Compiling Content\Magnification.xnb
+Message at 2022/10/17 20:02:38: Importing Offset.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/17 20:02:38: Processing Offset.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/17 20:02:38: Compiling Content\Offset.xnb
+Message at 2022/10/17 20:02:38: Importing SpaceWrap.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/17 20:02:38: Processing SpaceWrap.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/17 20:02:38: Compiling Content\SpaceWrap.xnb
+Message at 2022/10/17 20:02:38: Importing Trail.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/17 20:02:38: Processing Trail.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/17 20:02:38: Compiling Content\Trail.xnb
+Message at 2022/10/17 20:02:38: Importing 放大镜.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/17 20:02:38: Processing 放大镜.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/17 20:02:38: Compiling Content\放大镜.xnb
+Message at 2022/10/18 20:56:51: Importing BigTentacle.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/18 20:56:51: Processing BigTentacle.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/18 20:56:51: Compiling Content\BigTentacle.xnb
+Message at 2022/10/18 20:56:51: Importing Bloom1.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/18 20:56:51: Processing Bloom1.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/18 20:56:51: Compiling Content\Bloom1.xnb
+Message at 2022/10/18 20:56:51: Importing Magnification.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/18 20:56:51: Processing Magnification.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/18 20:56:51: Compiling Content\Magnification.xnb
+Message at 2022/10/18 20:56:51: Importing Offset.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/18 20:56:51: Processing Offset.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/18 20:56:51: Compiling Content\Offset.xnb
+Message at 2022/10/18 20:56:51: Importing ScreecShader.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/18 20:56:51: Processing ScreecShader.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/18 20:56:51: Compiling Content\ScreecShader.xnb
+Message at 2022/10/18 20:56:51: Importing SpaceWrap.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/18 20:56:51: Processing SpaceWrap.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/18 20:56:51: Compiling Content\SpaceWrap.xnb
+Message at 2022/10/18 20:56:51: Importing Trail.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/18 20:56:51: Processing Trail.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/18 20:56:51: Compiling Content\Trail.xnb
+Message at 2022/10/18 20:56:51: Importing 放大镜.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/18 20:56:51: Processing 放大镜.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/18 20:56:51: Compiling Content\放大镜.xnb
+Message at 2022/10/18 21:29:34: Importing BigTentacle.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/18 21:29:34: Processing BigTentacle.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/18 21:29:34: Compiling Content\BigTentacle.xnb
+Message at 2022/10/18 21:29:34: Importing Bloom1.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/18 21:29:34: Processing Bloom1.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/18 21:29:34: Compiling Content\Bloom1.xnb
+Message at 2022/10/18 21:29:34: Importing Magnification.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/18 21:29:34: Processing Magnification.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/18 21:29:34: Compiling Content\Magnification.xnb
+Message at 2022/10/18 21:29:34: Importing Offset.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/18 21:29:34: Processing Offset.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/18 21:29:34: Compiling Content\Offset.xnb
+Message at 2022/10/18 21:29:34: Importing ScreenShader.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/18 21:29:34: Processing ScreenShader.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/18 21:29:34: Compiling Content\ScreenShader.xnb
+Message at 2022/10/18 21:29:34: Importing SpaceWrap.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/18 21:29:34: Processing SpaceWrap.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/18 21:29:34: Compiling Content\SpaceWrap.xnb
+Message at 2022/10/18 21:29:34: Importing Trail.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/18 21:29:34: Processing Trail.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/18 21:29:34: Compiling Content\Trail.xnb
+Message at 2022/10/18 21:29:34: Importing 放大镜.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/18 21:29:34: Processing 放大镜.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/18 21:29:34: Compiling Content\放大镜.xnb
+Message at 2022/10/18 22:30:55: Importing BigTentacle.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/18 22:30:55: Processing BigTentacle.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/18 22:30:55: Compiling Content\BigTentacle.xnb
+Message at 2022/10/18 22:30:55: Importing Bloom1.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/18 22:30:56: Processing Bloom1.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/18 22:30:56: Compiling Content\Bloom1.xnb
+Message at 2022/10/18 22:30:56: Importing Magnification.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/18 22:30:56: Processing Magnification.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/18 22:30:56: Compiling Content\Magnification.xnb
+Message at 2022/10/18 22:30:56: Importing Offset.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/18 22:30:56: Processing Offset.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/18 22:30:56: Compiling Content\Offset.xnb
+Message at 2022/10/18 22:30:56: Importing ScreenShader.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/18 22:30:56: Processing ScreenShader.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/18 22:30:56: Compiling Content\ScreenShader.xnb
+Message at 2022/10/18 22:30:56: Importing SpaceWrap.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/18 22:30:56: Processing SpaceWrap.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/18 22:30:56: Compiling Content\SpaceWrap.xnb
+Message at 2022/10/18 22:30:56: Importing Trail.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/18 22:30:56: Processing Trail.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/18 22:30:56: Compiling Content\Trail.xnb
+Message at 2022/10/18 22:30:56: Importing 放大镜.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/18 22:30:56: Processing 放大镜.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/18 22:30:56: Compiling Content\放大镜.xnb
+Message at 2022/10/18 22:47:25: Importing BigTentacle.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/18 22:47:25: Processing BigTentacle.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/18 22:47:25: Compiling Content\BigTentacle.xnb
+Message at 2022/10/18 22:47:25: Importing Bloom1.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/18 22:47:25: Processing Bloom1.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/18 22:47:25: Compiling Content\Bloom1.xnb
+Message at 2022/10/18 22:47:25: Importing Magnification.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/18 22:47:25: Processing Magnification.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/18 22:47:25: Compiling Content\Magnification.xnb
+Message at 2022/10/18 22:47:25: Importing Offset.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/18 22:47:25: Processing Offset.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/18 22:47:25: Compiling Content\Offset.xnb
+Message at 2022/10/18 22:47:25: Importing ScreenShader.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/18 22:47:25: Processing ScreenShader.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/18 22:47:25: Compiling Content\ScreenShader.xnb
+Message at 2022/10/18 22:47:25: Importing SpaceWrap.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/18 22:47:25: Processing SpaceWrap.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/18 22:47:25: Compiling Content\SpaceWrap.xnb
+Message at 2022/10/18 22:47:25: Importing Trail.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/18 22:47:25: Processing Trail.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/18 22:47:25: Compiling Content\Trail.xnb
+Message at 2022/10/18 22:47:25: Importing 放大镜.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/18 22:47:25: Processing 放大镜.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/18 22:47:25: Compiling Content\放大镜.xnb
+Message at 2022/10/20 11:32:55: Importing BigTentacle.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/20 11:32:55: Processing BigTentacle.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/20 11:32:55: Compiling Content\BigTentacle.xnb
+Message at 2022/10/20 11:32:55: Importing Bloom1.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/20 11:32:55: Processing Bloom1.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/20 11:32:55: Compiling Content\Bloom1.xnb
+Message at 2022/10/20 11:32:55: Importing Magnification.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/20 11:32:55: Processing Magnification.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/20 11:32:55: Compiling Content\Magnification.xnb
+Message at 2022/10/20 11:32:55: Importing Offset.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/20 11:32:55: Processing Offset.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/20 11:32:55: Compiling Content\Offset.xnb
+Message at 2022/10/20 11:32:55: Importing ScreenShader.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/20 11:32:55: Processing ScreenShader.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/20 11:32:55: Compiling Content\ScreenShader.xnb
+Message at 2022/10/20 11:32:55: Importing SpaceWrap.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/20 11:32:55: Processing SpaceWrap.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/20 11:32:55: Compiling Content\SpaceWrap.xnb
+Message at 2022/10/20 11:32:55: Importing Trail.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/20 11:32:55: Processing Trail.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/20 11:32:55: Compiling Content\Trail.xnb
+Message at 2022/10/20 11:32:55: Importing 放大镜.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/20 11:32:55: Processing 放大镜.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/20 11:32:55: Compiling Content\放大镜.xnb
+Message at 2022/10/20 11:32:55: Importing 灰度替换.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/20 11:32:55: Processing 灰度替换.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/20 11:32:55: Compiling Content\灰度替换.xnb
+Message at 2022/10/20 17:17:33: Importing BigTentacle.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/20 17:17:33: Processing BigTentacle.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/20 17:17:33: Compiling Content\BigTentacle.xnb
+Message at 2022/10/20 17:17:33: Importing Bloom1.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/20 17:17:33: Processing Bloom1.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/20 17:17:33: Compiling Content\Bloom1.xnb
+Message at 2022/10/20 17:17:33: Importing Magnification.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/20 17:17:33: Processing Magnification.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/20 17:17:33: Compiling Content\Magnification.xnb
+Message at 2022/10/20 17:17:33: Importing Offset.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/20 17:17:33: Processing Offset.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/20 17:17:33: Compiling Content\Offset.xnb
+Message at 2022/10/20 17:17:33: Importing ScreenShader.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/20 17:17:33: Processing ScreenShader.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/20 17:17:33: Compiling Content\ScreenShader.xnb
+Message at 2022/10/20 17:17:33: Importing SpaceWrap.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/20 17:17:33: Processing SpaceWrap.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/20 17:17:33: Compiling Content\SpaceWrap.xnb
+Message at 2022/10/20 17:17:33: Importing Trail.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/20 17:17:33: Processing Trail.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/20 17:17:33: Compiling Content\Trail.xnb
+Message at 2022/10/20 17:17:33: Importing 放大镜.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/20 17:17:33: Processing 放大镜.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/20 17:17:33: Compiling Content\放大镜.xnb
+Message at 2022/10/20 17:17:33: Importing 灰度替换.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/20 17:17:33: Processing 灰度替换.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/20 17:17:33: Compiling Content\灰度替换.xnb
+Message at 2022/10/20 17:29:42: Importing BigTentacle.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/20 17:29:42: Processing BigTentacle.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/20 17:29:42: Compiling Content\BigTentacle.xnb
+Message at 2022/10/20 17:29:42: Importing Bloom1.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/20 17:29:42: Processing Bloom1.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/20 17:29:42: Compiling Content\Bloom1.xnb
+Message at 2022/10/20 17:29:42: Importing Magnification.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/20 17:29:42: Processing Magnification.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/20 17:29:42: Compiling Content\Magnification.xnb
+Message at 2022/10/20 17:29:42: Importing Offset.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/20 17:29:42: Processing Offset.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/20 17:29:42: Compiling Content\Offset.xnb
+Message at 2022/10/20 17:29:42: Importing ScreenShader.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/20 17:29:42: Processing ScreenShader.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/20 17:29:42: Compiling Content\ScreenShader.xnb
+Message at 2022/10/20 17:29:42: Importing SpaceWrap.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/20 17:29:42: Processing SpaceWrap.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/20 17:29:42: Compiling Content\SpaceWrap.xnb
+Message at 2022/10/20 17:29:42: Importing Trail.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/20 17:29:42: Processing Trail.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/20 17:29:42: Compiling Content\Trail.xnb
+Message at 2022/10/20 17:29:42: Importing 放大镜.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/20 17:29:42: Processing 放大镜.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/20 17:29:42: Compiling Content\放大镜.xnb
+Message at 2022/10/20 17:29:42: Importing 灰度替换.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/20 17:29:42: Processing 灰度替换.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/20 17:29:42: Compiling Content\灰度替换.xnb
+Message at 2022/10/20 17:41:31: Importing BigTentacle.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/20 17:41:31: Processing BigTentacle.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/20 17:41:31: Compiling Content\BigTentacle.xnb
+Message at 2022/10/20 17:41:31: Importing Bloom1.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/20 17:41:31: Processing Bloom1.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/20 17:41:31: Compiling Content\Bloom1.xnb
+Message at 2022/10/20 17:41:31: Importing Magnification.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/20 17:41:31: Processing Magnification.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/20 17:41:31: Compiling Content\Magnification.xnb
+Message at 2022/10/20 17:41:31: Importing Offset.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/20 17:41:31: Processing Offset.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/20 17:41:31: Compiling Content\Offset.xnb
+Message at 2022/10/20 17:41:31: Importing ScreenShader.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/20 17:41:31: Processing ScreenShader.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/20 17:41:31: Compiling Content\ScreenShader.xnb
+Message at 2022/10/20 17:41:31: Importing SpaceWrap.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/20 17:41:31: Processing SpaceWrap.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/20 17:41:31: Compiling Content\SpaceWrap.xnb
+Message at 2022/10/20 17:41:31: Importing Trail.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/20 17:41:31: Processing Trail.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/20 17:41:31: Compiling Content\Trail.xnb
+Message at 2022/10/20 17:41:31: Importing 放大镜.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/20 17:41:31: Processing 放大镜.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/20 17:41:31: Compiling Content\放大镜.xnb
+Message at 2022/10/20 17:41:31: Importing 灰度替换.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/20 17:41:31: Processing 灰度替换.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/20 17:41:31: Compiling Content\灰度替换.xnb
+Message at 2022/10/20 17:45:48: Importing BigTentacle.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/20 17:45:48: Processing BigTentacle.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/20 17:45:48: Compiling Content\BigTentacle.xnb
+Message at 2022/10/20 17:45:48: Importing Bloom1.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/20 17:45:48: Processing Bloom1.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/20 17:45:48: Compiling Content\Bloom1.xnb
+Message at 2022/10/20 17:45:48: Importing Magnification.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/20 17:45:48: Processing Magnification.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/20 17:45:48: Compiling Content\Magnification.xnb
+Message at 2022/10/20 17:45:48: Importing Offset.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/20 17:45:48: Processing Offset.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/20 17:45:48: Compiling Content\Offset.xnb
+Message at 2022/10/20 17:45:48: Importing ScreenShader.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/20 17:45:48: Processing ScreenShader.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/20 17:45:48: Compiling Content\ScreenShader.xnb
+Message at 2022/10/20 17:45:48: Importing SpaceWrap.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/20 17:45:48: Processing SpaceWrap.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/20 17:45:48: Compiling Content\SpaceWrap.xnb
+Message at 2022/10/20 17:45:48: Importing Trail.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/20 17:45:48: Processing Trail.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/20 17:45:48: Compiling Content\Trail.xnb
+Message at 2022/10/20 17:45:48: Importing 放大镜.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/20 17:45:48: Processing 放大镜.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/20 17:45:48: Compiling Content\放大镜.xnb
+Message at 2022/10/20 17:45:48: Importing 灰度替换.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/20 17:45:48: Processing 灰度替换.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/20 17:45:48: Compiling Content\灰度替换.xnb
+Message at 2022/10/20 19:03:48: Importing BigTentacle.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/20 19:03:48: Processing BigTentacle.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/20 19:03:48: Compiling Content\BigTentacle.xnb
+Message at 2022/10/20 19:03:48: Importing Bloom1.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/20 19:03:48: Processing Bloom1.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/20 19:03:48: Compiling Content\Bloom1.xnb
+Message at 2022/10/20 19:03:48: Importing Magnification.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/20 19:03:48: Processing Magnification.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/20 19:03:48: Compiling Content\Magnification.xnb
+Message at 2022/10/20 19:03:48: Importing Offset.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/20 19:03:48: Processing Offset.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/20 19:03:48: Compiling Content\Offset.xnb
+Message at 2022/10/20 19:03:48: Importing ScreenShader.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/20 19:03:48: Processing ScreenShader.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/20 19:03:48: Compiling Content\ScreenShader.xnb
+Message at 2022/10/20 19:03:48: Importing SpaceWrap.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/20 19:03:48: Processing SpaceWrap.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/20 19:03:48: Compiling Content\SpaceWrap.xnb
+Message at 2022/10/20 19:03:48: Importing Trail.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/20 19:03:48: Processing Trail.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/20 19:03:48: Compiling Content\Trail.xnb
+Message at 2022/10/20 19:03:48: Importing 放大镜.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/20 19:03:48: Processing 放大镜.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/20 19:03:48: Compiling Content\放大镜.xnb
+Message at 2022/10/20 19:03:48: Importing 灰度替换.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/20 19:03:48: Processing 灰度替换.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/20 19:03:48: Compiling Content\灰度替换.xnb
+Message at 2022/10/20 19:17:57: Importing BigTentacle.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/20 19:17:57: Processing BigTentacle.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/20 19:17:57: Compiling Content\BigTentacle.xnb
+Message at 2022/10/20 19:17:57: Importing Bloom1.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/20 19:17:57: Processing Bloom1.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/20 19:17:57: Compiling Content\Bloom1.xnb
+Message at 2022/10/20 19:17:57: Importing Magnification.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/20 19:17:57: Processing Magnification.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/20 19:17:57: Compiling Content\Magnification.xnb
+Message at 2022/10/20 19:17:57: Importing Offset.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/20 19:17:57: Processing Offset.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/20 19:17:57: Compiling Content\Offset.xnb
+Message at 2022/10/20 19:17:57: Importing ScreenShader.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/20 19:17:57: Processing ScreenShader.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/20 19:17:57: Compiling Content\ScreenShader.xnb
+Message at 2022/10/20 19:17:57: Importing SpaceWrap.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/20 19:17:57: Processing SpaceWrap.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/20 19:17:57: Compiling Content\SpaceWrap.xnb
+Message at 2022/10/20 19:17:57: Importing Trail.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/20 19:17:57: Processing Trail.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/20 19:17:57: Compiling Content\Trail.xnb
+Message at 2022/10/20 19:17:57: Importing 放大镜.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/20 19:17:57: Processing 放大镜.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/20 19:17:57: Compiling Content\放大镜.xnb
+Message at 2022/10/20 19:17:57: Importing 灰度替换.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/20 19:17:57: Processing 灰度替换.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/20 19:17:57: Compiling Content\灰度替换.xnb
+Message at 2022/10/21 21:42:10: Importing BigTentacle.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/21 21:42:10: Processing BigTentacle.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/21 21:42:10: Compiling Content\BigTentacle.xnb
+Message at 2022/10/21 21:42:10: Importing Bloom1.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/21 21:42:10: Processing Bloom1.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/21 21:42:10: Compiling Content\Bloom1.xnb
+Message at 2022/10/21 21:42:10: Importing BodyStroke.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/21 21:42:10: Processing BodyStroke.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Error at 2022/10/21 21:42:11: Errors compiling C:\Users\16571\Documents\My Games\Terraria\tModLoader\ModSources\MysteriousKnives\Effects\BodyStroke.fx:
+C:\Users\16571\Documents\My Games\Terraria\tModLoader\ModSources\MysteriousKnives\Effects\BodyStroke.fx(28,12): error X3014: incorrect number of arguments to numeric-type constructor
+Message at 2022/10/21 21:42:20: Importing BigTentacle.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/21 21:42:20: Processing BigTentacle.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/21 21:42:20: Compiling Content\BigTentacle.xnb
+Message at 2022/10/21 21:42:20: Importing Bloom1.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/21 21:42:20: Processing Bloom1.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/21 21:42:20: Compiling Content\Bloom1.xnb
+Message at 2022/10/21 21:42:20: Importing BodyStroke.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/21 21:42:20: Processing BodyStroke.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Error at 2022/10/21 21:42:20: Errors compiling C:\Users\16571\Documents\My Games\Terraria\tModLoader\ModSources\MysteriousKnives\Effects\BodyStroke.fx:
+C:\Users\16571\Documents\My Games\Terraria\tModLoader\ModSources\MysteriousKnives\Effects\BodyStroke.fx(28,12): error X3014: incorrect number of arguments to numeric-type constructor
+Message at 2022/10/21 21:43:03: Importing BigTentacle.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/21 21:43:03: Processing BigTentacle.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/21 21:43:03: Compiling Content\BigTentacle.xnb
+Message at 2022/10/21 21:43:03: Importing Bloom1.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/21 21:43:03: Processing Bloom1.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/21 21:43:03: Compiling Content\Bloom1.xnb
+Message at 2022/10/21 21:43:03: Importing BodyStroke.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/21 21:43:03: Processing BodyStroke.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Error at 2022/10/21 21:43:03: Errors compiling C:\Users\16571\Documents\My Games\Terraria\tModLoader\ModSources\MysteriousKnives\Effects\BodyStroke.fx:
+C:\Users\16571\Documents\My Games\Terraria\tModLoader\ModSources\MysteriousKnives\Effects\BodyStroke.fx(28,12): error X3014: incorrect number of arguments to numeric-type constructor
+Message at 2022/10/21 21:44:10: Importing BigTentacle.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/21 21:44:10: Processing BigTentacle.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/21 21:44:10: Compiling Content\BigTentacle.xnb
+Message at 2022/10/21 21:44:10: Importing Bloom1.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/21 21:44:10: Processing Bloom1.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/21 21:44:10: Compiling Content\Bloom1.xnb
+Message at 2022/10/21 21:44:10: Importing BodyStroke.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/21 21:44:10: Processing BodyStroke.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Error at 2022/10/21 21:44:10: Errors compiling C:\Users\16571\Documents\My Games\Terraria\tModLoader\ModSources\MysteriousKnives\Effects\BodyStroke.fx:
+C:\Users\16571\Documents\My Games\Terraria\tModLoader\ModSources\MysteriousKnives\Effects\BodyStroke.fx(28,5): error X5608: Compiled shader code uses too many arithmetic instruction slots (76). Max. allowed by the target (ps_2_0) is 64.
+C:\Users\16571\Documents\My Games\Terraria\tModLoader\ModSources\MysteriousKnives\Effects\BodyStroke.fx(35,23): ID3DXEffectCompiler::CompileEffect: There was an error compiling expression
+ID3DXEffectCompiler: Compilation failed
+Message at 2022/10/21 21:45:39: Importing BigTentacle.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/21 21:45:39: Processing BigTentacle.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/21 21:45:39: Compiling Content\BigTentacle.xnb
+Message at 2022/10/21 21:45:39: Importing Bloom1.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/21 21:45:39: Processing Bloom1.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/21 21:45:39: Compiling Content\Bloom1.xnb
+Message at 2022/10/21 21:45:39: Importing BodyStroke.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/21 21:45:39: Processing BodyStroke.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Error at 2022/10/21 21:45:39: Errors compiling C:\Users\16571\Documents\My Games\Terraria\tModLoader\ModSources\MysteriousKnives\Effects\BodyStroke.fx:
+C:\Users\16571\Documents\My Games\Terraria\tModLoader\ModSources\MysteriousKnives\Effects\BodyStroke.fx(28,5): error X5608: Compiled shader code uses too many arithmetic instruction slots (76). Max. allowed by the target (ps_2_0) is 64.
+C:\Users\16571\Documents\My Games\Terraria\tModLoader\ModSources\MysteriousKnives\Effects\BodyStroke.fx(35,23): ID3DXEffectCompiler::CompileEffect: There was an error compiling expression
+ID3DXEffectCompiler: Compilation failed
+Message at 2022/10/21 21:47:20: Importing BigTentacle.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/21 21:47:20: Processing BigTentacle.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/21 21:47:20: Compiling Content\BigTentacle.xnb
+Message at 2022/10/21 21:47:20: Importing Bloom1.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/21 21:47:20: Processing Bloom1.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/21 21:47:20: Compiling Content\Bloom1.xnb
+Message at 2022/10/21 21:47:20: Importing BodyStroke.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/21 21:47:20: Processing BodyStroke.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Error at 2022/10/21 21:47:20: Errors compiling C:\Users\16571\Documents\My Games\Terraria\tModLoader\ModSources\MysteriousKnives\Effects\BodyStroke.fx:
+C:\Users\16571\Documents\My Games\Terraria\tModLoader\ModSources\MysteriousKnives\Effects\BodyStroke.fx(28,5): error X5608: Compiled shader code uses too many arithmetic instruction slots (76). Max. allowed by the target (ps_2_0) is 64.
+C:\Users\16571\Documents\My Games\Terraria\tModLoader\ModSources\MysteriousKnives\Effects\BodyStroke.fx(35,23): ID3DXEffectCompiler::CompileEffect: There was an error compiling expression
+ID3DXEffectCompiler: Compilation failed
+Message at 2022/10/21 21:50:20: Importing BigTentacle.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/21 21:50:20: Processing BigTentacle.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/21 21:50:20: Compiling Content\BigTentacle.xnb
+Message at 2022/10/21 21:50:20: Importing Bloom1.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/21 21:50:20: Processing Bloom1.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/21 21:50:20: Compiling Content\Bloom1.xnb
+Message at 2022/10/21 21:50:20: Importing BodyStroke.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/21 21:50:20: Processing BodyStroke.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Error at 2022/10/21 21:50:20: Errors compiling C:\Users\16571\Documents\My Games\Terraria\tModLoader\ModSources\MysteriousKnives\Effects\BodyStroke.fx:
+C:\Users\16571\Documents\My Games\Terraria\tModLoader\ModSources\MysteriousKnives\Effects\BodyStroke.fx(9,16): error X3014: incorrect number of arguments to numeric-type constructor
+Message at 2022/10/21 21:52:26: Importing BigTentacle.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/21 21:52:26: Processing BigTentacle.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/21 21:52:26: Compiling Content\BigTentacle.xnb
+Message at 2022/10/21 21:52:26: Importing Bloom1.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/21 21:52:26: Processing Bloom1.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/21 21:52:26: Compiling Content\Bloom1.xnb
+Message at 2022/10/21 21:52:26: Importing BodyStroke.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/21 21:52:26: Processing BodyStroke.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Error at 2022/10/21 21:52:26: Errors compiling C:\Users\16571\Documents\My Games\Terraria\tModLoader\ModSources\MysteriousKnives\Effects\BodyStroke.fx:
+C:\Users\16571\Documents\My Games\Terraria\tModLoader\ModSources\MysteriousKnives\Effects\BodyStroke.fx(28,12): error X3014: incorrect number of arguments to numeric-type constructor
+Message at 2022/10/21 21:53:36: Importing BigTentacle.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/21 21:53:36: Processing BigTentacle.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/21 21:53:36: Compiling Content\BigTentacle.xnb
+Message at 2022/10/21 21:53:36: Importing Bloom1.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/21 21:53:36: Processing Bloom1.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/21 21:53:36: Compiling Content\Bloom1.xnb
+Message at 2022/10/21 21:53:36: Importing BodyStroke.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/21 21:53:36: Processing BodyStroke.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Error at 2022/10/21 21:53:36: Errors compiling C:\Users\16571\Documents\My Games\Terraria\tModLoader\ModSources\MysteriousKnives\Effects\BodyStroke.fx:
+C:\Users\16571\Documents\My Games\Terraria\tModLoader\ModSources\MysteriousKnives\Effects\BodyStroke.fx(28,5): error X5608: Compiled shader code uses too many arithmetic instruction slots (76). Max. allowed by the target (ps_2_0) is 64.
+C:\Users\16571\Documents\My Games\Terraria\tModLoader\ModSources\MysteriousKnives\Effects\BodyStroke.fx(35,23): ID3DXEffectCompiler::CompileEffect: There was an error compiling expression
+ID3DXEffectCompiler: Compilation failed
+Message at 2022/10/21 21:56:14: Importing BigTentacle.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/21 21:56:14: Processing BigTentacle.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/21 21:56:14: Compiling Content\BigTentacle.xnb
+Message at 2022/10/21 21:56:14: Importing Bloom1.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/21 21:56:14: Processing Bloom1.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/21 21:56:14: Compiling Content\Bloom1.xnb
+Message at 2022/10/21 21:56:14: Importing BodyStroke.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/21 21:56:14: Processing BodyStroke.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/21 21:56:14: Compiling Content\BodyStroke.xnb
+Message at 2022/10/21 21:56:14: Importing Magnification.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/21 21:56:14: Processing Magnification.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/21 21:56:14: Compiling Content\Magnification.xnb
+Message at 2022/10/21 21:56:14: Importing Offset.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/21 21:56:14: Processing Offset.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/21 21:56:14: Compiling Content\Offset.xnb
+Message at 2022/10/21 21:56:14: Importing ScreenShader.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/21 21:56:14: Processing ScreenShader.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/21 21:56:14: Compiling Content\ScreenShader.xnb
+Message at 2022/10/21 21:56:14: Importing SpaceWrap.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/21 21:56:14: Processing SpaceWrap.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/21 21:56:14: Compiling Content\SpaceWrap.xnb
+Message at 2022/10/21 21:56:14: Importing Trail.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/21 21:56:14: Processing Trail.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/21 21:56:14: Compiling Content\Trail.xnb
+Message at 2022/10/21 21:56:14: Importing 放大镜.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/21 21:56:14: Processing 放大镜.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/21 21:56:14: Compiling Content\放大镜.xnb
+Message at 2022/10/21 21:56:14: Importing 灰度替换.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/21 21:56:14: Processing 灰度替换.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/21 21:56:14: Compiling Content\灰度替换.xnb
+Message at 2022/10/21 22:00:16: Importing BigTentacle.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/21 22:00:16: Processing BigTentacle.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/21 22:00:16: Compiling Content\BigTentacle.xnb
+Message at 2022/10/21 22:00:16: Importing Bloom1.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/21 22:00:16: Processing Bloom1.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/21 22:00:16: Compiling Content\Bloom1.xnb
+Message at 2022/10/21 22:00:16: Importing BodyStroke.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/21 22:00:16: Processing BodyStroke.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Error at 2022/10/21 22:00:16: XNA Framework Reach profile does not support pixel shader model 3.0.
+Message at 2022/10/21 22:09:14: Importing BigTentacle.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/21 22:09:14: Processing BigTentacle.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/21 22:09:14: Compiling Content\BigTentacle.xnb
+Message at 2022/10/21 22:09:14: Importing Bloom1.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/21 22:09:14: Processing Bloom1.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/21 22:09:14: Compiling Content\Bloom1.xnb
+Message at 2022/10/21 22:09:14: Importing BodyStroke.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/21 22:09:14: Processing BodyStroke.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Error at 2022/10/21 22:09:14: XNA Framework Reach profile does not support pixel shader model 3.0.
+Message at 2022/10/21 23:09:40: Importing BigTentacle.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/21 23:09:40: Processing BigTentacle.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/21 23:09:40: Compiling Content\BigTentacle.xnb
+Message at 2022/10/21 23:09:41: Importing Bloom1.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/21 23:09:41: Processing Bloom1.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/21 23:09:41: Compiling Content\Bloom1.xnb
+Message at 2022/10/21 23:09:41: Importing BodyStroke.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/21 23:09:41: Processing BodyStroke.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Error at 2022/10/21 23:09:41: Errors compiling C:\Users\16571\Documents\My Games\Terraria\tModLoader\ModSources\MysteriousKnives\Effects\BodyStroke.fx:
+C:\Users\16571\Documents\My Games\Terraria\tModLoader\ModSources\MysteriousKnives\Effects\BodyStroke.fx(18,64): error X3004: undeclared identifier 'j'
+C:\Users\16571\Documents\My Games\Terraria\tModLoader\ModSources\MysteriousKnives\Effects\BodyStroke.fx(18,44): error X3014: incorrect number of arguments to numeric-type constructor
+Message at 2022/10/21 23:10:34: Importing BigTentacle.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/21 23:10:34: Processing BigTentacle.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/21 23:10:34: Compiling Content\BigTentacle.xnb
+Message at 2022/10/21 23:10:34: Importing Bloom1.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/21 23:10:34: Processing Bloom1.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/21 23:10:34: Compiling Content\Bloom1.xnb
+Message at 2022/10/21 23:10:34: Importing BodyStroke.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/21 23:10:34: Processing BodyStroke.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Error at 2022/10/21 23:10:35: Errors compiling C:\Users\16571\Documents\My Games\Terraria\tModLoader\ModSources\MysteriousKnives\Effects\BodyStroke.fx:
+C:\Users\16571\Documents\My Games\Terraria\tModLoader\ModSources\MysteriousKnives\Effects\BodyStroke.fx(17,64): error X3004: undeclared identifier 'j'
+C:\Users\16571\Documents\My Games\Terraria\tModLoader\ModSources\MysteriousKnives\Effects\BodyStroke.fx(17,44): error X3014: incorrect number of arguments to numeric-type constructor
+Message at 2022/10/21 23:12:20: Importing BigTentacle.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/21 23:12:20: Processing BigTentacle.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/21 23:12:20: Compiling Content\BigTentacle.xnb
+Message at 2022/10/21 23:12:20: Importing Bloom1.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/21 23:12:20: Processing Bloom1.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/21 23:12:20: Compiling Content\Bloom1.xnb
+Message at 2022/10/21 23:12:20: Importing BodyStroke.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/21 23:12:20: Processing BodyStroke.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Error at 2022/10/21 23:12:20: Errors compiling C:\Users\16571\Documents\My Games\Terraria\tModLoader\ModSources\MysteriousKnives\Effects\BodyStroke.fx:
+C:\Users\16571\Documents\My Games\Terraria\tModLoader\ModSources\MysteriousKnives\Effects\BodyStroke.fx(19,64): error X3004: undeclared identifier 'j'
+C:\Users\16571\Documents\My Games\Terraria\tModLoader\ModSources\MysteriousKnives\Effects\BodyStroke.fx(19,44): error X3014: incorrect number of arguments to numeric-type constructor
+Message at 2022/10/21 23:13:49: Importing BigTentacle.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/21 23:13:49: Processing BigTentacle.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/21 23:13:49: Compiling Content\BigTentacle.xnb
+Message at 2022/10/21 23:13:49: Importing Bloom1.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/21 23:13:49: Processing Bloom1.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/21 23:13:49: Compiling Content\Bloom1.xnb
+Message at 2022/10/21 23:13:49: Importing BodyStroke.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/21 23:13:49: Processing BodyStroke.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Error at 2022/10/21 23:13:50: Errors compiling C:\Users\16571\Documents\My Games\Terraria\tModLoader\ModSources\MysteriousKnives\Effects\BodyStroke.fx:
+C:\Users\16571\Documents\My Games\Terraria\tModLoader\ModSources\MysteriousKnives\Effects\BodyStroke.fx(18,64): error X3004: undeclared identifier 'j'
+C:\Users\16571\Documents\My Games\Terraria\tModLoader\ModSources\MysteriousKnives\Effects\BodyStroke.fx(18,44): error X3014: incorrect number of arguments to numeric-type constructor
+Message at 2022/10/21 23:14:44: Importing BigTentacle.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/21 23:14:44: Processing BigTentacle.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/21 23:14:44: Compiling Content\BigTentacle.xnb
+Message at 2022/10/21 23:14:44: Importing Bloom1.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/21 23:14:44: Processing Bloom1.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/21 23:14:44: Compiling Content\Bloom1.xnb
+Message at 2022/10/21 23:14:44: Importing BodyStroke.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/21 23:14:44: Processing BodyStroke.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Error at 2022/10/21 23:14:44: Errors compiling C:\Users\16571\Documents\My Games\Terraria\tModLoader\ModSources\MysteriousKnives\Effects\BodyStroke.fx:
+C:\Users\16571\Documents\My Games\Terraria\tModLoader\ModSources\MysteriousKnives\Effects\BodyStroke.fx(18,64): error X3004: undeclared identifier 'j'
+C:\Users\16571\Documents\My Games\Terraria\tModLoader\ModSources\MysteriousKnives\Effects\BodyStroke.fx(18,44): error X3014: incorrect number of arguments to numeric-type constructor
+Message at 2022/10/21 23:15:49: Importing BigTentacle.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/21 23:15:49: Processing BigTentacle.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/21 23:15:49: Compiling Content\BigTentacle.xnb
+Message at 2022/10/21 23:15:49: Importing Bloom1.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/21 23:15:49: Processing Bloom1.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/21 23:15:49: Compiling Content\Bloom1.xnb
+Message at 2022/10/21 23:15:49: Importing BodyStroke.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/21 23:15:49: Processing BodyStroke.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Error at 2022/10/21 23:15:49: XNA Framework Reach profile does not support pixel shader model 3.0.
+Message at 2022/10/21 23:16:13: Importing BigTentacle.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/21 23:16:13: Processing BigTentacle.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/21 23:16:14: Compiling Content\BigTentacle.xnb
+Message at 2022/10/21 23:16:14: Importing Bloom1.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/21 23:16:14: Processing Bloom1.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/21 23:16:14: Compiling Content\Bloom1.xnb
+Message at 2022/10/21 23:16:14: Importing BodyStroke.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/21 23:16:14: Processing BodyStroke.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/21 23:16:14: Compiling Content\BodyStroke.xnb
+Message at 2022/10/21 23:16:14: Importing Magnification.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/21 23:16:14: Processing Magnification.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/21 23:16:14: Compiling Content\Magnification.xnb
+Message at 2022/10/21 23:16:14: Importing Offset.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/21 23:16:14: Processing Offset.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/21 23:16:14: Compiling Content\Offset.xnb
+Message at 2022/10/21 23:16:14: Importing ScreenShader.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/21 23:16:14: Processing ScreenShader.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/21 23:16:14: Compiling Content\ScreenShader.xnb
+Message at 2022/10/21 23:16:14: Importing SpaceWrap.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/21 23:16:14: Processing SpaceWrap.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/21 23:16:14: Compiling Content\SpaceWrap.xnb
+Message at 2022/10/21 23:16:14: Importing Trail.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/21 23:16:14: Processing Trail.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/21 23:16:14: Compiling Content\Trail.xnb
+Message at 2022/10/21 23:16:14: Importing 放大镜.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/21 23:16:14: Processing 放大镜.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/21 23:16:14: Compiling Content\放大镜.xnb
+Message at 2022/10/21 23:16:14: Importing 灰度替换.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/21 23:16:14: Processing 灰度替换.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/21 23:16:14: Compiling Content\灰度替换.xnb
+Message at 2022/10/21 23:18:11: Importing BigTentacle.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/21 23:18:11: Processing BigTentacle.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/21 23:18:11: Compiling Content\BigTentacle.xnb
+Message at 2022/10/21 23:18:11: Importing Bloom1.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/21 23:18:11: Processing Bloom1.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/21 23:18:11: Compiling Content\Bloom1.xnb
+Message at 2022/10/21 23:18:11: Importing BodyStroke.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/21 23:18:11: Processing BodyStroke.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Error at 2022/10/21 23:18:12: Errors compiling C:\Users\16571\Documents\My Games\Terraria\tModLoader\ModSources\MysteriousKnives\Effects\BodyStroke.fx:
+C:\Users\16571\Documents\My Games\Terraria\tModLoader\ModSources\MysteriousKnives\Effects\BodyStroke.fx(13,15): error X5608: Compiled shader code uses too many arithmetic instruction slots (93). Max. allowed by the target (ps_2_0) is 64.
+(1,1): error X5609: Compiled shader code uses too many instruction slots (102). Max. allowed by the target (ps_2_0) is 96.
+C:\Users\16571\Documents\My Games\Terraria\tModLoader\ModSources\MysteriousKnives\Effects\BodyStroke.fx(36,23): ID3DXEffectCompiler::CompileEffect: There was an error compiling expression
+ID3DXEffectCompiler: Compilation failed
+Message at 2022/10/21 23:18:30: Importing BigTentacle.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/21 23:18:30: Processing BigTentacle.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/21 23:18:30: Compiling Content\BigTentacle.xnb
+Message at 2022/10/21 23:18:30: Importing Bloom1.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/21 23:18:30: Processing Bloom1.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/21 23:18:30: Compiling Content\Bloom1.xnb
+Message at 2022/10/21 23:18:30: Importing BodyStroke.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/21 23:18:30: Processing BodyStroke.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Error at 2022/10/21 23:18:31: Errors compiling C:\Users\16571\Documents\My Games\Terraria\tModLoader\ModSources\MysteriousKnives\Effects\BodyStroke.fx:
+C:\Users\16571\Documents\My Games\Terraria\tModLoader\ModSources\MysteriousKnives\Effects\BodyStroke.fx(13,15): error X5608: Compiled shader code uses too many arithmetic instruction slots (93). Max. allowed by the target (ps_2_0) is 64.
+(1,1): error X5609: Compiled shader code uses too many instruction slots (102). Max. allowed by the target (ps_2_0) is 96.
+C:\Users\16571\Documents\My Games\Terraria\tModLoader\ModSources\MysteriousKnives\Effects\BodyStroke.fx(36,23): ID3DXEffectCompiler::CompileEffect: There was an error compiling expression
+ID3DXEffectCompiler: Compilation failed
+Message at 2022/10/21 23:19:08: Importing BigTentacle.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/21 23:19:08: Processing BigTentacle.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/21 23:19:08: Compiling Content\BigTentacle.xnb
+Message at 2022/10/21 23:19:08: Importing Bloom1.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/21 23:19:08: Processing Bloom1.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/21 23:19:08: Compiling Content\Bloom1.xnb
+Message at 2022/10/21 23:19:08: Importing BodyStroke.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/21 23:19:08: Processing BodyStroke.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/21 23:19:08: Compiling Content\BodyStroke.xnb
+Message at 2022/10/21 23:19:08: Importing Magnification.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/21 23:19:08: Processing Magnification.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/21 23:19:08: Compiling Content\Magnification.xnb
+Message at 2022/10/21 23:19:08: Importing Offset.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/21 23:19:08: Processing Offset.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/21 23:19:08: Compiling Content\Offset.xnb
+Message at 2022/10/21 23:19:08: Importing ScreenShader.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/21 23:19:08: Processing ScreenShader.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/21 23:19:08: Compiling Content\ScreenShader.xnb
+Message at 2022/10/21 23:19:08: Importing SpaceWrap.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/21 23:19:08: Processing SpaceWrap.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/21 23:19:08: Compiling Content\SpaceWrap.xnb
+Message at 2022/10/21 23:19:08: Importing Trail.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/21 23:19:08: Processing Trail.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/21 23:19:08: Compiling Content\Trail.xnb
+Message at 2022/10/21 23:19:08: Importing 放大镜.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/21 23:19:08: Processing 放大镜.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/21 23:19:08: Compiling Content\放大镜.xnb
+Message at 2022/10/21 23:19:08: Importing 灰度替换.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/21 23:19:08: Processing 灰度替换.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/21 23:19:08: Compiling Content\灰度替换.xnb
+Message at 2022/10/21 23:19:40: Importing BigTentacle.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/21 23:19:40: Processing BigTentacle.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/21 23:19:40: Compiling Content\BigTentacle.xnb
+Message at 2022/10/21 23:19:40: Importing Bloom1.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/21 23:19:40: Processing Bloom1.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/21 23:19:40: Compiling Content\Bloom1.xnb
+Message at 2022/10/21 23:19:40: Importing BodyStroke.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/21 23:19:40: Processing BodyStroke.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/21 23:19:41: Compiling Content\BodyStroke.xnb
+Message at 2022/10/21 23:19:41: Importing Magnification.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/21 23:19:41: Processing Magnification.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/21 23:19:41: Compiling Content\Magnification.xnb
+Message at 2022/10/21 23:19:41: Importing Offset.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/21 23:19:41: Processing Offset.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/21 23:19:41: Compiling Content\Offset.xnb
+Message at 2022/10/21 23:19:41: Importing ScreenShader.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/21 23:19:41: Processing ScreenShader.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/21 23:19:41: Compiling Content\ScreenShader.xnb
+Message at 2022/10/21 23:19:41: Importing SpaceWrap.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/21 23:19:41: Processing SpaceWrap.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/21 23:19:41: Compiling Content\SpaceWrap.xnb
+Message at 2022/10/21 23:19:41: Importing Trail.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/21 23:19:41: Processing Trail.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/21 23:19:41: Compiling Content\Trail.xnb
+Message at 2022/10/21 23:19:41: Importing 放大镜.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/21 23:19:41: Processing 放大镜.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/21 23:19:41: Compiling Content\放大镜.xnb
+Message at 2022/10/21 23:19:41: Importing 灰度替换.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/21 23:19:41: Processing 灰度替换.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/21 23:19:41: Compiling Content\灰度替换.xnb
+Message at 2022/10/22 10:15:22: Importing BigTentacle.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/22 10:15:23: Processing BigTentacle.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/22 10:15:23: Compiling Content\BigTentacle.xnb
+Message at 2022/10/22 10:15:23: Importing Bloom1.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/22 10:15:23: Processing Bloom1.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/22 10:15:23: Compiling Content\Bloom1.xnb
+Message at 2022/10/22 10:15:23: Importing BodyStroke.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/22 10:15:23: Processing BodyStroke.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/22 10:15:23: Compiling Content\BodyStroke.xnb
+Message at 2022/10/22 10:15:23: Importing Magnification.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/22 10:15:23: Processing Magnification.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/22 10:15:23: Compiling Content\Magnification.xnb
+Message at 2022/10/22 10:15:23: Importing Offset.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/22 10:15:23: Processing Offset.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/22 10:15:23: Compiling Content\Offset.xnb
+Message at 2022/10/22 10:15:23: Importing ScreenShader.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/22 10:15:23: Processing ScreenShader.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/22 10:15:23: Compiling Content\ScreenShader.xnb
+Message at 2022/10/22 10:15:23: Importing SpaceWrap.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/22 10:15:23: Processing SpaceWrap.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/22 10:15:23: Compiling Content\SpaceWrap.xnb
+Message at 2022/10/22 10:15:23: Importing Trail.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/22 10:15:23: Processing Trail.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/22 10:15:23: Compiling Content\Trail.xnb
+Message at 2022/10/22 10:15:23: Importing 放大镜.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/22 10:15:23: Processing 放大镜.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/22 10:15:23: Compiling Content\放大镜.xnb
+Message at 2022/10/22 10:15:23: Importing 灰度替换.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/22 10:15:23: Processing 灰度替换.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/22 10:15:23: Compiling Content\灰度替换.xnb
+Message at 2022/10/22 10:15:31: Importing BigTentacle.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/22 10:15:31: Processing BigTentacle.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/22 10:15:31: Compiling Content\BigTentacle.xnb
+Message at 2022/10/22 10:15:31: Importing Bloom1.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/22 10:15:31: Processing Bloom1.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/22 10:15:31: Compiling Content\Bloom1.xnb
+Message at 2022/10/22 10:15:31: Importing BodyStroke.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/22 10:15:31: Processing BodyStroke.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/22 10:15:31: Compiling Content\BodyStroke.xnb
+Message at 2022/10/22 10:15:31: Importing Magnification.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/22 10:15:31: Processing Magnification.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/22 10:15:31: Compiling Content\Magnification.xnb
+Message at 2022/10/22 10:15:31: Importing Offset.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/22 10:15:31: Processing Offset.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/22 10:15:31: Compiling Content\Offset.xnb
+Message at 2022/10/22 10:15:31: Importing ScreenShader.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/22 10:15:31: Processing ScreenShader.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/22 10:15:31: Compiling Content\ScreenShader.xnb
+Message at 2022/10/22 10:15:31: Importing SpaceWrap.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/22 10:15:31: Processing SpaceWrap.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/22 10:15:31: Compiling Content\SpaceWrap.xnb
+Message at 2022/10/22 10:15:31: Importing Trail.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/22 10:15:31: Processing Trail.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/22 10:15:31: Compiling Content\Trail.xnb
+Message at 2022/10/22 10:15:31: Importing 放大镜.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/22 10:15:31: Processing 放大镜.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/22 10:15:31: Compiling Content\放大镜.xnb
+Message at 2022/10/22 10:15:31: Importing 灰度替换.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/22 10:15:31: Processing 灰度替换.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/22 10:15:31: Compiling Content\灰度替换.xnb
+Message at 2022/10/22 10:32:53: Importing BigTentacle.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/22 10:32:53: Processing BigTentacle.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/22 10:32:53: Compiling Content\BigTentacle.xnb
+Message at 2022/10/22 10:32:53: Importing Bloom1.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/22 10:32:53: Processing Bloom1.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/22 10:32:53: Compiling Content\Bloom1.xnb
+Message at 2022/10/22 10:32:53: Importing BodyStroke.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/22 10:32:53: Processing BodyStroke.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/22 10:32:54: Compiling Content\BodyStroke.xnb
+Message at 2022/10/22 10:32:54: Importing Magnification.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/22 10:32:54: Processing Magnification.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/22 10:32:54: Compiling Content\Magnification.xnb
+Message at 2022/10/22 10:32:54: Importing Offset.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/22 10:32:54: Processing Offset.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/22 10:32:54: Compiling Content\Offset.xnb
+Message at 2022/10/22 10:32:54: Importing ScreenShader.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/22 10:32:54: Processing ScreenShader.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/22 10:32:54: Compiling Content\ScreenShader.xnb
+Message at 2022/10/22 10:32:54: Importing SpaceWrap.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/22 10:32:54: Processing SpaceWrap.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/22 10:32:54: Compiling Content\SpaceWrap.xnb
+Message at 2022/10/22 10:32:54: Importing Trail.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/22 10:32:54: Processing Trail.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/22 10:32:54: Compiling Content\Trail.xnb
+Message at 2022/10/22 10:32:54: Importing 放大镜.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/22 10:32:54: Processing 放大镜.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/22 10:32:54: Compiling Content\放大镜.xnb
+Message at 2022/10/22 10:32:54: Importing 灰度替换.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/22 10:32:54: Processing 灰度替换.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/22 10:32:54: Compiling Content\灰度替换.xnb
+Message at 2022/10/22 22:02:25: Importing BigTentacle.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/22 22:02:25: Processing BigTentacle.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/22 22:02:25: Compiling Content\BigTentacle.xnb
+Message at 2022/10/22 22:02:25: Importing Bloom1.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/22 22:02:25: Processing Bloom1.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/22 22:02:25: Compiling Content\Bloom1.xnb
+Message at 2022/10/22 22:02:25: Importing BodyStroke.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/22 22:02:25: Processing BodyStroke.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/22 22:02:25: Compiling Content\BodyStroke.xnb
+Message at 2022/10/22 22:02:25: Importing Magnification.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/22 22:02:25: Processing Magnification.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/22 22:02:25: Compiling Content\Magnification.xnb
+Message at 2022/10/22 22:02:25: Importing Offset.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/22 22:02:25: Processing Offset.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/22 22:02:25: Compiling Content\Offset.xnb
+Message at 2022/10/22 22:02:25: Importing ScreenShader.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/22 22:02:25: Processing ScreenShader.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/22 22:02:25: Compiling Content\ScreenShader.xnb
+Message at 2022/10/22 22:02:25: Importing SpaceWrap.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/22 22:02:25: Processing SpaceWrap.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/22 22:02:25: Compiling Content\SpaceWrap.xnb
+Message at 2022/10/22 22:02:25: Importing Trail.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/22 22:02:25: Processing Trail.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/22 22:02:25: Compiling Content\Trail.xnb
+Message at 2022/10/22 22:02:25: Importing 放大镜.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/22 22:02:25: Processing 放大镜.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/22 22:02:25: Compiling Content\放大镜.xnb
+Message at 2022/10/22 22:02:25: Importing 灰度替换.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/10/22 22:02:25: Processing 灰度替换.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/10/22 22:02:25: Compiling Content\灰度替换.xnb

@@ -125,5 +125,19 @@
         {
             return mod.Find<ModItem>(name).Type;
         }
+        public static Vector2[] CalculateVertex(Vector2 oldpos, Vector2 pos, int width)
+        {
+            Vector2 normalDir = pos - oldpos;
+            normalDir = Vector2.Normalize(new Vector2(-normalDir.Y, normalDir.X));
+            Vector2[] data = new Vector2[2];
+            data[0] = pos + normalDir * width;
+            data[1] = pos + normalDir * -width;
+            return data;
+        }
+        public static Vector2 WorldPosToCoords(Vector2 WorldPos)
+        {
+            Vector2 screenPos = WorldPos - Main.screenPosition;
+            return new Vector2(screenPos.X / Main.screenWidth, screenPos.Y / Main.screenHeight);
+        }
     }
 }

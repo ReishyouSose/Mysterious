@@ -4,7 +4,7 @@ sampler uImage2 : register(s2);
 
 float4x4 uTransform;
 float uTime;
-
+float mult;
 
 struct VSInput {
 	float2 Pos : POSITION0;
@@ -25,17 +25,42 @@ float3 hsv2rgb(float3 c)
     return c.z * lerp(K.xxx, clamp(p - K.xxx, 0.0, 1.0), c.y);
 }
 
+float ffmod(float v, float m)
+{
+    int f = floor(v / m);
+    return v - f * m;
+}
+
+float3 HUEtoRGB(float H)
+{
+    float R = sqrt(H * 6 - 3) - 1;
+    float G = 2 - sqrt(H * 6 - 2);
+    float B = 2 - sqrt(H * 6 - 4);
+    return saturate(float3(R, G, B));
+}
 float4 PixelShaderFunction(PSInput input) : COLOR0 {
 	float3 coord = input.Texcoord;
 	float y = uTime + coord.x;
 	float4 c1 = tex2D(uImage1, float2(coord.x, coord.y));
 	float4 c3 = tex2D(uImage2, float2(y, coord.y));
 	c1 *= c3;
-	float4 c = tex2D(uImage0, float2(c1.r, 0));
-	if (c.r < 0.1)
-		return float4(0, 0, 0, 0);
-	return 2 * c * coord.z;
+    return float4(c1.rrr, 1) * mult * coord.z;
+    //float4 c = tex2D(uImage0, float2(c1.r, 0));
+	//return 2 * c * coord.z;
+    //float3 result = c * coord.z;
+    /*if (c.r == 1)
+        return float4(HUEtoRGB(c.g + uTime % 1),c.a);*/
+    //return 2 * c * coord.z;
+}
 
+float4 Rainbow(PSInput input) :COLOR0
+{
+    float3 coord = input.Texcoord;
+    float y = uTime + coord.x;
+    float4 c1 = tex2D(uImage1, float2(coord.x, coord.y));
+    float4 c3 = tex2D(uImage2, float2(y, coord.y));
+    c1 *= c3;
+    return float4(HUEtoRGB(ffmod(y, 1)), 0.5f);
 }
 
 PSInput VertexShaderFunction(VSInput input)  {
@@ -47,9 +72,15 @@ PSInput VertexShaderFunction(VSInput input)  {
 }
 
 
-technique Technique1 {
-	pass ColorBar {
+technique Technique1
+{
+	pass ColorBar
+    {
 		VertexShader = compile vs_2_0 VertexShaderFunction();
 		PixelShader = compile ps_2_0 PixelShaderFunction();
 	}
+    pass RainbowBar
+    {
+        PixelShader = compile ps_2_0 Rainbow();
+    }
 }

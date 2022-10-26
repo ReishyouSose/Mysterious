@@ -355,6 +355,13 @@
                 Item.rare = ModContent.RarityType<Rare_Red>();
                 base.SetDefaults();
             }
+            public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
+            {
+                /*Projectile.NewProjectile(source, (Main.MouseWorld + position) / 2, Vector2.Zero,
+                     ModContent.ProjectileType<Proj2>(), 0, 0, player.whoAmI);*/
+                //Projectile.NewProjectile(source, position, velocity * 1.5f, ModContent.ProjectileType<Gray>(), 100, 0, player.whoAmI);
+                return true;
+            }
             public override void AddRecipes()
             {
                 Recipe recipe = CreateRecipe();
@@ -382,7 +389,7 @@
                 base.SetDefaults();
                 Item.autoReuse = false;
                 Item.useStyle = ItemUseStyleID.Shoot;
-                Item.damage = 100;//3000
+                Item.damage = 3000;
                 Item.knockBack = 20;
                 Item.crit = 100;
                 Item.useTime = 2;
