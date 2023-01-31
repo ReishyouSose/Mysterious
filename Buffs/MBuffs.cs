@@ -350,51 +350,48 @@
             }
             public override void Update(Player player, ref int buffIndex)
             {
+                int t = player.buffTime[buffIndex];
                 switch (player.buffTime[buffIndex] / 180)
                 {
                     case 0://10*1
-                        if (player.buffTime[buffIndex] % 6 == 0)
+                        if (t % 6 == 0)
                             RejuvenationEffect(player, 1);
                         break;
                     case 1://20*1+5*1
-                        if (player.buffTime[buffIndex] % 3 == 0)
+                        if (t % 3 == 0)
                             RejuvenationEffect(player, 1);
-                        if (player.buffTime[buffIndex] % 12 == 0)
+                        if (t % 12 == 0)
                             RejuvenationEffect(player, 1);
                         break;
                     case 2://20*2
-                        if (player.buffTime[buffIndex] % 3 == 0)
+                        if (t % 3 == 0)
                             RejuvenationEffect(player, 2);
                         break;
                     case 3://20*2+15*1
-                        if (player.buffTime[buffIndex] % 3 == 0)
+                        if (t % 3 == 0)
                             RejuvenationEffect(player, 2);
-                        if (player.buffTime[buffIndex] % 4 == 0)
+                        if (t % 4 == 0)
                             RejuvenationEffect(player, 1);
                         break;
                     case 4://60*1+10*1
-                        if (player.buffTime[buffIndex] % 1 == 0)
-                            RejuvenationEffect(player, 1);
-                        if (player.buffTime[buffIndex] % 6 == 0)
+                        RejuvenationEffect(player, 1);
+                        if (t % 6 == 0)
                             RejuvenationEffect(player, 1);
                         break;
                     case 5://60*1+20*1+5*1
-                        if (player.buffTime[buffIndex] % 1 == 0)
+                        RejuvenationEffect(player, 1);
+                        if (t % 3 == 0)
                             RejuvenationEffect(player, 1);
-                        if (player.buffTime[buffIndex] % 3 == 0)
-                            RejuvenationEffect(player, 1);
-                        if (player.buffTime[buffIndex] % 12 == 0)
+                        if (t % 12 == 0)
                             RejuvenationEffect(player, 1);
                         break;
                     case 6://60*1+20*2
-                        if (player.buffTime[buffIndex] % 1 == 0)
-                            RejuvenationEffect(player, 1);
-                        if (player.buffTime[buffIndex] % 3 == 0)
+                        RejuvenationEffect(player, 1);
+                        if (t % 3 == 0)
                             RejuvenationEffect(player, 2);
                         break;
                     case 7://60*2
-                        if (player.buffTime[buffIndex] % 1 == 0)
-                            RejuvenationEffect(player, 2);
+                        RejuvenationEffect(player, 2);
                         break;
                 }
             }

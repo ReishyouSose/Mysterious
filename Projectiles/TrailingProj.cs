@@ -114,7 +114,7 @@
                 Texture2D MainShape = ModContent.Request<Texture2D>("MysteriousKnives/Pictures/Projectiles/Another/Extra_197").Value;
                 Texture2D MaskColor = ModContent.Request<Texture2D>("MysteriousKnives/Pictures/Projectiles/Another/Extra_189").Value;
                 DefaultEffect.Parameters["uTransform"].SetValue(model * projection);
-                DefaultEffect.Parameters["uTime"].SetValue(-(float)Main.time * 0.03f);
+                DefaultEffect.Parameters["uTime"].SetValue(-(float)Main.GameUpdateCount * 0.03f);
                 Main.graphics.GraphicsDevice.Textures[0] = MainColor;
                 Main.graphics.GraphicsDevice.Textures[1] = MainShape;
                 Main.graphics.GraphicsDevice.Textures[2] = MaskColor;

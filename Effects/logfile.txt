@@ -1695,3 +1695,400 @@ Message at 2022/11/9 17:26:38: Compiling Content\放大镜.xnb
 Message at 2022/11/9 17:26:38: Importing 灰度替换.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
 Message at 2022/11/9 17:26:38: Processing 灰度替换.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
 Message at 2022/11/9 17:26:38: Compiling Content\灰度替换.xnb
+Message at 2022/12/28 15:49:40: Importing BigTentacle.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/12/28 15:49:40: Processing BigTentacle.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/12/28 15:49:40: Compiling Content\BigTentacle.xnb
+Message at 2022/12/28 15:49:40: Importing Bloom1.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/12/28 15:49:40: Processing Bloom1.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/12/28 15:49:40: Compiling Content\Bloom1.xnb
+Message at 2022/12/28 15:49:40: Importing BodyStroke.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/12/28 15:49:40: Processing BodyStroke.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/12/28 15:49:40: Compiling Content\BodyStroke.xnb
+Message at 2022/12/28 15:49:40: Importing Magnification.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/12/28 15:49:40: Processing Magnification.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/12/28 15:49:40: Compiling Content\Magnification.xnb
+Message at 2022/12/28 15:49:40: Importing Offset.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/12/28 15:49:40: Processing Offset.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/12/28 15:49:40: Compiling Content\Offset.xnb
+Message at 2022/12/28 15:49:40: Importing PoisonousFog.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/12/28 15:49:40: Processing PoisonousFog.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/12/28 15:49:40: Compiling Content\PoisonousFog.xnb
+Message at 2022/12/28 15:49:40: Importing RadialBlur.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/12/28 15:49:40: Processing RadialBlur.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Error at 2022/12/28 15:49:41: Errors compiling C:\Users\16571\Documents\My Games\Terraria\tModLoader\ModSources\MysteriousKnives\Effects\RadialBlur.fx:
+C:\Users\16571\Documents\My Games\Terraria\tModLoader\ModSources\MysteriousKnives\Effects\RadialBlur.fx(18,14): error X3511: Unable to unroll loop, loop does not appear to terminate in a timely manner (222 iterations), use the [unroll(n)] attribute to force an exact higher number
+C:\Users\16571\Documents\My Games\Terraria\tModLoader\ModSources\MysteriousKnives\Effects\RadialBlur.fx(31,23): ID3DXEffectCompiler::CompileEffect: There was an error compiling expression
+ID3DXEffectCompiler: Compilation failed
+Message at 2022/12/28 15:50:23: Importing BigTentacle.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/12/28 15:50:23: Processing BigTentacle.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/12/28 15:50:23: Compiling Content\BigTentacle.xnb
+Message at 2022/12/28 15:50:23: Importing Bloom1.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/12/28 15:50:23: Processing Bloom1.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/12/28 15:50:23: Compiling Content\Bloom1.xnb
+Message at 2022/12/28 15:50:23: Importing BodyStroke.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/12/28 15:50:23: Processing BodyStroke.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/12/28 15:50:23: Compiling Content\BodyStroke.xnb
+Message at 2022/12/28 15:50:23: Importing Magnification.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/12/28 15:50:23: Processing Magnification.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/12/28 15:50:23: Compiling Content\Magnification.xnb
+Message at 2022/12/28 15:50:23: Importing Offset.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/12/28 15:50:23: Processing Offset.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/12/28 15:50:23: Compiling Content\Offset.xnb
+Message at 2022/12/28 15:50:23: Importing PoisonousFog.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/12/28 15:50:23: Processing PoisonousFog.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/12/28 15:50:23: Compiling Content\PoisonousFog.xnb
+Message at 2022/12/28 15:50:23: Importing RadialBlur.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/12/28 15:50:23: Processing RadialBlur.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Error at 2022/12/28 15:50:23: Errors compiling C:\Users\16571\Documents\My Games\Terraria\tModLoader\ModSources\MysteriousKnives\Effects\RadialBlur.fx:
+C:\Users\16571\Documents\My Games\Terraria\tModLoader\ModSources\MysteriousKnives\Effects\RadialBlur.fx(18,14): error X3511: Unable to unroll loop, loop does not appear to terminate in a timely manner (222 iterations), use the [unroll(n)] attribute to force an exact higher number
+C:\Users\16571\Documents\My Games\Terraria\tModLoader\ModSources\MysteriousKnives\Effects\RadialBlur.fx(31,23): ID3DXEffectCompiler::CompileEffect: There was an error compiling expression
+ID3DXEffectCompiler: Compilation failed
+Message at 2022/12/28 15:53:27: Importing BigTentacle.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/12/28 15:53:27: Processing BigTentacle.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/12/28 15:53:27: Compiling Content\BigTentacle.xnb
+Message at 2022/12/28 15:53:27: Importing Bloom1.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/12/28 15:53:27: Processing Bloom1.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/12/28 15:53:27: Compiling Content\Bloom1.xnb
+Message at 2022/12/28 15:53:27: Importing BodyStroke.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/12/28 15:53:27: Processing BodyStroke.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/12/28 15:53:27: Compiling Content\BodyStroke.xnb
+Message at 2022/12/28 15:53:27: Importing Magnification.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/12/28 15:53:27: Processing Magnification.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/12/28 15:53:27: Compiling Content\Magnification.xnb
+Message at 2022/12/28 15:53:27: Importing Offset.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/12/28 15:53:27: Processing Offset.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/12/28 15:53:28: Compiling Content\Offset.xnb
+Message at 2022/12/28 15:53:28: Importing PoisonousFog.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/12/28 15:53:28: Processing PoisonousFog.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/12/28 15:53:28: Compiling Content\PoisonousFog.xnb
+Message at 2022/12/28 15:53:28: Importing RadialBlur.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/12/28 15:53:28: Processing RadialBlur.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Error at 2022/12/28 15:53:28: Errors compiling C:\Users\16571\Documents\My Games\Terraria\tModLoader\ModSources\MysteriousKnives\Effects\RadialBlur.fx:
+C:\Users\16571\Documents\My Games\Terraria\tModLoader\ModSources\MysteriousKnives\Effects\RadialBlur.fx(17,14): error X3511: Unable to unroll loop, loop does not appear to terminate in a timely manner (222 iterations), use the [unroll(n)] attribute to force an exact higher number
+C:\Users\16571\Documents\My Games\Terraria\tModLoader\ModSources\MysteriousKnives\Effects\RadialBlur.fx(31,23): ID3DXEffectCompiler::CompileEffect: There was an error compiling expression
+ID3DXEffectCompiler: Compilation failed
+Message at 2022/12/28 15:55:16: Importing BigTentacle.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/12/28 15:55:16: Processing BigTentacle.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/12/28 15:55:17: Compiling Content\BigTentacle.xnb
+Message at 2022/12/28 15:55:17: Importing Bloom1.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/12/28 15:55:17: Processing Bloom1.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/12/28 15:55:17: Compiling Content\Bloom1.xnb
+Message at 2022/12/28 15:55:17: Importing BodyStroke.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/12/28 15:55:17: Processing BodyStroke.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/12/28 15:55:17: Compiling Content\BodyStroke.xnb
+Message at 2022/12/28 15:55:17: Importing Magnification.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/12/28 15:55:17: Processing Magnification.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/12/28 15:55:17: Compiling Content\Magnification.xnb
+Message at 2022/12/28 15:55:17: Importing Offset.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/12/28 15:55:17: Processing Offset.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/12/28 15:55:17: Compiling Content\Offset.xnb
+Message at 2022/12/28 15:55:17: Importing PoisonousFog.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/12/28 15:55:17: Processing PoisonousFog.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/12/28 15:55:17: Compiling Content\PoisonousFog.xnb
+Message at 2022/12/28 15:55:17: Importing RadialBlur.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/12/28 15:55:17: Processing RadialBlur.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Error at 2022/12/28 15:55:17: Errors compiling C:\Users\16571\Documents\My Games\Terraria\tModLoader\ModSources\MysteriousKnives\Effects\RadialBlur.fx:
+C:\Users\16571\Documents\My Games\Terraria\tModLoader\ModSources\MysteriousKnives\Effects\RadialBlur.fx(17,14): error X3511: Unable to unroll loop, loop does not appear to terminate in a timely manner (222 iterations), use the [unroll(n)] attribute to force an exact higher number
+C:\Users\16571\Documents\My Games\Terraria\tModLoader\ModSources\MysteriousKnives\Effects\RadialBlur.fx(31,23): ID3DXEffectCompiler::CompileEffect: There was an error compiling expression
+ID3DXEffectCompiler: Compilation failed
+Message at 2022/12/28 16:01:51: Importing BigTentacle.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/12/28 16:01:51: Processing BigTentacle.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/12/28 16:01:51: Compiling Content\BigTentacle.xnb
+Message at 2022/12/28 16:01:51: Importing Bloom1.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/12/28 16:01:51: Processing Bloom1.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/12/28 16:01:51: Compiling Content\Bloom1.xnb
+Message at 2022/12/28 16:01:51: Importing BodyStroke.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/12/28 16:01:51: Processing BodyStroke.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/12/28 16:01:51: Compiling Content\BodyStroke.xnb
+Message at 2022/12/28 16:01:51: Importing Magnification.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/12/28 16:01:51: Processing Magnification.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/12/28 16:01:51: Compiling Content\Magnification.xnb
+Message at 2022/12/28 16:01:51: Importing Offset.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/12/28 16:01:51: Processing Offset.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/12/28 16:01:51: Compiling Content\Offset.xnb
+Message at 2022/12/28 16:01:51: Importing PoisonousFog.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/12/28 16:01:51: Processing PoisonousFog.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/12/28 16:01:51: Compiling Content\PoisonousFog.xnb
+Message at 2022/12/28 16:01:51: Importing RadialBlur.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/12/28 16:01:51: Processing RadialBlur.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Error at 2022/12/28 16:01:51: Errors compiling C:\Users\16571\Documents\My Games\Terraria\tModLoader\ModSources\MysteriousKnives\Effects\RadialBlur.fx:
+C:\Users\16571\Documents\My Games\Terraria\tModLoader\ModSources\MysteriousKnives\Effects\RadialBlur.fx(17,16): error X3025: global variables are implicitly constant, enable compatibility mode to allow modification
+Message at 2022/12/28 16:02:48: Importing BigTentacle.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/12/28 16:02:48: Processing BigTentacle.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/12/28 16:02:48: Compiling Content\BigTentacle.xnb
+Message at 2022/12/28 16:02:48: Importing Bloom1.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/12/28 16:02:48: Processing Bloom1.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/12/28 16:02:48: Compiling Content\Bloom1.xnb
+Message at 2022/12/28 16:02:48: Importing BodyStroke.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/12/28 16:02:48: Processing BodyStroke.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/12/28 16:02:48: Compiling Content\BodyStroke.xnb
+Message at 2022/12/28 16:02:48: Importing Magnification.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/12/28 16:02:48: Processing Magnification.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/12/28 16:02:48: Compiling Content\Magnification.xnb
+Message at 2022/12/28 16:02:48: Importing Offset.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/12/28 16:02:48: Processing Offset.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/12/28 16:02:48: Compiling Content\Offset.xnb
+Message at 2022/12/28 16:02:48: Importing PoisonousFog.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/12/28 16:02:48: Processing PoisonousFog.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/12/28 16:02:48: Compiling Content\PoisonousFog.xnb
+Message at 2022/12/28 16:02:48: Importing RadialBlur.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/12/28 16:02:48: Processing RadialBlur.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Error at 2022/12/28 16:02:48: Errors compiling C:\Users\16571\Documents\My Games\Terraria\tModLoader\ModSources\MysteriousKnives\Effects\RadialBlur.fx:
+C:\Users\16571\Documents\My Games\Terraria\tModLoader\ModSources\MysteriousKnives\Effects\RadialBlur.fx(17,14): error X3511: Unable to unroll loop, loop does not appear to terminate in a timely manner (163 iterations), use the [unroll(n)] attribute to force an exact higher number
+C:\Users\16571\Documents\My Games\Terraria\tModLoader\ModSources\MysteriousKnives\Effects\RadialBlur.fx(31,23): ID3DXEffectCompiler::CompileEffect: There was an error compiling expression
+ID3DXEffectCompiler: Compilation failed
+Message at 2022/12/28 16:04:56: Importing BigTentacle.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/12/28 16:04:56: Processing BigTentacle.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/12/28 16:04:56: Compiling Content\BigTentacle.xnb
+Message at 2022/12/28 16:04:56: Importing Bloom1.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/12/28 16:04:56: Processing Bloom1.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/12/28 16:04:56: Compiling Content\Bloom1.xnb
+Message at 2022/12/28 16:04:56: Importing BodyStroke.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/12/28 16:04:56: Processing BodyStroke.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/12/28 16:04:56: Compiling Content\BodyStroke.xnb
+Message at 2022/12/28 16:04:56: Importing Magnification.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/12/28 16:04:56: Processing Magnification.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/12/28 16:04:56: Compiling Content\Magnification.xnb
+Message at 2022/12/28 16:04:56: Importing Offset.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/12/28 16:04:56: Processing Offset.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/12/28 16:04:56: Compiling Content\Offset.xnb
+Message at 2022/12/28 16:04:56: Importing PoisonousFog.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/12/28 16:04:56: Processing PoisonousFog.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/12/28 16:04:56: Compiling Content\PoisonousFog.xnb
+Message at 2022/12/28 16:04:56: Importing RadialBlur.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/12/28 16:04:56: Processing RadialBlur.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/12/28 16:04:56: Compiling Content\RadialBlur.xnb
+Message at 2022/12/28 16:04:56: Importing ScreenShader.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/12/28 16:04:56: Processing ScreenShader.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/12/28 16:04:56: Compiling Content\ScreenShader.xnb
+Message at 2022/12/28 16:04:56: Importing SpaceWrap.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/12/28 16:04:56: Processing SpaceWrap.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/12/28 16:04:56: Compiling Content\SpaceWrap.xnb
+Message at 2022/12/28 16:04:56: Importing TargetOpacity.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/12/28 16:04:56: Processing TargetOpacity.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/12/28 16:04:56: Compiling Content\TargetOpacity.xnb
+Message at 2022/12/28 16:04:56: Importing Trail.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/12/28 16:04:56: Processing Trail.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/12/28 16:04:56: Compiling Content\Trail.xnb
+Message at 2022/12/28 16:04:56: Importing 放大镜.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/12/28 16:04:56: Processing 放大镜.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/12/28 16:04:56: Compiling Content\放大镜.xnb
+Message at 2022/12/28 16:04:56: Importing 灰度替换.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/12/28 16:04:56: Processing 灰度替换.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/12/28 16:04:56: Compiling Content\灰度替换.xnb
+Message at 2022/12/28 16:27:45: Importing BigTentacle.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/12/28 16:27:45: Processing BigTentacle.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/12/28 16:27:45: Compiling Content\BigTentacle.xnb
+Message at 2022/12/28 16:27:45: Importing Bloom1.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/12/28 16:27:45: Processing Bloom1.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/12/28 16:27:45: Compiling Content\Bloom1.xnb
+Message at 2022/12/28 16:27:45: Importing BodyStroke.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/12/28 16:27:45: Processing BodyStroke.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/12/28 16:27:45: Compiling Content\BodyStroke.xnb
+Message at 2022/12/28 16:27:45: Importing Magnification.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/12/28 16:27:45: Processing Magnification.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/12/28 16:27:45: Compiling Content\Magnification.xnb
+Message at 2022/12/28 16:27:45: Importing Offset.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/12/28 16:27:45: Processing Offset.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/12/28 16:27:45: Compiling Content\Offset.xnb
+Message at 2022/12/28 16:27:45: Importing PoisonousFog.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/12/28 16:27:45: Processing PoisonousFog.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/12/28 16:27:45: Compiling Content\PoisonousFog.xnb
+Message at 2022/12/28 16:27:45: Importing RadialBlur.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/12/28 16:27:45: Processing RadialBlur.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Error at 2022/12/28 16:27:45: Errors compiling C:\Users\16571\Documents\My Games\Terraria\tModLoader\ModSources\MysteriousKnives\Effects\RadialBlur.fx:
+C:\Users\16571\Documents\My Games\Terraria\tModLoader\ModSources\MysteriousKnives\Effects\RadialBlur.fx(33,20): error X3017: cannot implicitly convert from 'const float3' to 'float4'
+Message at 2022/12/28 16:29:12: Importing BigTentacle.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/12/28 16:29:12: Processing BigTentacle.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/12/28 16:29:12: Compiling Content\BigTentacle.xnb
+Message at 2022/12/28 16:29:12: Importing Bloom1.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/12/28 16:29:12: Processing Bloom1.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/12/28 16:29:12: Compiling Content\Bloom1.xnb
+Message at 2022/12/28 16:29:12: Importing BodyStroke.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/12/28 16:29:12: Processing BodyStroke.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/12/28 16:29:12: Compiling Content\BodyStroke.xnb
+Message at 2022/12/28 16:29:12: Importing Magnification.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/12/28 16:29:12: Processing Magnification.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/12/28 16:29:12: Compiling Content\Magnification.xnb
+Message at 2022/12/28 16:29:12: Importing Offset.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/12/28 16:29:12: Processing Offset.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/12/28 16:29:12: Compiling Content\Offset.xnb
+Message at 2022/12/28 16:29:12: Importing PoisonousFog.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/12/28 16:29:12: Processing PoisonousFog.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/12/28 16:29:12: Compiling Content\PoisonousFog.xnb
+Message at 2022/12/28 16:29:12: Importing RadialBlur.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/12/28 16:29:12: Processing RadialBlur.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/12/28 16:29:12: Compiling Content\RadialBlur.xnb
+Message at 2022/12/28 16:29:12: Importing ScreenShader.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/12/28 16:29:12: Processing ScreenShader.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/12/28 16:29:12: Compiling Content\ScreenShader.xnb
+Message at 2022/12/28 16:29:12: Importing SpaceWrap.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/12/28 16:29:12: Processing SpaceWrap.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/12/28 16:29:12: Compiling Content\SpaceWrap.xnb
+Message at 2022/12/28 16:29:12: Importing TargetOpacity.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/12/28 16:29:12: Processing TargetOpacity.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/12/28 16:29:12: Compiling Content\TargetOpacity.xnb
+Message at 2022/12/28 16:29:12: Importing Trail.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/12/28 16:29:12: Processing Trail.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/12/28 16:29:12: Compiling Content\Trail.xnb
+Message at 2022/12/28 16:29:12: Importing 放大镜.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/12/28 16:29:12: Processing 放大镜.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/12/28 16:29:12: Compiling Content\放大镜.xnb
+Message at 2022/12/28 16:29:12: Importing 灰度替换.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/12/28 16:29:12: Processing 灰度替换.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/12/28 16:29:12: Compiling Content\灰度替换.xnb
+Message at 2022/12/28 16:33:30: Importing BigTentacle.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/12/28 16:33:30: Processing BigTentacle.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/12/28 16:33:30: Compiling Content\BigTentacle.xnb
+Message at 2022/12/28 16:33:30: Importing Bloom1.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/12/28 16:33:30: Processing Bloom1.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/12/28 16:33:30: Compiling Content\Bloom1.xnb
+Message at 2022/12/28 16:33:30: Importing BodyStroke.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/12/28 16:33:30: Processing BodyStroke.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/12/28 16:33:30: Compiling Content\BodyStroke.xnb
+Message at 2022/12/28 16:33:30: Importing Magnification.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/12/28 16:33:30: Processing Magnification.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/12/28 16:33:30: Compiling Content\Magnification.xnb
+Message at 2022/12/28 16:33:30: Importing Offset.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/12/28 16:33:30: Processing Offset.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/12/28 16:33:30: Compiling Content\Offset.xnb
+Message at 2022/12/28 16:33:30: Importing PoisonousFog.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/12/28 16:33:30: Processing PoisonousFog.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/12/28 16:33:30: Compiling Content\PoisonousFog.xnb
+Message at 2022/12/28 16:33:30: Importing RadialBlur.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/12/28 16:33:30: Processing RadialBlur.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Error at 2022/12/28 16:33:30: Errors compiling C:\Users\16571\Documents\My Games\Terraria\tModLoader\ModSources\MysteriousKnives\Effects\RadialBlur.fx:
+C:\Users\16571\Documents\My Games\Terraria\tModLoader\ModSources\MysteriousKnives\Effects\RadialBlur.fx(22,9): error X5608: Compiled shader code uses too many arithmetic instruction slots (141). Max. allowed by the target (ps_2_0) is 64.
+(1,1): error X5609: Compiled shader code uses too many instruction slots (158). Max. allowed by the target (ps_2_0) is 96.
+C:\Users\16571\Documents\My Games\Terraria\tModLoader\ModSources\MysteriousKnives\Effects\RadialBlur.fx(45,23): ID3DXEffectCompiler::CompileEffect: There was an error compiling expression
+ID3DXEffectCompiler: Compilation failed
+Message at 2022/12/28 16:37:16: Importing BigTentacle.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/12/28 16:37:16: Processing BigTentacle.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/12/28 16:37:16: Compiling Content\BigTentacle.xnb
+Message at 2022/12/28 16:37:16: Importing Bloom1.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/12/28 16:37:16: Processing Bloom1.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/12/28 16:37:16: Compiling Content\Bloom1.xnb
+Message at 2022/12/28 16:37:16: Importing BodyStroke.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/12/28 16:37:16: Processing BodyStroke.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/12/28 16:37:16: Compiling Content\BodyStroke.xnb
+Message at 2022/12/28 16:37:16: Importing Magnification.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/12/28 16:37:16: Processing Magnification.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/12/28 16:37:16: Compiling Content\Magnification.xnb
+Message at 2022/12/28 16:37:16: Importing Offset.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/12/28 16:37:16: Processing Offset.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/12/28 16:37:16: Compiling Content\Offset.xnb
+Message at 2022/12/28 16:37:16: Importing PoisonousFog.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/12/28 16:37:16: Processing PoisonousFog.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/12/28 16:37:16: Compiling Content\PoisonousFog.xnb
+Message at 2022/12/28 16:37:16: Importing RadialBlur.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/12/28 16:37:16: Processing RadialBlur.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Error at 2022/12/28 16:37:16: Errors compiling C:\Users\16571\Documents\My Games\Terraria\tModLoader\ModSources\MysteriousKnives\Effects\RadialBlur.fx:
+C:\Users\16571\Documents\My Games\Terraria\tModLoader\ModSources\MysteriousKnives\Effects\RadialBlur.fx(22,9): error X5608: Compiled shader code uses too many arithmetic instruction slots (141). Max. allowed by the target (ps_2_0) is 64.
+(1,1): error X5609: Compiled shader code uses too many instruction slots (158). Max. allowed by the target (ps_2_0) is 96.
+C:\Users\16571\Documents\My Games\Terraria\tModLoader\ModSources\MysteriousKnives\Effects\RadialBlur.fx(45,23): ID3DXEffectCompiler::CompileEffect: There was an error compiling expression
+ID3DXEffectCompiler: Compilation failed
+Message at 2022/12/28 23:46:17: Importing BigTentacle.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/12/28 23:46:17: Processing BigTentacle.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/12/28 23:46:17: Compiling Content\BigTentacle.xnb
+Message at 2022/12/28 23:46:17: Importing Bloom1.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/12/28 23:46:17: Processing Bloom1.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/12/28 23:46:17: Compiling Content\Bloom1.xnb
+Message at 2022/12/28 23:46:17: Importing BodyStroke.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/12/28 23:46:17: Processing BodyStroke.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/12/28 23:46:17: Compiling Content\BodyStroke.xnb
+Message at 2022/12/28 23:46:17: Importing Magnification.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/12/28 23:46:17: Processing Magnification.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/12/28 23:46:17: Compiling Content\Magnification.xnb
+Message at 2022/12/28 23:46:17: Importing Offset.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/12/28 23:46:17: Processing Offset.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/12/28 23:46:17: Compiling Content\Offset.xnb
+Message at 2022/12/28 23:46:17: Importing PoisonousFog.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/12/28 23:46:17: Processing PoisonousFog.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/12/28 23:46:17: Compiling Content\PoisonousFog.xnb
+Message at 2022/12/28 23:46:17: Importing RadialBlur.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/12/28 23:46:17: Processing RadialBlur.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Error at 2022/12/28 23:46:17: Errors compiling C:\Users\16571\Documents\My Games\Terraria\tModLoader\ModSources\MysteriousKnives\Effects\RadialBlur.fx:
+C:\Users\16571\Documents\My Games\Terraria\tModLoader\ModSources\MysteriousKnives\Effects\RadialBlur.fx(34,19): warning X3553: can't use gradient instructions in loops with break, forcing loop to unroll
+
+Compiled shader code uses too many instruction slots (587). Max. allowed by the target (ps_3_0) is 512.
+Message at 2022/12/28 23:49:46: Importing BigTentacle.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/12/28 23:49:46: Processing BigTentacle.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/12/28 23:49:46: Compiling Content\BigTentacle.xnb
+Message at 2022/12/28 23:49:46: Importing Bloom1.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/12/28 23:49:46: Processing Bloom1.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/12/28 23:49:46: Compiling Content\Bloom1.xnb
+Message at 2022/12/28 23:49:46: Importing BodyStroke.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/12/28 23:49:46: Processing BodyStroke.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/12/28 23:49:46: Compiling Content\BodyStroke.xnb
+Message at 2022/12/28 23:49:46: Importing Magnification.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/12/28 23:49:46: Processing Magnification.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/12/28 23:49:46: Compiling Content\Magnification.xnb
+Message at 2022/12/28 23:49:46: Importing Offset.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/12/28 23:49:46: Processing Offset.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/12/28 23:49:46: Compiling Content\Offset.xnb
+Message at 2022/12/28 23:49:46: Importing PoisonousFog.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/12/28 23:49:46: Processing PoisonousFog.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2022/12/28 23:49:46: Compiling Content\PoisonousFog.xnb
+Message at 2022/12/28 23:49:46: Importing RadialBlur.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2022/12/28 23:49:46: Processing RadialBlur.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Error at 2022/12/28 23:49:47: Errors compiling C:\Users\16571\Documents\My Games\Terraria\tModLoader\ModSources\MysteriousKnives\Effects\RadialBlur.fx:
+C:\Users\16571\Documents\My Games\Terraria\tModLoader\ModSources\MysteriousKnives\Effects\RadialBlur.fx(34,19): warning X3553: can't use gradient instructions in loops with break, forcing loop to unroll
+
+Compiled shader code uses too many instruction slots (587). Max. allowed by the target (ps_3_0) is 512.
+Message at 2023/1/2 10:46:47: Importing BigTentacle.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2023/1/2 10:46:47: Processing BigTentacle.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2023/1/2 10:46:47: Compiling Content\BigTentacle.xnb
+Message at 2023/1/2 10:46:47: Importing Bloom1.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2023/1/2 10:46:47: Processing Bloom1.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2023/1/2 10:46:47: Compiling Content\Bloom1.xnb
+Message at 2023/1/2 10:46:47: Importing BodyStroke.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2023/1/2 10:46:47: Processing BodyStroke.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2023/1/2 10:46:47: Compiling Content\BodyStroke.xnb
+Message at 2023/1/2 10:46:47: Importing Magnification.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2023/1/2 10:46:47: Processing Magnification.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2023/1/2 10:46:47: Compiling Content\Magnification.xnb
+Message at 2023/1/2 10:46:47: Importing Offset.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2023/1/2 10:46:47: Processing Offset.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2023/1/2 10:46:47: Compiling Content\Offset.xnb
+Message at 2023/1/2 10:46:47: Importing PoisonousFog.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2023/1/2 10:46:47: Processing PoisonousFog.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2023/1/2 10:46:47: Compiling Content\PoisonousFog.xnb
+Message at 2023/1/2 10:46:47: Importing RadialBlur.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2023/1/2 10:46:47: Processing RadialBlur.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Error at 2023/1/2 10:46:47: Errors compiling C:\Users\16571\Documents\My Games\Terraria\tModLoader\ModSources\MysteriousKnives\Effects\RadialBlur.fx:
+C:\Users\16571\Documents\My Games\Terraria\tModLoader\ModSources\MysteriousKnives\Effects\RadialBlur.fx(34,19): warning X3553: can't use gradient instructions in loops with break, forcing loop to unroll
+
+Compiled shader code uses too many instruction slots (587). Max. allowed by the target (ps_3_0) is 512.
+Message at 2023/1/2 10:46:57: Importing BigTentacle.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2023/1/2 10:46:57: Processing BigTentacle.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2023/1/2 10:46:57: Compiling Content\BigTentacle.xnb
+Message at 2023/1/2 10:46:57: Importing Bloom1.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2023/1/2 10:46:57: Processing Bloom1.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2023/1/2 10:46:57: Compiling Content\Bloom1.xnb
+Message at 2023/1/2 10:46:57: Importing BodyStroke.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2023/1/2 10:46:57: Processing BodyStroke.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2023/1/2 10:46:57: Compiling Content\BodyStroke.xnb
+Message at 2023/1/2 10:46:57: Importing Magnification.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2023/1/2 10:46:57: Processing Magnification.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2023/1/2 10:46:57: Compiling Content\Magnification.xnb
+Message at 2023/1/2 10:46:57: Importing Offset.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2023/1/2 10:46:57: Processing Offset.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2023/1/2 10:46:57: Compiling Content\Offset.xnb
+Message at 2023/1/2 10:46:57: Importing PoisonousFog.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2023/1/2 10:46:57: Processing PoisonousFog.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2023/1/2 10:46:57: Compiling Content\PoisonousFog.xnb
+Message at 2023/1/2 10:46:57: Importing ScreenShader.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2023/1/2 10:46:57: Processing ScreenShader.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2023/1/2 10:46:57: Compiling Content\ScreenShader.xnb
+Message at 2023/1/2 10:46:57: Importing SpaceWrap.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2023/1/2 10:46:57: Processing SpaceWrap.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2023/1/2 10:46:57: Compiling Content\SpaceWrap.xnb
+Message at 2023/1/2 10:46:57: Importing TargetOpacity.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2023/1/2 10:46:57: Processing TargetOpacity.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2023/1/2 10:46:57: Compiling Content\TargetOpacity.xnb
+Message at 2023/1/2 10:46:57: Importing Trail.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2023/1/2 10:46:57: Processing Trail.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Message at 2023/1/2 10:46:57: Compiling Content\Trail.xnb
+Message at 2023/1/2 10:46:57: Importing 外发光.fx with Microsoft.Xna.Framework.Content.Pipeline.EffectImporter
+Message at 2023/1/2 10:46:57: Processing 外发光.fx with Microsoft.Xna.Framework.Content.Pipeline.Processors.EffectProcessor
+Error at 2023/1/2 10:46:57: XNA Framework Reach profile does not support pixel shader model 3.0.

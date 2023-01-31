@@ -197,10 +197,11 @@ namespace MysteriousKnives.Projectiles
         public override bool PreDraw(ref Color lightColor)
         {
             SpriteBatch sb = Main.spriteBatch;
-            sb.End();
+            /*sb.End();
             sb.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend, SamplerState.AnisotropicClamp, DepthStencilState.None,
-                RasterizerState.CullNone, null, Main.GameViewMatrix.TransformationMatrix);
+                RasterizerState.CullNone, null, Main.GameViewMatrix.TransformationMatrix);*/
             Texture2D tex = TextureAssets.Projectile[Type].Value;
+            //tex = GetT2D("Projectiles/Another/Extra_998").Value;
             Vector2 origin = tex.Size() / 2f;
             Color drawcolor = GetColor((int)ProjType) * ((255 - Projectile.alpha) / 510f + 0.025f * Projectile.ai[0]);
             Vector2 pos = Projectile.Center - Main.screenPosition + new Vector2(0f, Projectile.gfxOffY);
@@ -224,7 +225,7 @@ namespace MysteriousKnives.Projectiles
             sb.Draw(tex, pos, null, drawcolor * lerp * 0.75f, 0f, origin, scale * 0.75f, 0, 0);
             sb.Draw(tex, pos, null, new Color(1, 1, 1, 0.5f) * ((255 - Projectile.alpha) / 255f),
                 Projectile.rotation, origin, Projectile.scale, 0, 0);
-            ChangeSpb(BlendState.AlphaBlend);
+            //ChangeSpb(BlendState.AlphaBlend);
             //Main.graphics.GraphicsDevice.SetRenderTarget(Main.screenTargetSwap);
             return false;
         }

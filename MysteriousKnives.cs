@@ -149,7 +149,7 @@
                 Effect eff_mag = ModContent.Request<Effect>("MysteriousKnives/Effects/Content/Magnification", AssetRequestMode.ImmediateLoad).Value;
                 eff_mag.CurrentTechnique.Passes[1].Apply();
                 eff_mag.Parameters["tex0"].SetValue(Main.screenTargetSwap);
-                eff_mag.Parameters["i"].SetValue(0.1f);
+                eff_mag.Parameters["i"].SetValue(0.2f);
                 /*Effect enlarge = ModContent.Request<Effect>("MysteriousKnives/Effects/Content/放大镜", AssetRequestMode.ImmediateLoad).Value;
                 gd.Textures[0] = render;
                 gd.Textures[1] = Main.screenTargetSwap;
