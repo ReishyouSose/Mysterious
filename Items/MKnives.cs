@@ -17,7 +17,7 @@
             Item.shoot = ModContent.ProjectileType<MysteriousCore>();
             Item.shootSpeed = 10f;
             Item.UseSound = SoundID.Item113;
-            SacrificeTotal = 1;
+            Item.ResearchUnlockCount = 1;
             base.SetDefaults();
         }
 
@@ -58,9 +58,9 @@
             public override string Texture => "MysteriousKnives/Pictures/Items/MK01";
             public override void SetStaticDefaults()
             {
-                DisplayName.SetDefault("诡秘飞刀I");
-                Tooltip.SetDefault("射出一团不明物质，随后炸出数把诡秘飞刀\n" +
-                    "散射1+2");
+                // DisplayName.SetDefault("诡秘飞刀I");
+                /* Tooltip.SetDefault("射出一团不明物质，随后炸出数把诡秘飞刀\n" +
+                    "散射1+2"); */
                 CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
             }
 
@@ -96,9 +96,9 @@
             public override string Texture => "MysteriousKnives/Pictures/Items/MK02";
             public override void SetStaticDefaults()
             {
-                DisplayName.SetDefault("诡秘飞刀II");
-                Tooltip.SetDefault("射出一团不明物质，随后炸出数把诡秘飞刀\n" +
-                    "散射2+2");
+                // DisplayName.SetDefault("诡秘飞刀II");
+                /* Tooltip.SetDefault("射出一团不明物质，随后炸出数把诡秘飞刀\n" +
+                    "散射2+2"); */
                 CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
             }
             public override void SetDefaults()
@@ -131,9 +131,9 @@
             public override string Texture => "MysteriousKnives/Pictures/Items/MK03";
             public override void SetStaticDefaults()
             {
-                DisplayName.SetDefault("诡秘飞刀III");
-                Tooltip.SetDefault("射出一团不明物质，随后炸出数把诡秘飞刀\n" +
-                    "散射3+3");
+                // DisplayName.SetDefault("诡秘飞刀III");
+                /* Tooltip.SetDefault("射出一团不明物质，随后炸出数把诡秘飞刀\n" +
+                    "散射3+3"); */
                 CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
             }
             public override void SetDefaults()
@@ -168,9 +168,9 @@
             public override string Texture => "MysteriousKnives/Pictures/Items/MK04";
             public override void SetStaticDefaults()
             {
-                DisplayName.SetDefault("诡秘飞刀IV");
-                Tooltip.SetDefault("射出一团不明物质，随后炸出数把诡秘飞刀\n" +
-                    "散射4+3");
+                // DisplayName.SetDefault("诡秘飞刀IV");
+                /* Tooltip.SetDefault("射出一团不明物质，随后炸出数把诡秘飞刀\n" +
+                    "散射4+3"); */
                 CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
             }
             public override void SetDefaults()
@@ -203,9 +203,9 @@
             public override string Texture => "MysteriousKnives/Pictures/Items/MK05";
             public override void SetStaticDefaults()
             {
-                DisplayName.SetDefault("诡秘飞刀V");
-                Tooltip.SetDefault("射出一团不明物质，随后炸出数把诡秘飞刀\n" +
-                    "散射5+4");
+                // DisplayName.SetDefault("诡秘飞刀V");
+                /* Tooltip.SetDefault("射出一团不明物质，随后炸出数把诡秘飞刀\n" +
+                    "散射5+4"); */
                 CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
             }
             public override void SetDefaults()
@@ -238,9 +238,9 @@
             public override string Texture => "MysteriousKnives/Pictures/Items/MK06";
             public override void SetStaticDefaults()
             {
-                DisplayName.SetDefault("诡秘飞刀VI");
-                Tooltip.SetDefault("射出一团不明物质，随后炸出数把诡秘飞刀\n" +
-                    "散射6+4");
+                // DisplayName.SetDefault("诡秘飞刀VI");
+                /* Tooltip.SetDefault("射出一团不明物质，随后炸出数把诡秘飞刀\n" +
+                    "散射6+4"); */
                 CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
             }
             public override void SetDefaults()
@@ -275,9 +275,9 @@
             public override string Texture => "MysteriousKnives/Pictures/Items/MK07";
             public override void SetStaticDefaults()
             {
-                DisplayName.SetDefault("诡秘飞刀VII");
-                Tooltip.SetDefault("射出一团不明物质，随后炸出数把诡秘飞刀\n" +
-                    "散射7+5");
+                // DisplayName.SetDefault("诡秘飞刀VII");
+                /* Tooltip.SetDefault("射出一团不明物质，随后炸出数把诡秘飞刀\n" +
+                    "散射7+5"); */
                 CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
             }
             public override void SetDefaults()
@@ -309,9 +309,9 @@
             public override string Texture => "MysteriousKnives/Pictures/Items/MK08";
             public override void SetStaticDefaults()
             {
-                DisplayName.SetDefault("诡秘飞刀VIII");
-                Tooltip.SetDefault("射出一团不明物质，随后炸出数把诡秘飞刀\n" +
-                    "散射8+5");
+                // DisplayName.SetDefault("诡秘飞刀VIII");
+                /* Tooltip.SetDefault("射出一团不明物质，随后炸出数把诡秘飞刀\n" +
+                    "散射8+5"); */
                 CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
             }
             public override void SetDefaults()
@@ -341,9 +341,9 @@
             public override string Texture => "MysteriousKnives/Pictures/Items/MK09";
             public override void SetStaticDefaults()
             {
-                DisplayName.SetDefault("诡秘飞刀IX");
-                Tooltip.SetDefault("射出一团不明物质，随后炸出数把诡秘飞刀\n" +
-                    "散射9+6");
+                // DisplayName.SetDefault("诡秘飞刀IX");
+                /* Tooltip.SetDefault("射出一团不明物质，随后炸出数把诡秘飞刀\n" +
+                    "散射9+6"); */
                 CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
             }
             public override void SetDefaults()
@@ -381,8 +381,8 @@
             public override string Texture => "MysteriousKnives/Pictures/Items/MK10";
             public override void SetStaticDefaults()
             {
-                DisplayName.SetDefault("诡秘飞刀·终末X");
-                Tooltip.SetDefault("终末撕裂时空");
+                // DisplayName.SetDefault("诡秘飞刀·终末X");
+                // Tooltip.SetDefault("终末撕裂时空");
             }
             public override void SetDefaults()
             {

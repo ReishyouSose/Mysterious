@@ -42,7 +42,7 @@ namespace MysteriousKnives.UI.MKUIstate
 			sort.Height.Set(30, 0);
 			sort.Left.Pixels = 560f;
 			sort.VAlign = 0.5f;
-			sort.OnClick += Sort_OnClick;
+			sort.OnLeftClick += Sort_OnClick;
 			MainPanel.Append(sort);
 		}
 		public static void Sort_OnClick(UIMouseEvent evt, UIElement listeningElement)

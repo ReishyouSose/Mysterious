@@ -11,7 +11,7 @@
             button.Height.Set(24, 0);
             button.HAlign = 0.895f;
             button.VAlign = 0.377f;
-            button.OnClick += Button_OnClick;
+            button.OnLeftClick += Button_OnClick;
             Append(button);
         }
         public override void Update(GameTime gameTime)

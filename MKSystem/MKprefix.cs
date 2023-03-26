@@ -1,9 +1,10 @@
-﻿namespace MysteriousKnives.MKSystem
+﻿using Terraria;
+namespace MysteriousKnives.MKSystem
 {
     public abstract class MKprefix : ModPrefix
     {
         public override PrefixCategory Category => PrefixCategory.AnyWeapon;
-        public override void ValidateItem(Item item, ref bool invalid)
+        public override bool AllStatChangesHaveEffectOn(Item item)
         {
             //条件，是否允许获得前缀
         }
@@ -12,7 +13,7 @@
 
             public override void SetStaticDefaults()
             {
-                DisplayName.SetDefault("未知I");
+                // DisplayName.SetDefault("未知I");
             }
             public override void Apply(Item item)
             {

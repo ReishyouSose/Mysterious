@@ -29,10 +29,10 @@ namespace MysteriousKnives.Tiles
 
 			DustType = MKDustID.RainbowDust;
 			AdjTiles = new int[] { TileID.Containers };
-			ChestDrop = MKItemID.Station;
+			ItemDrop = MKItemID.Station;
 
 			//给物块命名
-			ContainerName.SetDefault("诡秘灌注站");
+			ContainerName/* tModPorter Note: Removed. Override DefaultContainerName instead */.SetDefault("诡秘灌注站");
 
 			ModTranslation name = CreateMapEntryName();
 			name.SetDefault("诡秘灌注站");
@@ -65,7 +65,7 @@ namespace MysteriousKnives.Tiles
 		{
 			Point16 origin = GetTileOrigin(i, j);
 			ModContent.GetInstance<Potion>().Kill(origin.X, origin.Y);
-			Item.NewItem(new EntitySource_TileBreak(i, j), i * 16, j * 16, 54, 54, ChestDrop);
+			Item.NewItem(new EntitySource_TileBreak(i, j), i * 16, j * 16, 54, 54, ItemDrop);
 			Chest.DestroyChest(i, j);
 		}
 

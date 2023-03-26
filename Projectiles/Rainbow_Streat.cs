@@ -1,11 +1,11 @@
-namespace MysteriousKnives.Projectiles
+﻿namespace MysteriousKnives.Projectiles
 {
     public class Rainbow_Streat : ModProjectile
     {
         public override string Texture => "MysteriousKnives/Pictures/Projectiles/Another/Projectile_873，长枪是919";
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("七彩矢");
+            // DisplayName.SetDefault("七彩矢");
             Main.projFrames[Projectile.type] = 1;//动画被分成几份
             ProjectileID.Sets.TrailCacheLength[Type] = 30;
         }

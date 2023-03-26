@@ -14,11 +14,11 @@
             //UserInterface.ActiveInstance = temp;
         }
 
-        public override void MouseDown(UIMouseEvent evt)
+        public override void LeftMouseDown(UIMouseEvent evt)
         {
             //UserInterface temp = UserInterface.ActiveInstance;
             //UserInterface.ActiveInstance = Interface;
-            base.MouseDown(evt);
+            base.LeftMouseDown(evt);
             //UserInterface.ActiveInstance = temp;
             ScrollWheelValue = 0;
         }

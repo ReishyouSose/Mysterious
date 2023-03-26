@@ -5,7 +5,7 @@
         public override string Texture => "MysteriousKnives/Pictures/NPCs/MKpuppet";
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("诡秘侍者");
+            // DisplayName.SetDefault("诡秘侍者");
             Main.npcFrameCount[NPC.type] = 3;
         }
         public override void SetDefaults()

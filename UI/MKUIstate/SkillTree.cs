@@ -52,7 +52,7 @@
             button.Height.Pixels = 50;
             button.HAlign = 0.5f;
             button.Top.Pixels = view.Height.Pixels + view.Top.Pixels + 5;
-            button.OnClick += (evt, uie) => { if (!Lighting) view.Light(); };
+            button.OnLeftClick += (evt, uie) => { if (!Lighting) view.Light(); };
             side.Append(button);
 
             for (int i = 0; i < skill.Length; i++)
@@ -79,7 +79,7 @@
                 skill[i].Height.Pixels = 24;
                 skill[i].HAlign = skill[i].VAlign = 0.5f;
                 skill[i].id = i;
-                skill[i].OnClick += (evt, uie) => { int id = (uie as AddiImage).id; if (!Main.dayTime) ModifyView(id); };
+                skill[i].OnLeftClick += (evt, uie) => { int id = (uie as AddiImage).id; if (!Main.dayTime) ModifyView(id); };
                 switch ((Skill)i)
                 {
                     case Skill.RB1:

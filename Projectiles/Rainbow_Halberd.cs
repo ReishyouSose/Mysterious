@@ -1,11 +1,11 @@
-namespace MysteriousKnives.Projectiles
+﻿namespace MysteriousKnives.Projectiles
 {
     public class Rainbow_Halberd : ModProjectile
     {
         public override string Texture => "MysteriousKnives/Pictures/Projectiles/Another/Rainbow_Halberd";
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("彩虹长戟");
+            // DisplayName.SetDefault("彩虹长戟");
         }
         public override void SetDefaults()
         {

@@ -21,13 +21,13 @@
             UIText boost = new("增加");
             boost.Left.Set(size.X * 14, 0f);
             boost.VAlign = 0.5f;
-            boost.OnClick += Boost_Click;
+            boost.OnLeftClick += Boost_Click;
             panel.Append(boost);
 
             UIText reduce = new("减少");
             reduce.Left.Set(size.X *17, 0);
             reduce.VAlign = 0.5f;
-            reduce.OnClick += Reduce_Click;
+            reduce.OnLeftClick += Reduce_Click;
             panel.Append(reduce);
         }
         public UIText mult;

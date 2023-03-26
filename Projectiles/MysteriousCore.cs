@@ -1,4 +1,5 @@
-using static MysteriousKnives.Projectiles.MysteriousKnife;
+﻿using static MysteriousKnives.Projectiles.MysteriousKnife;
+using Terraria;
 
 namespace MysteriousKnives.Projectiles
 {
@@ -8,7 +9,7 @@ namespace MysteriousKnives.Projectiles
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("诡秘飞刀");
+            // DisplayName.SetDefault("诡秘飞刀");
             //ProjectileID.Sets.TrailCacheLength[Type] = 30;
         }
         public override void SetDefaults()
@@ -111,7 +112,7 @@ namespace MysteriousKnives.Projectiles
                 Projectile.oldPos[0] = Projectile.Center;*/
             }//拖尾
         }
-        public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
+        public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
             Player player = Main.player[Projectile.owner];
             RandomShoot(player, Projectile.frame, (int)Projectile.ai[1]);

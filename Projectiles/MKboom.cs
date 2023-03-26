@@ -1,11 +1,11 @@
-namespace MysteriousKnives.Projectiles
+﻿namespace MysteriousKnives.Projectiles
 {
     public class MKboom : ModProjectile
     {
         public override string Texture => "MysteriousKnives/Pictures/Projectiles/Another/MKboom";
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("诡秘飞刀");
+            // DisplayName.SetDefault("诡秘飞刀");
         }
         public override void SetDefaults()
         {

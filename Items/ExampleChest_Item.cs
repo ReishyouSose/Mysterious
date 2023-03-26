@@ -12,8 +12,8 @@ namespace MysteriousKnives.Items
         public override string Texture => "MysteriousKnives/Pictures/Items/Chest_Item";
         public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("诡秘药箱");
-			Tooltip.SetDefault("放在其内的药水效果会持续施加给所有玩家");
+			// DisplayName.SetDefault("诡秘药箱");
+			// Tooltip.SetDefault("放在其内的药水效果会持续施加给所有玩家");
 			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
 		}
 		public override void SetDefaults()

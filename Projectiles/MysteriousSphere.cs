@@ -1,10 +1,10 @@
-namespace MysteriousKnives.Projectiles
+﻿namespace MysteriousKnives.Projectiles
 {
     public abstract class MKSphere : ModProjectile
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("光球");
+            // DisplayName.SetDefault("光球");
             Main.projFrames[Projectile.type] = 118;
             base.SetStaticDefaults();
         }

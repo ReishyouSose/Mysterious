@@ -1,4 +1,5 @@
-﻿namespace MysteriousKnives.NPCs
+﻿using Terraria;
+namespace MysteriousKnives.NPCs
 {
     public class MKGlobalNPC : GlobalNPC
     {
@@ -35,19 +36,19 @@
             npc.buffImmune[ModContent.BuffType<SunkerCancer>()] = false;
             npc.buffImmune[ModContent.BuffType<WeirdVemon>()] = false;
         }
-        public override void ModifyHitPlayer(NPC npc, Player target, ref int damage, ref bool crit)
+        public override void ModifyHitPlayer(NPC npc, Player target, ref Player.HurtModifiers modifiers)
         {
             if (SK1) damage -= (int)(damage * 0.1f);
             if (SK2) damage -= (int)(damage * 0.2f);
             if (SK3) damage -= (int)(damage * 0.4f);
         }
-        public override void ModifyHitNPC(NPC npc, NPC target, ref int damage, ref float knockback, ref bool crit)
+        public override void ModifyHitNPC(NPC npc, NPC target, ref NPC.HitModifiers modifiers)
         {
             if (SK1) damage -= (int)(damage * 0.1f);
             if (SK2) damage -= (int)(damage * 0.2f);
             if (SK3) damage -= (int)(damage * 0.4f);
         }
-        public override void ModifyHitByItem(NPC npc, Player player, Item item, ref int damage, ref float knockback, ref bool crit)
+        public override void ModifyHitByItem(NPC npc, Player player, Item item, ref NPC.HitModifiers modifiers)
         {
             if (AB1) damage += (int)(damage * 0.05f);
             if (AB2) damage += (int)(damage * 0.1f);
@@ -57,7 +58,7 @@
             if (AB6) damage += (int)(damage * 0.3f);
             if (AB7) damage += (int)(damage * 0.5f);
         }
-        public override void ModifyHitByProjectile(NPC npc, Projectile Projectile, ref int damage, ref float knockback, ref bool crit, ref int hitDirection)
+        public override void ModifyHitByProjectile(NPC npc, Projectile projectile, ref NPC.HitModifiers modifiers)
         {
             if (AB1) damage += (int)(damage * 0.05f);
             if (AB2) damage += (int)(damage * 0.1f);

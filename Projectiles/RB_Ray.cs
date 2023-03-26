@@ -1,11 +1,11 @@
-namespace MysteriousKnives.Projectiles
+﻿namespace MysteriousKnives.Projectiles
 {
     public class RB_Ray : ModProjectile
     {
         public override string Texture => "MysteriousKnives/Pictures/Projectiles/Another/RB_Ray";
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("回春光束");
+            // DisplayName.SetDefault("回春光束");
         }
         public override void SetDefaults()
         {

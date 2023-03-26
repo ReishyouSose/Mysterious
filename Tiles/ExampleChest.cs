@@ -26,10 +26,10 @@ namespace MysteriousKnives.Tiles
 
 			DustType = MKDustID.RainbowDust;
 			AdjTiles = new int[] { TileID.Containers };
-			ChestDrop = MKItemID.Station;
+			ItemDrop = MKItemID.Station;
 
 			// Names
-			ContainerName.SetDefault("诡秘药箱");
+			ContainerName/* tModPorter Note: Removed. Override DefaultContainerName instead */.SetDefault("诡秘药箱");
 
 			ModTranslation name = CreateMapEntryName();
 			name.SetDefault("诡秘药箱");
@@ -106,7 +106,7 @@ namespace MysteriousKnives.Tiles
 
 		public override void KillMultiTile(int i, int j, int frameX, int frameY)
 		{
-			Item.NewItem(new EntitySource_TileBreak(i, j), i * 16, j * 16, 32, 32, ChestDrop);
+			Item.NewItem(new EntitySource_TileBreak(i, j), i * 16, j * 16, 32, 32, ItemDrop);
 			Chest.DestroyChest(i, j);
 		}
 
@@ -172,7 +172,7 @@ namespace MysteriousKnives.Tiles
 					{
 						if (Main.netMode == NetmodeID.MultiplayerClient)
 						{
-							NetMessage.SendData(MessageID.Unlock, -1, -1, null, player.whoAmI, 1f, left, top);
+							NetMessage.SendData(MessageID.LockAndUnlock, -1, -1, null, player.whoAmI, 1f, left, top);
 						}
 					}
 				}

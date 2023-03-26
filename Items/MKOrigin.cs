@@ -8,8 +8,8 @@ namespace MysteriousKnives.Items
         public override string Texture => "MysteriousKnives/Pictures/Items/MKsOrigin";
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("诡秘起源");
-            Tooltip.SetDefault("放在背包里，获得随进度增强的增益");
+            // DisplayName.SetDefault("诡秘起源");
+            // Tooltip.SetDefault("放在背包里，获得随进度增强的增益");
         }
         public override void SetDefaults()
         {

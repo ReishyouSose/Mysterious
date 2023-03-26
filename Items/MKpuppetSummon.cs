@@ -5,9 +5,9 @@
         public override string Texture => "MysteriousKnives/Pictures/Items/MKpuppetSummon";
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("傀儡召唤器");
-            Tooltip.SetDefault("于鼠标处召唤一个傀儡\n" +
-                "再次使用召回");
+            // DisplayName.SetDefault("傀儡召唤器");
+            /* Tooltip.SetDefault("于鼠标处召唤一个傀儡\n" +
+                "再次使用召回"); */
             base.SetStaticDefaults();
         }
         public override void SetDefaults()

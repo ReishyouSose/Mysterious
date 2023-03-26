@@ -26,7 +26,7 @@
             ButtonUI function = new("打开功能选择菜单");
             function.Width.Pixels = 200;
             function.Height.Pixels = 30f;
-            function.OnClick += (evt, uie) =>
+            function.OnLeftClick += (evt, uie) =>
             {
                 FunctionPanel.visible = !FunctionPanel.visible;
             };
@@ -43,7 +43,7 @@
                 funcs.Width.Pixels = functionArea.ScrollList.WidthInside();
                 funcs.Height.Pixels = 50f;
                 funcs.id[0] = i;
-                funcs.OnClick += (evt, uie) =>
+                funcs.OnLeftClick += (evt, uie) =>
                 {
                     int x = (uie as ButtonUI).id[0];
                     FuncsOnClick(x);
@@ -73,7 +73,7 @@
             close.Width.Pixels = close.Height();
             close.Left.Pixels = bg.Width() - close.Width() - 30f;
             close.Top.Pixels = function.Top();
-            close.OnClick += (evt, uie) =>
+            close.OnLeftClick += (evt, uie) =>
             {
                   enable = false;
             };

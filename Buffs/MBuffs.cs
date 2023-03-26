@@ -51,8 +51,8 @@
             public override void SetStaticDefaults()
             {
                 base.SetStaticDefaults();
-                DisplayName.SetDefault("星辉射线");
-                Description.SetDefault("星辉会瓦解一切");
+                // DisplayName.SetDefault("星辉射线");
+                // Description.SetDefault("星辉会瓦解一切");
                 Main.buffNoTimeDisplay[Type] = false;
                 Main.debuff[Type] = false;
                 Main.buffNoSave[Type] = true;
@@ -84,9 +84,9 @@
         {
             public override void SetStaticDefaults()
             {
-                DisplayName.SetDefault("收束爆破");
-                Description.SetDefault("给火焰能量一些收束的时间\n" +
-                    "然后，欣赏艺术\n");
+                // DisplayName.SetDefault("收束爆破");
+                /* Description.SetDefault("给火焰能量一些收束的时间\n" +
+                    "然后，欣赏艺术\n"); */
                 Main.buffNoTimeDisplay[Type] = false;
                 Main.debuff[Type] = true;
                 Main.buffNoSave[Type] = false;
@@ -233,9 +233,9 @@
             public override string Texture => "MysteriousKnives/Pictures/Buffs/Crystallization";
             public override void SetStaticDefaults()
             {
-                DisplayName.SetDefault("结晶化");//Crystallization
-                Description.SetDefault("你是个易碎品\n" +
-                    "再次被施加这个效果时会受到大额伤害");
+                // DisplayName.SetDefault("结晶化");//Crystallization
+                /* Description.SetDefault("你是个易碎品\n" +
+                    "再次被施加这个效果时会受到大额伤害"); */
                 Main.buffNoTimeDisplay[Type] = false;
                 Main.debuff[Type] = true;
                 Main.buffNoSave[Type] = false;
@@ -289,8 +289,8 @@
             public override string Texture => "MysteriousKnives/Pictures/Buffs/IndescribableFear";
             public override void SetStaticDefaults()
             {
-                DisplayName.SetDefault("不可名状恐惧");//IndescribableFear
-                Description.SetDefault("啊——大脑在颤抖——");
+                // DisplayName.SetDefault("不可名状恐惧");//IndescribableFear
+                // Description.SetDefault("啊——大脑在颤抖——");
                 Main.pvpBuff[Type] = true;
                 Main.buffNoTimeDisplay[Type] = false;
                 Main.debuff[Type] = true;
@@ -342,8 +342,8 @@
             public override void SetStaticDefaults()
             {
                 base.SetStaticDefaults();
-                DisplayName.SetDefault("回春祝福");
-                Description.SetDefault("你的一切伤痛都会迅速消失");
+                // DisplayName.SetDefault("回春祝福");
+                // Description.SetDefault("你的一切伤痛都会迅速消失");
                 Main.buffNoTimeDisplay[Type] = false;
                 Main.debuff[Type] = false;
                 Main.buffNoSave[Type] = true;
@@ -404,8 +404,8 @@
             public override string Texture => "MysteriousKnives/Pictures/Buffs/StrengthEX";
             public override void SetStaticDefaults()
             {
-                DisplayName.SetDefault("筋力EX+++");//StrengthEX
-                Description.SetDefault("你被强化了！快上！");
+                // DisplayName.SetDefault("筋力EX+++");//StrengthEX
+                // Description.SetDefault("你被强化了！快上！");
                 Main.buffNoTimeDisplay[Type] = false;
                 Main.debuff[Type] = false;
                 Main.buffNoSave[Type] = true;
@@ -444,8 +444,8 @@
             public override string Texture => "MysteriousKnives/Pictures/Buffs/SunkerCancer";
             public override void SetStaticDefaults()
             {
-                DisplayName.SetDefault("沉沦之癌");
-                Description.SetDefault("你正逐渐摆烂");
+                // DisplayName.SetDefault("沉沦之癌");
+                // Description.SetDefault("你正逐渐摆烂");
                 Main.buffNoTimeDisplay[Type] = false;
                 Main.debuff[Type] = true;
                 Main.buffNoSave[Type] = false;
@@ -484,8 +484,8 @@
             public override void SetStaticDefaults()
             {
                 base.SetStaticDefaults();
-                DisplayName.SetDefault("诡异诡毒");//WeirdVemon
-                Description.SetDefault("怎么就掉血了呢?");
+                // DisplayName.SetDefault("诡异诡毒");//WeirdVemon
+                // Description.SetDefault("怎么就掉血了呢?");
                 Main.buffNoTimeDisplay[Type] = false;
                 Main.debuff[Type] = true;
                 Main.buffNoSave[Type] = false;

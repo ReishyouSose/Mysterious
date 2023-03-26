@@ -28,7 +28,7 @@
             add.Height.Pixels = 30f;
             add.Left.Pixels = selected.Width() + selected.Left() + 5;
             add.VAlign = 0.35f;
-            add.OnClick += (evt, uie) =>
+            add.OnLeftClick += (evt, uie) =>
             {
 
             };
@@ -39,7 +39,7 @@
             remove.Height.Pixels = 30f;
             remove.Left.Pixels = selected.Width() + selected.Left() + 5;
             remove.VAlign = 0.65f;
-            remove.OnClick += (evt, uie) =>
+            remove.OnLeftClick += (evt, uie) =>
             {
 
             };
@@ -51,7 +51,7 @@
                 funcsx.Width.Pixels = selected.ScrollList.WidthInside();
                 funcsx.Height.Pixels = 50f;
                 funcsx.id[0] = i;
-                funcsx.OnClick += (evt, uie) =>
+                funcsx.OnLeftClick += (evt, uie) =>
                 {
                     int x = (uie as ButtonUI).id[0];
                     FuncsOnClick(x);
@@ -65,7 +65,7 @@
                 nonf.Width.Pixels = unselect.ScrollList.WidthInside();
                 nonf.Height.Pixels = 50;
                 nonf.id[0] = i;
-                nonf.OnClick += (evt, uie) =>
+                nonf.OnLeftClick += (evt, uie) =>
                 {
                     int x = (uie as ButtonUI).id[0];
                     NonfOnClick(x);

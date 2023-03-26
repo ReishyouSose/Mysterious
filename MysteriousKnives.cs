@@ -12,9 +12,9 @@
         public override void Load()
         {
             Lens = ModContent.Request<Effect>("MysteriousKnives/Effects/Content/Lens", AssetRequestMode.ImmediateLoad).Value;
-            On.Terraria.Main.GUIChatDrawInner += Main_GUIChatDrawInner;
-            On.Terraria.Player.HasUnityPotion += Player_HasUnityPotion;
-            On.Terraria.Graphics.Effects.FilterManager.EndCapture += FilterManager_EndCapture;
+            Terraria.On_Main.GUIChatDrawInner += Main_GUIChatDrawInner;
+            Terraria.On_Player.HasUnityPotion += Player_HasUnityPotion;
+            Terraria.Graphics.Effects.On_FilterManager.EndCapture += FilterManager_EndCapture;
             Main.OnResolutionChanged += (obj) => { render = new RenderTarget2D(Main.graphics.GraphicsDevice, Main.screenWidth, Main.screenHeight); };
             // 注意设置正确的Pass名字，Scene的名字可以随便填，不和别的Mod以及原版冲突即可
             //Effect scshader = ModContent.Request<Effect>("MysteriousKnives/Effects/Content/ScreenShader", AssetRequestMode.ImmediateLoad).Value;
@@ -24,11 +24,11 @@
         }
         public override void Unload()
         {
-            On.Terraria.Main.GUIChatDrawInner -= Main_GUIChatDrawInner;
-            On.Terraria.Player.HasUnityPotion -= Player_HasUnityPotion;
-            On.Terraria.Graphics.Effects.FilterManager.EndCapture -= FilterManager_EndCapture;
+            Terraria.On_Main.GUIChatDrawInner -= Main_GUIChatDrawInner;
+            Terraria.On_Player.HasUnityPotion -= Player_HasUnityPotion;
+            Terraria.Graphics.Effects.On_FilterManager.EndCapture -= FilterManager_EndCapture;
         }
-        public void FilterManager_EndCapture(On.Terraria.Graphics.Effects.FilterManager.orig_EndCapture orig,
+        public void FilterManager_EndCapture(Terraria.Graphics.Effects.On_FilterManager.orig_EndCapture orig,
             Terraria.Graphics.Effects.FilterManager self, RenderTarget2D finalTexture, RenderTarget2D screenTarget1,
             RenderTarget2D screenTarget2, Color clearColor)
         {
@@ -245,7 +245,7 @@
                 }
             }
         }
-        public static bool Player_HasUnityPotion(On.Terraria.Player.orig_HasUnityPotion orig, Player self)
+        public static bool Player_HasUnityPotion(Terraria.On_Player.orig_HasUnityPotion orig, Player self)
         {
             for (int i = 0; i < 58; i++)
             {
@@ -272,7 +272,7 @@
         }
         public string text = Language.GetTextValue("LegacyInterface.28");
         public int num1;
-        public void Main_GUIChatDrawInner(On.Terraria.Main.orig_GUIChatDrawInner orig, Main self)
+        public void Main_GUIChatDrawInner(Terraria.On_Main.orig_GUIChatDrawInner orig, Main self)
         {
             orig(self);
             NPC npc = Main.npc[Main.player[Main.myPlayer].talkNPC];

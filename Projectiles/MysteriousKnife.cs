@@ -1,4 +1,5 @@
-using static MysteriousKnives.Projectiles.MKchannel;
+﻿using static MysteriousKnives.Projectiles.MKchannel;
+using Terraria;
 
 namespace MysteriousKnives.Projectiles
 {
@@ -7,7 +8,7 @@ namespace MysteriousKnives.Projectiles
         public override string Texture => "MysteriousKnives/Pictures/Projectiles/Another/Projectile_873，长枪是919";
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("诡秘飞刀");
+            // DisplayName.SetDefault("诡秘飞刀");
             Main.projFrames[Projectile.type] = 8;
         }
         public override void SetDefaults()
@@ -174,7 +175,7 @@ namespace MysteriousKnives.Projectiles
                 GetColor((int)ProjType).ToVector3() : new(0.66f, 0.66f, 0.66f));//RGB
             base.AI();
         }
-        public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
+        public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
             Projectile.timeLeft = 60 * Exup;
             Player player = Main.player[Projectile.owner];

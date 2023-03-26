@@ -4,7 +4,7 @@
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("神秘弹幕");
+            // DisplayName.SetDefault("神秘弹幕");
         }
         public override void SetDefaults()
         {

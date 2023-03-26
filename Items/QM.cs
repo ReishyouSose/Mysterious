@@ -14,7 +14,7 @@
 			public override string Texture => "MysteriousKnives/Pictures/Items/诡毒";
 			public override void SetStaticDefaults()
 			{
-				Tooltip.SetDefault("众多毒性物质提取的精华浓缩在这一小瓶水中");
+				// Tooltip.SetDefault("众多毒性物质提取的精华浓缩在这一小瓶水中");
 				base.SetStaticDefaults();
 			}
             public override void SetDefaults()
@@ -26,7 +26,7 @@
 			{
 				public override void SetStaticDefaults()
 				{
-					DisplayName.SetDefault("诡毒之水I");
+					// DisplayName.SetDefault("诡毒之水I");
 					base.SetStaticDefaults();
 				}
 				public override void AddRecipes()
@@ -54,7 +54,7 @@
 			{
 				public override void SetStaticDefaults()
 				{
-					DisplayName.SetDefault("诡毒之水II");
+					// DisplayName.SetDefault("诡毒之水II");
 					base.SetStaticDefaults();
 				}
 				public override void SetDefaults()
@@ -79,7 +79,7 @@
 			{
 				public override void SetStaticDefaults()
 				{
-					DisplayName.SetDefault("诡毒之水III");
+					// DisplayName.SetDefault("诡毒之水III");
 					base.SetStaticDefaults();
 				}
 				public override void SetDefaults()
@@ -107,7 +107,7 @@
 			{
 				public override void SetStaticDefaults()
 				{
-					DisplayName.SetDefault("诡毒之水IV");
+					// DisplayName.SetDefault("诡毒之水IV");
 					base.SetStaticDefaults();
 				}
 				public override void SetDefaults()
@@ -135,7 +135,7 @@
 			public override string Texture => "MysteriousKnives/Pictures/Items/结晶";
 			public override void SetStaticDefaults()
 			{
-				Tooltip.SetDefault("晶体化后可是很脆的~");
+				// Tooltip.SetDefault("晶体化后可是很脆的~");
 				base.SetStaticDefaults();
 			}
 			public override void SetDefaults()
@@ -147,7 +147,7 @@
 			{
 				public override void SetStaticDefaults()
 				{
-					DisplayName.SetDefault("结晶之水I");
+					// DisplayName.SetDefault("结晶之水I");
 					base.SetStaticDefaults();
 				}
 				public override void AddRecipes()
@@ -178,7 +178,7 @@
 			{
 				public override void SetStaticDefaults()
 				{
-					DisplayName.SetDefault("结晶之水II");
+					// DisplayName.SetDefault("结晶之水II");
 					base.SetStaticDefaults();
 				}
 				public override void AddRecipes()
@@ -203,7 +203,7 @@
 			{
 				public override void SetStaticDefaults()
 				{
-					DisplayName.SetDefault("结晶之水III");
+					// DisplayName.SetDefault("结晶之水III");
 					base.SetStaticDefaults();
 				}
 				public override void AddRecipes()
@@ -226,7 +226,7 @@
 			{
 				public override void SetStaticDefaults()
 				{
-					DisplayName.SetDefault("结晶之水IV");
+					// DisplayName.SetDefault("结晶之水IV");
 					base.SetStaticDefaults();
 				}
 				public override void AddRecipes()
@@ -248,7 +248,7 @@
 			{
 				public override void SetStaticDefaults()
 				{
-					DisplayName.SetDefault("结晶之水V");
+					// DisplayName.SetDefault("结晶之水V");
 					base.SetStaticDefaults();
 				}
 				public override void AddRecipes()
@@ -274,9 +274,9 @@
 			public override string Texture => "MysteriousKnives/Pictures/Items/沉沦";
 			public override void SetStaticDefaults()
 			{
-				Tooltip.SetDefault("周围的物质都会逐渐沉静\n" +
+				/* Tooltip.SetDefault("周围的物质都会逐渐沉静\n" +
 					"喝下以查看淬炼后的效果（危）\n" +
-					"不消耗");
+					"不消耗"); */
 				base.SetStaticDefaults();
 			}
 			public override void SetDefaults()
@@ -288,7 +288,7 @@
 			{
 				public override void SetStaticDefaults()
 				{
-					DisplayName.SetDefault("沉沦之水I");
+					// DisplayName.SetDefault("沉沦之水I");
 					base.SetStaticDefaults();
 				}
 				public override void AddRecipes()
@@ -311,7 +311,7 @@
 			{
 				public override void SetStaticDefaults()
 				{
-					DisplayName.SetDefault("沉沦之水II");
+					// DisplayName.SetDefault("沉沦之水II");
 					base.SetStaticDefaults();
 				}
 				public override void AddRecipes()
@@ -332,7 +332,7 @@
 			{
                 public override void SetStaticDefaults()
 				{
-					DisplayName.SetDefault("沉沦之水III");
+					// DisplayName.SetDefault("沉沦之水III");
 					base.SetStaticDefaults();
 				}
 				public override void AddRecipes()
@@ -357,7 +357,7 @@
 			public override string Texture => "MysteriousKnives/Pictures/Items/生命";
 			public override void SetStaticDefaults()
 			{
-				Tooltip.SetDefault("充盈的生命能量！");
+				// Tooltip.SetDefault("充盈的生命能量！");
 				base.SetStaticDefaults();
 			}
 			public override void SetDefaults()
@@ -369,7 +369,7 @@
 			{
 				public override void SetStaticDefaults()
 				{
-					DisplayName.SetDefault("生命之水I");
+					// DisplayName.SetDefault("生命之水I");
 					base.SetStaticDefaults();
 				}
 				public override void AddRecipes()
@@ -393,7 +393,7 @@
 			{
 				public override void SetStaticDefaults()
 				{
-					DisplayName.SetDefault("生命之水II");
+					// DisplayName.SetDefault("生命之水II");
 					base.SetStaticDefaults();
 				}
 				public override void AddRecipes()
@@ -415,7 +415,7 @@
 			{
 				public override void SetStaticDefaults()
 				{
-					DisplayName.SetDefault("生命之水III");
+					// DisplayName.SetDefault("生命之水III");
 					base.SetStaticDefaults();
 				}
 				public override void AddRecipes()
@@ -442,7 +442,7 @@
 			{
 				public override void SetStaticDefaults()
 				{
-					DisplayName.SetDefault("生命之水IV");
+					// DisplayName.SetDefault("生命之水IV");
 					base.SetStaticDefaults();
 				}
 				public override void AddRecipes()
@@ -465,7 +465,7 @@
 			{
 				public override void SetStaticDefaults()
 				{
-					DisplayName.SetDefault("生命之水V");
+					// DisplayName.SetDefault("生命之水V");
 					base.SetStaticDefaults();
 				}
 				public override void AddRecipes()
@@ -488,7 +488,7 @@
 			{
 				public override void SetStaticDefaults()
 				{
-					DisplayName.SetDefault("生命之水VI");
+					// DisplayName.SetDefault("生命之水VI");
 					base.SetStaticDefaults();
 				}
 				public override void AddRecipes()
@@ -509,7 +509,7 @@
 			{
 				public override void SetStaticDefaults()
 				{
-					DisplayName.SetDefault("生命之水VII");
+					// DisplayName.SetDefault("生命之水VII");
 					base.SetStaticDefaults();
 				}
 				public override void AddRecipes()
@@ -530,7 +530,7 @@
 			{
 				public override void SetStaticDefaults()
 				{
-					DisplayName.SetDefault("生命之水VIII");
+					// DisplayName.SetDefault("生命之水VIII");
 					base.SetStaticDefaults();
 				}
 				public override void AddRecipes()
@@ -554,7 +554,7 @@
 			public override string Texture => "MysteriousKnives/Pictures/Items/力量";
 			public override void SetStaticDefaults()
 			{
-				Tooltip.SetDefault("好！很有精神！");
+				// Tooltip.SetDefault("好！很有精神！");
 				base.SetStaticDefaults();
 			}
 			public override void SetDefaults()
@@ -566,7 +566,7 @@
 			{
 				public override void SetStaticDefaults()
 				{
-					DisplayName.SetDefault("力量之水I");
+					// DisplayName.SetDefault("力量之水I");
 					base.SetStaticDefaults();
 				}
 				public override void AddRecipes()
@@ -589,7 +589,7 @@
 			{
 				public override void SetStaticDefaults()
 				{
-					DisplayName.SetDefault("力量之水II");
+					// DisplayName.SetDefault("力量之水II");
 					base.SetStaticDefaults();
 				}
 				public override void AddRecipes()
@@ -611,7 +611,7 @@
 			{
 				public override void SetStaticDefaults()
 				{
-					DisplayName.SetDefault("力量之水III");
+					// DisplayName.SetDefault("力量之水III");
 					base.SetStaticDefaults();
 				}
 				public override void AddRecipes()
@@ -637,7 +637,7 @@
 			{
 				public override void SetStaticDefaults()
 				{
-					DisplayName.SetDefault("力量之水IV");
+					// DisplayName.SetDefault("力量之水IV");
 					base.SetStaticDefaults();
 				}
 				public override void AddRecipes()
@@ -659,7 +659,7 @@
 			{
 				public override void SetStaticDefaults()
 				{
-					DisplayName.SetDefault("力量之水V");
+					// DisplayName.SetDefault("力量之水V");
 					base.SetStaticDefaults();
 				}
 				public override void AddRecipes()
@@ -682,7 +682,7 @@
 			{
 				public override void SetStaticDefaults()
 				{
-					DisplayName.SetDefault("力量之水VI");
+					// DisplayName.SetDefault("力量之水VI");
 					base.SetStaticDefaults();
 				}
 				public override void AddRecipes()
@@ -705,7 +705,7 @@
 			public override string Texture => "MysteriousKnives/Pictures/Items/凝爆";
 			public override void SetStaticDefaults()
 			{
-				Tooltip.SetDefault("烫烫烫烫烫烫烫烫烫烫！");
+				// Tooltip.SetDefault("烫烫烫烫烫烫烫烫烫烫！");
 				base.SetStaticDefaults();
 			}
             public override void SetDefaults()
@@ -717,7 +717,7 @@
 			{
 				public override void SetStaticDefaults()
 				{
-					DisplayName.SetDefault("凝爆之水I");
+					// DisplayName.SetDefault("凝爆之水I");
 					base.SetStaticDefaults();
 				}
 				public override void AddRecipes()
@@ -742,7 +742,7 @@
 			{
 				public override void SetStaticDefaults()
 				{
-					DisplayName.SetDefault("凝爆之水II");
+					// DisplayName.SetDefault("凝爆之水II");
 					base.SetStaticDefaults();
 				}
 				public override void AddRecipes()
@@ -763,7 +763,7 @@
 			{
 				public override void SetStaticDefaults()
 				{
-					DisplayName.SetDefault("凝爆之水III");
+					// DisplayName.SetDefault("凝爆之水III");
 					base.SetStaticDefaults();
 				}
 				public override void AddRecipes()
@@ -785,7 +785,7 @@
 			{
 				public override void SetStaticDefaults()
 				{
-					DisplayName.SetDefault("凝爆之水IV");
+					// DisplayName.SetDefault("凝爆之水IV");
 					base.SetStaticDefaults();
 				}
 				public override void AddRecipes()
@@ -807,7 +807,7 @@
 			{
 				public override void SetStaticDefaults()
 				{
-					DisplayName.SetDefault("凝爆之水V");
+					// DisplayName.SetDefault("凝爆之水V");
 					base.SetStaticDefaults();
 				}
 				public override void AddRecipes()
@@ -827,7 +827,7 @@
 			{
 				public override void SetStaticDefaults()
 				{
-					DisplayName.SetDefault("凝爆之水VI");
+					// DisplayName.SetDefault("凝爆之水VI");
 					base.SetStaticDefaults();
 				}
 				public override void AddRecipes()
@@ -850,7 +850,7 @@
 			public override string Texture => "MysteriousKnives/Pictures/Items/深渊";
 			public override void SetStaticDefaults()
 			{
-				Tooltip.SetDefault("▊▊▊▊在凝视你");
+				// Tooltip.SetDefault("▊▊▊▊在凝视你");
 				base.SetStaticDefaults();
 			}
 			public override void SetDefaults()
@@ -862,7 +862,7 @@
 			{
 				public override void SetStaticDefaults()
 				{
-					DisplayName.SetDefault("深渊之水I");
+					// DisplayName.SetDefault("深渊之水I");
 					base.SetStaticDefaults();
 				}
 				public override void AddRecipes()
@@ -887,7 +887,7 @@
 			{
 				public override void SetStaticDefaults()
 				{
-					DisplayName.SetDefault("深渊之水II");
+					// DisplayName.SetDefault("深渊之水II");
 					base.SetStaticDefaults();
 				}
 				public override void AddRecipes()
@@ -909,7 +909,7 @@
 			{
 				public override void SetStaticDefaults()
 				{
-					DisplayName.SetDefault("深渊之水III");
+					// DisplayName.SetDefault("深渊之水III");
 					base.SetStaticDefaults();
 				}
 				public override void AddRecipes()
@@ -937,7 +937,7 @@
 			{
 				public override void SetStaticDefaults()
 				{
-					DisplayName.SetDefault("深渊之水IV");
+					// DisplayName.SetDefault("深渊之水IV");
 					base.SetStaticDefaults();
 				}
 				public override void AddRecipes()
@@ -958,7 +958,7 @@
 			{
 				public override void SetStaticDefaults()
 				{
-					DisplayName.SetDefault("深渊之水V");
+					// DisplayName.SetDefault("深渊之水V");
 					base.SetStaticDefaults();
 				}
 				public override void AddRecipes()
@@ -979,7 +979,7 @@
 			{
 				public override void SetStaticDefaults()
 				{
-					DisplayName.SetDefault("深渊之水VI");
+					// DisplayName.SetDefault("深渊之水VI");
 					base.SetStaticDefaults();
 				}
 				public override void AddRecipes()
@@ -1001,7 +1001,7 @@
 			{
 				public override void SetStaticDefaults()
 				{
-					DisplayName.SetDefault("深渊之水VII");
+					// DisplayName.SetDefault("深渊之水VII");
 					base.SetStaticDefaults();
 				}
 				public override void AddRecipes()
@@ -1024,7 +1024,7 @@
 			public override string Texture => "MysteriousKnives/Pictures/Items/星辉";
 			public override void SetStaticDefaults()
 			{
-				Tooltip.SetDefault("星辉宙域的光辉洒落于此");
+				// Tooltip.SetDefault("星辉宙域的光辉洒落于此");
 				base.SetStaticDefaults();
 			}
 			public override void SetDefaults()
@@ -1036,7 +1036,7 @@
 			{
 				public override void SetStaticDefaults()
 				{
-					DisplayName.SetDefault("星辉之水I");
+					// DisplayName.SetDefault("星辉之水I");
 					base.SetStaticDefaults();
 				}
 				public override void AddRecipes()
@@ -1060,7 +1060,7 @@
 			{
 				public override void SetStaticDefaults()
 				{
-					DisplayName.SetDefault("星辉之水II");
+					// DisplayName.SetDefault("星辉之水II");
 					base.SetStaticDefaults();
 				}
 				public override void AddRecipes()
@@ -1081,7 +1081,7 @@
 			{
 				public override void SetStaticDefaults()
 				{
-					DisplayName.SetDefault("星辉之水III");
+					// DisplayName.SetDefault("星辉之水III");
 					base.SetStaticDefaults();
 				}
 				public override void AddRecipes()
@@ -1104,7 +1104,7 @@
 			{
 				public override void SetStaticDefaults()
 				{
-					DisplayName.SetDefault("星辉之水IV");
+					// DisplayName.SetDefault("星辉之水IV");
 					base.SetStaticDefaults();
 				}
 				public override void AddRecipes()

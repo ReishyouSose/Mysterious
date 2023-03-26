@@ -5,7 +5,7 @@
         public override string Texture => "MysteriousKnives/Pictures/Projectiles/Another/Arcaea";
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("诡秘充能");
+            // DisplayName.SetDefault("诡秘充能");
             Main.projFrames[Type] = 30;
         }
         public override void SetDefaults()
